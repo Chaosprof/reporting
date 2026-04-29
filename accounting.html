@@ -5,23 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Journal Entry Trainer — Accounting Quiz</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600;700;800&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --dr: #3B82F6;    /* blue — debit */
-    --cr: #10B981;    /* green — credit */
-    --gold: #F59E0B;
-    --bad: #EF4444;
-    --ink: #e5e7eb;
-    --mute: #9ca3af;
-    --panel: rgba(17, 24, 39, 0.65);
-    --panel-b: rgba(75, 85, 99, 0.30);
+    --dr: #4f7c77;          /* muted teal — debit */
+    --cr: #8c9f74;          /* sage — credit */
+    --dr-soft: rgba(79,124,119,0.16);
+    --cr-soft: rgba(140,159,116,0.20);
+    --dr-line: rgba(79,124,119,0.36);
+    --cr-line: rgba(140,159,116,0.42);
+    --gold: #c4b28f;
+    --gold-soft: rgba(196,178,143,0.22);
+    --gold-line: rgba(196,178,143,0.5);
+    --bad: #b96b5e;
+    --bad-soft: rgba(216,180,174,0.28);
+    --bad-line: rgba(185,107,94,0.4);
+    --ink: #111111;
+    --ink-strong: #000000;
+    --mute: #374151;
+    --faint: #6b7280;
+    --line: rgba(17,24,39,0.12);
+    --line-strong: rgba(17,24,39,0.22);
+    --panel: rgba(255,255,255,0.92);
+    --panel-alt: rgba(249,250,251,0.96);
+    --panel-soft: rgba(17,24,39,0.035);
+    --shadow-sm: 0 10px 26px rgba(15,23,42,0.06);
+    --shadow-md: 0 18px 42px rgba(15,23,42,0.08);
+    --font-sans: 'IBM Plex Sans','Segoe UI',sans-serif;
+    --font-serif: 'Fraunces','Iowan Old Style','Palatino Linotype',serif;
+    --font-mono: 'IBM Plex Mono','SFMono-Regular',monospace;
   }
 
+  html { background: #d1d5db; }
   body {
-    background: #07080c;
-    font-family: 'JetBrains Mono', monospace;
+    background: #d1d5db;
+    font-family: var(--font-sans);
     color: var(--ink);
     min-height: 100vh;
     overflow-x: hidden;
@@ -32,28 +51,31 @@
     inset: 0;
     z-index: 0;
     background:
-      radial-gradient(ellipse 120% 55% at 50% 0%, rgba(59,130,246,0.14) 0%, transparent 65%),
-      radial-gradient(ellipse 120% 55% at 50% 100%, rgba(16,185,129,0.12) 0%, transparent 65%),
-      linear-gradient(to bottom, #07080c 0%, #0a0e14 50%, #06080c 100%);
+      radial-gradient(circle at 18% 10%, rgba(156,163,175,0.15) 0%, transparent 34%),
+      radial-gradient(circle at 84% 14%, rgba(203,213,225,0.14) 0%, transparent 30%),
+      radial-gradient(circle at 50% 115%, rgba(148,163,184,0.12) 0%, transparent 34%),
+      repeating-linear-gradient(135deg, rgba(17,24,39,0.018) 0 1px, transparent 1px 24px),
+      linear-gradient(180deg, #dadde3 0%, #d4d8de 42%, #d1d5db 100%);
     pointer-events: none;
   }
-  /* Top accent bar — debit/credit split */
   body::after {
     content: '';
     position: fixed;
     top: 0; left: 0; right: 0;
-    height: 3px;
+    height: 2px;
     z-index: 100;
-    background: linear-gradient(to right,
-      var(--dr) 0%, var(--dr) 50%,
-      var(--cr) 50%, var(--cr) 100%);
-    opacity: 0.95;
+    background: linear-gradient(90deg, transparent 0%, rgba(107,114,128,0.5) 18%, rgba(55,65,81,0.7) 50%, rgba(107,114,128,0.5) 82%, transparent 100%);
+    opacity: 0.55;
   }
 
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes pulseGold {
-    0%,100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
-    50%     { box-shadow: 0 0 14px 2px rgba(245,158,11,0.35); }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pageLift {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes goldPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(196,178,143,0); }
+    50% { box-shadow: 0 0 12px 2px rgba(196,178,143,0.45); }
   }
   @keyframes shake {
     0%,100% { transform: translateX(0); }
@@ -64,155 +86,174 @@
   .container {
     position: relative;
     z-index: 1;
-    max-width: 820px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 48px 20px 80px;
+    animation: pageLift 0.45s ease-out both;
   }
 
   /* ─── Start screen ───────────────────────────────────────── */
   .hero { text-align: center; margin-bottom: 32px; animation: fadeIn 0.5s ease-out; }
   .hero h1 {
-    font-size: 2.6rem;
-    font-weight: 800;
-    letter-spacing: -1.5px;
-    background: linear-gradient(135deg, var(--dr) 0%, var(--cr) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 6px;
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    color: var(--ink-strong);
+    margin-bottom: 10px;
   }
   .hero .sub {
-    color: var(--mute);
-    font-size: 0.9rem;
-    letter-spacing: 0.4px;
+    color: var(--faint);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
   }
 
   .start-card {
-    background: var(--panel);
-    border: 1px solid var(--panel-b);
-    border-radius: 14px;
-    padding: 32px 28px;
-    backdrop-filter: blur(10px);
+    background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(247,248,250,0.97));
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 36px 28px;
+    box-shadow: var(--shadow-md);
     animation: fadeIn 0.6s ease-out;
   }
   .start-card h2 {
-    font-size: 1.05rem;
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 14px;
-    color: #f3f4f6;
+    color: var(--ink-strong);
+    letter-spacing: -0.01em;
   }
   .rules {
     display: grid;
-    gap: 10px;
-    margin-bottom: 24px;
-    font-size: 0.82rem;
+    gap: 12px;
+    margin-bottom: 28px;
+    font-size: 0.86rem;
     line-height: 1.55;
-    color: #cbd5e1;
+    color: var(--mute);
   }
-  .rules .row { display: flex; align-items: flex-start; gap: 10px; }
+  .rules .row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    background: var(--panel-soft);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
   .rules .pill {
     flex-shrink: 0;
     font-size: 0.65rem;
     font-weight: 800;
-    padding: 3px 7px;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.08em;
     margin-top: 1px;
+    font-family: var(--font-mono);
   }
-  .rules .pill.dr { background: rgba(59,130,246,0.18); color: #93c5fd; border: 1px solid rgba(59,130,246,0.35); }
-  .rules .pill.cr { background: rgba(16,185,129,0.18); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.35); }
+  .rules .pill.dr { background: var(--dr-soft); color: var(--dr); border: 1px solid var(--dr-line); }
+  .rules .pill.cr { background: var(--cr-soft); color: #5a6f49; border: 1px solid var(--cr-line); }
 
   .category-filter {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
   .cat-chip {
     font-family: inherit;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 600;
-    padding: 7px 13px;
-    border-radius: 20px;
-    border: 1px solid rgba(156,163,175,0.3);
-    background: rgba(31,41,55,0.4);
-    color: #d1d5db;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--mute);
     cursor: pointer;
-    transition: all 0.15s;
+    transition: all 0.15s ease;
   }
-  .cat-chip:hover { border-color: rgba(245,158,11,0.5); color: #fde68a; }
+  .cat-chip:hover { border-color: var(--gold-line); color: var(--ink-strong); }
   .cat-chip.active {
-    background: rgba(245,158,11,0.15);
-    border-color: var(--gold);
-    color: #fbbf24;
+    background: var(--gold-soft);
+    border-color: var(--gold-line);
+    color: var(--ink-strong);
   }
 
   .btn {
     font-family: inherit;
-    font-weight: 700;
-    font-size: 0.92rem;
+    font-weight: 800;
+    font-size: 0.95rem;
     padding: 14px 28px;
-    border-radius: 10px;
-    border: none;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
     cursor: pointer;
-    transition: all 0.18s;
-    letter-spacing: 0.3px;
+    transition: all 0.18s ease;
+    letter-spacing: 0.02em;
     display: inline-flex;
     align-items: center;
     gap: 8px;
   }
   .btn-primary {
-    background: linear-gradient(135deg, var(--dr) 0%, var(--cr) 100%);
-    color: white;
+    background: #d1d5db;
+    color: var(--ink-strong);
     width: 100%;
     justify-content: center;
+    box-shadow: 0 8px 24px rgba(15,23,42,0.08);
   }
-  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(16,185,129,0.30); }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px rgba(15,23,42,0.12);
+    background: #c8ccd2;
+  }
   .btn-ghost {
-    background: rgba(55,65,81,0.4);
+    background: var(--panel-soft);
     color: var(--ink);
-    border: 1px solid rgba(156,163,175,0.25);
+    border: 1px solid var(--line);
   }
-  .btn-ghost:hover { background: rgba(55,65,81,0.65); }
+  .btn-ghost:hover { background: var(--panel); border-color: var(--line-strong); }
 
   /* ─── Quiz screen ────────────────────────────────────────── */
   .meta-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     font-size: 0.78rem;
-    color: var(--mute);
-    letter-spacing: 0.4px;
+    color: var(--faint);
+    letter-spacing: 0.04em;
+    font-weight: 600;
   }
   .score-pill {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 4px 10px;
-    border-radius: 12px;
-    background: rgba(16,185,129,0.12);
-    border: 1px solid rgba(16,185,129,0.28);
-    color: #6ee7b7;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--cr-soft);
+    border: 1px solid var(--cr-line);
+    color: #5a6f49;
     font-weight: 700;
   }
   .streak-pill {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 4px 10px;
-    border-radius: 12px;
-    background: rgba(245,158,11,0.12);
-    border: 1px solid rgba(245,158,11,0.3);
-    color: #fbbf24;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-line);
+    color: #7a6c4e;
     font-weight: 700;
     margin-left: 8px;
   }
 
   .progress-bar {
-    height: 6px;
-    background: rgba(75,85,99,0.28);
-    border-radius: 3px;
+    height: 4px;
+    background: rgba(17,24,39,0.08);
+    border-radius: 2px;
     overflow: hidden;
     margin-bottom: 22px;
   }
@@ -223,31 +264,34 @@
   }
 
   .qcard {
-    background: var(--panel);
-    border: 1px solid var(--panel-b);
-    border-radius: 14px;
-    padding: 26px 24px;
-    backdrop-filter: blur(10px);
+    background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(247,248,250,0.97));
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 30px 26px;
+    box-shadow: var(--shadow-md);
     animation: fadeIn 0.35s ease-out;
   }
   .cat-tag {
     display: inline-block;
-    padding: 4px 11px;
-    background: rgba(59,130,246,0.14);
-    border: 1px solid rgba(59,130,246,0.28);
-    border-radius: 10px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.6px;
-    color: #93c5fd;
-    margin-bottom: 14px;
+    padding: 4px 12px;
+    background: var(--panel-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: var(--faint);
+    margin-bottom: 18px;
     text-transform: uppercase;
   }
   .question-text {
-    font-size: 1rem;
-    line-height: 1.65;
-    margin-bottom: 22px;
-    color: #f3f4f6;
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    color: var(--ink-strong);
   }
 
   .options { display: flex; flex-direction: column; gap: 10px; }
@@ -256,184 +300,401 @@
     align-items: center;
     width: 100%;
     padding: 14px 16px;
-    background: rgba(31,41,55,0.45);
-    border: 1px solid rgba(75,85,99,0.4);
-    border-radius: 10px;
-    color: #e5e7eb;
+    background: var(--panel-soft);
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    color: var(--ink-strong);
     font-family: inherit;
-    font-size: 0.87rem;
+    font-size: 0.92rem;
     line-height: 1.5;
     text-align: left;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: all 0.15s ease;
   }
   .option:hover:not(:disabled) {
-    border-color: rgba(16,185,129,0.55);
-    background: rgba(16,185,129,0.07);
-    transform: translateX(3px);
+    border-color: var(--gold-line);
+    background: var(--gold-soft);
+    transform: translateX(2px);
   }
   .option:disabled { cursor: default; }
   .option.correct {
-    background: rgba(16,185,129,0.14);
-    border-color: var(--cr);
-    color: #a7f3d0;
+    background: var(--cr-soft);
+    border-color: var(--cr-line);
+    color: #3f4f33;
   }
   .option.wrong {
-    background: rgba(239,68,68,0.12);
-    border-color: var(--bad);
-    color: #fca5a5;
+    background: var(--bad-soft);
+    border-color: var(--bad-line);
+    color: #7a3f37;
     animation: shake 0.35s ease-out;
   }
-  .option.dimmed { opacity: 0.5; }
+  .option.dimmed { opacity: 0.45; }
   .option-letter {
     flex-shrink: 0;
     width: 28px;
     height: 28px;
     line-height: 26px;
     text-align: center;
-    border: 1px solid rgba(156,163,175,0.35);
+    border: 1px solid var(--line-strong);
     border-radius: 50%;
     margin-right: 14px;
-    font-weight: 700;
-    font-size: 0.78rem;
+    font-weight: 800;
+    font-size: 0.74rem;
+    font-family: var(--font-mono);
+    color: var(--mute);
+    background: var(--panel);
   }
-  .option.correct .option-letter { border-color: var(--cr); background: rgba(16,185,129,0.2); color: #a7f3d0; }
-  .option.wrong .option-letter   { border-color: var(--bad); background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .option.correct .option-letter { border-color: var(--cr-line); background: rgba(140,159,116,0.32); color: #3f4f33; }
+  .option.wrong .option-letter   { border-color: var(--bad-line); background: rgba(216,180,174,0.4); color: #7a3f37; }
 
   /* ─── Feedback panel ─────────────────────────────────────── */
   .feedback {
-    margin-top: 20px;
+    margin-top: 22px;
     padding: 18px 20px;
-    border-radius: 10px;
-    background: rgba(31,41,55,0.55);
-    border-left: 4px solid var(--cr);
+    border-radius: 14px;
+    background: var(--panel-soft);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--cr);
     animation: fadeIn 0.35s ease-out;
   }
   .feedback.wrong { border-left-color: var(--bad); }
   .feedback-title {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 800;
-    margin-bottom: 6px;
-    letter-spacing: 0.3px;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
-  .feedback-title.ok   { color: var(--cr); }
-  .feedback-title.bad  { color: var(--bad); }
+  .feedback-title.ok   { color: #5a6f49; }
+  .feedback-title.bad  { color: #7a3f37; }
   .feedback-body {
-    font-size: 0.83rem;
-    line-height: 1.65;
-    color: #d1d5db;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--mute);
   }
 
   /* T-account visualization */
   .t-acct {
-    margin-top: 14px;
+    margin-top: 16px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border: 1px solid rgba(156,163,175,0.28);
-    border-radius: 8px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
     overflow: hidden;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
+    background: var(--panel);
+    font-family: var(--font-mono);
   }
   .t-head {
-    padding: 7px 12px;
+    padding: 8px 12px;
     font-weight: 800;
     text-align: center;
-    letter-spacing: 0.5px;
-    font-size: 0.72rem;
-    background: rgba(55,65,81,0.55);
+    letter-spacing: 0.16em;
+    font-size: 0.66rem;
+    background: var(--panel-soft);
+    text-transform: uppercase;
+    font-family: var(--font-sans);
   }
-  .t-head.dr { color: #93c5fd; border-right: 1px solid rgba(156,163,175,0.28); }
-  .t-head.cr { color: #6ee7b7; }
+  .t-head.dr { color: var(--dr); border-right: 1px solid var(--line); }
+  .t-head.cr { color: #5a6f49; }
   .t-cell {
     padding: 10px 12px;
     min-height: 42px;
     display: flex;
     justify-content: space-between;
     gap: 12px;
-    background: rgba(15,23,42,0.45);
   }
-  .t-cell.dr { border-right: 1px solid rgba(156,163,175,0.22); color: #bfdbfe; }
-  .t-cell.cr { color: #bbf7d0; }
-  .t-cell .amt { color: #9ca3af; font-variant-numeric: tabular-nums; }
+  .t-cell.dr { border-right: 1px solid var(--line); color: var(--ink-strong); }
+  .t-cell.cr { color: var(--ink-strong); }
+  .t-cell .amt { color: var(--faint); font-variant-numeric: tabular-nums; font-weight: 700; }
 
   .next-btn-row {
-    margin-top: 18px;
+    margin-top: 20px;
     display: flex;
     justify-content: flex-end;
     gap: 10px;
   }
   .next-btn {
-    background: var(--gold);
-    color: #111827;
+    background: var(--gold-soft);
+    color: var(--ink-strong);
     font-weight: 800;
-    animation: pulseGold 2.5s ease-in-out infinite;
+    border: 1px solid var(--gold-line);
+    animation: goldPulse 2.6s ease-in-out infinite;
   }
-  .next-btn:hover { background: #fbbf24; }
+  .next-btn:hover { background: rgba(196,178,143,0.36); }
 
   /* ─── Results screen ─────────────────────────────────────── */
   .results {
     text-align: center;
-    padding: 20px 4px;
+    padding: 8px 4px;
     animation: fadeIn 0.5s ease-out;
   }
   .score-big {
-    font-size: 4.4rem;
-    font-weight: 800;
+    font-family: var(--font-serif);
+    font-size: 4.8rem;
+    font-weight: 700;
     line-height: 1;
-    background: linear-gradient(135deg, var(--dr) 0%, var(--cr) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 6px;
+    letter-spacing: -0.05em;
+    color: var(--ink-strong);
+    margin-bottom: 10px;
   }
-  .score-pct { color: var(--mute); font-size: 0.85rem; margin-bottom: 4px; letter-spacing: 0.4px; }
+  .score-pct {
+    color: var(--faint);
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
   .score-msg {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #fde68a;
-    margin-bottom: 26px;
+    color: var(--ink-strong);
+    margin-bottom: 28px;
+    font-family: var(--font-serif);
   }
   .review-title {
-    font-size: 0.78rem;
-    color: var(--mute);
-    letter-spacing: 1.2px;
+    font-size: 0.7rem;
+    color: var(--faint);
+    letter-spacing: 0.18em;
     text-align: left;
-    margin: 20px 0 10px;
+    margin: 24px 0 12px;
     text-transform: uppercase;
+    font-weight: 700;
   }
   .review-item {
     text-align: left;
-    padding: 14px 16px;
-    background: rgba(239,68,68,0.08);
-    border: 1px solid rgba(239,68,68,0.25);
-    border-radius: 10px;
+    padding: 16px 18px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--bad);
+    border-radius: 14px;
     margin-bottom: 10px;
-    font-size: 0.82rem;
+    font-size: 0.86rem;
     line-height: 1.55;
+    box-shadow: var(--shadow-sm);
   }
-  .review-item .q { color: #f3f4f6; margin-bottom: 6px; }
-  .review-item .yours { color: #fca5a5; font-size: 0.78rem; }
-  .review-item .correct-text { color: #6ee7b7; font-size: 0.78rem; margin-top: 2px; }
+  .review-item .q {
+    color: var(--ink-strong);
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+  }
+  .review-item .yours { color: #7a3f37; font-size: 0.8rem; }
+  .review-item .correct-text { color: #5a6f49; font-size: 0.8rem; margin-top: 2px; font-weight: 600; }
 
-  .action-row { display: flex; gap: 10px; margin-top: 24px; }
+  .action-row { display: flex; gap: 10px; margin-top: 28px; }
   .action-row .btn { flex: 1; }
 
   .kbd {
     display: inline-block;
-    padding: 1px 6px;
+    padding: 1px 7px;
     font-size: 0.7rem;
-    border: 1px solid rgba(156,163,175,0.35);
-    border-radius: 4px;
-    background: rgba(55,65,81,0.4);
-    color: #d1d5db;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--panel);
+    color: var(--mute);
     margin: 0 1px;
+    font-family: var(--font-mono);
   }
 
+  /* ─── Top bar (sync + settings) ───────────────────────────── */
+  .topbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .sync-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--mute);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .sync-pill.local   { color: var(--faint); }
+  .sync-pill.saving  { color: #7a6c4e; background: var(--gold-soft); border-color: var(--gold-line); }
+  .sync-pill.synced  { color: #5a6f49; background: var(--cr-soft); border-color: var(--cr-line); }
+  .sync-pill.error   { color: #7a3f37; background: var(--bad-soft); border-color: var(--bad-line); }
+  .sync-pill .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: currentColor; opacity: 0.65;
+  }
+  .gear-btn {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 5px 12px;
+    cursor: pointer;
+    color: var(--mute);
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+  }
+  .gear-btn:hover { border-color: var(--line-strong); color: var(--ink-strong); }
+
+  /* ─── Practice-weakest secondary action ─────────────────── */
+  .secondary-action-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .btn-weak {
+    background: var(--panel);
+    color: var(--ink-strong);
+    border: 1px solid var(--line-strong);
+    width: 100%;
+    justify-content: space-between;
+    text-align: left;
+    padding: 14px 18px;
+  }
+  .btn-weak:hover {
+    background: var(--gold-soft);
+    border-color: var(--gold-line);
+  }
+  .btn-weak[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .btn-weak[disabled]:hover {
+    background: var(--panel);
+    border-color: var(--line-strong);
+  }
+  .btn-weak .meta {
+    font-size: 0.72rem;
+    color: var(--faint);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .btn-weak .label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-start;
+  }
+  .btn-weak .arrow { color: var(--faint); font-size: 1.1rem; }
+
+  /* ─── Settings modal ──────────────────────────────────────── */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15,23,42,0.45);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.2s ease-out;
+  }
+  .modal {
+    width: 100%;
+    max-width: 460px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,248,250,0.98));
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 28px 26px;
+    box-shadow: var(--shadow-md);
+    animation: pageLift 0.3s ease-out;
+  }
+  .modal h2 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--ink-strong);
+    letter-spacing: -0.01em;
+  }
+  .modal .modal-sub {
+    font-size: 0.8rem;
+    color: var(--faint);
+    margin-bottom: 22px;
+  }
+  .modal-section {
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .modal-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .modal-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--faint);
+    margin-bottom: 8px;
+  }
+  .modal-help {
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--mute);
+    margin-bottom: 10px;
+  }
+  .modal-help a { color: var(--ink-strong); text-decoration: underline; }
+  .modal input[type="text"],
+  .modal input[type="password"] {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1.5px solid var(--line);
+    background: var(--panel);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--ink-strong);
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  .modal input[type="text"]:focus,
+  .modal input[type="password"]:focus {
+    border-color: var(--line-strong);
+  }
+  .modal-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .modal-row .btn { flex: 1; padding: 11px 16px; font-size: 0.85rem; min-width: 110px; }
+  .modal-info {
+    font-size: 0.74rem;
+    color: var(--faint);
+    margin-top: 8px;
+    font-family: var(--font-mono);
+  }
+  .modal-close-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+  }
+  .danger-btn {
+    background: var(--bad-soft);
+    border: 1px solid var(--bad-line);
+    color: #7a3f37;
+  }
+  .danger-btn:hover { background: rgba(216,180,174,0.4); }
+
   @media (max-width: 600px) {
-    .hero h1 { font-size: 2rem; }
-    .score-big { font-size: 3.4rem; }
-    .qcard, .start-card { padding: 22px 18px; }
+    .hero h1 { font-size: 2.2rem; }
+    .score-big { font-size: 3.6rem; }
+    .qcard, .start-card { padding: 24px 20px; border-radius: 18px; }
     .container { padding: 32px 14px 60px; }
+    .question-text { font-size: 1.1rem; }
+    .modal { padding: 22px 18px; border-radius: 18px; }
   }
 </style>
 </head>
@@ -584,20 +845,6 @@ const QUESTIONS = [
     explanation: "Accounts Payable (liability) decreases → debit. Cash (asset) decreases → credit.",
     entry: { debits: [["Accounts Payable", "4,200"]], credits: [["Cash", "4,200"]] }
   },
-  {
-    category: "Receivables",
-    prompt: "Under the allowance method, the entry to write off a specific uncollectible account of 1,200 is:",
-    options: [
-      "Debit Bad Debt Expense 1,200; Credit Accounts Receivable 1,200",
-      "Debit Allowance for Doubtful Accounts 1,200; Credit Accounts Receivable 1,200",
-      "Debit Accounts Receivable 1,200; Credit Allowance for Doubtful Accounts 1,200",
-      "Debit Bad Debt Expense 1,200; Credit Allowance for Doubtful Accounts 1,200"
-    ],
-    correct: 1,
-    explanation: "Under the allowance method, Bad Debt Expense was already estimated in a prior adjusting entry. The write-off simply removes the specific AR against the Allowance: DR Allowance, CR Accounts Receivable.",
-    entry: { debits: [["Allowance for Doubtful Accounts", "1,200"]], credits: [["Accounts Receivable", "1,200"]] }
-  },
-
   // ── Expenses ─────────────────────────────────────────────────────────
   {
     category: "Expenses",
@@ -693,19 +940,6 @@ const QUESTIONS = [
     correct: 2,
     explanation: "Cash (asset) increases → debit. Notes Payable (liability) increases → credit. Interest is recorded separately as it accrues.",
     entry: { debits: [["Cash", "50,000"]], credits: [["Notes Payable", "50,000"]] }
-  },
-  {
-    category: "Equity",
-    prompt: "A corporation issues 1,000 shares of 10 par common stock for 12 cash per share. The entry is:",
-    options: [
-      "Debit Cash 12,000; Credit Common Stock 12,000",
-      "Debit Cash 12,000; Credit Common Stock 10,000; Credit Paid-in Capital in Excess of Par 2,000",
-      "Debit Common Stock 10,000; Debit Paid-in Capital 2,000; Credit Cash 12,000",
-      "Debit Cash 10,000; Credit Common Stock 10,000"
-    ],
-    correct: 1,
-    explanation: "Cash received = 1,000 × 12 = 12,000 (debit). Common Stock is credited at par: 1,000 × 10 = 10,000. The excess (2,000) goes to Paid-in Capital in Excess of Par.",
-    entry: { debits: [["Cash", "12,000"]], credits: [["Common Stock", "10,000"], ["Paid-in Capital in Excess of Par", "2,000"]] }
   },
   {
     category: "Equity",
@@ -908,7 +1142,552 @@ const QUESTIONS = [
     explanation: "Both liabilities are extinguished (debit Notes Payable 60,000 and Interest Payable 900), and cash decreases by the total paid (credit 60,900). Interest was already expensed in the adjusting entry.",
     entry: { debits: [["Notes Payable", "60,000"], ["Interest Payable", "900"]], credits: [["Cash", "60,900"]] }
   },
+
+  // ── Additional Exercises 1.a (course handout) ─────────────────────────
+  {
+    category: "Equity",
+    prompt: "Matterhorn AG has 400,000 ordinary shares (10 CHF par) and 80,000 cumulative preference shares (5 CHF par, 12% interest rate). No dividends were paid in 2020 or 2021. In 2022, the Board approves a total dividend of CHF 100,000. The preference shareholders will receive:",
+    options: [
+      "0 CHF",
+      "100,000 CHF",
+      "48,000 CHF",
+      "4,000 CHF"
+    ],
+    correct: 1,
+    explanation: "Yearly preferred dividend = 80,000 × 5 × 12% = 48,000 CHF. Because the shares are cumulative, dividends in arrears for 2020 and 2021 (2 × 48,000 = 96,000) plus 2022 (48,000) = 144,000 must be paid to preference holders before any goes to ordinary shareholders. With only 100,000 available, the entire amount goes to preference shareholders."
+  },
+  {
+    category: "Adjusting",
+    prompt: "Fleissig AG hired a new employee on September 1, 2022 with a yearly salary of CHF 120,000, payable in cash on September 1, 2023. No transactions have been recorded yet. The adjusting entry to Wages Payable on December 31, 2022 is:",
+    options: [
+      "Credit Wages Payable, CHF 40,000",
+      "Debit Wages Payable, CHF 40,000",
+      "Credit Wages Payable, CHF 120,000",
+      "Debit Wages Payable, CHF 10,000"
+    ],
+    correct: 0,
+    explanation: "Four months of salary (Sep–Dec) have been earned but not yet paid: 120,000 × 4/12 = 40,000. Wages Expense is debited and Wages Payable (a liability) is credited.",
+    entry: { debits: [["Wages Expense", "40,000"]], credits: [["Wages Payable", "40,000"]] }
+  },
+  {
+    category: "Adjusting",
+    prompt: "Chur AG paid $12,000 on April 1, 2022 for advertising that will run for the next six months. What is the adjusting entry to Prepaid Expense and Advertising Expense on May 31, 2022?",
+    options: [
+      "Credit Prepaid Expense $4,000; Debit Advertising Expense $4,000",
+      "Debit Prepaid Expense $4,000; Credit Advertising Expense $4,000",
+      "Debit Prepaid Expense $12,000; Credit Advertising Expense $12,000",
+      "Debit Prepaid Expense $2,000; Credit Advertising Expense $2,000"
+    ],
+    correct: 0,
+    explanation: "12,000 over 6 months = 2,000/month. By May 31, two months (April + May) have passed → 4,000 has been consumed. Debit Advertising Expense 4,000; Credit Prepaid Expense 4,000.",
+    entry: { debits: [["Advertising Expense", "4,000"]], credits: [["Prepaid Expense", "4,000"]] }
+  },
+  {
+    category: "Adjusting",
+    prompt: "Davos AG paid CHF 24,000 on August 1, 2021 for a two-year cable-car maintenance contract. What will the adjusting entry to Prepaid Maintenance recorded on December 31, 2021 look like?",
+    options: [
+      "Debit: CHF 6,000",
+      "Credit: CHF 5,000",
+      "Debit: CHF 1,000",
+      "Credit: CHF 6,000"
+    ],
+    correct: 1,
+    explanation: "24,000 spread over 24 months = 1,000/month. From August 1 to December 31 is 5 months → 5,000 has been consumed. Debit Maintenance Expense 5,000; Credit Prepaid Maintenance 5,000.",
+    entry: { debits: [["Maintenance Expense", "5,000"]], credits: [["Prepaid Maintenance", "5,000"]] }
+  },
+  {
+    category: "Fundamentals",
+    prompt: "Which of the following statements is true according to the accounting equation?",
+    options: [
+      "Assets − Equity = Liabilities",
+      "Assets + Liabilities = Equity",
+      "Equity = Liabilities − Dividends",
+      "Assets = Liabilities − Equity − Retained Earnings + Dividends"
+    ],
+    correct: 0,
+    explanation: "The fundamental accounting equation is Assets = Liabilities + Equity. Rearranging gives Assets − Equity = Liabilities, so option (a) is the only valid restatement."
+  },
+  {
+    category: "Fundamentals",
+    prompt: "Malagny SA — end of 2022: Inventories 1,000; Revenues 21,000; Expenses 12,000; Cash 13,000; AP 9,000; Dividends 1,000; AR 3,000; NP 1,000; Common Stock 2,000; Buildings 4,000; Beginning RE 3,000; Machines 2,000. What are net income, total equity, and total assets?",
+    options: [
+      "NI 9,000 · Equity 13,000 · Assets 23,000",
+      "NI 9,000 · Equity 14,000 · Assets 22,000",
+      "NI 8,000 · Equity 12,000 · Assets 23,000",
+      "NI 10,000 · Equity 13,000 · Assets 24,000"
+    ],
+    correct: 0,
+    explanation: "Net income = Revenues − Expenses = 21,000 − 12,000 = 9,000. Ending Equity = Common Stock + Beg. RE + Net Income − Dividends = 2,000 + 3,000 + 9,000 − 1,000 = 13,000. Total Assets = Inventories + Cash + AR + Buildings + Machines = 1,000 + 13,000 + 3,000 + 4,000 + 2,000 = 23,000. Check: Liabilities (9,000 + 1,000) + Equity (13,000) = 23,000 ✓"
+  },
+  {
+    category: "Fundamentals",
+    prompt: "Debits…",
+    options: [
+      "increase equity and liabilities.",
+      "decrease liabilities and revenues.",
+      "increase assets and increase liabilities.",
+      "decrease expenses and increase revenues."
+    ],
+    correct: 1,
+    explanation: "Debits increase assets, expenses, and dividends; they decrease liabilities, equity, and revenues. Of the options, only (b) is correct."
+  },
+
+  // ── Practice variants (similar to Additional Exercises 1.a) ───────────
+  {
+    category: "Equity",
+    prompt: "Alpenblick AG has 200,000 ordinary shares (10 CHF par) and 60,000 cumulative preference shares (5 CHF par, 8% interest rate). No dividends were paid in 2021. In 2022, the Board approves a total dividend of CHF 80,000. The preference shareholders will receive:",
+    options: [
+      "24,000 CHF",
+      "48,000 CHF",
+      "80,000 CHF",
+      "0 CHF"
+    ],
+    correct: 1,
+    explanation: "Yearly preferred dividend = 60,000 × 5 × 8% = 24,000. Cumulative arrears for 2021 (24,000) plus 2022 (24,000) = 48,000 go to preference holders before ordinary shareholders. The remaining 32,000 goes to ordinary."
+  },
+  {
+    category: "Equity",
+    prompt: "Helvetia SA has 100,000 ordinary shares and 40,000 cumulative preference shares (10 CHF par, 6% interest). No dividend was paid in 2020, 2021, or 2022. In 2023 the Board declares a total dividend of CHF 30,000. The ordinary shareholders will receive:",
+    options: [
+      "0 CHF",
+      "6,000 CHF",
+      "24,000 CHF",
+      "30,000 CHF"
+    ],
+    correct: 0,
+    explanation: "Yearly preferred dividend = 40,000 × 10 × 6% = 24,000. Cumulative arrears (3 × 24,000 = 72,000) far exceed the 30,000 declared, so the entire amount goes to preference shareholders. Ordinary shareholders receive 0."
+  },
+  {
+    category: "Adjusting",
+    prompt: "Solide GmbH hired a consultant on May 1, 2022 with a yearly salary of CHF 96,000, payable in cash on May 1, 2023. No transactions have been recorded yet. The adjusting entry to Wages Payable on December 31, 2022 is:",
+    options: [
+      "Credit Wages Payable, CHF 64,000",
+      "Credit Wages Payable, CHF 96,000",
+      "Debit Wages Payable, CHF 64,000",
+      "Credit Wages Payable, CHF 32,000"
+    ],
+    correct: 0,
+    explanation: "Eight months have accrued (May–Dec): 96,000 × 8/12 = 64,000. Debit Wages Expense 64,000; Credit Wages Payable 64,000.",
+    entry: { debits: [["Wages Expense", "64,000"]], credits: [["Wages Payable", "64,000"]] }
+  },
+  {
+    category: "Adjusting",
+    prompt: "Lugano SA paid $18,000 on March 1, 2022 for a 12-month insurance policy. The adjusting entry recorded on June 30, 2022 is:",
+    options: [
+      "Debit Insurance Expense $6,000; Credit Prepaid Insurance $6,000",
+      "Debit Prepaid Insurance $6,000; Credit Insurance Expense $6,000",
+      "Debit Insurance Expense $1,500; Credit Prepaid Insurance $1,500",
+      "Debit Insurance Expense $18,000; Credit Cash $18,000"
+    ],
+    correct: 0,
+    explanation: "18,000 over 12 months = 1,500/month. By June 30, four months (Mar–Jun) have elapsed → 6,000 has been consumed.",
+    entry: { debits: [["Insurance Expense", "6,000"]], credits: [["Prepaid Insurance", "6,000"]] }
+  },
+  {
+    category: "Adjusting",
+    prompt: "Genève SA paid CHF 36,000 on October 1, 2022 for a three-year service contract. The adjusting entry to Prepaid Service on December 31, 2022 is:",
+    options: [
+      "Credit Prepaid Service CHF 3,000",
+      "Debit Prepaid Service CHF 3,000",
+      "Credit Prepaid Service CHF 9,000",
+      "Credit Prepaid Service CHF 12,000"
+    ],
+    correct: 0,
+    explanation: "36,000 over 36 months = 1,000/month. Three months (Oct–Dec) have elapsed → 3,000 consumed. Debit Service Expense 3,000; Credit Prepaid Service 3,000.",
+    entry: { debits: [["Service Expense", "3,000"]], credits: [["Prepaid Service", "3,000"]] }
+  },
+  {
+    category: "Fundamentals",
+    prompt: "Which of the following correctly restates the accounting equation?",
+    options: [
+      "Liabilities = Assets + Equity",
+      "Equity = Assets − Liabilities",
+      "Assets = Equity − Liabilities",
+      "Equity + Liabilities = Assets − Dividends"
+    ],
+    correct: 1,
+    explanation: "Assets = Liabilities + Equity rearranges to Equity = Assets − Liabilities. Option (b) is the only valid form."
+  },
+  {
+    category: "Fundamentals",
+    prompt: "Sion SA — end of 2023: Cash 8,000; AR 4,000; Inventory 2,000; Equipment 6,000; AP 5,000; Notes Payable 3,000; Common Stock 4,000; Beginning RE 2,000; Revenues 18,000; Expenses 11,000; Dividends 1,000. What are net income, ending equity, and total assets?",
+    options: [
+      "NI 7,000 · Equity 12,000 · Assets 20,000",
+      "NI 6,000 · Equity 11,000 · Assets 19,000",
+      "NI 7,000 · Equity 13,000 · Assets 21,000",
+      "NI 8,000 · Equity 12,000 · Assets 21,000"
+    ],
+    correct: 0,
+    explanation: "Net income = 18,000 − 11,000 = 7,000. Ending Equity = 4,000 + 2,000 + 7,000 − 1,000 = 12,000. Total Assets = 8,000 + 4,000 + 2,000 + 6,000 = 20,000. Check: Liabilities (8,000) + Equity (12,000) = 20,000 ✓"
+  },
+  {
+    category: "Fundamentals",
+    prompt: "Credits…",
+    options: [
+      "decrease assets and decrease expenses.",
+      "increase assets and decrease liabilities.",
+      "decrease equity and increase expenses.",
+      "increase expenses and decrease revenues."
+    ],
+    correct: 0,
+    explanation: "Credits decrease assets, expenses, and dividends; they increase liabilities, equity, and revenues. Option (a) correctly captures both: credits decrease assets and decrease expenses."
+  },
+  {
+    category: "Fundamentals",
+    prompt: "Which of the following pairs both increase with a debit?",
+    options: [
+      "Assets and Liabilities",
+      "Expenses and Revenues",
+      "Assets and Expenses",
+      "Liabilities and Equity"
+    ],
+    correct: 2,
+    explanation: "Assets and expenses (and dividends) both have debit balances and increase with debits. Liabilities, equity, and revenues increase with credits."
+  },
+
+  // ── Additional Exercises (Standards, Equity & Treasury) ───────────────
+  {
+    category: "Standards",
+    prompt: "In Switzerland, a company whose shares are traded on the Domestic Standard of SIX:",
+    options: [
+      "can only follow Swiss GAAP FER.",
+      "can only follow IFRS or US GAAP.",
+      "can follow Swiss GAAP FER, IFRS, the Banking Act standard, or US GAAP.",
+      "can follow any foreign accounting standard of its choice."
+    ],
+    correct: 2,
+    explanation: "The SIX Domestic Standard accepts the broadest range of frameworks: Swiss GAAP FER, IFRS, US GAAP, and (for banks) the Banking Act standard. The International Reporting Standard, by contrast, requires IFRS or US GAAP only."
+  },
+  {
+    category: "Adjusting",
+    prompt: "Zurich AG paid 12,000 CHF cash on June 1, 2019 for one year's rent in advance and recorded the transaction with a debit to Prepaid Rent. On December 31, 2019, the adjusting entry is:",
+    options: [
+      "Debit Prepaid Rent and credit Rent Expense, 5,000 CHF",
+      "Debit Prepaid Rent and credit Rent Expense, 7,000 CHF",
+      "Debit Rent Expense and credit Prepaid Rent, 7,000 CHF",
+      "Debit Prepaid Rent and credit Cash, 5,000 CHF"
+    ],
+    correct: 2,
+    explanation: "12,000 / 12 months = 1,000 / month. From June 1 to December 31 = 7 months consumed → 7,000 expensed. Debit Rent Expense 7,000; Credit Prepaid Rent 7,000.",
+    entry: { debits: [["Rent Expense", "7,000"]], credits: [["Prepaid Rent", "7,000"]] }
+  },
+  {
+    category: "Equity",
+    prompt: "The pre-emptive right of an ordinary shareholder is the right to:",
+    options: [
+      "share proportionately in corporate assets upon liquidation.",
+      "share proportionately in any new issues of stock of the same class.",
+      "receive cash dividends before they are distributed to preference shareholders.",
+      "exclude preference shareholders from voting rights."
+    ],
+    correct: 1,
+    explanation: "The pre-emptive right protects an existing ordinary shareholder against dilution by giving them the right to subscribe — proportionally to their current holding — to any new issue of shares of the same class."
+  },
+  {
+    category: "Equity",
+    prompt: "In January 2020, Genève SA, a newly formed company, issued 10,000 ordinary shares (10 CHF par) for 15 CHF per share. On July 1, 2020, Genève SA reacquired 1,000 of its outstanding shares for 12 CHF per share. The acquisition of these treasury shares:",
+    options: [
+      "decreased total shareholders' equity.",
+      "increased total shareholders' equity.",
+      "did not change total shareholders' equity.",
+      "decreased the number of issued shares."
+    ],
+    correct: 0,
+    explanation: "Treasury share buybacks reduce total equity by the cash paid out (1,000 × 12 = 12,000 CHF). The shares remain issued — they are simply no longer outstanding — and only the 'treasury shares' contra-equity account changes."
+  },
+  {
+    category: "Equity",
+    prompt: "Basel AG was organized on January 1, 2020 with 1,200,000 authorized ordinary shares (par value 6 CHF). 2020 transactions: Jan 5 — issued 675,000 shares @ 10 CHF; July 28 — purchased 90,000 shares as treasury @ 11 CHF; Dec 31 — sold all 90,000 treasury shares @ 18 CHF. What is Basel AG's total Share Premium as of December 31, 2020?",
+    options: [
+      "0",
+      "2,070,000",
+      "2,700,000",
+      "3,330,000"
+    ],
+    correct: 3,
+    explanation: "Premium on issuance = 675,000 × (10 − 6) = 2,700,000. Treasury resale: cost 90,000 × 11 = 990,000; proceeds 90,000 × 18 = 1,620,000 → 630,000 above cost flows to Share Premium. Total = 2,700,000 + 630,000 = 3,330,000."
+  },
+  {
+    category: "Equity",
+    prompt: "Lausanne SA has 100,000 ordinary shares (5 CHF par) and 30,000 cumulative preference shares (10 CHF par, 8% interest rate). No dividends were paid in 2018 or 2019. In 2020 the Board of Directors approves a total dividend of 150,000 CHF. How much will the ordinary shareholders receive?",
+    options: [
+      "0 CHF",
+      "78,000 CHF",
+      "102,000 CHF",
+      "126,000 CHF"
+    ],
+    correct: 1,
+    explanation: "Annual preferred dividend = 30,000 × 10 × 8% = 24,000. Cumulative arrears (2018 + 2019) = 48,000; current (2020) = 24,000 → preferred receives 72,000 first. Ordinary shareholders take the remainder: 150,000 − 72,000 = 78,000."
+  },
+  {
+    category: "Equity",
+    prompt: "Solothurn AG has 80,000 ordinary shares (5 CHF par) and 40,000 cumulative preference shares (10 CHF par, 6% interest rate). No dividend was paid in 2019. In 2020 the Board of Directors approves 63,000 CHF as dividend. How much will the preference shareholders receive?",
+    options: [
+      "21,000 CHF",
+      "24,000 CHF",
+      "48,000 CHF",
+      "63,000 CHF"
+    ],
+    correct: 2,
+    explanation: "Annual preferred dividend = 40,000 × 10 × 6% = 24,000. Cumulative arrears (2019) + current (2020) = 48,000 must be paid to preferred first. The remaining 15,000 goes to ordinary shareholders."
+  },
+
+  // ── Practice variants ─────────────────────────────────────────────────
+  {
+    category: "Standards",
+    prompt: "A Swiss company whose shares are traded on the International Reporting Standard of SIX must apply:",
+    options: [
+      "Swiss GAAP FER only.",
+      "IFRS only.",
+      "IFRS or US GAAP.",
+      "any internationally recognized framework."
+    ],
+    correct: 2,
+    explanation: "The SIX International Reporting Standard restricts financial reporting to either IFRS or US GAAP — both globally recognized frameworks suitable for international investors."
+  },
+  {
+    category: "Adjusting",
+    prompt: "Bern SA paid 18,000 CHF on April 1, 2022 for one year's office rent in advance, recorded as Prepaid Rent. The adjusting entry on December 31, 2022 is:",
+    options: [
+      "Debit Rent Expense and credit Prepaid Rent, 13,500 CHF",
+      "Debit Prepaid Rent and credit Rent Expense, 13,500 CHF",
+      "Debit Rent Expense and credit Prepaid Rent, 4,500 CHF",
+      "Debit Rent Expense and credit Cash, 13,500 CHF"
+    ],
+    correct: 0,
+    explanation: "18,000 / 12 = 1,500 / month. From April 1 to December 31 = 9 months consumed → 13,500 expensed. Debit Rent Expense 13,500; Credit Prepaid Rent 13,500.",
+    entry: { debits: [["Rent Expense", "13,500"]], credits: [["Prepaid Rent", "13,500"]] }
+  },
+  {
+    category: "Equity",
+    prompt: "Which of the following BEST describes a cumulative preference share?",
+    options: [
+      "It receives a fixed dividend each year before ordinary shareholders, with any unpaid amounts carried forward to future years.",
+      "It can be converted into ordinary shares at the holder's option.",
+      "It carries voting rights identical to those of ordinary shares.",
+      "It receives both a fixed dividend and a share of residual profits."
+    ],
+    correct: 0,
+    explanation: "Cumulative preference shares accumulate unpaid (skipped) dividends as 'arrears' — the company must pay all arrears plus the current year's preferred dividend before any dividend can be paid to ordinary shareholders."
+  },
+  {
+    category: "Equity",
+    prompt: "Aarau AG had 50,000 ordinary shares (10 CHF par) outstanding, originally issued at 14 CHF. In November 2022, it reacquired 5,000 shares for 16 CHF per share to hold as treasury shares. The treasury-share acquisition:",
+    options: [
+      "increased total shareholders' equity by 80,000 CHF.",
+      "decreased total shareholders' equity by 80,000 CHF.",
+      "did not change total shareholders' equity.",
+      "decreased the number of authorized shares."
+    ],
+    correct: 1,
+    explanation: "5,000 × 16 = 80,000 CHF of cash leaves the company; the offsetting Treasury Shares account is a contra-equity account, so total shareholders' equity falls by 80,000. Authorized and issued share counts are unaffected — only outstanding shares decrease."
+  },
+  {
+    category: "Equity",
+    prompt: "Lugano AG was newly organized on January 1, 2021 with 1,000,000 authorized ordinary shares (par 5 CHF). 2021 transactions: Feb 1 — issued 400,000 shares @ 8 CHF; Aug 15 — bought back 50,000 shares as treasury @ 9 CHF; Nov 30 — resold all 50,000 treasury shares @ 12 CHF. What is the total Share Premium at year-end?",
+    options: [
+      "0",
+      "1,200,000",
+      "1,350,000",
+      "1,500,000"
+    ],
+    correct: 2,
+    explanation: "Premium on issuance = 400,000 × (8 − 5) = 1,200,000. Treasury resale gain = 50,000 × (12 − 9) = 150,000 added to Share Premium. Total = 1,350,000."
+  },
+  {
+    category: "Equity",
+    prompt: "Winterthur AG has 80,000 ordinary shares (10 CHF par) and 20,000 cumulative preference shares (5 CHF par, 10% interest rate). No dividend was paid in 2020. In 2021 the Board approves a total dividend of 50,000 CHF. The ordinary shareholders will receive:",
+    options: [
+      "0 CHF",
+      "30,000 CHF",
+      "40,000 CHF",
+      "50,000 CHF"
+    ],
+    correct: 1,
+    explanation: "Annual preferred = 20,000 × 5 × 10% = 10,000. Cumulative arrears (2020) + current (2021) = 20,000 to preferred. Ordinary receive 50,000 − 20,000 = 30,000."
+  },
+  {
+    category: "Equity",
+    prompt: "Schaffhausen AG has 60,000 ordinary shares (5 CHF par) and 25,000 cumulative preference shares (10 CHF par, 8% interest rate). No dividend was paid in 2018 or 2019. In 2020 the Board approves 30,000 CHF. How much do the preference shareholders receive?",
+    options: [
+      "20,000 CHF",
+      "30,000 CHF",
+      "40,000 CHF",
+      "60,000 CHF"
+    ],
+    correct: 1,
+    explanation: "Annual preferred = 25,000 × 10 × 8% = 20,000. Cumulative arrears (2018, 2019) + current (2020) = 60,000 owed, but only 30,000 is available — all of it goes to preference shareholders, leaving 0 for ordinary."
+  },
 ];
+
+// ═══════════════════════════════════════════════════════════════════════════
+// QUESTION IDS — stable across reorderings/insertions, derived from prompt
+// ═══════════════════════════════════════════════════════════════════════════
+function hashId(s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h) + s.charCodeAt(i);
+  return "q" + (h >>> 0).toString(36);
+}
+QUESTIONS.forEach(q => { q.id = hashId(q.prompt); });
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PERSISTENCE — local storage + optional GitHub Gist sync
+// ═══════════════════════════════════════════════════════════════════════════
+const GIST_FILENAME  = "journal-quiz-data.json";
+const PAT_KEY        = "journal-quiz-pat";
+const GIST_ID_KEY    = "journal-quiz-gist-id";
+const LOCAL_DATA_KEY = "journal-quiz-data";
+
+const DEFAULT_DATA = {
+  questionStats: {},   // { id: { attempts, correct, lastWrong, lastSeen } }
+  totalSessions: 0,
+  lastUpdated: 0,
+};
+
+function getPat()   { return localStorage.getItem(PAT_KEY) || ""; }
+function setPat(t)  { if (t) localStorage.setItem(PAT_KEY, t); else localStorage.removeItem(PAT_KEY); }
+function getGistId(){ return localStorage.getItem(GIST_ID_KEY) || ""; }
+function setGistId(id){ if (id) localStorage.setItem(GIST_ID_KEY, id); else localStorage.removeItem(GIST_ID_KEY); }
+
+function loadLocalData() {
+  try {
+    const raw = localStorage.getItem(LOCAL_DATA_KEY);
+    if (!raw) return { ...DEFAULT_DATA };
+    return { ...DEFAULT_DATA, ...JSON.parse(raw) };
+  } catch { return { ...DEFAULT_DATA }; }
+}
+function saveLocalData(data) {
+  try { localStorage.setItem(LOCAL_DATA_KEY, JSON.stringify(data)); } catch {}
+}
+
+async function gistFetch(path, opts = {}) {
+  const pat = getPat();
+  if (!pat) throw new Error("No PAT configured");
+  const r = await fetch(`https://api.github.com${path}`, {
+    ...opts,
+    headers: { Authorization: `token ${pat}`, Accept: "application/vnd.github+json", ...(opts.headers || {}) },
+  });
+  if (!r.ok) throw new Error(`GitHub API ${r.status}: ${r.statusText}`);
+  return r.json();
+}
+
+async function loadGistData() {
+  const gistId = getGistId();
+  if (!gistId) return null;
+  const gist = await gistFetch(`/gists/${gistId}`);
+  const file = gist.files && gist.files[GIST_FILENAME];
+  if (!file) return null;
+  try { return { ...DEFAULT_DATA, ...JSON.parse(file.content) }; }
+  catch { return null; }
+}
+
+let _gistSaveInFlight = null;
+let _gistSavePending = null;
+
+async function _drainGistSave() {
+  try {
+    while (_gistSavePending) {
+      const data = _gistSavePending;
+      _gistSavePending = null;
+      await saveGistData(data);
+    }
+    setSyncStatus("synced");
+  } catch (e) {
+    console.warn("Gist save failed:", e);
+    setSyncStatus("error");
+  } finally {
+    _gistSaveInFlight = null;
+  }
+}
+
+function queueGistSave(data) {
+  saveLocalData(data);
+  if (!getPat()) { setSyncStatus("local"); return; }
+  _gistSavePending = data;
+  setSyncStatus("saving");
+  if (!_gistSaveInFlight) _gistSaveInFlight = _drainGistSave();
+}
+
+async function saveGistData(data) {
+  const gistId = getGistId();
+  const body = { files: { [GIST_FILENAME]: { content: JSON.stringify(data, null, 2) } } };
+  if (gistId) {
+    return gistFetch(`/gists/${gistId}`, { method: "PATCH", body: JSON.stringify(body) });
+  } else {
+    const gist = await gistFetch("/gists", {
+      method: "POST",
+      body: JSON.stringify({ description: "Journal Entry Trainer — saved progress", public: false, ...body }),
+    });
+    setGistId(gist.id);
+    return gist;
+  }
+}
+
+// Merge two data snapshots: take whichever has more attempts per question.
+function mergeData(a, b) {
+  const out = { ...DEFAULT_DATA, ...a };
+  out.questionStats = { ...(a.questionStats || {}) };
+  for (const [id, sb] of Object.entries(b.questionStats || {})) {
+    const sa = out.questionStats[id];
+    if (!sa || (sb.attempts || 0) > (sa.attempts || 0)) {
+      out.questionStats[id] = sb;
+    }
+  }
+  out.totalSessions = Math.max(a.totalSessions || 0, b.totalSessions || 0);
+  out.lastUpdated   = Math.max(a.lastUpdated   || 0, b.lastUpdated   || 0);
+  return out;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// STATS HELPERS
+// ═══════════════════════════════════════════════════════════════════════════
+function recordAnswer(q, isCorrect) {
+  const id = q.id;
+  const s = state.data.questionStats[id] || { attempts: 0, correct: 0, lastWrong: 0, lastSeen: 0 };
+  s.attempts++;
+  if (isCorrect) s.correct++;
+  else s.lastWrong = Date.now();
+  s.lastSeen = Date.now();
+  state.data.questionStats[id] = s;
+  state.data.lastUpdated = Date.now();
+}
+
+function weaknessScore(q) {
+  const s = state.data.questionStats[q.id];
+  if (!s || !s.attempts) return -1; // never seen → handled separately
+  const errorRate = (s.attempts - s.correct) / s.attempts;
+  // Recency: a recent wrong answer matters more (decay over ~14 days)
+  const ageDays = s.lastWrong ? (Date.now() - s.lastWrong) / 86400000 : 999;
+  const recency = Math.exp(-ageDays / 14);
+  return errorRate * (0.5 + 0.5 * recency);
+}
+
+function getWeakestPool(limit = 15) {
+  const seen = QUESTIONS
+    .map((q, i) => ({ i, q, score: weaknessScore(q), stats: state.data.questionStats[q.id] }))
+    .filter(x => x.stats && x.stats.attempts > 0);
+  // Highest weakness first; tiebreaker: fewer attempts (less data → review)
+  seen.sort((a, b) => b.score - a.score || (a.stats.attempts - b.stats.attempts));
+  let result = seen.filter(x => x.score > 0).slice(0, limit).map(x => x.i);
+  // If still short, fill with unseen questions
+  if (result.length < limit) {
+    const unseen = QUESTIONS
+      .map((q, i) => ({ i, stats: state.data.questionStats[q.id] }))
+      .filter(x => !x.stats || !x.stats.attempts);
+    for (const u of unseen) {
+      if (result.length >= limit) break;
+      result.push(u.i);
+    }
+  }
+  return result;
+}
+
+function totalAttempts() {
+  return Object.values(state.data.questionStats).reduce((a, s) => a + (s.attempts || 0), 0);
+}
+function totalQuestionsSeen() {
+  return Object.values(state.data.questionStats).filter(s => s && s.attempts > 0).length;
+}
 
 // ═══════════════════════════════════════════════════════════════════════════
 // STATE
@@ -925,6 +1704,10 @@ const state = {
   picked: -1,                // index into shuffled options
   optionOrder: [],           // mapping: display_index → original_option_index
   wrong: [],                 // [{q, picked, correctText}]
+  mode: "all",               // "all" | "weak" — what the current run is drawn from
+  data: loadLocalData(),     // persisted progress (questionStats, etc.)
+  syncStatus: getPat() ? "connected" : "local",
+  settingsOpen: false,
 };
 
 const ALL_CATS = [...new Set(QUESTIONS.map(q => q.category))];
@@ -953,8 +1736,16 @@ function renderStart() {
   const total = QUESTIONS.length;
   const selected = state.selectedCats.size === 0 ? total
     : QUESTIONS.filter(q => state.selectedCats.has(q.category)).length;
+  const weakPool = getWeakestPool(15);
+  const weakCount = weakPool.length;
+  const seenCount = totalQuestionsSeen();
+  const hasStats = seenCount > 0;
 
   app.innerHTML = `
+    <div class="topbar">
+      <span class="sync-pill ${state.syncStatus}" id="syncPill"><span class="dot"></span>${escapeHtml(syncStatusLabel(state.syncStatus))}</span>
+      <button class="gear-btn" id="settingsBtn" title="Sync &amp; reset">⚙ Settings</button>
+    </div>
     <div class="hero">
       <h1>Journal Entry Trainer</h1>
       <div class="sub">Debit the receiver · credit the giver</div>
@@ -964,9 +1755,9 @@ function renderStart() {
       <div class="rules">
         <div class="row"><span class="pill dr">DR</span><div>Debits are on the <b>left</b> — they increase assets and expenses, decrease liabilities, equity, and revenue.</div></div>
         <div class="row"><span class="pill cr">CR</span><div>Credits are on the <b>right</b> — they do the opposite.</div></div>
-        <div class="row"><span class="pill" style="background:rgba(245,158,11,0.18);color:#fbbf24;border:1px solid rgba(245,158,11,0.35);">?</span><div>Pick the entry that records the transaction. Immediate feedback explains each answer.</div></div>
+        <div class="row"><span class="pill" style="background:var(--gold-soft);color:#7a6c4e;border:1px solid var(--gold-line);">?</span><div>Pick the entry that records the transaction. Immediate feedback explains each answer.</div></div>
       </div>
-      <h2>Focus on topics <span style="font-weight:400;color:var(--mute);font-size:0.78rem;">(optional · leave blank for all)</span></h2>
+      <h2>Focus on topics <span style="font-weight:400;color:var(--faint);font-size:0.78rem;font-family:var(--font-sans);">(optional · leave blank for all)</span></h2>
       <div class="category-filter" id="catFilter">
         ${ALL_CATS.map(c =>
           `<button class="cat-chip ${state.selectedCats.has(c) ? "active" : ""}" data-cat="${c}">${c} (${QUESTIONS.filter(q=>q.category===c).length})</button>`
@@ -975,10 +1766,22 @@ function renderStart() {
       <button class="btn btn-primary" id="startBtn">
         Start Quiz · ${selected} question${selected !== 1 ? "s" : ""}
       </button>
-      <div style="text-align:center;margin-top:14px;color:var(--mute);font-size:0.72rem;letter-spacing:0.4px;">
+      <div class="secondary-action-row">
+        <button class="btn btn-weak" id="weakBtn" ${hasStats ? "" : "disabled"}>
+          <span class="label">
+            <span>Practice your weakest ${weakCount || 0}</span>
+            <span class="meta">${hasStats
+              ? `Drawn from ${seenCount} attempted · ${totalAttempts()} total answers`
+              : "Answer some questions first to build a weakness profile"}</span>
+          </span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+      <div style="text-align:center;margin-top:18px;color:var(--faint);font-size:0.72rem;letter-spacing:0.04em;">
         Keyboard: <span class="kbd">A</span><span class="kbd">B</span><span class="kbd">C</span><span class="kbd">D</span> to answer · <span class="kbd">Enter</span> / <span class="kbd">Space</span> for next
       </div>
     </div>
+    ${state.settingsOpen ? renderSettingsModal() : ""}
   `;
   document.querySelectorAll("#catFilter .cat-chip").forEach(b => {
     b.addEventListener("click", () => {
@@ -988,7 +1791,140 @@ function renderStart() {
       render();
     });
   });
-  document.getElementById("startBtn").addEventListener("click", startQuiz);
+  document.getElementById("startBtn").addEventListener("click", () => startQuiz());
+  document.getElementById("weakBtn").addEventListener("click", () => {
+    if (!hasStats) return;
+    startWeakQuiz();
+  });
+  document.getElementById("settingsBtn").addEventListener("click", () => {
+    state.settingsOpen = true;
+    render();
+  });
+  if (state.settingsOpen) wireSettingsModal();
+}
+
+function syncStatusLabel(s) {
+  if (s === "synced")    return "Synced";
+  if (s === "saving")    return "Saving…";
+  if (s === "error")     return "Sync error";
+  if (s === "connected") return "Connected";
+  return "Local only";
+}
+
+function setSyncStatus(s) {
+  state.syncStatus = s;
+  const el = document.getElementById("syncPill");
+  if (el) {
+    el.className = "sync-pill " + s;
+    el.innerHTML = `<span class="dot"></span>${escapeHtml(syncStatusLabel(s))}`;
+  }
+}
+
+function renderSettingsModal() {
+  const pat = getPat();
+  const gistId = getGistId();
+  const seen = totalQuestionsSeen();
+  const attempts = totalAttempts();
+  return `
+    <div class="modal-backdrop" id="settingsBackdrop">
+      <div class="modal" id="settingsModal">
+        <h2>Settings</h2>
+        <div class="modal-sub">Cloud sync, progress, and reset.</div>
+
+        <div class="modal-section">
+          <span class="modal-label">Cloud sync (optional)</span>
+          <p class="modal-help">
+            Save your progress to a private GitHub Gist so you can resume on any device.
+            Create a token with <b>gist</b> scope at
+            <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener">github.com/settings/tokens</a>
+            and paste it below.
+          </p>
+          <input type="password" id="patInput" placeholder="ghp_… (Personal Access Token)" value="${escapeHtml(pat)}" autocomplete="off" spellcheck="false">
+          <div class="modal-row">
+            <button class="btn btn-primary" id="savePatBtn">Save &amp; sync</button>
+            ${pat ? `<button class="btn btn-ghost" id="disconnectBtn">Disconnect</button>` : ""}
+          </div>
+          ${gistId ? `<div class="modal-info">Gist: ${escapeHtml(gistId.slice(0, 12))}…</div>` : ""}
+        </div>
+
+        <div class="modal-section">
+          <span class="modal-label">Local progress</span>
+          <p class="modal-help">${seen} question${seen===1?"":"s"} attempted · ${attempts} total answer${attempts===1?"":"s"} recorded.</p>
+          <div class="modal-row">
+            <button class="btn danger-btn" id="resetBtn">Reset all progress</button>
+          </div>
+        </div>
+
+        <div class="modal-close-row">
+          <button class="btn btn-ghost" id="closeSettingsBtn">Close</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function wireSettingsModal() {
+  document.getElementById("settingsBackdrop").addEventListener("click", (e) => {
+    if (e.target.id === "settingsBackdrop") {
+      state.settingsOpen = false;
+      render();
+    }
+  });
+  document.getElementById("closeSettingsBtn").addEventListener("click", () => {
+    state.settingsOpen = false;
+    render();
+  });
+  document.getElementById("savePatBtn").addEventListener("click", async () => {
+    const v = document.getElementById("patInput").value.trim();
+    if (!v) return;
+    setPat(v);
+    setSyncStatus("saving");
+    try {
+      // Try to load any existing gist; merge with local data
+      const remote = await loadGistData();
+      if (remote) state.data = mergeData(state.data, remote);
+      state.data.lastUpdated = Date.now();
+      // Save merged result back
+      await saveGistData(state.data);
+      saveLocalData(state.data);
+      setSyncStatus("synced");
+    } catch (e) {
+      console.warn(e);
+      setSyncStatus("error");
+    }
+    state.settingsOpen = false;
+    render();
+  });
+  const disc = document.getElementById("disconnectBtn");
+  if (disc) disc.addEventListener("click", () => {
+    setPat("");
+    setGistId("");
+    setSyncStatus("local");
+    state.settingsOpen = false;
+    render();
+  });
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    if (!confirm("Reset all local progress? This cannot be undone.")) return;
+    state.data = { ...DEFAULT_DATA, lastUpdated: Date.now() };
+    queueGistSave(state.data);
+    state.settingsOpen = false;
+    render();
+  });
+}
+
+function startWeakQuiz() {
+  const pool = getWeakestPool(15);
+  if (!pool.length) return;
+  state.mode = "weak";
+  state.order = shuffle(pool);
+  state.idx = 0;
+  state.score = 0;
+  state.streak = 0;
+  state.bestStreak = 0;
+  state.wrong = [];
+  state.screen = "quiz";
+  loadCurrent();
+  render();
 }
 
 function startQuiz() {
@@ -996,6 +1932,7 @@ function startQuiz() {
     ? QUESTIONS.map((_, i) => i)
     : QUESTIONS.map((q, i) => state.selectedCats.has(q.category) ? i : -1).filter(i => i >= 0);
   if (!pool.length) return;
+  state.mode = "all";
   state.order = shuffle(pool);
   state.idx = 0;
   state.score = 0;
@@ -1072,6 +2009,9 @@ function pickAnswer(displayIdx) {
     });
   }
 
+  recordAnswer(q, isCorrect);
+  queueGistSave(state.data);
+
   // Highlight options
   document.querySelectorAll("#options .option").forEach((btn, i) => {
     btn.disabled = true;
@@ -1141,8 +2081,11 @@ function renderResults() {
   else if (pct >= 60) msg = "Solid foundation — review the misses below.";
   else if (pct >= 40) msg = "Keep practicing — focus on debit/credit rules.";
 
+  const modeTag = state.mode === "weak" ? "Weakest practice" : "Mixed practice";
+
   app.innerHTML = `
     <div class="results">
+      <div class="cat-tag" style="margin-bottom:14px;">${escapeHtml(modeTag)}</div>
       <div class="score-big">${state.score} / ${total}</div>
       <div class="score-pct">${pct}% correct · best streak ${state.bestStreak}</div>
       <div class="score-msg">${msg}</div>
@@ -1161,7 +2104,7 @@ function renderResults() {
 
       <div class="action-row">
         <button class="btn btn-ghost" id="homeBtn">← Home</button>
-        <button class="btn btn-primary" id="againBtn">Play again</button>
+        <button class="btn btn-primary" id="againBtn">${state.mode === "weak" ? "Practice weak again" : "Play again"}</button>
       </div>
     </div>
   `;
@@ -1169,7 +2112,10 @@ function renderResults() {
     state.screen = "start";
     render();
   });
-  document.getElementById("againBtn").addEventListener("click", startQuiz);
+  document.getElementById("againBtn").addEventListener("click", () => {
+    if (state.mode === "weak") startWeakQuiz();
+    else startQuiz();
+  });
 }
 
 function escapeHtml(s) {
@@ -1185,6 +2131,19 @@ function escapeHtml(s) {
 // KEYBOARD
 // ═══════════════════════════════════════════════════════════════════════════
 document.addEventListener("keydown", (e) => {
+  // Settings modal takes priority — only handle Escape, leave inputs alone.
+  if (state.settingsOpen) {
+    if (e.key === "Escape") {
+      state.settingsOpen = false;
+      render();
+      e.preventDefault();
+    }
+    return;
+  }
+  // Don't hijack typing inside any text input/textarea.
+  const tag = (e.target && e.target.tagName) || "";
+  if (tag === "INPUT" || tag === "TEXTAREA") return;
+
   if (state.screen === "quiz") {
     if (!state.answered) {
       const key = e.key.toUpperCase();
@@ -1206,7 +2165,8 @@ document.addEventListener("keydown", (e) => {
     startQuiz();
     e.preventDefault();
   } else if (state.screen === "results" && e.key === "Enter") {
-    startQuiz();
+    if (state.mode === "weak") startWeakQuiz();
+    else startQuiz();
     e.preventDefault();
   }
 });
@@ -1215,6 +2175,26 @@ document.addEventListener("keydown", (e) => {
 // BOOT
 // ═══════════════════════════════════════════════════════════════════════════
 render();
+
+// If a PAT is configured, pull the gist on load so the latest cross-device
+// progress wins. Merge with local in case the local copy has newer answers
+// recorded while offline.
+if (getPat()) {
+  setSyncStatus("saving");
+  loadGistData()
+    .then(remote => {
+      if (remote) {
+        state.data = mergeData(state.data, remote);
+        saveLocalData(state.data);
+        if (state.screen === "start") render();
+      }
+      setSyncStatus("synced");
+    })
+    .catch(e => {
+      console.warn("Initial gist load failed:", e);
+      setSyncStatus("error");
+    });
+}
 </script>
 </body>
 </html>
