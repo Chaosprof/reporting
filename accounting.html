@@ -542,6 +542,57 @@
   }
   .gear-btn:hover { border-color: var(--line-strong); color: var(--ink-strong); }
 
+  /* ─── Curated decks ─────────────────────────────────────── */
+  .deck-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .deck-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 14px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--ink-strong);
+    transition: all 0.15s ease;
+    box-shadow: var(--shadow-sm);
+  }
+  .deck-card:hover {
+    border-color: var(--gold-line);
+    background: var(--gold-soft);
+    transform: translateY(-1px);
+  }
+  .deck-card .deck-label {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .deck-card .deck-sub {
+    font-size: 0.7rem;
+    color: var(--faint);
+    letter-spacing: 0.04em;
+  }
+  .deck-card .deck-count {
+    font-size: 0.7rem;
+    color: var(--mute);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+  }
+  @media (max-width: 480px) {
+    .deck-grid { grid-template-columns: 1fr; }
+  }
+
   /* ─── Practice-weakest secondary action ─────────────────── */
   .secondary-action-row {
     display: flex;
@@ -1086,20 +1137,6 @@ const QUESTIONS = [
     explanation: "Cash increases (debit). We have NOT yet earned it — we owe the customer a service — so Unearned Revenue (liability, credit).",
     entry: { debits: [["Cash", "5,000"]], credits: [["Unearned Revenue", "5,000"]] }
   },
-  {
-    category: "Adjusting",
-    prompt: "The company estimates that 2% of its 80,000 credit sales will be uncollectible. The adjusting entry is:",
-    options: [
-      "Debit Accounts Receivable 1,600; Credit Allowance for Doubtful Accounts 1,600",
-      "Debit Bad Debt Expense 1,600; Credit Accounts Receivable 1,600",
-      "Debit Bad Debt Expense 1,600; Credit Allowance for Doubtful Accounts 1,600",
-      "Debit Allowance for Doubtful Accounts 1,600; Credit Bad Debt Expense 1,600"
-    ],
-    correct: 2,
-    explanation: "Estimate = 80,000 × 2% = 1,600. Under the allowance method, Bad Debt Expense (debit) matches against current revenue, and Allowance for Doubtful Accounts (contra-asset, credit) reduces AR on the balance sheet.",
-    entry: { debits: [["Bad Debt Expense", "1,600"]], credits: [["Allowance for Doubtful Accounts", "1,600"]] }
-  },
-
   // ── Closing Entries ──────────────────────────────────────────────────
   {
     category: "Closing",
@@ -1146,6 +1183,7 @@ const QUESTIONS = [
   // ── Additional Exercises 1.a (course handout) ─────────────────────────
   {
     category: "Equity",
+    set: "AE1",
     prompt: "Matterhorn AG has 400,000 ordinary shares (10 CHF par) and 80,000 cumulative preference shares (5 CHF par, 12% interest rate). No dividends were paid in 2020 or 2021. In 2022, the Board approves a total dividend of CHF 100,000. The preference shareholders will receive:",
     options: [
       "0 CHF",
@@ -1158,6 +1196,7 @@ const QUESTIONS = [
   },
   {
     category: "Adjusting",
+    set: "AE1",
     prompt: "Fleissig AG hired a new employee on September 1, 2022 with a yearly salary of CHF 120,000, payable in cash on September 1, 2023. No transactions have been recorded yet. The adjusting entry to Wages Payable on December 31, 2022 is:",
     options: [
       "Credit Wages Payable, CHF 40,000",
@@ -1171,6 +1210,7 @@ const QUESTIONS = [
   },
   {
     category: "Adjusting",
+    set: "AE1",
     prompt: "Chur AG paid $12,000 on April 1, 2022 for advertising that will run for the next six months. What is the adjusting entry to Prepaid Expense and Advertising Expense on May 31, 2022?",
     options: [
       "Credit Prepaid Expense $4,000; Debit Advertising Expense $4,000",
@@ -1184,6 +1224,7 @@ const QUESTIONS = [
   },
   {
     category: "Adjusting",
+    set: "AE1",
     prompt: "Davos AG paid CHF 24,000 on August 1, 2021 for a two-year cable-car maintenance contract. What will the adjusting entry to Prepaid Maintenance recorded on December 31, 2021 look like?",
     options: [
       "Debit: CHF 6,000",
@@ -1197,6 +1238,7 @@ const QUESTIONS = [
   },
   {
     category: "Fundamentals",
+    set: "AE1",
     prompt: "Which of the following statements is true according to the accounting equation?",
     options: [
       "Assets − Equity = Liabilities",
@@ -1209,6 +1251,7 @@ const QUESTIONS = [
   },
   {
     category: "Fundamentals",
+    set: "AE1",
     prompt: "Malagny SA — end of 2022: Inventories 1,000; Revenues 21,000; Expenses 12,000; Cash 13,000; AP 9,000; Dividends 1,000; AR 3,000; NP 1,000; Common Stock 2,000; Buildings 4,000; Beginning RE 3,000; Machines 2,000. What are net income, total equity, and total assets?",
     options: [
       "NI 9,000 · Equity 13,000 · Assets 23,000",
@@ -1221,6 +1264,7 @@ const QUESTIONS = [
   },
   {
     category: "Fundamentals",
+    set: "AE1",
     prompt: "Debits…",
     options: [
       "increase equity and liabilities.",
@@ -1235,6 +1279,7 @@ const QUESTIONS = [
   // ── Practice variants (similar to Additional Exercises 1.a) ───────────
   {
     category: "Equity",
+    set: "AE1-AI",
     prompt: "Alpenblick AG has 200,000 ordinary shares (10 CHF par) and 60,000 cumulative preference shares (5 CHF par, 8% interest rate). No dividends were paid in 2021. In 2022, the Board approves a total dividend of CHF 80,000. The preference shareholders will receive:",
     options: [
       "24,000 CHF",
@@ -1247,6 +1292,7 @@ const QUESTIONS = [
   },
   {
     category: "Equity",
+    set: "AE1-AI",
     prompt: "Helvetia SA has 100,000 ordinary shares and 40,000 cumulative preference shares (10 CHF par, 6% interest). No dividend was paid in 2020, 2021, or 2022. In 2023 the Board declares a total dividend of CHF 30,000. The ordinary shareholders will receive:",
     options: [
       "0 CHF",
@@ -1259,6 +1305,7 @@ const QUESTIONS = [
   },
   {
     category: "Adjusting",
+    set: "AE1-AI",
     prompt: "Solide GmbH hired a consultant on May 1, 2022 with a yearly salary of CHF 96,000, payable in cash on May 1, 2023. No transactions have been recorded yet. The adjusting entry to Wages Payable on December 31, 2022 is:",
     options: [
       "Credit Wages Payable, CHF 64,000",
@@ -1272,6 +1319,7 @@ const QUESTIONS = [
   },
   {
     category: "Adjusting",
+    set: "AE1-AI",
     prompt: "Lugano SA paid $18,000 on March 1, 2022 for a 12-month insurance policy. The adjusting entry recorded on June 30, 2022 is:",
     options: [
       "Debit Insurance Expense $6,000; Credit Prepaid Insurance $6,000",
@@ -1285,6 +1333,7 @@ const QUESTIONS = [
   },
   {
     category: "Adjusting",
+    set: "AE1-AI",
     prompt: "Genève SA paid CHF 36,000 on October 1, 2022 for a three-year service contract. The adjusting entry to Prepaid Service on December 31, 2022 is:",
     options: [
       "Credit Prepaid Service CHF 3,000",
@@ -1298,6 +1347,7 @@ const QUESTIONS = [
   },
   {
     category: "Fundamentals",
+    set: "AE1-AI",
     prompt: "Which of the following correctly restates the accounting equation?",
     options: [
       "Liabilities = Assets + Equity",
@@ -1310,6 +1360,7 @@ const QUESTIONS = [
   },
   {
     category: "Fundamentals",
+    set: "AE1-AI",
     prompt: "Sion SA — end of 2023: Cash 8,000; AR 4,000; Inventory 2,000; Equipment 6,000; AP 5,000; Notes Payable 3,000; Common Stock 4,000; Beginning RE 2,000; Revenues 18,000; Expenses 11,000; Dividends 1,000. What are net income, ending equity, and total assets?",
     options: [
       "NI 7,000 · Equity 12,000 · Assets 20,000",
@@ -1322,6 +1373,7 @@ const QUESTIONS = [
   },
   {
     category: "Fundamentals",
+    set: "AE1-AI",
     prompt: "Credits…",
     options: [
       "decrease assets and decrease expenses.",
@@ -1334,6 +1386,7 @@ const QUESTIONS = [
   },
   {
     category: "Fundamentals",
+    set: "AE1-AI",
     prompt: "Which of the following pairs both increase with a debit?",
     options: [
       "Assets and Liabilities",
@@ -1348,6 +1401,7 @@ const QUESTIONS = [
   // ── Additional Exercises (Standards, Equity & Treasury) ───────────────
   {
     category: "Standards",
+    set: "R1",
     prompt: "In Switzerland, a company whose shares are traded on the Domestic Standard of SIX:",
     options: [
       "can only follow Swiss GAAP FER.",
@@ -1360,6 +1414,7 @@ const QUESTIONS = [
   },
   {
     category: "Adjusting",
+    set: "R1",
     prompt: "Zurich AG paid 12,000 CHF cash on June 1, 2019 for one year's rent in advance and recorded the transaction with a debit to Prepaid Rent. On December 31, 2019, the adjusting entry is:",
     options: [
       "Debit Prepaid Rent and credit Rent Expense, 5,000 CHF",
@@ -1373,6 +1428,7 @@ const QUESTIONS = [
   },
   {
     category: "Equity",
+    set: "R1",
     prompt: "The pre-emptive right of an ordinary shareholder is the right to:",
     options: [
       "share proportionately in corporate assets upon liquidation.",
@@ -1385,6 +1441,7 @@ const QUESTIONS = [
   },
   {
     category: "Equity",
+    set: "R1",
     prompt: "In January 2020, Genève SA, a newly formed company, issued 10,000 ordinary shares (10 CHF par) for 15 CHF per share. On July 1, 2020, Genève SA reacquired 1,000 of its outstanding shares for 12 CHF per share. The acquisition of these treasury shares:",
     options: [
       "decreased total shareholders' equity.",
@@ -1397,6 +1454,7 @@ const QUESTIONS = [
   },
   {
     category: "Equity",
+    set: "R1",
     prompt: "Basel AG was organized on January 1, 2020 with 1,200,000 authorized ordinary shares (par value 6 CHF). 2020 transactions: Jan 5 — issued 675,000 shares @ 10 CHF; July 28 — purchased 90,000 shares as treasury @ 11 CHF; Dec 31 — sold all 90,000 treasury shares @ 18 CHF. What is Basel AG's total Share Premium as of December 31, 2020?",
     options: [
       "0",
@@ -1409,6 +1467,7 @@ const QUESTIONS = [
   },
   {
     category: "Equity",
+    set: "R1",
     prompt: "Lausanne SA has 100,000 ordinary shares (5 CHF par) and 30,000 cumulative preference shares (10 CHF par, 8% interest rate). No dividends were paid in 2018 or 2019. In 2020 the Board of Directors approves a total dividend of 150,000 CHF. How much will the ordinary shareholders receive?",
     options: [
       "0 CHF",
@@ -1421,6 +1480,7 @@ const QUESTIONS = [
   },
   {
     category: "Equity",
+    set: "R1",
     prompt: "Solothurn AG has 80,000 ordinary shares (5 CHF par) and 40,000 cumulative preference shares (10 CHF par, 6% interest rate). No dividend was paid in 2019. In 2020 the Board of Directors approves 63,000 CHF as dividend. How much will the preference shareholders receive?",
     options: [
       "21,000 CHF",
@@ -1435,6 +1495,7 @@ const QUESTIONS = [
   // ── Practice variants ─────────────────────────────────────────────────
   {
     category: "Standards",
+    set: "R1-AI",
     prompt: "A Swiss company whose shares are traded on the International Reporting Standard of SIX must apply:",
     options: [
       "Swiss GAAP FER only.",
@@ -1447,6 +1508,7 @@ const QUESTIONS = [
   },
   {
     category: "Adjusting",
+    set: "R1-AI",
     prompt: "Bern SA paid 18,000 CHF on April 1, 2022 for one year's office rent in advance, recorded as Prepaid Rent. The adjusting entry on December 31, 2022 is:",
     options: [
       "Debit Rent Expense and credit Prepaid Rent, 13,500 CHF",
@@ -1460,6 +1522,7 @@ const QUESTIONS = [
   },
   {
     category: "Equity",
+    set: "R1-AI",
     prompt: "Which of the following BEST describes a cumulative preference share?",
     options: [
       "It receives a fixed dividend each year before ordinary shareholders, with any unpaid amounts carried forward to future years.",
@@ -1472,6 +1535,7 @@ const QUESTIONS = [
   },
   {
     category: "Equity",
+    set: "R1-AI",
     prompt: "Aarau AG had 50,000 ordinary shares (10 CHF par) outstanding, originally issued at 14 CHF. In November 2022, it reacquired 5,000 shares for 16 CHF per share to hold as treasury shares. The treasury-share acquisition:",
     options: [
       "increased total shareholders' equity by 80,000 CHF.",
@@ -1484,6 +1548,7 @@ const QUESTIONS = [
   },
   {
     category: "Equity",
+    set: "R1-AI",
     prompt: "Lugano AG was newly organized on January 1, 2021 with 1,000,000 authorized ordinary shares (par 5 CHF). 2021 transactions: Feb 1 — issued 400,000 shares @ 8 CHF; Aug 15 — bought back 50,000 shares as treasury @ 9 CHF; Nov 30 — resold all 50,000 treasury shares @ 12 CHF. What is the total Share Premium at year-end?",
     options: [
       "0",
@@ -1496,6 +1561,7 @@ const QUESTIONS = [
   },
   {
     category: "Equity",
+    set: "R1-AI",
     prompt: "Winterthur AG has 80,000 ordinary shares (10 CHF par) and 20,000 cumulative preference shares (5 CHF par, 10% interest rate). No dividend was paid in 2020. In 2021 the Board approves a total dividend of 50,000 CHF. The ordinary shareholders will receive:",
     options: [
       "0 CHF",
@@ -1508,6 +1574,7 @@ const QUESTIONS = [
   },
   {
     category: "Equity",
+    set: "R1-AI",
     prompt: "Schaffhausen AG has 60,000 ordinary shares (5 CHF par) and 25,000 cumulative preference shares (10 CHF par, 8% interest rate). No dividend was paid in 2018 or 2019. In 2020 the Board approves 30,000 CHF. How much do the preference shareholders receive?",
     options: [
       "20,000 CHF",
@@ -1704,13 +1771,28 @@ const state = {
   picked: -1,                // index into shuffled options
   optionOrder: [],           // mapping: display_index → original_option_index
   wrong: [],                 // [{q, picked, correctText}]
-  mode: "all",               // "all" | "weak" — what the current run is drawn from
+  mode: "all",               // "all" | "weak" | "deck" — what the current run is drawn from
+  deckId: null,              // when mode === "deck", which deck
   data: loadLocalData(),     // persisted progress (questionStats, etc.)
   syncStatus: getPat() ? "connected" : "local",
   settingsOpen: false,
 };
 
 const ALL_CATS = [...new Set(QUESTIONS.map(q => q.category))];
+
+// Curated decks (course handouts + AI variants).
+const DECKS = [
+  { id: "AE1",     label: "Additional Exercises 1",          sub: "Course handout",         sets: ["AE1"] },
+  { id: "AE1+AI",  label: "Additional Exercises 1 + AI",     sub: "Handout + AI add-ons",   sets: ["AE1", "AE1-AI"] },
+  { id: "R1",      label: "Recitation 1",                    sub: "Course handout",         sets: ["R1"] },
+  { id: "R1+AI",   label: "Recitation 1 + AI",               sub: "Handout + AI add-ons",   sets: ["R1", "R1-AI"] },
+];
+function deckPool(deck) {
+  return QUESTIONS
+    .map((q, i) => ({ q, i }))
+    .filter(x => deck.sets.includes(x.q.set))
+    .map(x => x.i);
+}
 
 function shuffle(arr) {
   const a = [...arr];
@@ -1757,7 +1839,18 @@ function renderStart() {
         <div class="row"><span class="pill cr">CR</span><div>Credits are on the <b>right</b> — they do the opposite.</div></div>
         <div class="row"><span class="pill" style="background:var(--gold-soft);color:#7a6c4e;border:1px solid var(--gold-line);">?</span><div>Pick the entry that records the transaction. Immediate feedback explains each answer.</div></div>
       </div>
-      <h2>Focus on topics <span style="font-weight:400;color:var(--faint);font-size:0.78rem;font-family:var(--font-sans);">(optional · leave blank for all)</span></h2>
+      <h2>Curated decks</h2>
+      <div class="deck-grid" id="deckGrid">
+        ${DECKS.map(d => {
+          const n = deckPool(d).length;
+          return `<button class="deck-card" data-deck="${escapeHtml(d.id)}" ${n ? "" : "disabled"}>
+            <span class="deck-label">${escapeHtml(d.label)}</span>
+            <span class="deck-sub">${escapeHtml(d.sub)}</span>
+            <span class="deck-count">${n} question${n !== 1 ? "s" : ""}</span>
+          </button>`;
+        }).join("")}
+      </div>
+      <h2>Every question <span style="font-weight:400;color:var(--faint);font-size:0.78rem;font-family:var(--font-sans);">(filter by topic, optional)</span></h2>
       <div class="category-filter" id="catFilter">
         ${ALL_CATS.map(c =>
           `<button class="cat-chip ${state.selectedCats.has(c) ? "active" : ""}" data-cat="${c}">${c} (${QUESTIONS.filter(q=>q.category===c).length})</button>`
@@ -1792,6 +1885,12 @@ function renderStart() {
     });
   });
   document.getElementById("startBtn").addEventListener("click", () => startQuiz());
+  document.querySelectorAll("#deckGrid .deck-card").forEach(b => {
+    b.addEventListener("click", () => {
+      if (b.disabled) return;
+      startDeckQuiz(b.dataset.deck);
+    });
+  });
   document.getElementById("weakBtn").addEventListener("click", () => {
     if (!hasStats) return;
     startWeakQuiz();
@@ -1916,6 +2015,25 @@ function startWeakQuiz() {
   const pool = getWeakestPool(15);
   if (!pool.length) return;
   state.mode = "weak";
+  state.deckId = null;
+  state.order = shuffle(pool);
+  state.idx = 0;
+  state.score = 0;
+  state.streak = 0;
+  state.bestStreak = 0;
+  state.wrong = [];
+  state.screen = "quiz";
+  loadCurrent();
+  render();
+}
+
+function startDeckQuiz(deckId) {
+  const deck = DECKS.find(d => d.id === deckId);
+  if (!deck) return;
+  const pool = deckPool(deck);
+  if (!pool.length) return;
+  state.mode = "deck";
+  state.deckId = deckId;
   state.order = shuffle(pool);
   state.idx = 0;
   state.score = 0;
@@ -1933,6 +2051,7 @@ function startQuiz() {
     : QUESTIONS.map((q, i) => state.selectedCats.has(q.category) ? i : -1).filter(i => i >= 0);
   if (!pool.length) return;
   state.mode = "all";
+  state.deckId = null;
   state.order = shuffle(pool);
   state.idx = 0;
   state.score = 0;
@@ -2081,7 +2200,12 @@ function renderResults() {
   else if (pct >= 60) msg = "Solid foundation — review the misses below.";
   else if (pct >= 40) msg = "Keep practicing — focus on debit/credit rules.";
 
-  const modeTag = state.mode === "weak" ? "Weakest practice" : "Mixed practice";
+  let modeTag = "Mixed practice";
+  if (state.mode === "weak") modeTag = "Weakest practice";
+  else if (state.mode === "deck") {
+    const deck = DECKS.find(d => d.id === state.deckId);
+    modeTag = deck ? deck.label : "Deck";
+  }
 
   app.innerHTML = `
     <div class="results">
@@ -2104,7 +2228,7 @@ function renderResults() {
 
       <div class="action-row">
         <button class="btn btn-ghost" id="homeBtn">← Home</button>
-        <button class="btn btn-primary" id="againBtn">${state.mode === "weak" ? "Practice weak again" : "Play again"}</button>
+        <button class="btn btn-primary" id="againBtn">${state.mode === "weak" ? "Practice weak again" : state.mode === "deck" ? "Replay deck" : "Play again"}</button>
       </div>
     </div>
   `;
@@ -2114,6 +2238,7 @@ function renderResults() {
   });
   document.getElementById("againBtn").addEventListener("click", () => {
     if (state.mode === "weak") startWeakQuiz();
+    else if (state.mode === "deck") startDeckQuiz(state.deckId);
     else startQuiz();
   });
 }
@@ -2166,6 +2291,7 @@ document.addEventListener("keydown", (e) => {
     e.preventDefault();
   } else if (state.screen === "results" && e.key === "Enter") {
     if (state.mode === "weak") startWeakQuiz();
+    else if (state.mode === "deck") startDeckQuiz(state.deckId);
     else startQuiz();
     e.preventDefault();
   }
