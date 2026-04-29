@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal Entry Trainer — Accounting Quiz</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --dr: #3B82F6;    /* blue — debit */
+    --cr: #10B981;    /* green — credit */
+    --gold: #F59E0B;
+    --bad: #EF4444;
+    --ink: #e5e7eb;
+    --mute: #9ca3af;
+    --panel: rgba(17, 24, 39, 0.65);
+    --panel-b: rgba(75, 85, 99, 0.30);
+  }
+
+  body {
+    background: #07080c;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 120% 55% at 50% 0%, rgba(59,130,246,0.14) 0%, transparent 65%),
+      radial-gradient(ellipse 120% 55% at 50% 100%, rgba(16,185,129,0.12) 0%, transparent 65%),
+      linear-gradient(to bottom, #07080c 0%, #0a0e14 50%, #06080c 100%);
+    pointer-events: none;
+  }
+  /* Top accent bar — debit/credit split */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    z-index: 100;
+    background: linear-gradient(to right,
+      var(--dr) 0%, var(--dr) 50%,
+      var(--cr) 50%, var(--cr) 100%);
+    opacity: 0.95;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulseGold {
+    0%,100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
+    50%     { box-shadow: 0 0 14px 2px rgba(245,158,11,0.35); }
+  }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25%     { transform: translateX(-4px); }
+    75%     { transform: translateX(4px); }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+
+  /* ─── Start screen ───────────────────────────────────────── */
+  .hero { text-align: center; margin-bottom: 32px; animation: fadeIn 0.5s ease-out; }
+  .hero h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    background: linear-gradient(135deg, var(--dr) 0%, var(--cr) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 6px;
+  }
+  .hero .sub {
+    color: var(--mute);
+    font-size: 0.9rem;
+    letter-spacing: 0.4px;
+  }
+
+  .start-card {
+    background: var(--panel);
+    border: 1px solid var(--panel-b);
+    border-radius: 14px;
+    padding: 32px 28px;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.6s ease-out;
+  }
+  .start-card h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #f3f4f6;
+  }
+  .rules {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 24px;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: #cbd5e1;
+  }
+  .rules .row { display: flex; align-items: flex-start; gap: 10px; }
+  .rules .pill {
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 3px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    margin-top: 1px;
+  }
+  .rules .pill.dr { background: rgba(59,130,246,0.18); color: #93c5fd; border: 1px solid rgba(59,130,246,0.35); }
+  .rules .pill.cr { background: rgba(16,185,129,0.18); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.35); }
+
+  .category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .cat-chip {
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 7px 13px;
+    border-radius: 20px;
+    border: 1px solid rgba(156,163,175,0.3);
+    background: rgba(31,41,55,0.4);
+    color: #d1d5db;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .cat-chip:hover { border-color: rgba(245,158,11,0.5); color: #fde68a; }
+  .cat-chip.active {
+    background: rgba(245,158,11,0.15);
+    border-color: var(--gold);
+    color: #fbbf24;
+  }
+
+  .btn {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.18s;
+    letter-spacing: 0.3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--dr) 0%, var(--cr) 100%);
+    color: white;
+    width: 100%;
+    justify-content: center;
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(16,185,129,0.30); }
+  .btn-ghost {
+    background: rgba(55,65,81,0.4);
+    color: var(--ink);
+    border: 1px solid rgba(156,163,175,0.25);
+  }
+  .btn-ghost:hover { background: rgba(55,65,81,0.65); }
+
+  /* ─── Quiz screen ────────────────────────────────────────── */
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.78rem;
+    color: var(--mute);
+    letter-spacing: 0.4px;
+  }
+  .score-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background: rgba(16,185,129,0.12);
+    border: 1px solid rgba(16,185,129,0.28);
+    color: #6ee7b7;
+    font-weight: 700;
+  }
+  .streak-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background: rgba(245,158,11,0.12);
+    border: 1px solid rgba(245,158,11,0.3);
+    color: #fbbf24;
+    font-weight: 700;
+    margin-left: 8px;
+  }
+
+  .progress-bar {
+    height: 6px;
+    background: rgba(75,85,99,0.28);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--dr) 0%, var(--cr) 100%);
+    transition: width 0.35s ease;
+  }
+
+  .qcard {
+    background: var(--panel);
+    border: 1px solid var(--panel-b);
+    border-radius: 14px;
+    padding: 26px 24px;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.35s ease-out;
+  }
+  .cat-tag {
+    display: inline-block;
+    padding: 4px 11px;
+    background: rgba(59,130,246,0.14);
+    border: 1px solid rgba(59,130,246,0.28);
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: #93c5fd;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .question-text {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 22px;
+    color: #f3f4f6;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(31,41,55,0.45);
+    border: 1px solid rgba(75,85,99,0.4);
+    border-radius: 10px;
+    color: #e5e7eb;
+    font-family: inherit;
+    font-size: 0.87rem;
+    line-height: 1.5;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .option:hover:not(:disabled) {
+    border-color: rgba(16,185,129,0.55);
+    background: rgba(16,185,129,0.07);
+    transform: translateX(3px);
+  }
+  .option:disabled { cursor: default; }
+  .option.correct {
+    background: rgba(16,185,129,0.14);
+    border-color: var(--cr);
+    color: #a7f3d0;
+  }
+  .option.wrong {
+    background: rgba(239,68,68,0.12);
+    border-color: var(--bad);
+    color: #fca5a5;
+    animation: shake 0.35s ease-out;
+  }
+  .option.dimmed { opacity: 0.5; }
+  .option-letter {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    line-height: 26px;
+    text-align: center;
+    border: 1px solid rgba(156,163,175,0.35);
+    border-radius: 50%;
+    margin-right: 14px;
+    font-weight: 700;
+    font-size: 0.78rem;
+  }
+  .option.correct .option-letter { border-color: var(--cr); background: rgba(16,185,129,0.2); color: #a7f3d0; }
+  .option.wrong .option-letter   { border-color: var(--bad); background: rgba(239,68,68,0.18); color: #fca5a5; }
+
+  /* ─── Feedback panel ─────────────────────────────────────── */
+  .feedback {
+    margin-top: 20px;
+    padding: 18px 20px;
+    border-radius: 10px;
+    background: rgba(31,41,55,0.55);
+    border-left: 4px solid var(--cr);
+    animation: fadeIn 0.35s ease-out;
+  }
+  .feedback.wrong { border-left-color: var(--bad); }
+  .feedback-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+  .feedback-title.ok   { color: var(--cr); }
+  .feedback-title.bad  { color: var(--bad); }
+  .feedback-body {
+    font-size: 0.83rem;
+    line-height: 1.65;
+    color: #d1d5db;
+  }
+
+  /* T-account visualization */
+  .t-acct {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid rgba(156,163,175,0.28);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.8rem;
+  }
+  .t-head {
+    padding: 7px 12px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 0.5px;
+    font-size: 0.72rem;
+    background: rgba(55,65,81,0.55);
+  }
+  .t-head.dr { color: #93c5fd; border-right: 1px solid rgba(156,163,175,0.28); }
+  .t-head.cr { color: #6ee7b7; }
+  .t-cell {
+    padding: 10px 12px;
+    min-height: 42px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    background: rgba(15,23,42,0.45);
+  }
+  .t-cell.dr { border-right: 1px solid rgba(156,163,175,0.22); color: #bfdbfe; }
+  .t-cell.cr { color: #bbf7d0; }
+  .t-cell .amt { color: #9ca3af; font-variant-numeric: tabular-nums; }
+
+  .next-btn-row {
+    margin-top: 18px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .next-btn {
+    background: var(--gold);
+    color: #111827;
+    font-weight: 800;
+    animation: pulseGold 2.5s ease-in-out infinite;
+  }
+  .next-btn:hover { background: #fbbf24; }
+
+  /* ─── Results screen ─────────────────────────────────────── */
+  .results {
+    text-align: center;
+    padding: 20px 4px;
+    animation: fadeIn 0.5s ease-out;
+  }
+  .score-big {
+    font-size: 4.4rem;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--dr) 0%, var(--cr) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 6px;
+  }
+  .score-pct { color: var(--mute); font-size: 0.85rem; margin-bottom: 4px; letter-spacing: 0.4px; }
+  .score-msg {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fde68a;
+    margin-bottom: 26px;
+  }
+  .review-title {
+    font-size: 0.78rem;
+    color: var(--mute);
+    letter-spacing: 1.2px;
+    text-align: left;
+    margin: 20px 0 10px;
+    text-transform: uppercase;
+  }
+  .review-item {
+    text-align: left;
+    padding: 14px 16px;
+    background: rgba(239,68,68,0.08);
+    border: 1px solid rgba(239,68,68,0.25);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+  .review-item .q { color: #f3f4f6; margin-bottom: 6px; }
+  .review-item .yours { color: #fca5a5; font-size: 0.78rem; }
+  .review-item .correct-text { color: #6ee7b7; font-size: 0.78rem; margin-top: 2px; }
+
+  .action-row { display: flex; gap: 10px; margin-top: 24px; }
+  .action-row .btn { flex: 1; }
+
+  .kbd {
+    display: inline-block;
+    padding: 1px 6px;
+    font-size: 0.7rem;
+    border: 1px solid rgba(156,163,175,0.35);
+    border-radius: 4px;
+    background: rgba(55,65,81,0.4);
+    color: #d1d5db;
+    margin: 0 1px;
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2rem; }
+    .score-big { font-size: 3.4rem; }
+    .qcard, .start-card { padding: 22px 18px; }
+    .container { padding: 32px 14px 60px; }
+  }
+</style>
+</head>
+<body>
+<div class="container" id="app"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════════════
+// QUESTION BANK
+// ═══════════════════════════════════════════════════════════════════════════
+// Each question has:
+//   category, prompt, options[], correct (index into options),
+//   explanation (why), entry ({ debits:[[acct,amt]], credits:[[acct,amt]] })
+//
+const QUESTIONS = [
+  // ── Revenue ──────────────────────────────────────────────────────────
+  {
+    category: "Revenue",
+    prompt: "A journal entry to record the sale of inventory on account will include a:",
+    options: [
+      "Debit to Inventory",
+      "Debit to Accounts Receivable",
+      "Debit to Sales Revenue",
+      "Credit to Cost of Goods Sold"
+    ],
+    correct: 1,
+    explanation: "When inventory is sold on account the customer owes us money. Accounts Receivable (an asset) increases with a debit; Sales Revenue is credited. A separate entry debits COGS and credits Inventory.",
+    entry: { debits: [["Accounts Receivable", ""]], credits: [["Sales Revenue", ""]] }
+  },
+  {
+    category: "Revenue",
+    prompt: "A company sells merchandise for 2,000 cash. The journal entry to record the sale (ignoring COGS) is:",
+    options: [
+      "Debit Cash 2,000; Credit Sales Revenue 2,000",
+      "Debit Sales Revenue 2,000; Credit Cash 2,000",
+      "Debit Accounts Receivable 2,000; Credit Sales Revenue 2,000",
+      "Debit Cash 2,000; Credit Accounts Receivable 2,000"
+    ],
+    correct: 0,
+    explanation: "Cash (asset) increases → debit. Sales Revenue (equity) is earned → credit.",
+    entry: { debits: [["Cash", "2,000"]], credits: [["Sales Revenue", "2,000"]] }
+  },
+  {
+    category: "Revenue",
+    prompt: "To accompany the sale of merchandise (perpetual inventory system), the cost side of the entry is:",
+    options: [
+      "Debit Inventory; Credit Cost of Goods Sold",
+      "Debit Cost of Goods Sold; Credit Inventory",
+      "Debit Cost of Goods Sold; Credit Sales Revenue",
+      "Debit Inventory; Credit Sales Revenue"
+    ],
+    correct: 1,
+    explanation: "Under the perpetual system, each sale triggers a second entry: COGS (expense) increases with a debit, Inventory (asset) decreases with a credit.",
+    entry: { debits: [["Cost of Goods Sold", ""]], credits: [["Inventory", ""]] }
+  },
+  {
+    category: "Revenue",
+    prompt: "A consulting firm performs services for a client and bills them 5,000, payable in 30 days. The entry is:",
+    options: [
+      "Debit Cash 5,000; Credit Service Revenue 5,000",
+      "Debit Service Revenue 5,000; Credit Accounts Receivable 5,000",
+      "Debit Accounts Receivable 5,000; Credit Service Revenue 5,000",
+      "Debit Accounts Receivable 5,000; Credit Cash 5,000"
+    ],
+    correct: 2,
+    explanation: "Revenue is earned (credit Service Revenue) and the client owes us (debit Accounts Receivable). No cash has moved yet.",
+    entry: { debits: [["Accounts Receivable", "5,000"]], credits: [["Service Revenue", "5,000"]] }
+  },
+  {
+    category: "Revenue",
+    prompt: "A credit customer returns defective merchandise that had been sold for 800. The entry to record the return (ignore COGS side) is:",
+    options: [
+      "Debit Cash 800; Credit Sales Returns & Allowances 800",
+      "Debit Sales Returns & Allowances 800; Credit Accounts Receivable 800",
+      "Debit Accounts Receivable 800; Credit Sales Returns & Allowances 800",
+      "Debit Sales Revenue 800; Credit Cash 800"
+    ],
+    correct: 1,
+    explanation: "Sales Returns & Allowances (a contra-revenue) is debited to reduce revenue; Accounts Receivable is credited because the customer no longer owes us.",
+    entry: { debits: [["Sales Returns & Allowances", "800"]], credits: [["Accounts Receivable", "800"]] }
+  },
+
+  // ── Inventory / Purchasing ───────────────────────────────────────────
+  {
+    category: "Inventory",
+    prompt: "A retailer purchases 10,000 of inventory on account. The entry is:",
+    options: [
+      "Debit Accounts Payable 10,000; Credit Inventory 10,000",
+      "Debit Inventory 10,000; Credit Cash 10,000",
+      "Debit Inventory 10,000; Credit Accounts Payable 10,000",
+      "Debit Purchases 10,000; Credit Cash 10,000"
+    ],
+    correct: 2,
+    explanation: "Inventory (asset) increases → debit. Accounts Payable (liability) increases because we owe the supplier → credit.",
+    entry: { debits: [["Inventory", "10,000"]], credits: [["Accounts Payable", "10,000"]] }
+  },
+  {
+    category: "Inventory",
+    prompt: "A company purchases 3,500 of inventory and pays cash immediately. The entry is:",
+    options: [
+      "Debit Inventory 3,500; Credit Accounts Payable 3,500",
+      "Debit Inventory 3,500; Credit Cash 3,500",
+      "Debit Cash 3,500; Credit Inventory 3,500",
+      "Debit COGS 3,500; Credit Cash 3,500"
+    ],
+    correct: 1,
+    explanation: "Inventory (asset) increases → debit. Cash (asset) decreases → credit. COGS is only recorded when the inventory is sold.",
+    entry: { debits: [["Inventory", "3,500"]], credits: [["Cash", "3,500"]] }
+  },
+  {
+    category: "Inventory",
+    prompt: "A business returns defective inventory previously purchased on account for 600. The entry is:",
+    options: [
+      "Debit Inventory 600; Credit Accounts Payable 600",
+      "Debit Cash 600; Credit Inventory 600",
+      "Debit Accounts Payable 600; Credit Inventory 600",
+      "Debit Purchases Returns 600; Credit Cash 600"
+    ],
+    correct: 2,
+    explanation: "We owe the supplier less (AP decreases → debit) and we no longer have this inventory (asset decreases → credit).",
+    entry: { debits: [["Accounts Payable", "600"]], credits: [["Inventory", "600"]] }
+  },
+
+  // ── Receivables / Payables ───────────────────────────────────────────
+  {
+    category: "Receivables",
+    prompt: "A customer pays the 5,000 they previously owed on account. The entry on receipt is:",
+    options: [
+      "Debit Cash 5,000; Credit Sales Revenue 5,000",
+      "Debit Accounts Receivable 5,000; Credit Cash 5,000",
+      "Debit Cash 5,000; Credit Accounts Receivable 5,000",
+      "Debit Sales Revenue 5,000; Credit Accounts Receivable 5,000"
+    ],
+    correct: 2,
+    explanation: "Cash (asset) increases → debit. Accounts Receivable decreases because the customer no longer owes → credit. No new revenue is recorded — it was already recognized on the sale.",
+    entry: { debits: [["Cash", "5,000"]], credits: [["Accounts Receivable", "5,000"]] }
+  },
+  {
+    category: "Payables",
+    prompt: "A company pays 4,200 to settle a supplier invoice previously recorded in accounts payable. The entry is:",
+    options: [
+      "Debit Cash 4,200; Credit Accounts Payable 4,200",
+      "Debit Accounts Payable 4,200; Credit Cash 4,200",
+      "Debit Inventory 4,200; Credit Cash 4,200",
+      "Debit Accounts Payable 4,200; Credit Purchases 4,200"
+    ],
+    correct: 1,
+    explanation: "Accounts Payable (liability) decreases → debit. Cash (asset) decreases → credit.",
+    entry: { debits: [["Accounts Payable", "4,200"]], credits: [["Cash", "4,200"]] }
+  },
+  {
+    category: "Receivables",
+    prompt: "Under the allowance method, the entry to write off a specific uncollectible account of 1,200 is:",
+    options: [
+      "Debit Bad Debt Expense 1,200; Credit Accounts Receivable 1,200",
+      "Debit Allowance for Doubtful Accounts 1,200; Credit Accounts Receivable 1,200",
+      "Debit Accounts Receivable 1,200; Credit Allowance for Doubtful Accounts 1,200",
+      "Debit Bad Debt Expense 1,200; Credit Allowance for Doubtful Accounts 1,200"
+    ],
+    correct: 1,
+    explanation: "Under the allowance method, Bad Debt Expense was already estimated in a prior adjusting entry. The write-off simply removes the specific AR against the Allowance: DR Allowance, CR Accounts Receivable.",
+    entry: { debits: [["Allowance for Doubtful Accounts", "1,200"]], credits: [["Accounts Receivable", "1,200"]] }
+  },
+
+  // ── Expenses ─────────────────────────────────────────────────────────
+  {
+    category: "Expenses",
+    prompt: "A firm pays 900 cash for the monthly electricity bill. The entry is:",
+    options: [
+      "Debit Cash 900; Credit Utilities Expense 900",
+      "Debit Utilities Expense 900; Credit Cash 900",
+      "Debit Utilities Expense 900; Credit Accounts Payable 900",
+      "Debit Accounts Payable 900; Credit Cash 900"
+    ],
+    correct: 1,
+    explanation: "Utilities Expense (equity — expense) increases → debit. Cash decreases → credit.",
+    entry: { debits: [["Utilities Expense", "900"]], credits: [["Cash", "900"]] }
+  },
+  {
+    category: "Expenses",
+    prompt: "A company receives an electricity bill of 900 that will be paid next month. The entry TODAY is:",
+    options: [
+      "No entry until the bill is paid",
+      "Debit Utilities Expense 900; Credit Cash 900",
+      "Debit Utilities Expense 900; Credit Accounts Payable 900",
+      "Debit Accounts Payable 900; Credit Utilities Expense 900"
+    ],
+    correct: 2,
+    explanation: "Accrual basis: the expense is recognized when incurred, not when paid. Utilities Expense is debited, and Accounts Payable (liability) is credited because we owe the utility.",
+    entry: { debits: [["Utilities Expense", "900"]], credits: [["Accounts Payable", "900"]] }
+  },
+  {
+    category: "Expenses",
+    prompt: "A company pays its employees 8,000 for work already performed this period. The entry is:",
+    options: [
+      "Debit Salaries Expense 8,000; Credit Cash 8,000",
+      "Debit Cash 8,000; Credit Salaries Expense 8,000",
+      "Debit Salaries Payable 8,000; Credit Salaries Expense 8,000",
+      "Debit Salaries Expense 8,000; Credit Salaries Payable 8,000"
+    ],
+    correct: 0,
+    explanation: "Salaries Expense (expense) increases → debit. Cash (asset) decreases → credit.",
+    entry: { debits: [["Salaries Expense", "8,000"]], credits: [["Cash", "8,000"]] }
+  },
+
+  // ── Assets (fixed, prepaid) ──────────────────────────────────────────
+  {
+    category: "Assets",
+    prompt: "A company purchases equipment for 15,000 cash. The entry is:",
+    options: [
+      "Debit Equipment 15,000; Credit Cash 15,000",
+      "Debit Equipment Expense 15,000; Credit Cash 15,000",
+      "Debit Cash 15,000; Credit Equipment 15,000",
+      "Debit Equipment 15,000; Credit Notes Payable 15,000"
+    ],
+    correct: 0,
+    explanation: "Equipment is a long-lived asset → debit. Cash decreases → credit. Equipment is capitalized, not expensed.",
+    entry: { debits: [["Equipment", "15,000"]], credits: [["Cash", "15,000"]] }
+  },
+  {
+    category: "Assets",
+    prompt: "A company purchases a delivery truck for 30,000, paying 5,000 cash and signing a note for the balance. The entry is:",
+    options: [
+      "Debit Truck 30,000; Credit Cash 30,000",
+      "Debit Truck 30,000; Credit Notes Payable 30,000",
+      "Debit Truck 30,000; Credit Cash 5,000 and Credit Notes Payable 25,000",
+      "Debit Cash 5,000 and Debit Notes Payable 25,000; Credit Truck 30,000"
+    ],
+    correct: 2,
+    explanation: "Truck (asset) is debited for the full 30,000. Cash drops by 5,000 (credit) and Notes Payable rises by 25,000 (credit). Debits = Credits = 30,000.",
+    entry: { debits: [["Truck", "30,000"]], credits: [["Cash", "5,000"], ["Notes Payable", "25,000"]] }
+  },
+  {
+    category: "Assets",
+    prompt: "A company pays 6,000 for a one-year insurance policy and records the full amount as an asset. The entry is:",
+    options: [
+      "Debit Insurance Expense 6,000; Credit Cash 6,000",
+      "Debit Prepaid Insurance 6,000; Credit Cash 6,000",
+      "Debit Cash 6,000; Credit Prepaid Insurance 6,000",
+      "Debit Prepaid Insurance 6,000; Credit Insurance Expense 6,000"
+    ],
+    correct: 1,
+    explanation: "The benefit extends beyond the current period, so it is recorded as an asset: Prepaid Insurance (debit). Cash decreases (credit). Insurance Expense will be recognized as time passes.",
+    entry: { debits: [["Prepaid Insurance", "6,000"]], credits: [["Cash", "6,000"]] }
+  },
+
+  // ── Liabilities / Equity ─────────────────────────────────────────────
+  {
+    category: "Liabilities",
+    prompt: "A company borrows 50,000 from a bank, signing a promissory note. The entry is:",
+    options: [
+      "Debit Notes Payable 50,000; Credit Cash 50,000",
+      "Debit Cash 50,000; Credit Accounts Payable 50,000",
+      "Debit Cash 50,000; Credit Notes Payable 50,000",
+      "Debit Cash 50,000; Credit Interest Payable 50,000"
+    ],
+    correct: 2,
+    explanation: "Cash (asset) increases → debit. Notes Payable (liability) increases → credit. Interest is recorded separately as it accrues.",
+    entry: { debits: [["Cash", "50,000"]], credits: [["Notes Payable", "50,000"]] }
+  },
+  {
+    category: "Equity",
+    prompt: "A corporation issues 1,000 shares of 10 par common stock for 12 cash per share. The entry is:",
+    options: [
+      "Debit Cash 12,000; Credit Common Stock 12,000",
+      "Debit Cash 12,000; Credit Common Stock 10,000; Credit Paid-in Capital in Excess of Par 2,000",
+      "Debit Common Stock 10,000; Debit Paid-in Capital 2,000; Credit Cash 12,000",
+      "Debit Cash 10,000; Credit Common Stock 10,000"
+    ],
+    correct: 1,
+    explanation: "Cash received = 1,000 × 12 = 12,000 (debit). Common Stock is credited at par: 1,000 × 10 = 10,000. The excess (2,000) goes to Paid-in Capital in Excess of Par.",
+    entry: { debits: [["Cash", "12,000"]], credits: [["Common Stock", "10,000"], ["Paid-in Capital in Excess of Par", "2,000"]] }
+  },
+  {
+    category: "Equity",
+    prompt: "A corporation declares and pays a cash dividend of 3,000 on the same day. The entry on payment is:",
+    options: [
+      "Debit Retained Earnings 3,000; Credit Dividend Revenue 3,000",
+      "Debit Dividends (or Retained Earnings) 3,000; Credit Cash 3,000",
+      "Debit Cash 3,000; Credit Dividends Payable 3,000",
+      "Debit Dividend Expense 3,000; Credit Cash 3,000"
+    ],
+    correct: 1,
+    explanation: "Dividends reduce equity (debit Dividends or Retained Earnings directly). Cash decreases → credit. Dividends are NOT an expense — they are a distribution to owners.",
+    entry: { debits: [["Dividends", "3,000"]], credits: [["Cash", "3,000"]] }
+  },
+  {
+    category: "Equity",
+    prompt: "An owner invests 20,000 cash to start a business (sole proprietorship). The entry is:",
+    options: [
+      "Debit Owner's Capital 20,000; Credit Cash 20,000",
+      "Debit Cash 20,000; Credit Sales Revenue 20,000",
+      "Debit Cash 20,000; Credit Owner's Capital 20,000",
+      "Debit Cash 20,000; Credit Notes Payable 20,000"
+    ],
+    correct: 2,
+    explanation: "Cash increases (debit). Owner's Capital increases to reflect the investment (credit). It is equity, not revenue or liability.",
+    entry: { debits: [["Cash", "20,000"]], credits: [["Owner's Capital", "20,000"]] }
+  },
+
+  // ── Adjusting Entries ────────────────────────────────────────────────
+  {
+    category: "Adjusting",
+    prompt: "Zurich AG paid cash of 12,000 CHF on June 1, 2019 for one year's rent in advance, and recorded the transaction with a debit to Prepaid Rent. On December 31, 2019, they should prepare the following adjusting entry:",
+    options: [
+      "Debit Prepaid Rent and credit Rent Expense, 5,000 CHF",
+      "Debit Prepaid Rent and credit Rent Expense, 7,000 CHF",
+      "Debit Rent Expense and credit Prepaid Rent, 7,000 CHF",
+      "Debit Prepaid Rent and credit Cash, 5,000 CHF"
+    ],
+    correct: 2,
+    explanation: "From June 1 to December 31 is 7 months. Monthly rent = 12,000 / 12 = 1,000. Expired portion = 7 × 1,000 = 7,000 CHF. Rent Expense (expense) increases → debit; Prepaid Rent (asset) decreases → credit.",
+    entry: { debits: [["Rent Expense", "7,000"]], credits: [["Prepaid Rent", "7,000"]] }
+  },
+  {
+    category: "Adjusting",
+    prompt: "On March 1 a company paid 2,400 for a 12-month insurance policy (recorded as Prepaid Insurance). The adjusting entry on December 31 is:",
+    options: [
+      "Debit Insurance Expense 200; Credit Prepaid Insurance 200",
+      "Debit Insurance Expense 2,000; Credit Prepaid Insurance 2,000",
+      "Debit Prepaid Insurance 2,000; Credit Insurance Expense 2,000",
+      "Debit Insurance Expense 2,400; Credit Cash 2,400"
+    ],
+    correct: 1,
+    explanation: "From March 1 to December 31 = 10 months. Monthly cost = 2,400 / 12 = 200. Expired = 10 × 200 = 2,000. Insurance Expense (debit) and Prepaid Insurance (credit).",
+    entry: { debits: [["Insurance Expense", "2,000"]], credits: [["Prepaid Insurance", "2,000"]] }
+  },
+  {
+    category: "Adjusting",
+    prompt: "Supplies had a beginning balance of 800. During the year, 3,000 of supplies were purchased and debited to Supplies. A year-end count shows 500 on hand. The adjusting entry is:",
+    options: [
+      "Debit Supplies Expense 3,300; Credit Supplies 3,300",
+      "Debit Supplies 500; Credit Supplies Expense 500",
+      "Debit Supplies Expense 500; Credit Supplies 500",
+      "Debit Supplies Expense 3,000; Credit Supplies 3,000"
+    ],
+    correct: 0,
+    explanation: "Supplies used = Beginning + Purchases − Ending = 800 + 3,000 − 500 = 3,300. Supplies Expense is debited, Supplies (asset) is credited to bring it down to 500.",
+    entry: { debits: [["Supplies Expense", "3,300"]], credits: [["Supplies", "3,300"]] }
+  },
+  {
+    category: "Adjusting",
+    prompt: "Equipment costing 40,000 has annual depreciation of 4,000. The year-end adjusting entry is:",
+    options: [
+      "Debit Depreciation Expense 4,000; Credit Equipment 4,000",
+      "Debit Equipment 4,000; Credit Accumulated Depreciation 4,000",
+      "Debit Depreciation Expense 4,000; Credit Accumulated Depreciation 4,000",
+      "Debit Accumulated Depreciation 4,000; Credit Depreciation Expense 4,000"
+    ],
+    correct: 2,
+    explanation: "Depreciation Expense (expense) is debited; Accumulated Depreciation (contra-asset) is credited. Equipment itself is never directly reduced — that is the purpose of the contra account.",
+    entry: { debits: [["Depreciation Expense", "4,000"]], credits: [["Accumulated Depreciation", "4,000"]] }
+  },
+  {
+    category: "Adjusting",
+    prompt: "Employees earned 2,500 of wages in the last week of December but will be paid in January. The December 31 adjusting entry is:",
+    options: [
+      "Debit Wages Expense 2,500; Credit Cash 2,500",
+      "Debit Wages Expense 2,500; Credit Wages Payable 2,500",
+      "Debit Wages Payable 2,500; Credit Wages Expense 2,500",
+      "No entry until wages are paid"
+    ],
+    correct: 1,
+    explanation: "Accrual principle: expense is recognized when incurred. Wages Expense (debit) increases, Wages Payable (liability, credit) is created to reflect what is owed.",
+    entry: { debits: [["Wages Expense", "2,500"]], credits: [["Wages Payable", "2,500"]] }
+  },
+  {
+    category: "Adjusting",
+    prompt: "A company signed a 60,000, 6%, 1-year note payable on October 1. The December 31 adjusting entry for accrued interest is:",
+    options: [
+      "Debit Interest Expense 3,600; Credit Cash 3,600",
+      "Debit Interest Expense 900; Credit Interest Payable 900",
+      "Debit Interest Payable 900; Credit Interest Expense 900",
+      "Debit Interest Expense 3,600; Credit Interest Payable 3,600"
+    ],
+    correct: 1,
+    explanation: "Annual interest = 60,000 × 6% = 3,600. For 3 months (Oct–Dec): 3,600 × 3/12 = 900. Debit Interest Expense, credit Interest Payable (liability — we owe but haven't paid).",
+    entry: { debits: [["Interest Expense", "900"]], credits: [["Interest Payable", "900"]] }
+  },
+  {
+    category: "Adjusting",
+    prompt: "A 10,000 note receivable earning 8% annual interest was received on November 1. The December 31 adjusting entry for earned-but-unreceived interest is:",
+    options: [
+      "Debit Cash 133; Credit Interest Revenue 133",
+      "Debit Interest Revenue 133; Credit Interest Receivable 133",
+      "Debit Interest Receivable 133; Credit Interest Revenue 133",
+      "Debit Interest Receivable 800; Credit Interest Revenue 800"
+    ],
+    correct: 2,
+    explanation: "Annual interest = 10,000 × 8% = 800. For 2 months (Nov–Dec): 800 × 2/12 = 133. Interest Receivable (asset, debit) is created; Interest Revenue (credit) is earned.",
+    entry: { debits: [["Interest Receivable", "133"]], credits: [["Interest Revenue", "133"]] }
+  },
+  {
+    category: "Unearned",
+    prompt: "A magazine publisher receives 1,200 cash in advance for a 12-month subscription on October 1 (recorded initially as Unearned Revenue). The December 31 adjusting entry is:",
+    options: [
+      "Debit Cash 300; Credit Subscription Revenue 300",
+      "Debit Unearned Revenue 900; Credit Subscription Revenue 900",
+      "Debit Unearned Revenue 300; Credit Subscription Revenue 300",
+      "Debit Subscription Revenue 300; Credit Unearned Revenue 300"
+    ],
+    correct: 2,
+    explanation: "3 months have been earned (Oct–Dec): 1,200 × 3/12 = 300. Unearned Revenue (liability) decreases (debit); Subscription Revenue is recognized (credit).",
+    entry: { debits: [["Unearned Revenue", "300"]], credits: [["Subscription Revenue", "300"]] }
+  },
+  {
+    category: "Unearned",
+    prompt: "A company receives 5,000 cash from a customer for services to be performed next quarter. The entry at receipt is:",
+    options: [
+      "Debit Cash 5,000; Credit Service Revenue 5,000",
+      "Debit Cash 5,000; Credit Unearned Revenue 5,000",
+      "Debit Unearned Revenue 5,000; Credit Cash 5,000",
+      "Debit Accounts Receivable 5,000; Credit Service Revenue 5,000"
+    ],
+    correct: 1,
+    explanation: "Cash increases (debit). We have NOT yet earned it — we owe the customer a service — so Unearned Revenue (liability, credit).",
+    entry: { debits: [["Cash", "5,000"]], credits: [["Unearned Revenue", "5,000"]] }
+  },
+  {
+    category: "Adjusting",
+    prompt: "The company estimates that 2% of its 80,000 credit sales will be uncollectible. The adjusting entry is:",
+    options: [
+      "Debit Accounts Receivable 1,600; Credit Allowance for Doubtful Accounts 1,600",
+      "Debit Bad Debt Expense 1,600; Credit Accounts Receivable 1,600",
+      "Debit Bad Debt Expense 1,600; Credit Allowance for Doubtful Accounts 1,600",
+      "Debit Allowance for Doubtful Accounts 1,600; Credit Bad Debt Expense 1,600"
+    ],
+    correct: 2,
+    explanation: "Estimate = 80,000 × 2% = 1,600. Under the allowance method, Bad Debt Expense (debit) matches against current revenue, and Allowance for Doubtful Accounts (contra-asset, credit) reduces AR on the balance sheet.",
+    entry: { debits: [["Bad Debt Expense", "1,600"]], credits: [["Allowance for Doubtful Accounts", "1,600"]] }
+  },
+
+  // ── Closing Entries ──────────────────────────────────────────────────
+  {
+    category: "Closing",
+    prompt: "At year-end, Sales Revenue has a credit balance of 90,000. The closing entry to close Sales Revenue is:",
+    options: [
+      "Debit Income Summary 90,000; Credit Sales Revenue 90,000",
+      "Debit Sales Revenue 90,000; Credit Retained Earnings 90,000",
+      "Debit Sales Revenue 90,000; Credit Income Summary 90,000",
+      "Debit Sales Revenue 90,000; Credit Cash 90,000"
+    ],
+    correct: 2,
+    explanation: "Revenue accounts have credit balances. To close them we debit them to bring them to zero, crediting Income Summary to collect the period's totals.",
+    entry: { debits: [["Sales Revenue", "90,000"]], credits: [["Income Summary", "90,000"]] }
+  },
+  {
+    category: "Closing",
+    prompt: "Total expenses for the year are 62,000. The closing entry to close expense accounts is:",
+    options: [
+      "Debit Expenses 62,000; Credit Income Summary 62,000",
+      "Debit Income Summary 62,000; Credit Expenses 62,000",
+      "Debit Retained Earnings 62,000; Credit Expenses 62,000",
+      "Debit Income Summary 62,000; Credit Cash 62,000"
+    ],
+    correct: 1,
+    explanation: "Expense accounts have debit balances. To close them, credit each expense account (bringing it to zero) and debit Income Summary.",
+    entry: { debits: [["Income Summary", "62,000"]], credits: [["Expenses (each account)", "62,000"]] }
+  },
+
+  // ── Miscellaneous ────────────────────────────────────────────────────
+  {
+    category: "Payables",
+    prompt: "A company pays off a 60,000 note along with 900 of accrued interest (recorded earlier as Interest Payable) and no new interest. The entry on payment is:",
+    options: [
+      "Debit Cash 60,900; Credit Notes Payable 60,900",
+      "Debit Notes Payable 60,000; Debit Interest Expense 900; Credit Cash 60,900",
+      "Debit Notes Payable 60,000; Debit Interest Payable 900; Credit Cash 60,900",
+      "Debit Notes Payable 60,900; Credit Interest Payable 900; Credit Cash 60,000"
+    ],
+    correct: 2,
+    explanation: "Both liabilities are extinguished (debit Notes Payable 60,000 and Interest Payable 900), and cash decreases by the total paid (credit 60,900). Interest was already expensed in the adjusting entry.",
+    entry: { debits: [["Notes Payable", "60,000"], ["Interest Payable", "900"]], credits: [["Cash", "60,900"]] }
+  },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════════════════
+const state = {
+  screen: "start",           // "start" | "quiz" | "results"
+  selectedCats: new Set(),   // empty = all
+  order: [],                 // indices into QUESTIONS for this run
+  idx: 0,
+  score: 0,
+  streak: 0,
+  bestStreak: 0,
+  answered: false,
+  picked: -1,                // index into shuffled options
+  optionOrder: [],           // mapping: display_index → original_option_index
+  wrong: [],                 // [{q, picked, correctText}]
+};
+
+const ALL_CATS = [...new Set(QUESTIONS.map(q => q.category))];
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// RENDERERS
+// ═══════════════════════════════════════════════════════════════════════════
+const app = document.getElementById("app");
+
+function render() {
+  if (state.screen === "start")   return renderStart();
+  if (state.screen === "quiz")    return renderQuiz();
+  if (state.screen === "results") return renderResults();
+}
+
+function renderStart() {
+  const total = QUESTIONS.length;
+  const selected = state.selectedCats.size === 0 ? total
+    : QUESTIONS.filter(q => state.selectedCats.has(q.category)).length;
+
+  app.innerHTML = `
+    <div class="hero">
+      <h1>Journal Entry Trainer</h1>
+      <div class="sub">Debit the receiver · credit the giver</div>
+    </div>
+    <div class="start-card">
+      <h2>How to play</h2>
+      <div class="rules">
+        <div class="row"><span class="pill dr">DR</span><div>Debits are on the <b>left</b> — they increase assets and expenses, decrease liabilities, equity, and revenue.</div></div>
+        <div class="row"><span class="pill cr">CR</span><div>Credits are on the <b>right</b> — they do the opposite.</div></div>
+        <div class="row"><span class="pill" style="background:rgba(245,158,11,0.18);color:#fbbf24;border:1px solid rgba(245,158,11,0.35);">?</span><div>Pick the entry that records the transaction. Immediate feedback explains each answer.</div></div>
+      </div>
+      <h2>Focus on topics <span style="font-weight:400;color:var(--mute);font-size:0.78rem;">(optional · leave blank for all)</span></h2>
+      <div class="category-filter" id="catFilter">
+        ${ALL_CATS.map(c =>
+          `<button class="cat-chip ${state.selectedCats.has(c) ? "active" : ""}" data-cat="${c}">${c} (${QUESTIONS.filter(q=>q.category===c).length})</button>`
+        ).join("")}
+      </div>
+      <button class="btn btn-primary" id="startBtn">
+        Start Quiz · ${selected} question${selected !== 1 ? "s" : ""}
+      </button>
+      <div style="text-align:center;margin-top:14px;color:var(--mute);font-size:0.72rem;letter-spacing:0.4px;">
+        Keyboard: <span class="kbd">A</span><span class="kbd">B</span><span class="kbd">C</span><span class="kbd">D</span> to answer · <span class="kbd">Enter</span> / <span class="kbd">Space</span> for next
+      </div>
+    </div>
+  `;
+  document.querySelectorAll("#catFilter .cat-chip").forEach(b => {
+    b.addEventListener("click", () => {
+      const c = b.dataset.cat;
+      if (state.selectedCats.has(c)) state.selectedCats.delete(c);
+      else state.selectedCats.add(c);
+      render();
+    });
+  });
+  document.getElementById("startBtn").addEventListener("click", startQuiz);
+}
+
+function startQuiz() {
+  const pool = state.selectedCats.size === 0
+    ? QUESTIONS.map((_, i) => i)
+    : QUESTIONS.map((q, i) => state.selectedCats.has(q.category) ? i : -1).filter(i => i >= 0);
+  if (!pool.length) return;
+  state.order = shuffle(pool);
+  state.idx = 0;
+  state.score = 0;
+  state.streak = 0;
+  state.bestStreak = 0;
+  state.wrong = [];
+  state.screen = "quiz";
+  loadCurrent();
+  render();
+}
+
+function loadCurrent() {
+  state.answered = false;
+  state.picked = -1;
+  const q = QUESTIONS[state.order[state.idx]];
+  state.optionOrder = shuffle(q.options.map((_, i) => i));
+}
+
+function renderQuiz() {
+  const q = QUESTIONS[state.order[state.idx]];
+  const total = state.order.length;
+  const pct = Math.round((state.idx / total) * 100);
+
+  app.innerHTML = `
+    <div class="meta-row">
+      <div>Question ${state.idx + 1} of ${total}</div>
+      <div>
+        <span class="score-pill">✓ ${state.score}</span>
+        ${state.streak > 1 ? `<span class="streak-pill">🔥 ${state.streak}</span>` : ""}
+      </div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    <div class="qcard">
+      <div class="cat-tag">${q.category}</div>
+      <div class="question-text">${escapeHtml(q.prompt)}</div>
+      <div class="options" id="options">
+        ${state.optionOrder.map((origIdx, displayIdx) => {
+          const letter = "ABCD"[displayIdx];
+          return `<button class="option" data-i="${displayIdx}">
+            <span class="option-letter">${letter}</span>
+            <span>${escapeHtml(q.options[origIdx])}</span>
+          </button>`;
+        }).join("")}
+      </div>
+      <div id="feedbackSlot"></div>
+    </div>
+  `;
+
+  document.querySelectorAll("#options .option").forEach(b => {
+    b.addEventListener("click", () => pickAnswer(parseInt(b.dataset.i, 10)));
+  });
+}
+
+function pickAnswer(displayIdx) {
+  if (state.answered) return;
+  state.answered = true;
+  state.picked = displayIdx;
+  const q = QUESTIONS[state.order[state.idx]];
+  const pickedOriginal = state.optionOrder[displayIdx];
+  const correctDisplay = state.optionOrder.indexOf(q.correct);
+  const isCorrect = pickedOriginal === q.correct;
+
+  if (isCorrect) {
+    state.score++;
+    state.streak++;
+    state.bestStreak = Math.max(state.bestStreak, state.streak);
+  } else {
+    state.streak = 0;
+    state.wrong.push({
+      prompt: q.prompt,
+      picked: q.options[pickedOriginal],
+      correct: q.options[q.correct],
+      explanation: q.explanation,
+    });
+  }
+
+  // Highlight options
+  document.querySelectorAll("#options .option").forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === correctDisplay) btn.classList.add("correct");
+    else if (i === displayIdx) btn.classList.add("wrong");
+    else btn.classList.add("dimmed");
+  });
+
+  // Render feedback
+  const slot = document.getElementById("feedbackSlot");
+  slot.innerHTML = `
+    <div class="feedback ${isCorrect ? "" : "wrong"}">
+      <div class="feedback-title ${isCorrect ? "ok" : "bad"}">
+        ${isCorrect ? "✓ Correct" : "✗ Not quite"}
+      </div>
+      <div class="feedback-body">${escapeHtml(q.explanation)}</div>
+      ${renderTAccount(q.entry)}
+    </div>
+    <div class="next-btn-row">
+      <button class="btn next-btn" id="nextBtn">
+        ${state.idx + 1 < state.order.length ? "Next →" : "See results"}
+      </button>
+    </div>
+  `;
+  document.getElementById("nextBtn").addEventListener("click", next);
+}
+
+function renderTAccount(entry) {
+  if (!entry) return "";
+  const rows = Math.max(entry.debits.length, entry.credits.length);
+  let cells = "";
+  for (let i = 0; i < rows; i++) {
+    const d = entry.debits[i];
+    const c = entry.credits[i];
+    cells += `
+      <div class="t-cell dr">${d ? `<span>${escapeHtml(d[0])}</span><span class="amt">${escapeHtml(d[1] || "")}</span>` : ""}</div>
+      <div class="t-cell cr">${c ? `<span style="padding-left:14px;">${escapeHtml(c[0])}</span><span class="amt">${escapeHtml(c[1] || "")}</span>` : ""}</div>
+    `;
+  }
+  return `
+    <div class="t-acct">
+      <div class="t-head dr">DEBIT</div>
+      <div class="t-head cr">CREDIT</div>
+      ${cells}
+    </div>
+  `;
+}
+
+function next() {
+  if (state.idx + 1 < state.order.length) {
+    state.idx++;
+    loadCurrent();
+    render();
+  } else {
+    state.screen = "results";
+    render();
+  }
+}
+
+function renderResults() {
+  const total = state.order.length;
+  const pct = Math.round((state.score / total) * 100);
+  let msg = "Back to the books 📚";
+  if (pct === 100) msg = "Perfect. Auditor-grade. 🏆";
+  else if (pct >= 90) msg = "Excellent — you know the ledgers cold.";
+  else if (pct >= 75) msg = "Strong result.";
+  else if (pct >= 60) msg = "Solid foundation — review the misses below.";
+  else if (pct >= 40) msg = "Keep practicing — focus on debit/credit rules.";
+
+  app.innerHTML = `
+    <div class="results">
+      <div class="score-big">${state.score} / ${total}</div>
+      <div class="score-pct">${pct}% correct · best streak ${state.bestStreak}</div>
+      <div class="score-msg">${msg}</div>
+
+      ${state.wrong.length ? `
+        <div class="review-title">Review · ${state.wrong.length} to re-learn</div>
+        ${state.wrong.map(w => `
+          <div class="review-item">
+            <div class="q">${escapeHtml(w.prompt)}</div>
+            <div class="yours">Your answer: ${escapeHtml(w.picked)}</div>
+            <div class="correct-text">Correct: ${escapeHtml(w.correct)}</div>
+            <div class="feedback-body" style="margin-top:8px;font-size:0.78rem;">${escapeHtml(w.explanation)}</div>
+          </div>
+        `).join("")}
+      ` : ""}
+
+      <div class="action-row">
+        <button class="btn btn-ghost" id="homeBtn">← Home</button>
+        <button class="btn btn-primary" id="againBtn">Play again</button>
+      </div>
+    </div>
+  `;
+  document.getElementById("homeBtn").addEventListener("click", () => {
+    state.screen = "start";
+    render();
+  });
+  document.getElementById("againBtn").addEventListener("click", startQuiz);
+}
+
+function escapeHtml(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// KEYBOARD
+// ═══════════════════════════════════════════════════════════════════════════
+document.addEventListener("keydown", (e) => {
+  if (state.screen === "quiz") {
+    if (!state.answered) {
+      const key = e.key.toUpperCase();
+      const idx = "ABCD".indexOf(key);
+      if (idx >= 0 && idx < state.optionOrder.length) {
+        pickAnswer(idx);
+        e.preventDefault();
+      }
+      const num = parseInt(e.key, 10);
+      if (!isNaN(num) && num >= 1 && num <= 4 && num - 1 < state.optionOrder.length) {
+        pickAnswer(num - 1);
+        e.preventDefault();
+      }
+    } else if (e.key === "Enter" || e.key === " ") {
+      next();
+      e.preventDefault();
+    }
+  } else if (state.screen === "start" && e.key === "Enter") {
+    startQuiz();
+    e.preventDefault();
+  } else if (state.screen === "results" && e.key === "Enter") {
+    startQuiz();
+    e.preventDefault();
+  }
+});
+
+// ═══════════════════════════════════════════════════════════════════════════
+// BOOT
+// ═══════════════════════════════════════════════════════════════════════════
+render();
+</script>
+</body>
+</html>
