@@ -747,12 +747,179 @@
     .question-text { font-size: 1.1rem; }
     .modal { padding: 22px 18px; border-radius: 18px; }
   }
+
+  /* ── Pony reward (correct-answer celebration) ─────────────────── */
+  @keyframes ponyPop {
+    0%   { opacity: 0; transform: translateY(-12px) scale(0.7) rotate(-4deg); }
+    55%  { opacity: 1; transform: translateY(0)    scale(1.06) rotate(2deg); }
+    100% { opacity: 1; transform: translateY(0)    scale(1)    rotate(0deg); }
+  }
+  @keyframes ponyFade {
+    0%   { opacity: 1; transform: scale(1) translateY(0); }
+    100% { opacity: 0; transform: scale(0.92) translateY(-8px); }
+  }
+  .pony-reward {
+    position: fixed;
+    top: 22px;
+    right: 22px;
+    width: 220px;
+    z-index: 9999;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    border: 3px solid var(--gold-line);
+    box-shadow: 0 18px 42px rgba(15,23,42,0.18), 0 0 0 1px var(--gold-soft);
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: top right;
+  }
+  .pony-reward.show   { animation: ponyPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; pointer-events: auto; }
+  .pony-reward.hide   { animation: ponyFade 0.4s ease-out forwards; }
+  .pony-reward img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    padding: 10px;
+    background: linear-gradient(180deg, #fdf4ff 0%, #fef3c7 100%);
+  }
+  .pony-reward .pony-caption {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 8px 10px 10px;
+    color: var(--ink);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--gold-soft) 100%);
+    letter-spacing: 0.01em;
+  }
+  .pony-reward .pony-close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    color: var(--mute);
+    font-size: 14px;
+    line-height: 22px;
+    cursor: pointer;
+    padding: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+  .pony-reward .pony-close:hover { background: #fff; color: var(--ink); }
+  @media (max-width: 600px) {
+    .pony-reward { width: 160px; top: 14px; right: 14px; }
+    .pony-reward img { height: 160px; }
+  }
 </style>
 </head>
 <body>
 <div class="container" id="app"></div>
 
+<div id="ponyReward" class="pony-reward" aria-hidden="true" role="status">
+  <img id="ponyImg" alt="A cute pony" />
+  <div class="pony-caption">✨ Cute pony!</div>
+  <button type="button" class="pony-close" id="ponyClose" aria-label="Dismiss">×</button>
+</div>
+
 <script>
+// ═══════════════════════════════════════════════════════════════════════════
+// CUTE CARTOON PONIES (correct-answer reward)
+// ═══════════════════════════════════════════════════════════════════════════
+// Hotlinked from OpenClipart (CC0 / public domain).
+const PONY_IMAGES = [
+  "https://openclipart.org/image/800px/2691",
+  "https://openclipart.org/image/800px/12486",
+  "https://openclipart.org/image/800px/26623",
+  "https://openclipart.org/image/800px/47143",
+  "https://openclipart.org/image/800px/102193",
+  "https://openclipart.org/image/800px/123925",
+  "https://openclipart.org/image/800px/158377",
+  "https://openclipart.org/image/800px/164515",
+  "https://openclipart.org/image/800px/170851",
+  "https://openclipart.org/image/800px/178853",
+  "https://openclipart.org/image/800px/184659",
+  "https://openclipart.org/image/800px/190760",
+  "https://openclipart.org/image/800px/194257",
+  "https://openclipart.org/image/800px/202751",
+  "https://openclipart.org/image/800px/202752",
+  "https://openclipart.org/image/800px/202753",
+  "https://openclipart.org/image/800px/202754",
+  "https://openclipart.org/image/800px/228778",
+  "https://openclipart.org/image/800px/234301",
+  "https://openclipart.org/image/800px/236761",
+  "https://openclipart.org/image/800px/243007",
+  "https://openclipart.org/image/800px/258730",
+  "https://openclipart.org/image/800px/258977",
+  "https://openclipart.org/image/800px/258978",
+  "https://openclipart.org/image/800px/263230",
+  "https://openclipart.org/image/800px/269381",
+  "https://openclipart.org/image/800px/271365",
+  "https://openclipart.org/image/800px/274644",
+  "https://openclipart.org/image/800px/279295",
+  "https://openclipart.org/image/800px/283208",
+  "https://openclipart.org/image/800px/283725",
+  "https://openclipart.org/image/800px/285951",
+  "https://openclipart.org/image/800px/286701",
+  "https://openclipart.org/image/800px/288005",
+  "https://openclipart.org/image/800px/292765",
+  "https://openclipart.org/image/800px/292891",
+  "https://openclipart.org/image/800px/293841",
+  "https://openclipart.org/image/800px/300553",
+  "https://openclipart.org/image/800px/308229",
+  "https://openclipart.org/image/800px/314475",
+  "https://openclipart.org/image/800px/331869",
+  "https://openclipart.org/image/800px/332016",
+  "https://openclipart.org/image/800px/337956",
+  "https://openclipart.org/image/800px/337978",
+  "https://openclipart.org/image/800px/340455",
+  "https://openclipart.org/image/800px/340460"
+];
+
+const ponyState = { recent: [], hideTimer: null };
+
+function showPonyReward() {
+  const el = document.getElementById("ponyReward");
+  const img = document.getElementById("ponyImg");
+  if (!el || !img || !PONY_IMAGES.length) return;
+
+  // Pick a random pony, avoiding the most recent few
+  const avoidCount = Math.min(8, PONY_IMAGES.length - 1);
+  let url;
+  do {
+    url = PONY_IMAGES[Math.floor(Math.random() * PONY_IMAGES.length)];
+  } while (ponyState.recent.includes(url));
+  ponyState.recent.push(url);
+  if (ponyState.recent.length > avoidCount) ponyState.recent.shift();
+
+  img.src = url;
+  el.classList.remove("hide");
+  // Force reflow to restart animation if already showing
+  void el.offsetWidth;
+  el.classList.add("show");
+  el.setAttribute("aria-hidden", "false");
+
+  clearTimeout(ponyState.hideTimer);
+  ponyState.hideTimer = setTimeout(hidePonyReward, 2800);
+}
+
+function hidePonyReward() {
+  const el = document.getElementById("ponyReward");
+  if (!el) return;
+  clearTimeout(ponyState.hideTimer);
+  el.classList.remove("show");
+  el.classList.add("hide");
+  el.setAttribute("aria-hidden", "true");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const closeBtn = document.getElementById("ponyClose");
+  if (closeBtn) closeBtn.addEventListener("click", hidePonyReward);
+});
+
 // ═══════════════════════════════════════════════════════════════════════════
 // QUESTION BANK
 // ═══════════════════════════════════════════════════════════════════════════
@@ -2118,6 +2285,7 @@ function pickAnswer(displayIdx) {
     state.score++;
     state.streak++;
     state.bestStreak = Math.max(state.bestStreak, state.streak);
+    showPonyReward();
   } else {
     state.streak = 0;
     state.wrong.push({
