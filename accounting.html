@@ -181,6 +181,30 @@
     border-color: var(--gold-line);
     color: var(--ink-strong);
   }
+  .timer-control {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: -8px 0 28px;
+  }
+  .timer-chip {
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--mute);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .timer-chip:hover { border-color: var(--line-strong); color: var(--ink-strong); }
+  .timer-chip.active {
+    background: var(--dr-soft);
+    border-color: var(--dr-line);
+    color: var(--dr);
+  }
 
   .btn {
     font-family: inherit;
@@ -249,6 +273,31 @@
     font-weight: 700;
     margin-left: 8px;
   }
+  .timer-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--panel-soft);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-weight: 800;
+    margin-right: 8px;
+    min-width: 58px;
+    justify-content: center;
+  }
+  .timer-pill.warning {
+    background: var(--gold-soft);
+    border-color: var(--gold-line);
+    color: #7a6c4e;
+  }
+  .timer-pill.danger {
+    background: var(--bad-soft);
+    border-color: var(--bad-line);
+    color: #7a3f37;
+  }
 
   .progress-bar {
     height: 4px;
@@ -282,6 +331,27 @@
     letter-spacing: 0.16em;
     color: var(--faint);
     margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  .q-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .q-meta .cat-tag { margin-bottom: 0; }
+  .source-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--gold-line);
+    background: var(--gold-soft);
+    color: #7a6c4e;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
   .question-text {
@@ -813,6 +883,40 @@
   @media (max-width: 600px) {
     .pony-reward { width: 160px; top: 14px; right: 14px; }
     .pony-reward img { height: 160px; }
+  }
+
+  /* ─── Subject tabs (top) ─────────────────────────────────── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 5px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+  }
+  .tab {
+    flex: 1;
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-weight: 700;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    color: var(--faint);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    letter-spacing: -0.005em;
+    line-height: 1.1;
+  }
+  .tab:hover { color: var(--ink-strong); }
+  .tab.active {
+    background: var(--gold-soft);
+    color: var(--ink-strong);
+    border: 1px solid var(--gold-line);
+    box-shadow: 0 2px 8px rgba(15,23,42,0.05);
   }
 </style>
 </head>
@@ -1752,7 +1856,1494 @@ const QUESTIONS = [
     correct: 1,
     explanation: "Annual preferred = 25,000 × 10 × 8% = 20,000. Cumulative arrears (2018, 2019) + current (2020) = 60,000 owed, but only 30,000 is available — all of it goes to preference shareholders, leaving 0 for ordinary."
   },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // BWL II — Probeprüfung Frühjahrssemester 2017 (Universität Zürich)
+  // ════════════════════════════════════════════════════════════════════════
+
+  // ── Teil 1: Strategisches Management ──────────────────────────────────
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zu Markteintrittsbarrieren und Marktaustrittsbarrieren ist am ehesten richtig?",
+    options: [
+      "Preissenkungen als Massnahme zur Verteidigung der eigenen Positionen in einer Branche werden bei hohen Marktaustrittsbarrieren seltener angewendet.",
+      "Positive Netzwerkexternalitäten machen einen Markteintritt für neue Firmen mit Konkurrenztechnologien attraktiver, weil Neueintreter die installierte Basis der Etablierten nutzen können.",
+      "Die Einführung eines Mindestlohns in einer Branche wirkt als Markteintrittsbarriere und stärkt die Position der Firmen, welche sich bereits im Markt befinden.",
+      "Eine erhöhte Reputationsempfindlichkeit der Konsumenten erleichtert neuen Firmen den Markteinstieg, weil diese dadurch schneller eigene Reputation aufbauen können.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    correct: 2,
+    explanation: "Ein Mindestlohn erhöht die Personalkosten für alle, trifft aber Neueintreter stärker (keine etablierten Effizienzvorteile) und schützt damit die Position der bereits im Markt befindlichen Firmen."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Gegeben sei eine Branche mit nicht differenzierbaren Produkten. Welche Aussage zur Positionierung für Wettbewerbsvorteile gemäss Porter ist am ehesten richtig? Der Kostenführer ist ceteris paribus…",
+    options: [
+      "…vor interner Rivalität geschützt, da er durch den Wertschöpfungsvorteil einen höheren Preis als die Konkurrenz verlangen kann.",
+      "…vor Substituten geschützt, da tiefe Kosten auch tiefe Preise zulassen und dadurch die Anreize, ein Substitut zu entwickeln, sinken.",
+      "…vor Neueintritten geschützt, da er durch den Kostenvorteil «vertical foreclosure» betreiben kann.",
+      "…vor marktmächtigen Zulieferern geschützt, da die Zulieferer ihre Preise nicht senken können.",
+      "…vor marktmächtigen Abnehmern geschützt, da die Abnehmer ihre Kosten nur auf das Niveau des zweiteffizientesten Konkurrenten drücken können."
+    ],
+    correct: 1,
+    explanation: "Tiefe Kosten erlauben tiefe Preise. Da Substitute v. a. dann attraktiv werden, wenn Preise hoch sind, sinken die Anreize, ein Substitut zu entwickeln, beim Kostenführer."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Die Käserei Emmenzeller bezieht Milch von einem Milchlieferanten und produziert damit Käse. Bisher hat Emmenzeller den Käse ausschliesslich an einen Grosshändler weiterverkauft. Nun eröffnet Emmenzeller einen eigenen Laden und verkauft einen Teil seiner Ware direkt an den Endkunden. Welche der folgenden Aussagen ist ceteris paribus am ehesten richtig?",
+    options: [
+      "Die vertikale Wertschöpfungskette wird verkürzt.",
+      "Der Milchlieferant gewinnt an Verhandlungsmacht.",
+      "Auf Stufe des Grosshändlers nimmt die relative Konzentration zu.",
+      "Die Käserei Emmenzeller vollzieht eine Vorwärtsintegration.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    correct: 3,
+    explanation: "Emmenzeller übernimmt eine nachgelagerte Stufe (Detailhandel/Endkundenverkauf) – per Definition eine Vorwärtsintegration in die Wertschöpfungskette."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "TK(5,0)=150, TK(10,0)=320, TK(0,50)=100, TK(0,100)=210, TK(5,50)=240, TK(10,100)=500. Basierend auf diesen Angaben beinhaltet die Produktionstechnologie…",
+    options: [
+      "…von X Economies of Scale und von Y Economies of Scale.",
+      "…von X Economies of Scale und von Y Diseconomies of Scale.",
+      "…von X Diseconomies of Scale und von Y Economies of Scale.",
+      "…von X Diseconomies of Scale und Economies of Scope bei der Produktion beider Güter.",
+      "…von X Diseconomies of Scale und Diseconomies of Scope bei der Produktion beider Güter."
+    ],
+    correct: 3,
+    explanation: "DK(X) steigt: 150/5=30 → 320/10=32 (Diseconomies). TK(5,50)=240 < TK(5,0)+TK(0,50)=250 → Economies of Scope. Gemeinsame Produktion ist günstiger als getrennte."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zum Modell der fünf Wettbewerbskräfte von Porter ist am ehesten falsch?",
+    options: [
+      "Der Ausschluss der Neueintreter von etablierten Vertriebskanälen wirkt als Markteintrittsbarriere.",
+      "Die Macht der Kunden ist hoch, wenn die Produkte unterschiedlicher Anbieter als undifferenziert wahrgenommen werden.",
+      "Die Macht der Zulieferer ist hoch, wenn sie abnehmerspezifisch investiert haben.",
+      "Überkapazitäten erhöhen die interne Rivalität.",
+      "Substitute vermindern die Konzentration im Markt und verschärfen den Preiswettbewerb."
+    ],
+    correct: 2,
+    explanation: "Genau umgekehrt: Wenn der Zulieferer abnehmerspezifisch investiert hat (sunk costs), wird er erpressbar (Hold-up-Problem) – seine Macht sinkt, nicht steigt."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Branche 1: zwei Firmen A und B mit DK_A > DK_B; Branche 2: zwei Firmen X und Y mit identischen DK_X,Y. Die interne Rivalität in Branche 1 ist höher als in Branche 2. Womit kann dies am ehesten begründet werden?",
+    options: [
+      "Firma A besitzt höhere Anreize für Preisangriffe als Firma X.",
+      "Firma A hat einen Kostennachteil gegenüber Firma B.",
+      "Firma B produziert eine kleinere Menge als Firma A.",
+      "Firma B realisiert weniger Economies of Scale als Firma X.",
+      "Firma B nutzt weniger Erfahrungskurveneffekte als Firma X."
+    ],
+    correct: 1,
+    explanation: "In Branche 1 hat Firma B tiefere DK als A. Dieser Kostenunterschied gibt B Anreize zu Preisangriffen – die interne Rivalität steigt. In Branche 2 sind die DK identisch, also kein Anreiz zum Preiskampf."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zu Überkapazitäten in einer Branche ist am ehesten richtig? Überkapazitäten der etablierten Firmen…",
+    options: [
+      "…erhöhen ceteris paribus ihre Anreize, kurzfristig eine «Go for share» Strategie zu wählen.",
+      "…reduzieren ceteris paribus ihre Fixkosten.",
+      "…signalisieren eine kooperative Preissetzung und erschweren damit Markteintritte.",
+      "…führen in einer stagnierenden Branche ceteris paribus zu weniger Preiswettbewerb.",
+      "…führen ceteris paribus zu tieferen Marktaustrittsbarrieren und tieferem Preiswettbewerb."
+    ],
+    correct: 0,
+    explanation: "Bei Überkapazitäten sind v. a. variable Kosten relevant; die Firmen versuchen aggressiv, ihre Kapazitäten auszulasten – sie wählen kurzfristig eine «Go for share» Strategie."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Die Thek AG vertreibt Rucksäcke und überlegt, die Preise zu senken. Welche Situation spricht am ehesten für eine Preissenkung?",
+    options: [
+      "Allfällige Preissenkungen von der Thek AG werden vom Konkurrenzunternehmen Pack AG unmittelbar wahrgenommen.",
+      "Das einzige Konkurrenzunternehmen in der Branche ist die Pack AG.",
+      "Das Konkurrenzunternehmen Pack AG ist auch in der Kleiderproduktion tätig und realisiert dadurch hohe Economies of Scope.",
+      "Die Thek AG besitzt aufgrund der längeren Zeit in der Branche einen deutlichen Erfahrungsvorsprung gegenüber der Konkurrenz.",
+      "Die Kapazitäten der Thek AG sind weitgehend ausgelastet."
+    ],
+    correct: 3,
+    explanation: "Ein Kostenvorteil durch Erfahrung bedeutet, dass die Konkurrenz Preissenkungen weniger lang durchhält. Die Preissenkung wird glaubwürdig und der Marktanteilsgewinn nachhaltig."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Firmen A und B haben gleiche Kosten und verlangen denselben Preis, aber Konsumenten haben für A mehr Wertschätzung. Welche Aussage ist am ehesten richtig?",
+    options: [
+      "Die Konsumentenrente von Firma B ist grösser als die Konsumentenrente von Firma A.",
+      "Die Differenz in der Wertschätzung entspricht der nichtangreifbaren Produzentenrente von Firma A.",
+      "Die Wertschöpfung von Firma B ist grösser als die Wertschöpfung von Firma A.",
+      "Die Differenz im Preis entspricht der nichtangreifbaren Produzentenrente von Firma A.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    correct: 1,
+    explanation: "Bei gleichen Kosten und Preis bleibt der WTP-Vorsprung von A auch im Preiskampf bestehen – diese Wertschätzungsdifferenz ist die «nicht-angreifbare» Produzentenrente von A."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zu nachhaltigen Wettbewerbsvorteilen gemäss «Resource-Based Theory of the Firm» ist am ehesten richtig? Nachhaltige Wettbewerbsvorteile begründen sich durch Resources und Capabilities, welche…",
+    options: [
+      "…sowohl knapp als auch substituierbar sind.",
+      "…sowohl beziehungsspezifisch als auch imitierbar sind.",
+      "…sowohl knapp als auch perfekt handelbar sind.",
+      "…sowohl tazit als auch perfekt mobil sind.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    correct: 4,
+    explanation: "Nachhaltige Vorteile erfordern Ressourcen, die knapp, nicht-imitierbar, nicht-substituierbar und nicht-handelbar/mobil sind (VRIN). Alle anderen Optionen enthalten widersprüchliche Eigenschaften."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Die Firma FFP produziert Krawatten mit TK(Q) = 99Q + 250. Verkaufspreis P = 110. Wie viele Krawatten muss FFP mindestens herstellen, um keinen Verlust zu erwirtschaften?",
+    options: ["19", "20", "21", "22", "23"],
+    correct: 4,
+    explanation: "Gewinn = (110 − 99)·Q − 250 ≥ 0 → 11Q ≥ 250 → Q ≥ 22,73. Da nur ganze Krawatten produziert werden, mindestens 23."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "In Porters 5-Kräfte-Analyse spielt die «Macht der Zulieferer» eine wichtige Rolle. Welche Aussage ist gemäss Porter am ehesten falsch?",
+    options: [
+      "Je grösser die Einkaufsvolumina der Downstream-Unternehmen, desto höher ist, ceteris paribus, ihre Verhandlungsmacht gegenüber den Zulieferern.",
+      "Je mehr substitutive Inputs den Downstream-Unternehmen zur Verfügung stehen, desto tiefer ist, ceteris paribus, die Marktmacht der Zulieferer.",
+      "Die Hold-up Problematik definiert sich über die ein- oder zweiseitige Erpressbarkeit der Vertragspartner nach Vertragsabschluss.",
+      "Upstream-Unternehmen können ihre eigene Position stärken, indem sie überzeugend ankünden, selbständig im Downstream-Markt zu agieren.",
+      "Upstream-Unternehmen können ihre eigene Position stärken, indem sie in Vermögensgegenstände investieren, die einer spezifischen Lieferbeziehung gewidmet sind."
+    ],
+    correct: 4,
+    explanation: "Beziehungsspezifische Investitionen machen den Zulieferer erpressbar (sunk costs, Hold-up). Sie schwächen die Position des Zulieferers, anstatt sie zu stärken."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Drei Produktbündel X, Y, Z mit homogenen Konsumentenpräferenzen, Effizienzgrenze, gleichen DK für Y und Z (DK_X tiefer). Welche Aussage zur dargestellten Situation ist am ehesten falsch?",
+    options: [
+      "Das Produkt Y bietet eine tiefere Konsumentenrente als das Produkt X.",
+      "Das Produkt Z generiert die gleiche Produzentenrente wie das Produkt X.",
+      "Das Produkt X generiert eine positive Produzentenrente.",
+      "Unternehmen X produziert effizienter als Unternehmen Z.",
+      "Für die Produkte X und Z entspricht der Wertschätzungsunterschied dem Preisunterschied."
+    ],
+    correct: 1,
+    explanation: "Z liegt auf einer höheren Indifferenzkurve mit höherem Preis. Da DK(Y) = DK(Z) > DK(X), aber P_Z > P_X gilt, ist die Produzentenrente von Z grösser als die von X – nicht gleich."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zu Resources und Capabilities ist am ehesten richtig?",
+    options: [
+      "Capabilities sind jeweils nur in einem Markt oder für ein Produkt wertvoll.",
+      "Der zusätzliche Gewinn durch den Einsatz einer knappen und perfekt mobilen Ressource wird vom Eigentümer dieser Ressource abgeschöpft.",
+      "Je mobiler eine Ressource ist, desto höher sind die Möglichkeiten für eine Firma damit langfristige Wettbewerbsvorteile aufzubauen.",
+      "Der Verstärkungseffekt von positiven Netzwerkexternalitäten resultiert bei Capabilities aus dem Zusatznutzen durch den Schutz vor Neueintritten.",
+      "Resources und Capabilities sind immer an das individuelle und unternehmensspezifische Know-How der einzelnen Mitarbeiter gebunden."
+    ],
+    correct: 1,
+    explanation: "Bei perfekter Mobilität wird die Ressource im Markt zu ihrem Wert gehandelt – der Vorteil fliesst zum Eigentümer der Ressource, nicht zur nutzenden Firma."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Oilster: Stufe 1 (Rohöl): variable Stückkosten 1, Fixkosten 50'000, verarbeitete Menge 100'000, verkaufte Menge 20'000 zum Preis 2. Oilster schöpft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertschöpfung der 1. Stufe?",
+    options: ["-10’000", "50’000", "80’000", "100’000", "1’200’000"],
+    correct: 1,
+    explanation: "Wertschöpfung = (Gesamtwert der 100'000 Einheiten zum Marktpreis 2) − Kosten = 200'000 − (100'000·1 + 50'000) = 50'000. Die intern weitergeleitete Menge wird zum Marktpreis bewertet."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Zwei Anbieter X und Y von Büroklammern. Wertschätzung ist anbieter-unabhängig; X hat Kostenvorteile. Welche Aussage ist am ehesten richtig?",
+    options: [
+      "Wenn beide Anbieter denselben Preis verlangen, sind die Produzentenrenten von Anbieter X und Anbieter Y identisch.",
+      "Wenn der Preis gleich der Wertschätzung ist, beträgt die Produzentenrente von Anbieter Y immer null.",
+      "Die Wertschöpfung von Anbieter X ist kleiner als die Wertschöpfung von Anbieter Y.",
+      "Die Kostendifferenz zwischen den beiden Anbietern entspricht der «nicht-angreifbaren Produzentenrente» von Anbieter X.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    correct: 3,
+    explanation: "Auch im Preiskampf bleibt der Kostenvorteil von X erhalten. Die Kostendifferenz ist daher die «nicht-angreifbare» Produzentenrente von X."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zur Verteidigung von Wettbewerbsvorteilen ist am ehesten richtig?",
+    options: [
+      "Besitzt eine Firma knappe, immobile Ressourcen ist sie nachhaltig vor Angriffen der Konkurrenz geschützt.",
+      "Ressourcen sind nur dann vorteilhaft, wenn sie über mehrere Produkte hinweg wertvoll sind.",
+      "Isolationsmechanismen einer Firma sind vergleichbar mit den Marktaustrittsbarrieren bei der Branchenwahl.",
+      "Bei identischen Resources und Capabilities aller Konkurrenten findet sich stets eine Strategie, um sich besser als die anderen zu positionieren.",
+      "Gemäss der «Resource-Based Theory of the Firm» basieren nachhaltige Wettbewerbsvorteile auf dauerhaften Unterschieden zwischen Firmen."
+    ],
+    correct: 4,
+    explanation: "Kernprinzip der RBV: Nur dauerhafte, nicht-imitierbare Unterschiede zwischen Firmen ermöglichen nachhaltige Wettbewerbsvorteile. Identische Ressourcen lassen keinen Vorsprung zu."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "SwissCam (Kameras, viele Nicht-Preis-Attribute) hat einen Wertschätzungsvorteil ohne Kostennachteil. Welche Pricing-Strategie ist am ehesten empfehlenswert? SwissCam sollte…",
+    options: [
+      "…die Preise der Konkurrenz unterbieten, um damit hohe Marktanteile abzuschöpfen.",
+      "…die Preise der Konkurrenz angleichen, da sie damit höhere Margen als die Konkurrenz abschöpfen kann.",
+      "…nichts unternehmen, da sie bereits von einer «nicht-angreifbaren Konsumentenrente» profitiert.",
+      "…die Preise der Konkurrenz angleichen, um damit hohe Marktanteile abzuschöpfen.",
+      "…einen Premiumpreis verlangen, da sie damit höhere Margen als die Konkurrenz abschöpfen kann."
+    ],
+    correct: 4,
+    explanation: "Bei Erfahrungsgütern mit vielen Non-Price-Attributen dient der Preis als Qualitätssignal. Mit echtem WTP-Vorteil sollte SwissCam einen Premiumpreis verlangen und so höhere Margen abschöpfen."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zu Positionierungsstrategien ist am ehesten richtig?",
+    options: [
+      "Nutzen etablierte Konkurrenten Economies of Scale bereits vollständig aus, stellt die Kostenführerschaft die geeignetere Positionierungsstrategie eines Neueintreters dar.",
+      "In einer Branche mit Inspektionsgütern ist eine Wertschätzungsstrategie empfehlenswert, da die Kunden die Qualität eines Produktes oder einer Dienstleistung zuerst inspizieren müssen.",
+      "Die Kostenführerschaft in einer Branche schützt eine Firma vor Substituten, was der Firma zu Wettbewerbsvorteilen in anderen Branchen verhilft.",
+      "Um sich als Wertschätzungsführer zwischen einer Fokusstrategie und einer Broad Coverage Strategie entscheiden zu können, ist eine Marktsegmentierung nötig.",
+      "Verschiedene Marktsegmente unterscheiden sich in der angesprochenen Kundengruppe beziehungsweise im angebotenen Produkt, jedoch nicht in ihrer Attraktivität, da sie zum selben Markt gehören."
+    ],
+    correct: 3,
+    explanation: "Erst die Marktsegmentierung erlaubt es einem Wertschätzungsführer, zwischen Fokus- und Broad-Coverage-Strategie zu entscheiden – sie liefert die Grundlage für diese Wahl."
+  },
+  {
+    subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zum Konzept Economies of Scale ist am ehesten richtig?",
+    options: [
+      "Die Produktion der kostenoptimalen Betriebsgrösse maximiert stets die kumulierte Produktionsmenge.",
+      "Die Ursache für «long-run» Economies of Scale liegt in der Verteilung der Fixkosten.",
+      "In einem Produktionsprozess ohne variable Kosten kann eine Firma keine Diseconomies of Scale realisieren.",
+      "In einem Produktionsprozess ohne Fixkosten kann eine Firma keine Economies of Scale realisieren.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    correct: 2,
+    explanation: "Diseconomies of Scale entstehen aus steigenden variablen Stückkosten (Koordination, Engpässe). Ohne variable Kosten existiert nichts, was mit der Menge steigen könnte."
+  },
+
+  // ── Teil 2: Human Resource Management ─────────────────────────────────
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "«Wenn du deine Hausaufgaben machst und danach den Rasen mähst, bekommst du diese Woche 5 Franken mehr Taschengeld.» Welche Funktion finanzieller Anreize wird in dieser Aussage nicht abgedeckt?",
+    options: [
+      "Entschädigungsfunktion",
+      "Selbstselektionsfunktion",
+      "Verhaltenssteuerungsfunktion",
+      "Disziplinierungsfunktion",
+      "Motivationsfunktion"
+    ],
+    correct: 1,
+    explanation: "Selbstselektion (Anreize, die nur die «richtigen» Personen anziehen) ist im Eltern-Kind-Kontext nicht relevant – das Kind ist bereits gewählt. Es geht hier um Disziplinierung, Motivation, Verhaltenssteuerung und Entschädigung."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Herr Brötli (Bäcker) leidet unter Schlafstörungen wegen seines frühen Arbeitsbeginns. Sein Chef versetzt ihn für drei Monate als Verkäufer in die Bäckerei (Arbeitsbeginn 6 statt 3 Uhr). Welche Arbeitsgestaltungsmassnahme wurde vorgeschlagen?",
+    options: ["Job Circulation", "Job Changement", "Job Enlargement", "Job Enrichment", "Job Rotation"],
+    correct: 4,
+    explanation: "Ein Stellenwechsel auf gleicher Hierarchieebene ohne Erweiterung des Tätigkeitsspektrums ist Job Rotation. «Job Circulation» und «Job Changement» sind keine etablierten Begriffe."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Hoover AG: Wer am meisten Staubsauger verkauft, gewinnt einen Heissluftballon-Flug. Hans hat Höhenangst und liegt umsatzmässig nur halb so hoch wie seine Kollegen. Wodurch erklärt Victor Vroom die tiefe Motivation?",
+    options: [
+      "Mangelnde Instrumentalität und Valenz",
+      "Unklare Instrumentalität",
+      "Fehlende Valenz und Erreichbarkeit",
+      "Geringe Erreichbarkeit und Instrumentalität",
+      "Ungenügende Erreichbarkeit"
+    ],
+    correct: 2,
+    explanation: "Vroom: Motivation = Valenz × Instrumentalität × Erwartung. Höhenangst → Valenz null; halb so viele Verkäufe → Erreichbarkeit (Erwartung) tief."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Dave Ulrich (1997) beschreibt vier Aufgabenfelder des HRM. Welche Position übernimmt am ehesten die Rolle eines Performance Coaches?",
+    options: ["Personalabteilung", "Abteilungsleiter", "Chief Executive Officer", "Verwaltungsrat", "Externer HR Consultant"],
+    correct: 1,
+    explanation: "Nach Ulrichs Modell ist der direkte Vorgesetzte/Abteilungsleiter der Performance Coach. Die Personalabteilung übernimmt eher strategische und administrative HR-Rollen."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Welche Funktion trifft am ehesten auf das variable Gehalt zu? Das variable Gehalt soll…",
+    options: [
+      "…gesichertes Einkommen garantieren.",
+      "…aussergewöhnliche persönliche Leistung auszeichnen.",
+      "…unternehmerisches Denken und Handeln fördern.",
+      "…die Mitarbeiter an das Unternehmen binden.",
+      "…den Entscheidungsspielraum der Führungskräfte vergrössern."
+    ],
+    correct: 2,
+    explanation: "Variables Gehalt verknüpft Vergütung mit Unternehmenserfolg und fördert so unternehmerisches Denken/Handeln. Das Grundgehalt sichert Einkommen; Prämien zeichnen Spitzenleistung aus."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Welche Aussage zum Job-Characteristics-Modell und MPA-Index nach Hackman & Oldham ist falsch?",
+    options: [
+      "Beträgt der MPA-Wert einer Projektleiterstelle 20 und derjenige einer Supportstelle 10, so ist der Projektleiter doppelt so motiviert wie der Mitarbeiter im Support.",
+      "Das Job-Characteristics-Modell macht spezifische, theoretisch und empirisch überprüfbare Aussagen über die motivationalen Ressourcen der Arbeitsgestaltung.",
+      "In der Formel zur Berechnung des MPA bestehen zwischen den Variablen „Anforderungsvielfalt“, „Ganzheitlichkeit“ und „Wichtigkeit“ kompensatorische Ausgleichsmöglichkeiten, weshalb diese drei Variablen additiv verknüpft sind.",
+      "Die fünf Variablen zur Berechnung des MPA werden subjektiv wahrgenommen, weshalb das MPA für zwei Personen, die der gleichen Arbeitstätigkeit nachgehen, unterschiedlich ausfallen kann.",
+      "Mit dem Job-Characteristics-Modell wird primär untersucht, welche Charakteristika der Arbeitsgestaltung zu welchem intrinsischen Motivationspotenzial führen."
+    ],
+    correct: 0,
+    explanation: "Der MPA ist ein ordinaler Index, kein Verhältnisindex. Ein doppelt so hoher MPA-Wert bedeutet nicht doppelt so viel Motivation – nur eine höhere Motivationschance."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Herr Vitori muss die Lohnsumme kürzen und will Unzufriedenheit minimieren. Was würde er gemäss Prospect Theory tun?",
+    options: [
+      "Er nimmt bei jedem Mitarbeitenden eine Lohnkürzung in der gleichen Höhe vor.",
+      "Er streicht Ausgaben im Bereich der Arbeitsbedingungen.",
+      "Er erzählt seinen Mitarbeitenden von den geringen Löhnen der Konkurrenz.",
+      "Er setzt den Lohn eines Mitarbeitenden drastisch herunter.",
+      "Er kürzt die in Aussicht gestellten variablen Lohnkomponenten aller Mitarbeitenden."
+    ],
+    correct: 3,
+    explanation: "Prospect Theory: konkave Wertfunktion bei Verlusten. Ein grosser Verlust bei einem Mitarbeiter erzeugt weniger Gesamtunzufriedenheit als viele kleine Verluste verteilt auf alle."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Herr Abi ist viel abwesend; seine Mitarbeiter strengen sich in seiner Abwesenheit weniger an. Welche Aussage trifft am ehesten zu?",
+    options: [
+      "Das Verhalten der Mitarbeitenden lässt sich dadurch erklären, dass die Mitarbeitenden dem Bild des Durchschnittsmenschen nach Theorie X von McGregor entsprechen.",
+      "Das Verhalten der Mitarbeitenden lässt sich gemäss Herzberg dadurch erklären, dass die Abwesenheit von Herrn Abi als Satisfier wirkt und damit die Unzufriedenheit der Mitarbeitenden sinkt.",
+      "Das Verhalten der Mitarbeitenden lässt sich mit dem Hawthorne-Effekt erklären. Dieser Effekt besagt: Schenkt man den Mitarbeitenden keine Aufmerksamkeit, neigen sie zu Nachlässigkeit und Passivität.",
+      "Das Verhalten der Mitarbeitenden lässt sich mit dem Pygmalion-Effekt erklären. Dadurch, dass Herr Abi den Mitarbeitenden misstraut, zeigen sie nur wenig Motivation und Leistung.",
+      "Das Verhalten der Mitarbeitenden lässt sich gemäss der Motivationstheorie von Maslow damit erklären, dass sich die Mitarbeitenden während der Abwesenheit von Herrn Abi selbst verwirklichen wollen."
+    ],
+    correct: 0,
+    explanation: "McGregor Theorie X: Mitarbeiter sind arbeitsscheu und müssen kontrolliert werden, sonst drücken sie sich. Genau das beschreibt das Verhalten in Herrn Abis Abwesenheit."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Welche der folgenden Kombinationen aus einem Risiko von Leistungslöhnen und der Erläuterung ist falsch?",
+    options: [
+      "Negative Teameffekte: Mit individuellen Leistungsprämien können Egoismen gezüchtet werden, die der Kohäsion im Team und dem Wissenstransfer im Weg stehen.",
+      "Frustrationseffekt: Frustration kann entstehen, wenn trotz hoher individueller Anstrengung der für eine Vergütung notwendige Output aufgrund externer Einflüsse nicht erreicht wird.",
+      "Kontraproduktive Verhaltenseffekte: Wiederholte über die individuelle Lernkurve hinausgehende Reduktion der Soll-Leistung, nachdem diese in der Vorperiode übertroffen wurde.",
+      "Sättigungseffekt: Zur Erreichung der gleichen Wirkung braucht es eine immer höhere ‚Dosis’ an finanziellen Anreizen, da finanzielle Anreize einem abnehmenden Grenznutzen unterliegen.",
+      "Time-lag: Zwischen der heutigen Anstrengung und dem morgigen Resultat besteht eine zeitliche Differenz, zu deren Überbrückung Ersatzindikatoren nötig sein können."
+    ],
+    correct: 2,
+    explanation: "Die Beschreibung («Reduktion der Soll-Leistung, nachdem die Vorperiode übertroffen wurde») gehört zum Ratchet-Effekt, nicht zu kontraproduktiven Verhaltenseffekten (Betrug/Gaming)."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Anja argumentiert in der Lohnverhandlung mit ihren regelmässigen Weiterbildungen und ihrer langjährigen Tätigkeit. Welche Gerechtigkeitsdimension(en) macht sie sich zunutze?",
+    options: [
+      "Leistungsgerechtigkeit und Marktgerechtigkeit",
+      "Qualifikationsgerechtigkeit und Marktgerechtigkeit",
+      "Anforderungsgerechtigkeit",
+      "Qualifikationsgerechtigkeit",
+      "Anforderungsgerechtigkeit und Leistungsgerechtigkeit"
+    ],
+    correct: 3,
+    explanation: "Anja argumentiert mit Weiterbildungen (= erworbene Qualifikationen), nicht mit konkreter Leistung, Anforderung oder Marktlohn. Das ist reine Qualifikationsgerechtigkeit."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Ein Kunde lobt einen Verkäufer für seine Beratung. Nach Frederick Herzberg ist dieses Kompliment für den Verkäufer ein...",
+    options: ["Motivator", "Hygienefaktor", "Dissatisfier", "Kontinentfaktor", "Kontextfaktor"],
+    correct: 0,
+    explanation: "Herzberg: Anerkennung/Lob ist ein klassischer Motivator (Zufriedenheitsfaktor). Hygienefaktoren wären z.B. Lohn, Arbeitsbedingungen – ihre Abwesenheit erzeugt Unzufriedenheit, ihre Anwesenheit aber keine Zufriedenheit."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Die FLUCTUS AG erwägt, die Löhne zu erhöhen, weil Mitarbeitende den Lohn als Hauptgrund für einen potentiellen Firmenwechsel angeben. Was empfehlen Sie basierend auf dem HR-Barometer?",
+    options: [
+      "Den Lohn der Mitarbeitenden zu erhöhen, da die potentiellen und tatsächlichen Gründe für einen Firmenwechsel gemäss dem HR-Barometer bezüglich des Faktors Lohn übereinstimmen.",
+      "Den Lohn der Mitarbeitenden so zu belassen, da die potentiellen und tatsächlichen Gründe für einen Firmenwechsel gemäss dem HR-Barometer bezüglich des Faktors Lohn nicht übereinstimmen.",
+      "Den Lohn der Mitarbeitenden deutlich zu erhöhen, da der Lohn als tatsächlicher Kündigungsgrund bei Befragungen zu potentiellen Kündigungsgründen gemäss den Ergebnissen des HR-Barometers stark unterschätzt wird.",
+      "Den Lohn der Mitarbeitenden so zu belassen, obwohl die potentiellen und tatsächlichen Gründe für einen Firmenwechsel gemäss dem HR-Barometer bezüglich des Faktors Lohn übereinstimmen.",
+      "Den Lohn der Mitarbeitenden zu senken, da die potentiellen und tatsächlichen Gründe für einen Firmenwechsel gemäss dem HR-Barometer bezüglich des Faktors Lohn nicht übereinstimmen."
+    ],
+    correct: 1,
+    explanation: "Der HR-Barometer zeigt: Lohn wird häufig als potentieller, aber selten als tatsächlicher Kündigungsgrund angegeben. Eine Lohnerhöhung adressiert nicht die echten Wechselgründe."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Mit welchem Begriff kann das dem Taylorismus zugrundeliegende Menschenbild am ehesten beschrieben werden?",
+    options: ["Theorie X", "Theorie Y", "Human Relations Bewegung", "Scientific Management", "Keiner der genannten Begriffe trifft zu"],
+    correct: 0,
+    explanation: "Taylorismus unterstellt arbeitsscheue, kontrollbedürftige Arbeiter, die durch enge Vorgaben gesteuert werden müssen – das entspricht McGregors Theorie X. (Scientific Management ist ein Synonym für Taylorismus, kein Menschenbild.)"
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Bei der METHOD AG verdienen Angestellte mit über 10 Jahren Erfahrung 5'500 CHF, andere 4'500 CHF. Auf welche Arbeitsbewertungsmethode lässt sich das zurückführen?",
+    options: ["Rangfolgemethode", "Rangreihenmethode", "Erfahrungswertmethode", "Lohngruppenmethode", "Stufenwertzahlmethode"],
+    correct: 3,
+    explanation: "Diskrete Lohnstufen anhand eines Kriteriums (>10 vs. <10 Jahre) sind das Kennzeichen der Lohngruppenmethode."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Ein Verurteilter empfindet das Urteil als fair, bemängelt aber die Zusammensetzung der Geschworenen und dass man ihm das Wort erst spät erteilt hat. Welche Gerechtigkeitsdimension ist verletzt?",
+    options: [
+      "Die prozessuale Gerechtigkeit",
+      "Die distributive Gerechtigkeit",
+      "Die transaktionale Gerechtigkeit",
+      "Die interaktionelle Gerechtigkeit",
+      "Die prozedurale Gerechtigkeit"
+    ],
+    correct: 4,
+    explanation: "Zusammensetzung und Reihenfolge im Verfahren betreffen den Verfahrensablauf – das ist prozedurale Gerechtigkeit (distributiv = Ergebnis selbst empfindet er als fair)."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Die ABC AG teilt die HRM-Tätigkeiten auf: Personalauswahl, Leistungsbeurteilung, Belohnung und Personalentwicklung. Welchem Ansatz folgt die ABC AG?",
+    options: ["Michigan-Ansatz", "Genfer Schema", "Ansatz nach Dave Ulrich", "Ressourcenorientierter Ansatz", "Harvard-Ansatz"],
+    correct: 0,
+    explanation: "Der Michigan-Ansatz teilt HRM in genau diese vier Funktionen: Personalauswahl, Leistungsbeurteilung, Belohnung und Entwicklung."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Welche der folgenden Aussagen ist falsch? Individuelle Leistungslöhne sind umso nachteiliger, je...",
+    options: [
+      "...schwieriger die Leistung zu messen ist.",
+      "...mehr das Arbeitsergebnis durch äussere Einflüsse bestimmt ist.",
+      "...grösser die Risikoaversion der Arbeitnehmer ist.",
+      "...teamorientierter die Zusammenarbeit ist.",
+      "...ausgeprägter die extrinsische Motivation ist."
+    ],
+    correct: 4,
+    explanation: "Bei stark extrinsisch motivierten Mitarbeitenden wirken Leistungslöhne besonders gut – das ist ein Vorteil, kein Nachteil. Alle anderen Punkte sind klassische Nachteile."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Auf welchen Gerechtigkeitsdimensionen basiert der in Art. 8 BV und im Gleichstellungsgesetz verankerte Grundsatz «gleicher Lohn für Frau und Mann»?",
+    options: [
+      "Markt- und Sozialgerechtigkeit",
+      "Anforderungs- und Leistungsgerechtigkeit",
+      "Sozial- und Anforderungsgerechtigkeit",
+      "Leistungs- und Marktgerechtigkeit",
+      "Alle Antworten sind korrekt"
+    ],
+    correct: 4,
+    explanation: "Der Grundsatz «gleicher Lohn für gleiche Arbeit» stützt sich auf alle vier Gerechtigkeitsdimensionen – Markt, Anforderung, Leistung und Sozial."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Lea wollte aus Interesse «Personalökonomik» (3 ECTS) besuchen, entscheidet sich dann aber für «Nichtlineare Optimierung» (6 ECTS), obwohl das Thema sie kaum interessiert. Welche Aussage trifft zu?",
+    options: [
+      "Lea entscheidet sich für «Nichtlineare Optimierung», da die Hygienefaktoren überwiegen.",
+      "Leas Entscheidung kann auf den Pygmalion-Effekt zurückgeführt werden.",
+      "Leas intrinsische Motivation wurde durch einen extrinsischen Anreiz verdrängt.",
+      "Lea wählt die Vorlesung „Nichtlineare Optimierung“ aufgrund der höheren Erreichbarkeit.",
+      "Leas Entscheidung hängt mit dem abnehmenden Grenznutzen der Instrumentalität zusammen."
+    ],
+    correct: 2,
+    explanation: "Klassischer Crowding-Out-Effekt: Das ursprüngliche fachliche Interesse (intrinsische Motivation) wird durch den extrinsischen Anreiz der höheren ECTS verdrängt."
+  },
+  {
+    subject: "BWL II", set: "BWL2-HRM", category: "Human Resource Management",
+    prompt: "Sie sind von einem neuen Mitarbeiter überzeugt, geben ihm viel Handlungsspielraum und kontrollieren ihn kaum. Seine Leistungsbeurteilung am Jahresende ist sehr gut. Worauf ist das zurückzuführen?",
+    options: ["Hawthorne-Effekt", "Ratchet-Effekt", "Theorie X-Effekt", "Rosenthal-Effekt", "Selbstselektions-Effekt"],
+    correct: 3,
+    explanation: "Die positive Erwartungshaltung des Vorgesetzten führt zu hoher Leistung des Mitarbeitenden – das ist der Rosenthal- bzw. Pygmalion-Effekt (sich selbst erfüllende Prophezeiung)."
+  },
+
+  // ── Teil 3: Organisation ─────────────────────────────────────────────
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Worin besteht das Dualproblem der Organisationsgestaltung?",
+    options: [
+      "Je komplexer die Aufgabe, desto mehr Personalbedarf und umgekehrt.",
+      "Je stärker die Differenzierung, desto leichter die Integration und umgekehrt.",
+      "Je ausgeprägter die Arbeitsteilung, desto effizienter die Aufgabenerfüllung und umgekehrt.",
+      "Je intensiver die Integration, desto weniger Differenzierung und umgekehrt.",
+      "Je besser die Integration der Mitarbeiter, desto geringer die Arbeitsvereinigung und umgekehrt."
+    ],
+    correct: 3,
+    explanation: "Das Dualproblem beschreibt die gegenläufige Beziehung zwischen Differenzierung (Spezialisierung) und Integration: Mehr Integration bedeutet weniger Differenzierungspotenzial – und umgekehrt."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Welchen Nachteil hat die divisionale Organisation gegenüber der verrichtungsorientierten (funktionalen) Differenzierung?",
+    options: ["Geringere Flexibilität", "Potentieller Kannibalismus", "Belastung der Gesamtführung", "Geringe Transparenz der Geschäftsfeldaktivitäten", "Erschwerte Leistungskontrolle"],
+    correct: 1,
+    explanation: "Divisionen mit ähnlichen Produkten/Kunden können sich gegenseitig kannibalisieren – ein typisches Risiko der divisionalen Organisation. Funktionale Organisationen leiden eher unter Koordinationsproblemen."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Was findet man typischerweise in divisional organisierten Firmen im Gegensatz zu funktional organisierten Firmen vor?",
+    options: [
+      "Eine homogene Produktpalette",
+      "Homogene Kundengruppen",
+      "Autonome Sparten, oft auch als Profit-Center ausgestaltet",
+      "Zusammenlegung gleichartiger Verrichtungen",
+      "Keines der genannten Merkmale"
+    ],
+    correct: 2,
+    explanation: "Kernmerkmal der divisionalen Organisation: eigenständige Sparten mit eigener Ergebnisverantwortung (Profit-Center). Zusammenlegung gleichartiger Verrichtungen ist gerade das Merkmal der funktionalen Organisation."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Was ist keine typische Massnahme zur Vermeidung der klassischen Probleme zwischen Stab und Linie?",
+    options: [
+      "Stab als Projektarbeit",
+      "Ausstattung des Stabs mit Entscheidungsgewalt über die Linie",
+      "Job-Rotation",
+      "Bewerberauslese",
+      "Systematischer Tausch der Arbeitsplätze der Mitarbeiter vom Stab in die Linie (und umgekehrt)"
+    ],
+    correct: 1,
+    explanation: "Stab mit Entscheidungsgewalt über die Linie würde den Stab-Linie-Konflikt gerade verschärfen (Kompetenzkonflikt mit dem Linienvorgesetzten). Die anderen Massnahmen entschärfen den Konflikt."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Eine Instanz Y leitet direkt 9 Ausführungsstellen X. Welche Aussage bezüglich der Abbildung ist korrekt?",
+    options: [
+      "Die Leitungsspanne beträgt 9.",
+      "Die Leitungsspanne beträgt 2.",
+      "Die Leitungsebene beträgt 2.",
+      "Die Gliederungstiefe beträgt 1.",
+      "Die Leitungsebene beträgt 9."
+    ],
+    correct: 0,
+    explanation: "Leitungsspanne = Anzahl direkt unterstellter Stellen. Y leitet 9 Ausführungsstellen direkt → Leitungsspanne = 9."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Frau Schmidt unterstützt den Abteilungsleiter (recherchiert, prüft, erstellt Rapport); der Abteilungsleiter entscheidet auf dieser Basis. Welche Form der Differenzierung kommt zum Ausdruck?",
+    options: [
+      "Differenzierung nach Regionen",
+      "Differenzierung nach Produkten",
+      "Differenzierung nach Projekten",
+      "Differenzierung nach Prozessen",
+      "Differenzierung nach Stab und Linie"
+    ],
+    correct: 4,
+    explanation: "Frau Schmidt bereitet Entscheidungen vor (Stab), der Abteilungsleiter entscheidet (Linie). Klassische Stab-Linie-Differenzierung – Stäbe haben kein Entscheidungsrecht, sondern beraten/unterstützen."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Werbeagentur: Kundenanfragen durchlaufen sequentiell Eingang → Design → Produktion → Projektmanagement → Kundenbetreuer (10 Tage bis 4 Wochen). Welche organisatorische Integrationsmassnahme ist zu empfehlen?",
+    options: ["Management by Objectives", "Multiple, überlappende Teams", "Koordinator", "Business Reengineering", "Fayol'sche Brücke"],
+    correct: 3,
+    explanation: "Eine end-to-end Prozesskette mit langen Durchlaufzeiten und vielen sequentiellen Schnittstellen verlangt eine grundlegende Neugestaltung der Geschäftsprozesse – das ist Business Reengineering."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Aus welchen Kennzahlen ergibt sich die Einteilung in flache und steile Hierarchien?",
+    options: [
+      "Anzahl der Mitarbeiter, Anzahl der Führungskräfte",
+      "Anzahl der Hierarchieebenen, Anzahl der Mitarbeiter",
+      "Anzahl der Abteilungen, Anzahl der Führungskräfte",
+      "Anzahl der Geschäftseinheiten, Anzahl der Mitarbeiter",
+      "Keine der genannten Antworten"
+    ],
+    correct: 1,
+    explanation: "Flach vs. steil ergibt sich aus der Zahl der Hierarchieebenen bei gegebener Mitarbeiterzahl: viele Mitarbeiter / wenige Ebenen → flach (grosse Leitungsspannen)."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Welche Faktoren könnten gegen eine rein hierarchische Organisation sprechen?",
+    options: [
+      "Zeitverlust, sinkende Akzeptanz, Intransparenz",
+      "Bürokratisierung, hohe Koordinationskosten, Intransparenz",
+      "Überlastung der Leitung, hohe Koordinationskosten, Zeitverlust",
+      "Personalkosten, Überlastung der Leitung, sinkende Akzeptanz",
+      "Störanfälligkeiten, Bürokratisierung, Kompetenzverlust"
+    ],
+    correct: 3,
+    explanation: "Klassische Nachteile der hierarchischen Organisation: hohe Personalkosten für Führungskräfte, Überlastung der Leitung (alle Entscheidungen laufen oben zusammen) und sinkende Akzeptanz wegen geringer Autonomie."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Ein Energieunternehmen trennt Produktion, Distribution und Vertrieb. Sie stimmen sich über Verrechnungspreise ab; der Vertrieb kann intern oder extern kaufen. Welche organisatorische Integration liegt vor?",
+    options: ["Netzwerkorganisation", "Ressourcenpool-Organisation", "Management by Objectives", "Interner Markt", "Matrixorganisation"],
+    correct: 3,
+    explanation: "Verrechnungspreise plus Wahlfreiheit (intern oder extern beziehen) sind die Kernmerkmale eines internen Marktes – die Einheiten verhalten sich wie Marktteilnehmer."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "CargoWorld: Paul kennt aus früheren Projekten Experten in den Landeszentralen und kontaktiert sie direkt für massgeschneiderte Lösungen. Welche Form der organisatorischen Abstimmung liegt vor?",
+    options: ["Clan Lösung", "Integrationsmanager", "Internes Netzwerk", "Fayol'sche Brücke", "Interner Markt"],
+    correct: 2,
+    explanation: "Informelle, auf früherer Zusammenarbeit basierende Verbindungen zwischen Experten aus verschiedenen Einheiten = internes Netzwerk. Es nutzt persönliche Kontakte statt formaler Strukturen."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Zwei Mitarbeiter auf gleicher Hierarchieebene, aber in unterschiedlichen Abteilungen, koordinieren ihre Arbeit direkt im Gespräch. Um welche Form der Integration handelt es sich?",
+    options: ["Horizontale Integration", "Konditionalprogramm", "Ressourcen-Pool", "Linking Pin", "Clan-Lösung"],
+    correct: 0,
+    explanation: "Direkte Abstimmung zwischen Mitarbeitern auf gleicher Ebene ohne Einschaltung der Vorgesetzten = horizontale Integration (laterale Koordination)."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Welcher der folgenden Effekte ist ein positiver Effekt einer starken Organisationskultur?",
+    options: [
+      "Zurückstellen von Bedenken zugunsten kultureller Werte.",
+      "Erhöhte Wandelbarkeit von Organisationen.",
+      "Entstehung von Subkulturen.",
+      "Raschere Entscheidungsfindung aufgrund geteilter Wertesysteme.",
+      "Abschliessung der Organisation gegenüber externen Einflüssen."
+    ],
+    correct: 3,
+    explanation: "Geteilte Werte → weniger Aushandlungsbedarf, schnellere Konvergenz auf Entscheidungen. Die anderen Optionen sind allesamt negative Effekte einer (zu) starken Kultur."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Die Steve-Jobs-Garagengeschichte ist Bestandteil der Unternehmenskultur von Apple. Welcher Kulturebene nach Schein würden Sie diese Geschichte zuordnen?",
+    options: [
+      "Der Ebene der Normen und Standards",
+      "Der Ebene der Symbolsysteme",
+      "Der Ebene der Basisannahmen",
+      "Allen drei Kulturebenen",
+      "Keiner der drei Kulturebenen"
+    ],
+    correct: 1,
+    explanation: "Nach Schein gehören Geschichten, Mythen und Rituale zur Ebene der Symbolsysteme (Artefakte) – sie sind sichtbare Manifestationen tieferer Werte und Annahmen."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Unter dem Verbreitungsgrad einer Unternehmenskultur versteht man...",
+    options: [
+      "...die Stärke der Organisationskultur.",
+      "...den Grad der Internalisierung der Organisationskultur.",
+      "...den Grad der Geteiltheit der Organisationskultur unter den Mitgliedern.",
+      "...die Klarheit und Reichweite der Organisationskultur.",
+      "...die Stringenz der Organisationskultur."
+    ],
+    correct: 2,
+    explanation: "Verbreitungsgrad = wie viele Mitglieder die Kultur teilen. Stärke = Tiefe der Internalisierung; Klarheit/Reichweite = Eindeutigkeit der Werte."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Welche der nachfolgenden Aussagen zu Subkulturen ist korrekt?",
+    options: [
+      "Subkulturen verstärken meistens die Hauptkultur. Sie existieren parallel oder ergänzend zur Hauptkultur, wie z. B. in Rechtsabteilungen.",
+      "Neutrale Subkulturen sind durchdrungen von der Hauptkultur. Sie achten auf Einhaltung der Kultur oder haben Modellcharakter.",
+      "Gegenkulturen laufen parallel oder ergänzend zur Hauptkultur. Sie sind dezidiert gegen die Hauptkultur gerichtet.",
+      "Verstärkende Subkulturen sind durchdrungen von der Hauptkultur. Sie achten auf Einhaltung der Kultur oder haben Modellcharakter.",
+      "Neutrale Subkulturen entstehen häufig infolge von Übernahmen. Sie sind häufig bei Vorstandsstäben vorzufinden."
+    ],
+    correct: 3,
+    explanation: "Verstärkende Subkulturen leben die Hauptkultur besonders intensiv – sie achten auf die Einhaltung der Werte oder haben Modellcharakter (z.B. Vorstandsstäbe)."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Widerstände gegen Wandel sind tendenziell geringer, wenn grundlegende Veränderungen gemeinsam beschlossen wurden, und…",
+    options: [
+      "...die Idee zur Veränderung von aussen kommt.",
+      "...die Organisation strukturell stark aufgestellt ist.",
+      "...sie zuvor mit „internen Gegnern“ diskutiert wurden.",
+      "...die finanzielle Performance des Unternehmens gut ist.",
+      "...kollektive Orientierungsmuster durch die Veränderungen betroffen sind."
+    ],
+    correct: 2,
+    explanation: "Frühzeitige Auseinandersetzung mit Skeptikern senkt Widerstände – Gegner fühlen sich gehört, können den Wandel mitgestalten und werden so zu Mitträgern statt Bremsen."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Wandelprozess: Anforderungen ausloten → Informationsveranstaltung → Umsetzung und Auseinandersetzung mit Befürwortern/Gegnern → konkrete Umsetzungsmassnahmen. Welche Phase des erweiterten Phasenmodells fehlt?",
+    options: ["Roll-out", "Verstetigung", "Konsolidierung", "Einstieg", "Vorbereitung"],
+    correct: 2,
+    explanation: "Beschrieben werden Vorbereitung, Einstieg, Verstetigung und Roll-out. Die Konsolidierungsphase (Stabilisierung und nachhaltige Verankerung der Veränderungen) fehlt."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Worauf beruht die Frustration beim Frustrations-Regressions-Effekt?",
+    options: [
+      "Frustration hervorgerufen durch verringerte Mitarbeiterentlohnung.",
+      "Frustration durch längere Arbeitszeiten.",
+      "Abwehrverhalten gegenüber organisationalen Veränderungen aufgrund von Gruppendynamiken.",
+      "Veränderungswiderstände aufgrund von Ersterfahrungen, die gegenüber späteren Erfahrungen bevorzugt werden.",
+      "Frustration, da eingeübte Verfahrensweisen nicht mehr funktionieren."
+    ],
+    correct: 4,
+    explanation: "Frustrations-Regressions-Effekt: Bewährte Routinen versagen in der neuen Situation; die Folge ist Rückfall in alte Verhaltensmuster (Regression) und Frustration über die Veränderung."
+  },
+  {
+    subject: "BWL II", set: "BWL2-ORG", category: "Organisation",
+    prompt: "Welche der folgenden Aussagen ist in Bezug auf Prozessberatung (im Rahmen von OE) korrekt?",
+    options: [
+      "Die Prozessberatung befasst sich mit Prozessoptimierung.",
+      "Der Berater begleitet und unterstützt die unternehmenseigene Problemfindung und -behebung.",
+      "Ausgangspunkt ist der Survey-Feedback-Ansatz.",
+      "Wertschöpfungsprozesse stehen im Vordergrund.",
+      "Kann besonders gut von der Abteilung für Inhouse Consulting durchgeführt werden, da diese die internen Perspektiven besonders gut durchschaut."
+    ],
+    correct: 1,
+    explanation: "Kern der Prozessberatung nach Schein: Der Berater liefert keine fertigen Lösungen, sondern unterstützt das Unternehmen dabei, eigene Probleme zu erkennen und zu lösen (Hilfe zur Selbsthilfe)."
+  },
 ];
+
+// Additional BWL II questions from Probeprüfung FS25. Overlapping 2017 questions
+// stay as single shared entries and are tagged below.
+QUESTIONS.push(...[
+  // ── FS25: Human Resource Management ────────────────────────────────────
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Die ZukunftX AG möchte ein Trainingsprogramm für ihre Mitarbeitende entwickeln und bittet Sie ein geeignetes Programm zusammenzustellen und dieses der Geschäftsleitung vorzutragen. Welche der folgenden Aussagen ist nicht korrekt?",
+    options: [
+      "Als Erstes sollte man überlegen, welche Verhaltensweisen Mitarbeitende in der Zukunft benötigen werden, um die aktuellen und zukünftigen Aufgaben erledigen zu können.",
+      "Sie schlagen vor, dass nebst fachlichen Inhalten, wie Kommunikationsfähigkeiten, auch überfachliche Trainingsinhalte, wie Wohlbefinden am Arbeitsplatz, während des Trainings behandelt werden.",
+      "Sie schlagen vor, dass vor der Planung der konkreten Trainingsinhalte der tatsächliche Trainingsbedarf im Unternehmen erhoben werden sollte.",
+      "Da es demnächst einen Führungswechsel bei der ZukunftX AG geben wird, schlagen Sie vor, dass die zukünftige Leitung in die Planung miteinbezogen wird, damit das Training an den zukünftigen Zielen des Unternehmens ausgerichtet werden kann.",
+      "Sie schlagen vor, dass sich das Training auf die potenziellen Defizite von Mitarbeitenden betreffend der für ihre Arbeitsabläufe notwendigen Kompetenzen fokussieren sollte."
+    ],
+    correct: 1,
+    explanation: "Kommunikationsfähigkeiten sind typischerweise überfachliche Kompetenzen. Die Aussage ordnet sie als fachlichen Inhalt ein und ist daher nicht korrekt."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Zoe und Mira sind beide 20 Jahre alt. Zu diesem Zeitpunkt ist Zoe extrovertierter als Mira. 30 Jahre später treffen sich die beiden bei einer HR-Konferenz. Welche der folgenden Aussagen ist gemäss den Erkenntnissen aus der Persönlichkeitsforschung korrekt?",
+    options: [
+      "Da sich die Persönlichkeit mit dem Altern nicht verändert, werden beide gleich extrovertiert sein wie im Alter von 20 Jahren.",
+      "Da sich die Persönlichkeit im Alter von 45-50 Jahren stabilisiert, wird Mira extrovertierter als Zoe sein.",
+      "Da das Altern im Vergleich zu Umweltfaktoren nur eine untergeordnete Rolle bei der Veränderung der Persönlichkeit spielt, kommt es darauf an, inwiefern sich die Umwelt der beiden verändert hat.",
+      "Da Persönlichkeit zu einem grossen Teil durch die Genetik erklärt wird, wird Zoe aller Wahrscheinlichkeit nach immer noch extrovertierter als Mira sein.",
+      "Keine der übrigen Aussagen ist korrekt."
+    ],
+    correct: 3,
+    explanation: "Persönlichkeit zeigt im Erwachsenenalter deutliche Rangordnungsstabilität. Genetik erklärt einen substanziellen Teil stabiler Unterschiede."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Lia befindet sich im Rekrutierungsprozess bei der TeaCup AG und muss für die nächste Runde einen Vortrag zum Thema Personalmanagement vorbereiten. Welches der folgenden Argumente kann Lia in ihren Vortrag einbeziehen?",
+    options: [
+      "Lia betont, dass unstrukturierte Vorstellungsgespräch eine hohe prognostische Qualität für die spätere Arbeitsleistung zeigen.",
+      "Lia betont die Vorteile von High-Performance-Arbeitsmethoden, zu welchen eine offene Kommunikationskultur, leistungsbasierte Vergütung und zentrale Entscheidungsprozesse dazu gehören.",
+      "Lia bezieht sich auf eine Meta-Analyse von 94 wissenschaftliche Studien, die darauf hinweist, dass die Qualität des HRM Systems signifikant positiv mit der dysfunktionalen Fluktuation in einem Unternehmen zusammenhängt.",
+      "Lia bezieht sich in ihrer Argumentation auf Alfred P. Sloan, welcher betonte, dass die Organisationskultur und die Auswahl von Mitarbeitenden wichtige Unterschiede für den Wettbewerbsvorteil einer Organisation darstellen.",
+      "Keine der übrigen Argumente ist geeignet."
+    ],
+    correct: 4,
+    explanation: "Die genannten Argumente sind in der Form nicht geeignet: unstrukturierte Interviews sind schwach, zentrale Entscheidungsprozesse passen nicht zu High-Performance-Arbeitsmethoden, HRM-Qualität sollte dysfunktionale Fluktuation senken, und die Sloan-Aussage ist so nicht das passende HRM-Argument."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Paul und Lilly haben in den vergangenen Jahren einen grossen Beitrag zum Erfolg ihres Unternehmens geleistet. In letzter Zeit fehlt Paul jedoch immer öfter am Arbeitsplatz und erfüllt seine Aufgaben oft nicht zeitgemäss, wobei auch die Qualität seiner Arbeitsergebnisse stark abgenommen hat. Bei Lilly hingegen, hat sich in dieser Hinsicht nichts verändert. Aufgrund eines Stellenangebots bei einer anderen Firma, verlässt Lilly das Unternehmen, wohingegen Paul keine Absichten verspürt das Unternehmen zu verlassen. Somit handelt es sich um...",
+    options: [
+      ".. Bindung bei Paul und funktionale Fluktuation bei Lilly.",
+      ".. Bindung bei Paul und dysfunktionale Fluktuation bei Lilly.",
+      ".. Bindung bei Paul und funktionale Fluktuation bei Lilly.",
+      ".. Bindung bei Paul und dysfunktionale Fluktuation bei Lilly.",
+      ".. Fluktuation bei Paul und funktionale Bindung bei Lilly."
+    ],
+    correct: 1,
+    explanation: "Wenn ein leistungsschwacher Mitarbeiter bleibt, ist das Bindung. Wenn eine leistungsstarke Mitarbeiterin geht, ist das dysfunktionale Fluktuation."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Noah möchte seine Teammitglieder über die unterschiedlichen Levels der Diversität aufklären. Bei welchem Beispiel hat Noah keinen Fehler gemacht?",
+    options: [
+      "Paul gehört mit 57 Jahren zu den ältesten Mitarbeitenden und ist als einziger Mann in der Frauenkosmetik eher auffallend. Beides sind Beispiele für das tiefgreifende Level.",
+      "Martas einzigartiger Charakter und ihr englischer Akzent sind beides Beispiele für das tiefgreifende Level.",
+      "Tims Religion ist ein Beispiel für das oberflächliche Level, weil andere Personen den Grund seines religiösen Anhängers nicht kennen.",
+      "Sonjas ostasiatische Gesichtszüge und ihre sichtbare körperliche Lähmung sind Beispiele für das oberflächliche Level der Diversität.",
+      "Noah hat bei keinem der übrigen Beispiele einen Fehler gemacht."
+    ],
+    correct: 3,
+    explanation: "Sichtbare beziehungsweise leicht wahrnehmbare Merkmale wie ethnische Herkunft und körperliche Beeinträchtigung gehören zum oberflächlichen Level der Diversität."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Die Sirup AG möchte ihre Produkte neu auch im afrikanischen Raum verkaufen und dafür Mitarbeitende aus dem afrikanischen Raum anstellen. Welche Bedeutung hat die Identität der Mitarbeitenden bei der Sirup AG?",
+    options: ["Wertschätzung", "Macht", "Ambivalenz", "Zusammenhalt", "Stolz"],
+    correct: 1,
+    explanation: "In der Marktzugangslogik wird Identität zur Quelle von Macht, weil sie Zugang zu Kundengruppen, Wissen und Legitimität in neuen Märkten verschafft."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Sie sind CEO der Swissflorida AG und möchten das Management auf Diversität aufmerksam machen. Welcher Trend beziehungsweise welche Begründung führt dazu, dass sich das Management mit Diversität beschäftigen muss?",
+    options: [
+      "Steigender Innovationsdruck, weil Diversität Kreativität und Innovationskraft von Teams fördern kann.",
+      "Zunehmender Fachkräftemangel, weil die Geburtenrate in der Schweiz seit 1960 konstant geblieben ist.",
+      "Zunehmende Globalisierung, weil diese zu einer Verkürzung der Lieferketten führt.",
+      "Altersaufbau der Bevölkerung, weil der Anteil von Personen zwischen 20 und 30 Jahren seit 1900 stetig zugenommen hat.",
+      "Lohnunterschiede zwischen Männern und Frauen, weil diese 2020 durchschnittlich bei 4% lagen."
+    ],
+    correct: 0,
+    explanation: "Diversität wird unter anderem wegen Innovationsdruck relevant: heterogene Perspektiven können Kreativität, Problemlösung und Innovation fördern."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Welche Wörter ergänzen den Satz korrekt? Der Grund für Diversität bei der _____ ist, ____. Deswegen ist der Wert der Diversität ____ und die Bedeutung der Identität ist eine ____.",
+    options: [
+      "Antidiskriminierungslogik / Gleichstellung zu sichern / Mittel, da es eine Pflicht ist / Quelle von Machtlosigkeit",
+      "Lernlogik / neue Ideen zu finden / hoch / Quelle von Wertschätzung",
+      "Marktzugangslogik / Zugang zu anderen Kundengruppen zu erhalten / hoch, denn es ist eine Schnittstelle zu neuen Kunden / Quelle von Macht",
+      "Antidiskriminierungslogik / Gleichstellung zu sichern / niedrig, da es eine Pflicht ist / Quelle von Ambivalenz",
+      "Lernlogik / Innovation und neue Ideen zu entwickeln / hoch, da es eine Schnittstelle zu neuen Kunden bildet / Quelle von Wertschätzung"
+    ],
+    correct: 2,
+    explanation: "Die Marktzugangslogik begründet Diversität mit Zugang zu neuen Kundengruppen. Identität ist hier eine Schnittstelle zum Markt und damit Quelle von Macht."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Die Geschäftsführung der Example AG besteht seit über 10 Jahren aus je 3 Männern und 3 Frauen. Eine ausscheidende Frau wird durch Frau Keller ersetzt; ausserdem gewinnt das Unternehmen einen Innovationspreis. Welche Logik zur Diversität ist vermutlich vorherrschend?",
+    options: [
+      "Die Antidiskriminierungslogik.",
+      "Die Marktzugangslogik.",
+      "Die Lernlogik.",
+      "Die Antidiskriminierungslogik und die Marktzugangslogik.",
+      "Weder die Antidiskriminierungslogik noch die Marktzugangs- oder Lernlogik scheinen vorzuherrschen."
+    ],
+    correct: 0,
+    explanation: "Die stabile paritätische Zusammensetzung spricht vor allem für Gleichstellung und Fairness. Ein einzelner Innovationspreis belegt noch keine Lernlogik."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Tina gibt ihrem Team klare Vorschriften, weil niemand Initiative zeigt. Bob fördert Diversität, um Gleichstellung sicherzustellen. Welche Begründung passt am ehesten?",
+    options: [
+      "Tinas Führungsverhalten ist von Theorie X geprägt, während Bob Diversität basierend auf der Antidiskriminierungslogik fördert.",
+      "Tinas Führungsverhalten ist von subtilen Vorurteilen geprägt, während Bob Diversität basierend auf der Marktzugangslogik fördert.",
+      "Tinas Führungsverhalten ist von Theorie Y geprägt, während Bob Diversität basierend auf der Lernlogik fördert.",
+      "Tinas Führungsverhalten ist von Similarity-Attraction geprägt, während Bob Diversität basierend auf der Innovationslogik fördert.",
+      "Tinas Führungsverhalten ist auf selbsterfüllende Prophezeiung zurückzuführen, während Bob Diversität basierend auf der Kollaborationslogik fördert."
+    ],
+    correct: 0,
+    explanation: "Theorie X unterstellt geringe Eigeninitiative und Kontrollbedarf. Gleichstellung als Diversitätsgrund entspricht der Antidiskriminierungslogik."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Was ist ein Beispiel für den fundamentalen Attributionsfehler?",
+    options: [
+      "Herr Keller hält einen neuen Mitarbeiter nach einmaligem Zuspätkommen direkt für unzuverlässig.",
+      "Herr Keller kommt wegen eines verspäteten Trams zu spät und ärgert sich.",
+      "Herr Keller macht immer seine Mitarbeitenden für Fehler im Arbeitsalltag verantwortlich.",
+      "Herr Keller schreibt den Erfolg der Firma sich selbst zu, während Mitarbeitende ihren eigenen Beitrag sehen.",
+      "Herr Keller beneidet seinen Bruder nicht, der als Geschäftsleitung für Fehltritte verantwortlich gemacht wird."
+    ],
+    correct: 0,
+    explanation: "Der fundamentale Attributionsfehler überschätzt dispositionale Ursachen bei anderen und unterschätzt situative Ursachen."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Herr Meyer kommt oft zu spät; andere Mitarbeitende sind pünktlich. Seine Leistungen sind aber herausragend. Welche Attribution sollte seine Vorgesetzte dem Zuspätkommen zuordnen?",
+    options: [
+      "Eine interne Attribution.",
+      "Eine externe Attribution.",
+      "Weder eine interne noch eine externe Attribution.",
+      "Sowohl eine interne als auch eine externe Attribution.",
+      "Die Attribution ist abhängig von der Einstellung der Vorgesetzten."
+    ],
+    correct: 0,
+    explanation: "Hohe Konsistenz, geringer Konsens und geringe Distinktheit sprechen im Kovariationsmodell für eine interne Attribution."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Rolf sucht bei Google nach Belegen dafür, dass Apfel-Smoothies seine Konzentration verbessern, und wertet einen bekannten Grund als Bestätigung. Worauf ist sein Verhalten am ehesten zurückzuführen?",
+    options: [
+      "Auf den Bestätigungsfehler und den Wahrheitseffekt.",
+      "Auf den Ankereffekt und den Verfügbarkeitsfehler.",
+      "Auf die Affektheuristik und den Halo-Effekt.",
+      "Auf den fundamentalen Attributionsfehler und kognitive Dissonanz.",
+      "Auf Similarity-Attraction und subtile Vorurteile."
+    ],
+    correct: 0,
+    explanation: "Rolf sucht bestätigende Information und hält eine bekannte Aussage eher für wahr. Das verbindet Bestätigungsfehler und Wahrheitseffekt."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Karl ist sehr unzufrieden, verbringt möglichst wenig Zeit bei der Arbeit, redet kaum mit Kollegen, beschwert sich aber nicht. Wie ist Karls Unzufriedenheit einzuordnen?",
+    options: [
+      "Als passiv und konstruktiv.",
+      "Als passiv und destruktiv.",
+      "Als aktiv und konstruktiv.",
+      "Als aktiv und destruktiv.",
+      "Als neutral."
+    ],
+    correct: 1,
+    explanation: "Rückzug ohne aktives Ansprechen des Problems entspricht Neglect: passiv und destruktiv."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Laura kommt häufiger zu spät und zieht sich zurück. Tim denkt, das sei typisch für Laura, weil ihm sofort ein ähnliches Beispiel einfällt. Worauf ist Tims Überlegung am ehesten zurückzuführen?",
+    options: [
+      "Fundamentaler Attributionsfehler und Verfügbarkeitsheuristik.",
+      "Affektheuristik und interne Attribution.",
+      "Externe Attribution und Bestätigungsfehler.",
+      "Wahrheitseffekt und Ankereffekt.",
+      "Subtile Vorurteile und Halo-Effekt."
+    ],
+    correct: 0,
+    explanation: "Tim erklärt Lauras Verhalten dispositional und nutzt ein leicht verfügbares Beispiel als Beleg."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Sie möchten die Geschäftsleitung über die Relevanz von Arbeitszufriedenheit informieren. Welches Argument sollten Sie nicht verwenden?",
+    options: [
+      "Arbeitszufriedenheit korreliert positiv mit Hilfsbereitschaft und negativ mit Fluktuation.",
+      "Studien deuten darauf hin, dass Arbeitszufriedenheit positiv auf Arbeitsleistung wirkt.",
+      "Richtlinien und Führungskräfte können am Arbeitsplatz zu Unzufriedenheit führen.",
+      "Gemäss Herzberg kann Lohn nicht zu extremer Zufriedenheit führen, da er ein Hygienefaktor ist.",
+      "Die traditionelle Sicht definiert Motivatoren und Nicht-Motivatoren als zwei separate Eigenschaften; Herzberg ordnet Motivatoren und Hygienefaktoren auf einer gemeinsamen Dimension an."
+    ],
+    correct: 4,
+    explanation: "Es ist umgekehrt: Die traditionelle Sicht denkt Zufriedenheit als eine Dimension; Herzberg trennt Hygienefaktoren und Motivatoren."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Die HR-Abteilung möchte Persönlichkeit zukünftiger Angestellter mit einem standardisierten Test erfassen. Welchen Test sollte sie am ehesten verwenden und warum?",
+    options: [
+      "Den MBTI, da er eine gute Aussage über zukünftige Arbeitsleistung ermöglicht.",
+      "Das Persönlichkeit-Tätigkeit-Modell von Holland, da es die stärkste Beziehung zur Arbeitsleistung hat.",
+      "Das Persönlichkeit-Tätigkeit-Modell von Holland, da es speziell für Arbeitsanforderungen am präzisesten ist.",
+      "Das Big-Five-Modell, da es wissenschaftlich fundiert ist, eine Beziehung zur Arbeitsleistung herstellt und breite Persönlichkeitsdimensionen abbildet.",
+      "Das Big-Five-Modell, da es präzise und reliabel ist."
+    ],
+    correct: 3,
+    explanation: "Das Big-Five-Modell ist empirisch gut gestützt und in der Personalauswahl deutlich belastbarer als der MBTI."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Welche Rolle spielen affektive Reaktionen gemäss der Affective Events Theory?",
+    options: [
+      "Geschehnisse lösen abhängig von Arbeitseinstellung Emotionen aus, die sich abhängig von Dispositionen auf affektgesteuertes Verhalten auswirken.",
+      "Die Arbeitsumgebung übt direkten Einfluss auf affektive Reaktionen aus, die die Arbeitseinstellung in Abhängigkeit von Dispositionen beeinflussen.",
+      "Die Arbeitseinstellung wirkt gleichermassen auf urteilsgesteuertes und affektgesteuertes Verhalten; Ereignisse beeinflussen diese Zusammenhänge direkt.",
+      "Dispositionen beeinflussen, wie Ereignisse auf affektive Reaktionen wirken; diese wirken direkt auf affektgesteuertes und indirekt auf urteilsgesteuertes Verhalten.",
+      "Dispositionen beeinflussen den Zusammenhang zwischen Arbeitseinstellung und affektgesteuertem Verhalten; Arbeitseinstellung wird direkt von Ereignissen beeinflusst."
+    ],
+    correct: 3,
+    explanation: "In der Affective Events Theory lösen Arbeitsereignisse affektive Reaktionen aus, geprägt durch Dispositionen; diese treiben affektgesteuertes Verhalten und beeinflussen Einstellungen."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Lena möchte umweltbewusster reisen, fliegt aber für eine Hochzeit nach Australien und rechtfertigt dies damit, dass sie seit Jahren vegan lebt. Worauf ist ihre Entscheidung am ehesten zurückzuführen?",
+    options: [
+      "Auf eine Änderung der dissonanten Einstellung.",
+      "Auf eine Verhaltensänderung.",
+      "Auf die Ergänzung von neuen Kognitionen.",
+      "Auf den Halo-Effekt.",
+      "Auf den Cocktail-Party-Effekt."
+    ],
+    correct: 2,
+    explanation: "Lena reduziert kognitive Dissonanz, indem sie eine zusätzliche passende Kognition ergänzt: ihr veganes Verhalten."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
+    prompt: "Max und Petra halten jeweils ihr eigenes Tablet für das beste. Fred behauptet nachträglich, er habe Spaniens EM-Sieg vorhergesehen. Justus ignoriert Rauchrisiken und verweist auf seinen 101-jährigen Grossvater. Welche Antwort trifft am ehesten zu?",
+    options: [
+      "Max und Petra unterliegen einem Bestätigungsfehler.",
+      "Max, Petra und Fred unterliegen einem Besitztumseffekt.",
+      "Max, Petra und Justus unterliegen einer Affektheuristik.",
+      "Fred unterliegt einer Affektheuristik.",
+      "Justus unterliegt einem Bestätigungsfehler."
+    ],
+    correct: 4,
+    explanation: "Justus sucht beziehungsweise nutzt ein einzelnes bestätigendes Beispiel, um seine bestehende Überzeugung zu stützen."
+  },
+
+  // ── FS25: Organisation ────────────────────────────────────────────────
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
+    prompt: "In der Organisationslehre unterscheidet man verschiedene Organisationsbegriffe. Welche Aussage ist am ehesten richtig?",
+    options: [
+      "Die Verteilung von Aufgaben wird sowohl im instrumentellen wie auch im institutionellen Organisationsbegriff erfasst.",
+      "Der institutionelle Organisationsbegriff umfasst auch den instrumentellen Organisationsbegriff.",
+      "Der instrumentelle Organisationsbegriff beschreibt auch eine Managementfunktion.",
+      "Organisation gemäss konfigurativem Organisationsbegriff kann als Ergebnis von Organisation gemäss funktionalem Organisationsbegriff verstanden werden.",
+      "Im institutionellen Organisationsbegriff stellt die informale Organisation einen Aspekt der formalen Organisation dar."
+    ],
+    correct: 3,
+    explanation: "Der funktionale Begriff meint das Organisieren als Tätigkeit; der konfigurative Begriff beschreibt die daraus entstehende Struktur."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
+    prompt: "Im Organigramm der Betflix AG sind mehrere Geschäftsbereiche dargestellt. Welcher Organisationsform entspricht die dargestellte Struktur am ehesten?",
+    options: ["Geschäftsbereichsorganisation", "Funktionale Organisation", "Divisionale Organisation", "Konzern", "Holding"],
+    correct: 0,
+    explanation: "Eine Struktur nach Geschäftsbereichen entspricht einer Geschäftsbereichs- beziehungsweise divisionalen Organisation mit Spartengliederung."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
+    prompt: "Die Redaktion «30 Sekunden» ist eine Stab-Linien-Organisation. Es treten Kommunikationsschwierigkeiten, Statusbedrohung der Linie und Informationsmacht der Stäbe auf. Welche Massnahme ist am ehesten zu empfehlen?",
+    options: [
+      "Der Stab bekommt die Befugnis, endgültige Entscheidungen zu treffen.",
+      "Die Stabsmitglieder werden beliebig ausgewählt.",
+      "Der Stab wird mit Entscheidungsgewalt über die Linie ausgestattet.",
+      "Die Aufgaben vom Stab werden von der Linie übernommen.",
+      "Es werden Projektgruppen aus Mitarbeitenden des Stabs und der Linie gebildet."
+    ],
+    correct: 4,
+    explanation: "Gemeinsame Projektgruppen reduzieren Distanz, Informationsasymmetrien und Statuskonflikte zwischen Stab und Linie."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
+    prompt: "Welche der folgenden Aussagen betreffend der unterschiedlichen Integrationsformen ist richtig?",
+    options: [
+      "Eine Ressourcenpool-Organisation stellt eine laterale Integrationsform dar und ist eine spezielle Form der Matrixorganisation.",
+      "Die Matrixorganisation ist eine horizontale organisatorische Integrationsform, bei der mehrere Autoritätslinien mit unterschiedlichen Ausrichtungen kombiniert werden.",
+      "Interne Netzwerkorganisationen stellen weder horizontale noch laterale organisatorische Integrationsformen dar.",
+      "Ein Koordinationsteam ist eine horizontale Integrationsform, die typischerweise zeitlich unbegrenzt wirkt.",
+      "Keine der übrigen Antworten ist richtig."
+    ],
+    correct: 1,
+    explanation: "Die Matrix kombiniert mehrere Autoritäts- beziehungsweise Berichtslinien und dient der horizontalen Integration über unterschiedliche Dimensionen."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
+    prompt: "Die Z-Zug AG will wieder Marktführerin im Digitalisierungssegment werden. Die Leiterin erklärt ihrem Team Ziel, Strategie und Umsetzungsschritte. Welche Art der Abstimmung wird beschrieben?",
+    options: [
+      "Vertikale Integration mit Konditionalprogramm",
+      "Laterale Integration mit Zweckprogramm",
+      "Stabs-Projektorganisation mit multipler Teamorganisation",
+      "Vertikale Integration mit persönlicher Weisung",
+      "Interne Netzwerkorganisation mit Konditionalprogramm"
+    ],
+    correct: 3,
+    explanation: "Die Leiterin stimmt ihr Team hier über direkte Führung und Anweisung ab. Das ist vertikale Integration durch persönliche Weisung."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
+    prompt: "In einem Vorstellungsgespräch erfahren Sie: Mitarbeitende betrachten sich generell als Freunde, nicht als Konkurrenten; Arbeitszeiten sind fix von 07:00 bis 15:30 Uhr. Welchen Ebenen der Organisationskultur ist dies zuzuordnen?",
+    options: [
+      "(1) Basisannahmen, (2) Normen und Standards",
+      "(1) Normen und Standards, (2) Symbolsystem",
+      "(1) Symbolsystem, (2) Symbolsystem",
+      "(1) Symbolsystem, (2) Basisannahmen",
+      "(1) Basisannahmen, (2) Symbolsystem"
+    ],
+    correct: 0,
+    explanation: "Das grundsätzliche Freundschaftsverständnis ist eine tiefe Basisannahme; fixe Arbeitszeiten sind explizite Normen und Standards."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
+    prompt: "Unternehmen 1 hat geteilte, stark internalisierte Orientierungsmuster für spezielle Situationen. Unternehmen 2 hat heterogene, aber universal einsetzbare und stark internalisierte Muster. Welche Aussage ist richtig?",
+    options: [
+      "Die Kultur von Unternehmen 1 hat einen geringen Verbreitungs-, aber hohen Internalisierungsgrad.",
+      "Die Kultur beider Unternehmen hat eine hohe Prägnanz.",
+      "Die Kultur von Unternehmen 1 hat einen geringen Verbreitungsgrad.",
+      "Unternehmen 1 hat einen hohen Verbreitungsgrad und Unternehmen 2 einen geringen Verbreitungsgrad.",
+      "Unternehmen 1 hat hohe Prägnanz und Unternehmen 2 einen geringen Verbreitungsgrad."
+    ],
+    correct: 3,
+    explanation: "In Unternehmen 1 werden die Muster von allen geteilt, also hoher Verbreitungsgrad. In Unternehmen 2 sind sie heterogen, also geringer Verbreitungsgrad."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
+    prompt: "Führungskräfte eines Startups glauben, dass Menschen von Haus aus motiviert sind, Verantwortung zu übernehmen und sich für gemeinsame Ziele einzusetzen. Wie lassen sich diese Überzeugungen charakterisieren?",
+    options: [
+      "Als Praktiken der lateralen Integration im Startup.",
+      "Als formulierte Führungsgrundsätze des Startups.",
+      "Als Teil der Basisannahmen der Organisationskultur im Startup.",
+      "Als Teil des Symbolsystems der Organisationskultur im Startup.",
+      "Als Teil der Normen und Standards der Organisationskultur im Startup."
+    ],
+    correct: 2,
+    explanation: "Grundannahmen über Menschen und Motivation liegen auf der tiefen Ebene der Basisannahmen einer Organisationskultur."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
+    prompt: "Ein Unternehmen ändert wegen Kostendruck seine Strategie von hochwertigen zu günstigen einfachen Produkten. Die Stimmung ist schlecht; einige unterstützen den Wandel, andere lehnen ihn ab. Welche Massnahme eignet sich am besten zur Entspannung?",
+    options: ["Survey-Feedback-Ansatz", "Konfrontationstreffen", "Prozessberatung", "Ausschluss von internen Gegnern", "Feedback-Training-Ansatz"],
+    correct: 1,
+    explanation: "Ein Konfrontationstreffen bringt unterschiedliche Gruppen und Konfliktlinien offen zusammen und eignet sich zur Bearbeitung akuter Spannungen im Wandel."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
+    prompt: "Welche Massnahme gehört typischerweise nicht zur Einstiegsphase des erweiterten Phasenmodells des Wandels?",
+    options: [
+      "Einrichtung einer Projektorganisation für den Wandel.",
+      "Sichtbarmachung des Wandel-Projekts, beispielsweise durch Ausstellungen.",
+      "Sicherstellung eines sofortigen Wandelimpulses durch eine Kick-off-Veranstaltung.",
+      "Aufbrechen der bestehenden Strukturen, um diese durch neue zu ersetzen.",
+      "Herausstellung des Nutzens des Wandels für die betroffenen Personen."
+    ],
+    correct: 3,
+    explanation: "Die Einstiegsphase macht den Wandel sichtbar und anschlussfähig. Das eigentliche Aufbrechen und Ersetzen bestehender Strukturen gehört nicht typisch in diesen Einstieg."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
+    prompt: "Welche Aussage in Bezug auf den Wandelansatz nach Kurt Lewin trifft am ehesten zu?",
+    options: [
+      "In Wandelprozessen sollen Individuen befähigt werden, den Wandelprozess selber erfolgreich zu bestreiten.",
+      "In T-groups versuchen Führungskräfte durch Reflexion eine Verhaltensänderung bei Mitarbeitenden zu bewirken.",
+      "In der Auftauphase soll der ehemalige Gleichgewichtszustand aufgegeben werden, sodass Bereitschaft zur Veränderung entstehen kann.",
+      "Die Veränderungsbereitschaft steigt, wenn das Veränderungskonzept durch Expertinnen und Experten erarbeitet wurde.",
+      "In der Stabilisierungsphase werden neue Muster entwickelt und plausibel gemacht."
+    ],
+    correct: 2,
+    explanation: "Lewins Auftauphase (Unfreezing) löst das alte Gleichgewicht und schafft Bereitschaft für Veränderung."
+  },
+  {
+    subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
+    prompt: "Netzwerkartige Organisationsformen werden eingesetzt, um komplexe Leistungsprozesse flexibel zu gestalten. Wie wird die Anschlussfähigkeit der einzelnen Subsysteme sichergestellt?",
+    options: ["Gemeinsame Werte und Überzeugungen", "Fayol'sche Brücke", "Koordinationsteams", "Multiple, überlappende Teams", "Management by Objectives"],
+    correct: 0,
+    explanation: "Netzwerkartige Formen sind auf Vertrauen, geteilte Werte und gemeinsame Orientierung angewiesen, damit autonome Einheiten anschlussfähig bleiben."
+  },
+]);
+
+QUESTIONS.push(...[
+  // BWL II — Assessmentprüfung 1. Juni 2017, Serie A (scanned PDF; no reliable answer key in source)
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zu Porters sogenannten «generischen Wettbewerbsstrategien» ist am ehesten richtig? Porters generische Wettbewerbsstrategien beschreiben für eine Firma grundsätzliche Möglichkeiten, um...",
+    options: ["...Resources und Capabilities nachhaltig in überlegener Weise zu nutzen.", "...eine attraktive Position in einer Branche einzunehmen.", "...Wettbewerbsvorteile nachhaltig zu verteidigen.", "...das Modell der fünf Wettbewerbskräfte anzuwenden.", "Keine der oben genannten Aussagen ist richtig."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "In Porters 5-Kräfte-Analyse spielt die «interne Rivalität» eine wichtige Rolle. Wodurch wird der Preiswettbewerb in einer Branche ceteris paribus am ehesten geschwächt?",
+    options: ["Durch hohe Überkapazitäten in der Branche, weil Marktanteilsgewinne und nicht Preisangriffe im Fokus der Anbieter stehen.", "Durch privat verhandelbare Preise, weil die Konkurrenten Preissenkungen nur schwer beobachten können.", "Durch Stagnation in der Branche, weil es keinen Akquisitionswettbewerb um Neukunden gibt.", "Durch undifferenzierte Produkte, weil Kunden nicht bereit sind, unterschiedliche Preise zu bezahlen.", "Durch viele Kleinaufträge, weil Preissenkungen von der Konkurrenz mit wenig Zeitverzögerung gekontert werden könnten."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Gegeben sind drei benachbarte Branchen in einer vertikalen Produktionskette: Milchbauern, Käsehersteller und Detailhändler. Diese Branchen stehen in folgender Zulieferer-Abnehmer-Beziehung zueinander: Milchbauern → Käsehersteller → Detailhändler. Welche Aussage zu den Machtverhältnissen zwischen den Branchen ist ceteris paribus am ehesten richtig?",
+    options: ["Die Macht der Käsehersteller steigt mit einer Zunahme der Konzentration bei den Milchbauern.", "Die Käsehersteller sind umso mächtiger, je grösser die Einkaufsvolumina der Detailhändler sind.", "Die Detailhändler sind umso mächtiger, je glaubhafter die Käsehersteller mit einer Rückwärtsintegration drohen können.", "Je höher die zuliefererspezifischen Investitionen der Detailhändler sind, desto mächtiger wird ihre Position in der Beziehung mit den Käseherstellern.", "Keine der oben genannten Aussagen ist richtig."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zu Porters 5-Kräfte-Analyse ist am ehesten richtig?",
+    options: ["In Branchen mit vielen kleinen Firmen ist der Preiswettbewerb ceteris paribus weniger scharf als in Branchen mit wenigen grossen Firmen.", "Bei der Analyse der fünf Wettbewerbskräfte geht es um die Aufdeckung von Positionierungseffekten innerhalb einer Branche.", "Bei der Analyse der fünf Wettbewerbskräfte geht es stets um die Bedrohung der Profite derjenigen Firmen, welche sich in der zu untersuchenden Branche befinden.", "Neueintreter erhöhen die Konzentration in einer Branche und verschärfen dadurch den Preiswettbewerb zwischen den Firmen in einer Branche.", "Keine der oben genannten Aussagen ist richtig."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    options: ["a) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=10, P2=4, K2=2.", "b) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=8, P2=5, K2=2.", "c) Firma 1: B1=8, P1=6, K1=2; Firma 2: B2=10, P2=9, K2=5.", "d) Firma 1: B1=P1=6, K1=2; Firma 2: B2=10, P2=6, K2=4.", "e) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=10, P2=6, K2=4."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zum Konzept der Economies of Scale ist am ehesten richtig?",
+    options: ["Je unterschiedlicher die Firmen in einer Branche von Economies of Scale profitieren, desto intensiver ist ceteris paribus der Preiswettbewerb.", "Firmen, die von Economies of Scale profitieren, produzieren auf der Effizienzgrenze.", "Kosteneinsparungen durch den Wechsel auf eine Technologie mit höheren Fixkosten und geringeren variablen Kosten lohnen sich für Neueintreter mehr als für etablierte Firmen.", "Eine Ursache von Diseconomies of Scale sind variable Inputs in der Produktion, die bei einer Ausdehnung der Produktionsmenge progressiv auf den Output wirken.", "Eine Firma kann nicht gleichzeitig von Economies of Scale und Economies of Scope profitieren."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zu Resources und Capabilities ist am ehesten falsch?",
+    options: ["Fehlende Märkte und beziehungsspezifische Vermögensgegenstände sind Gründe für imperfekte Mobilität von Resources und Capabilities.", "Knappheit und imperfekte Mobilität von Resources und Capabilities sind eine notwendige Bedingung für nachhaltige Wettbewerbsvorteile.", "Die Reputation einer Firma ist keine Ressource, weil Reputation keiner Knappheit unterliegt und andere Firmen die Möglichkeit haben, eigene Reputation aufzubauen.", "Capabilities bleiben einer Firma typischerweise auch dann erhalten, wenn einzelne Mitarbeiter die Firma verlassen, weil Capabilities in die organisationalen Routinen einer Firma eingebettet sind.", "Je mobiler Ressourcen sind, desto geringer sind die Möglichkeiten für eine Firma mit diesen Ressourcen nachhaltige Wettbewerbsvorteile aufzubauen."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "In einer Branche existieren zwei Firmen X und Y. Die Preise (P), die Durchschnittskosten (DK) sowie die Qualität ihrer Produkte sind gegeben (Abbildung mit Indifferenzkurve, DKx, DKy, Qualitätx und Qualitätsy). Welche Aussage zur dargestellten Situation ist am ehesten richtig?",
+    options: ["Die Angebote der Firma X und der Firma Y erreichen die gleiche maximale Zahlungsbereitschaft.", "Die Preisdifferenz zwischen den beiden Produkten ist kleiner als die Wertschätzungsdifferenz.", "Firma Y erzielt eine höhere Wertschöpfung als Firma X.", "Firma Y bietet eine höhere Konsumentenrente als Firma X an.", "Keine der oben genannten Aussagen ist richtig."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage bezüglich Targeting und Marktsegmentierung ist am ehesten richtig?",
+    options: ["Eine Firma mit einer Fokusstrategie ist entweder Kostenführer oder Wertschätzungsführer, aber nicht beides gleichzeitig.", "Je unterschiedlicher die Kunden innerhalb eines Segmentes auf eine Preisänderung reagieren, desto wertvoller ist die Segmentierung für eine Firma.", "Der Fokus auf ein spezifisches Marktsegment, wie zum Beispiel eine «Altersklasse», kann trotz begrenzter Economies of Scale und Scope eine gute Kostenkontrolle erlauben.", "Zur Bestimmung der Attraktivität einzelner Marktsegmente kann nicht auf das Framework der fünf Wettbewerbskräfte zurückgegriffen werden, weil das Framework immer die gesamte Branche abdeckt.", "Bei der Eingrenzung des Marktauftritts ist die Kundenspezialisierung eine Art Spezialfall der geografischen Spezialisierung."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Fly ist eine etablierte Firma in der «Airline Industry». Welche Aussage zu dieser Branche ist gemäss der 5-Kräfte-Analyse von Porter am ehesten falsch?",
+    options: ["Obwohl die Branche durch hohe Kapitalinvestitionen charakterisiert ist, ist Fly durch Neueintritte gefährdet, da Leasing-Gesellschaften die Markteintrittsbarrieren senken.", "Vergleichsportale erlauben es Fluggesellschaften zwar, ihre Flüge zu tiefen Kosten einer grossen Menge Kunden anzubieten, jedoch verbessern sie die Preis-Transparenz zwischen Fluggesellschaften, wodurch die Marktmacht der Abnehmer steigt.", "Die Branche ist durch relativ tiefe Wechselkosten für Kunden gekennzeichnet, was den Markteintritt für neue Firmen erschwert.", "Die Marktmacht der Flugzeughersteller ist wegen ihrer hohen relativen Konzentration hoch, wodurch die Verhandlungsmacht bei Fly tiefer ist.", "Airline-Allianzen erlauben es Fly mit anderen Fluggesellschaften zu kooperieren und von einer finanziellen Unterstützung in schwierigen Zeiten zu profitieren, was die Marktaustrittswahrscheinlichkeit der Firma Fly verkleinert."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "In der Branche X produzieren alle Unternehmen mit folgender Totalkostenfunktion: TK(Q) = 100 + 5*Q. Welche Schlussfolgerung zur Kostenstruktur ist zulässig? In der Branche X...",
+    options: ["...sind Erfahrungskurveneffekte wichtiger als Economies of Scale.", "...wirken die Fixkosten stärker auf die Totalkosten als die variablen Kosten.", "...kann ein Unternehmen nie Diseconomies of Scale erzielen.", "...können mit Produktivitätssteigerungen auf den variablen Inputs Economies of Scale erzielt werden.", "Keine der oben genannten Aussagen ist richtig."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zu den Pricing-Strategien «Go for share» und «Go for margin» ist am ehesten richtig?",
+    options: ["Bei einem Kostenvorteil und hoher Preiselastizität der Nachfrage sollte Preisparität gehalten werden, um Marktanteilsgewinne zu realisieren.", "Bei einem Kostenvorteil und niedriger Preiselastizität der Nachfrage sollte Preisparität gehalten werden, um Marktanteilsgewinne zu realisieren.", "Eine «Go for share» Strategie ist einer «Go for margin» Strategie dann vorzuziehen, wenn der Marktanteilsgewinn von einem Margenverzicht überkompensiert wird.", "Im Gegensatz zu einem Wertschätzungsvorteil ist bei einem Kostenvorteil eine «Go for share» Strategie einer «Go for margin» Strategie zu bevorzugen.", "Bei einem Wertschätzungsvorteil und niedriger Preiselastizität der Nachfrage sollte ein Premiumpreis verlangt werden, um eine höhere Marge abzuschöpfen als die Konkurrenz."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Die Firma SixPack ist in der Branche für Getränkeverpackungen tätig und hat sich in dieser Branche einen Wettbewerbsvorteil gegenüber der Konkurrenz erarbeitet. Mit dem Wettbewerbsvorteil erzielt SixPack eine «nichtangreifbare Produzentenrente». SixPack hat den Wettbewerbsvorteil über die «Stossrichtung» der Kostenführerschaft erreicht. Welche der folgenden Schlussfolgerungen ist aufgrund dieser Informationen zulässig?",
+    options: ["SixPack muss die grösste Wertschöpfung der gesamten Branche haben.", "SixPack muss die grösste Wertschätzung der gesamten Branche haben.", "SixPack muss die tiefsten Totalkosten der gesamten Branche haben.", "SixPack muss die tiefsten Durchschnittskosten der gesamten Branche haben.", "SixPack muss die tiefste Wertschätzung der gesamten Branche haben."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Gegeben sind die Erfahrungskurve für eine Branche sowie die kumulierten Produktionsmengen für die Firmen X und Y zu einem bestimmten Zeitpunkt. Aus der Abbildung: DKx = 10, DKy = 8; kumulierte Produktionsmenge Q: X = 100, Y = 200. Welche der folgenden Schlussfolgerungen ist zulässig?",
+    options: ["Firma Y produziert näher an der kostenoptimalen Betriebsgrösse s*.", "Firma Y produziert Güter mit einer höheren Qualität als Firma X.", "Firma Y besitzt einen Erfahrungsvorsprung gegenüber Firma X.", "Firma Y realisiert Economies of Scale.", "Keine der oben genannten Schlussfolgerungen ist zulässig."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage zur Positionierung für Wettbewerbsvorteile gemäss Porter ist am ehesten richtig?",
+    options: ["Die Strategie der Kostenführerschaft schützt ceteris paribus besser vor dem Preiswettbewerb in einer Branche als die Strategie der Wertschätzungsführerschaft.", "Eine etablierte Firma in einer Branche mit tiefer Konzentration soll sich für einen Mittelweg zwischen Kostenführerschaft und Wertschätzungsführerschaft entscheiden.", "Das Ziel einer guten Positionierung besteht darin, im Wettbewerb eine möglichst hohe Produzentenrente abzuschirmen, indem mehr Wert geschöpft wird als in den Konkurrenzfirmen.", "Bei einer Wertschöpfungsanalyse sind für einen Wertschätzungsführer nur die Wertschätzungstreiber relevant.", "Das Ziel einer Fokusstrategie besteht darin, die Wertschöpfungsbemühungen auf möglichst viele Marktsegmente auszurichten, indem Märkte nach Kunden und Produkten segmentiert werden."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "In Porters 5-Kräfte-Analyse spielt die «Gefahr durch Neueintritte» eine wichtige Rolle. Welche Aussage ist gemäss Porter am ehesten falsch? Die «Gefahr durch Neueintritte» ist ceteris paribus tiefer, wenn...",
+    options: ["...reputationsempfindliche Konsumenten den Markt prägen, weil Neueintreter bei Qualitätsunsicherheit Preisabschläge in Kauf nehmen müssen.", "...die Etablierten «vertical foreclosure» nutzen, weil Neueintreter ihre Produkte dadurch mit einem Patent schützen müssen.", "...die Etablierten branchenspezifische Investitionen getätigt haben, weil Neueintreter dadurch aggressivere Reaktionen der Etablierten erwarten müssen.", "...die installierte Basis der Etablierten hoch ist, weil Neueintreter keinen vergleichbaren Zusatznutzen aus positiven Nachfrageexternalitäten anbieten können.", "...Gesamtarbeitsverträge in einer Branche vorliegen, weil Neueintreter die Personalkostenstruktur der Etablierten übernehmen müssen."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Die Firma ADIWAS produziert 100'000 Fussbälle pro Jahr. Von den hergestellten Fussbällen werden 40'000 an den Grosshandel und 60'000 in eigenen Shops verkauft. Die Firma ADIWAS schöpft beim Verkauf die maximale Zahlungsbereitschaft der Abnehmer ab. Angaben: Stufe 1 Produktion: variable Stückkosten 10, Fixkosten 3'200'000, Verkaufspreis 60, verarbeitete Menge 100'000. Stufe 2 Vertrieb in eigenen Shops: variable Stückkosten 10, Fixkosten 1'600'000, Verkaufspreis 130, verarbeitete Menge 60'000. Wie hoch ist die Wertschöpfung von ADIWAS in der Stufe 2?",
+    options: ["1'200'000", "1'800'000", "2'000'000", "3'600'000", "5'600'000"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Welche Aussage bezüglich Isolationsmechanismen ist am ehesten richtig?",
+    options: ["Isolationsmechanismen sind für eine Firma das Äquivalent zu den Marktaustrittsbarrieren für eine Branche.", "Reputation als Isolationsmechanismus ist bei Inspektionsgütern von grösserer Bedeutung als bei Erfahrungsgütern.", "«Vertical foreclosure» wirkt als Isolationsmechanismus, weil eine breit installierte Basis positive Netzwerkexternalitäten generiert.", "Isolationsmechanismen schützen eigene Wettbewerbsvorteile vor neutralisierenden Ressourcenbildungsaktivitäten anderer Firmen.", "Knappheit und imperfekte Mobilität von Resources und Capabilities sind eine hinreichende Bedingung für nachhaltige Wettbewerbsvorteile und wirken als Isolationsmechanismus."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "Die Firma Top-Q hält die Wertschätzungsführerschaft in der Computer-Branche. Zudem ist Top-Q in der Smartphone-Branche tätig. Welche Aussage ist gemäss Porters Logik der generischen Wettbewerbsstrategien am ehesten falsch?",
+    options: ["In der Computer-Branche ist Top-Q vor marktmächtigen Abnehmern geschützt, da die Alleinstellungsmerkmale ihrer Computer dazu führen, dass aus Sicht der Abnehmer Alternativen fehlen.", "Die Kundenbindung aufgrund der Alleinstellungsmerkmale der Wertschätzungsführerschaft in der Computer-Branche kann Top-Q auch in der Smartphone-Branche Wettbewerbsvorteile bringen.", "Top-Q ist vor marktmächtigen Zulieferern geschützt, da Zulieferer für ein «einzigartiges Produkt» keinen Preissenkungsspielraum haben.", "Top-Q ist vom Preiswettbewerb in der Computer-Branche weniger bedroht, weil die Wertschätzungsführerschaft eine «nichtangreifbare Produzentenrente» generiert.", "Die Wertschätzungsführerschaft schützt Top-Q vor Substituten, weil die damit einhergehende Kundenloyalität die Bedrohung durch Ersatzprodukte senkt."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    prompt: "In der Mützen-Branche produziert die etablierte Firma OldCap mit der Totalkostenfunktion TKo = 500 + 3Qo und die neueingetretene Firma NewHat mit der Totalkostenfunktion TKn = 400 + 20Qn. Im betrachteten Jahr produziert OldCap Qo = 50. NewHat produziert die «minimale Einstiegsmenge», um sich bei gegebenem Verkaufspreis von P = 40 gerade so am Markt behaupten zu können. Wie gross ist der Kostennachteil (pro Mütze) des Neueinsteigers NewHat gegenüber dem etablierten Konkurrenten OldCap?",
+    options: ["13", "17", "27", "40", "150"],
+    correct: null
+  },
+]);
+
+QUESTIONS.push(...[
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Das Bedürfnisschichtenkonzept von Abraham Maslow (1954) gilt als Meilenstein der Inhaltstheorien zur Motivation. Wie lässt sich die Nutzenfunktion von Menschen für die ersten vier Stufen der Bedürfnispyramide beschreiben?",
+    options: ["Konkav", "Konvex", "Linear", "Symmetrisch", "Über den Verlauf der Nutzenfunktion kann keine Aussage gemacht werden, da Bedürfnisse von Mensch zu Mensch unterschiedlich sind."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Sie hören, wie sich zwei Personen darüber unterhalten, wann welche Lohnform am geeignetsten ist. Sie schnappen die Begriffe «kein Einfluss des Zufalls», «kleiner Handlungsspielraum» und «rasch ändernde Aufgaben» auf. Über welche der folgenden Lohnformen haben die beiden sich am ehesten unterhalten?",
+    options: ["Akkordlohn", "Prämienlohn", "Stücklohn", "Grundlohn", "Zeitlohn"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Ein Busfahrer der SPEED AG schläft während einer langen Fahrt ein und fährt gegen einen Baum. Er verletzt sich und muss ins Krankenhaus gebracht werden. Um solche Unfälle in Zukunft zu vermeiden, identifiziert der Arbeitssicherheitsbeauftragte der SPEED AG zwei Ansatzpunkte und leitet aus diesen Massnahmen ab: (1) Reduktion des Zeitdrucks auf die Fahrer, indem Pünktlichkeit nicht mehr in die Leistungsbeurteilung der Fahrer einfliesst. (2) Stärkung des Risikobewusstseins der Fahrer, indem alle Fahrer, die sich an die vorgeschriebenen Pausen- und Ruhezeiten halten, eine Sonderprämie erhalten. Welchen Forschungsansätzen zur Arbeitssicherheit sind diese beiden Ansatzpunkte zuzuordnen?",
+    options: ["(1) personenorientierte Forschung; (2) ereignisorientierte Forschung", "(1) bedingungsorientierte Forschung; (2) personenorientierte Forschung", "(1) ereignisorientierte Forschung; (2) bedingungsorientierte Forschung", "(1) personenorientierte Forschung; (2) bedingungsorientierte Forschung", "(1) bedingungsorientierte Forschung; (2) ereignisorientierte Forschung"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Welche der folgenden Aussagen zum intellektuellen Kapital einer Unternehmung ist richtig?",
+    options: ["Das intellektuelle Kapital eines Unternehmens ist höher als sein Buchwert.", "Wenn der Buchwert eines Unternehmens 12 Mio. CHF und sein Marktwert 8 Mio. CHF beträgt, so beläuft sich das intellektuelle Kapital des Unternehmens auf 4 Mio. CHF.", "Das intellektuelle Kapital eines Unternehmens setzt sich aus dem Innovationskapital, dem strukturellen Kapital und dem Humankapital zusammen.", "Wenn der Marktwert eines Unternehmens 8 Mio. CHF und sein intellektuelles Kapital 2 Mio. CHF beträgt, so beläuft sich der Buchwert des Unternehmens auf 6 Mio. Franken.", "Das Verhältnis zwischen Markt- und Buchwert ist bei Produktionsunternehmen höher als bei Unternehmen mit wissensintensiven Tätigkeiten."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Die Aviatik AG konnte ein unerwartetes und äusserst erfreuliches Jahresergebnis präsentieren. Die Geschäftsleitung beschliesst daher, vom Gewinn jedem Mitarbeitenden eine Sonderprämie in Höhe von 1'000 CHF zu bezahlen. Während sich die studentischen Aushilfen ausserordentlich über diesen finanziellen Zuschuss freuen, wird die Meldung im Top-Management kaum wahrgenommen. Mit welchem der folgenden Ansätze lassen sich diese unterschiedlichen Reaktionen am ehesten erklären?",
+    options: ["Hawthorne-Effekt", "Korrumpierungseffekt", "Prospect Theory", "VIE-Theorie", "Anreiz-Beitrags-Effekt"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Rolf arbeitet als Wirtschaftsprüfer bei der ALFA AG. Er beschreibt seine Stelle anhand der Merkmale des Job-Characteristics-Modells von Richard Hackman und Greg Oldham (1976) wie folgt: «Die Prozesse der Rechnungsprüfung folgen klaren Vorgaben und es besteht wenig Freiraum (2). Als Prüfer betreue ich meine Mandanten von Anfang an bis zum Abschluss der Prüfung (4). Nach jedem Abschluss erhalte ich von meinem Vorgesetzten eine Rückmeldung zu meiner Arbeit (8). Unsere Arbeit ist für unsere Mandanten und einen fairen Wettbewerb am Markt von grösster Bedeutung (5). Am meisten Spass bei meiner Arbeit macht mir, dass mich täglich neue Aufgaben und Herausforderungen erwarten (6).» Wie hoch ist das Motivationspotenzial von Rolfs Arbeitsstelle?",
+    options: ["60", "80", "100", "120", "160"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Sie sind Geschäftsführer/in des Reisebüros «Happy Holiday». Die Reisebranche gerät aufgrund der aktuellen Weltgeschehnisse zunehmend unter Druck. Um den Umsatzeinbussen entgegenzuwirken, haben Sie vor kurzem einen variablen Lohnanteil für Ihre Kundenberater eingeführt, welcher sich nach der Anzahl gewonnener Neukunden richtet. Nun erhalten Sie vermehrt Rückmeldungen von bestehenden Kunden, welche sich über ungenügende Beratung beschweren. Worauf ist die Unzufriedenheit Ihrer Kunden am ehesten zurückzuführen?",
+    options: ["Multitasking-Problem", "Verdrängungseffekt", "Akquisitionsfunktion", "Ratchet-Effekt", "Selbstselektionsfunktion"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Die Geschäftsleitung der MOVI AG ist besorgt. Die diesjährige Mitarbeiterbefragung zeigt, dass die Arbeitszufriedenheit im Vergleich zum Vorjahr gesunken ist. Die Geschäftsleitung prüft nun Massnahmen, um die Arbeitszufriedenheit nachhaltig zu steigern. Welche Massnahme kann der MOVI AG gemäss Frederick Herzberg (1968) am ehesten helfen?",
+    options: ["Erweiterung der Verantwortungsbereiche.", "Erhöhung der Löhne.", "Einführung einer unterstützenden Unternehmenskultur.", "Erhöhung der Arbeitsplatzsicherheit.", "Verbesserung der kollegialen Beziehungen."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Hannah ist die neue Personalleiterin der ABC AG. Eine ihrer ersten Veränderungen im Unternehmen ist die Implementierung des «ABC-Intranets», einer firmeninternen Plattform, auf welche alle Mitarbeitenden zugreifen können. Hannah will damit die Kommunikation zwischen den Abteilungen fördern und die Prozesse im Tagesgeschäft optimieren. Nach Dave Ulrich (1997) übernimmt sie dabei die Rolle...",
+    options: ["...des Performance Coaches.", "...des Change Agents.", "...des Process Managers.", "...des Strategischen Partners.", "...des Administrativen Profis."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Das Management der GENDER AG möchte den Arbeitswert für sämtliche Stellen neu ermitteln. Das oberste Ziel des Managements ist eine möglichst diskriminierungsfreie Arbeitsbewertung. Mit welcher der folgenden Massnahmen kann dieses Ziel am ehesten erreicht werden?",
+    options: ["Verwendung eines einheitlichen Anforderungskatalogs für alle Stellen im Betrieb", "Einsatz eines heterogen zusammengesetzten Arbeitsbewertungskomitees", "Verzicht auf die Gewichtung geschlechterspezifischer Anforderungen", "Mehrfacherfassung geschlechterspezifischer Anforderungskriterien", "Anwendung einer summarischen anstelle einer analytischen Arbeitsbewertungsmethode"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Ein Softwareunternehmen implementiert ein neues Lohnsystem und möchte es entsprechend den Mitarbeiterbedürfnissen ausgestalten. Dabei möchte das Management auf drei Mitarbeitergruppen eingehen: (1) auf Kundenbetreuer, die den Unternehmenserfolg durch Verkaufsabschlüsse beeinflussen können, (2) auf Projektleiter, die komplexe Mehrfachaufgaben wahrnehmen, und (3) auf Softwareentwickler, die vertiefte Fachkenntnisse und Selbstdisziplin aufweisen müssen. Welche Lohnart entspricht der jeweiligen Mitarbeitergruppe am besten?",
+    options: ["(1) Anforderungslohn, (2) Leistungslohn, (3) Anforderungslohn", "(1) Leistungslohn, (2) Zeitlohn, (3) Anforderungslohn", "(1) Zeitlohn, (2) Anforderungslohn, (3) Leistungslohn", "(1) Anforderungslohn, (2) Zeitlohn, (3) Zeitlohn", "(1) Leistungslohn, (2) Anforderungslohn, (3) Zeitlohn"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Herr Schwarz und Frau Weiss arbeiten gemeinsam im Verkauf. Zusätzlich zum Grundgehalt erhielt Herr Schwarz im April eine Prämie von 200 CHF und Frau Weiss erhielt eine Prämie von 600 CHF. Im Mai erhielten beide eine Prämie von 400 CHF. Während Herr Schwarz mit seiner Prämie zufrieden ist, beschwert sich Frau Weiss über ihre tiefe Prämie. Wie können diese beiden unterschiedlichen Reaktionen gemäss der Prospect Theory am ehesten erklärt werden?",
+    options: ["Die Reaktion von Frau Weiss fällt negativ aus, da Verluste einen abnehmenden Grenznutzen haben.", "Die unterschiedlichen Reaktionen bei gleich hohen Prämien (400 CHF) im Mai zeigen, dass Frau Weiss eine steilere Nutzenfunktion hat als Herr Schwarz.", "Das subjektive Gerechtigkeitsempfinden von Frau Weiss ist verletzt, da ihre Prämie gekürzt wurde, während Herr Schwarz eine Prämienerhöhung erhielt.", "Frau Weiss gewichtet ihren Verlust (200 CHF) stärker als Herr Schwarz seinen Gewinn (200 CHF).", "Frau Weiss beurteilt ihre Prämie von einem anderen Referenzpunkt aus als Herr Schwarz."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Die Rechte und Pflichten von Unternehmen und ihren Akteuren sind in der Schweiz gesetzlich geregelt. Welche der folgenden vier Aussagen zu geltendem Schweizer Recht ist falsch? Wählen Sie Antwort e), falls alle vier Aussagen korrekt sind.",
+    options: ["Nach Art. 112 Abs. 4 UVG machen sich Arbeitnehmende strafbar, die durch ihr Fehlverhalten die physische Unversehrtheit anderer ernstlich gefährden.", "Nach Art. 112 Abs. 4 UVG werden Unternehmen mit Busse bestraft, wenn Vorschriften über die Verhütung von Berufsunfällen vorsätzlich oder fahrlässig verletzt werden.", "Nach Art. 716a Abs. 1 OR hat der Verwaltungsrat die unübertragbare und unentziehbare Aufgabe der Ernennung der Geschäftsleitung und der Festlegung der Organisation.", "Nach Art. 716a Abs. 1 OR hat der Verwaltungsrat die Oberaufsicht über die Geschäftsführung im Hinblick auf die Einhaltung von Gesetzen, Statuten und Reglementen.", "Alle Aussagen sind richtig."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Die Lohnstruktur der FOUR AG setzt sich aus vier Komponenten zusammen, die der Erreichung der folgenden strategischen Ziele dienen: (1) gesichertes Einkommen garantieren, (2) weitsichtige Entscheidungsfindung honorieren, (3) gezielte Motivationswirkung erzeugen und (4) die Mitarbeitenden langfristig an das Unternehmen binden. Welche der folgenden Komponenten ist basierend auf der Beschreibung nicht Bestandteil der Lohnstruktur der FOUR AG?",
+    options: ["Sonderprämien", "Fringe Benefits", "Grundlohn", "Variables Gehalt", "Erfolgsbeteiligung"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Herr Fleissig und Frau Faul sollen gemeinsam den Geschäftsbericht 2016 erstellen. Da sich Frau Faul vor der Arbeit drückt, erledigt Herr Fleissig alles alleine. Wie von der Geschäftsleitung gewünscht, präsentieren die beiden den Geschäftsbericht gemeinsam. Begeistert von der Präsentation beschliesst die Geschäftsleitung, die nichts von der ungleichen Arbeitsaufteilung weiss, beiden eine Sonderprämie von 1'000 Franken zu zahlen. Obwohl Herr Fleissig sich über die Sonderprämie freut, ist sein Fairnessgefühl verletzt. Welche Form der Fairness wurde aus der Sicht von Herrn Fleissig bei der Vergabe der Sonderprämie verletzt?",
+    options: ["Objektive Fairness", "Transaktionale Fairness", "Interaktionelle Fairness", "Distributive Fairness", "Prozedurale Fairness"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Sie sind Chefin eines KMU und wollen eine einfache Arbeitsbewertung durchführen, da Sie nicht viel Zeit dafür aufwenden können. Aus den sechs verschiedenen Arten von Arbeitsstellen bilden Sie eine Rangliste gemäss dem jeweiligen Schwierigkeitsgrad und ordnen den Stellen einen Arbeitswert zu. Welche Methode, Art der Bewertung und Quantifizierung haben Sie angewandt?",
+    options: ["Rangreihenmethode; Bewertung: analytisch; Quantifizierung: Gruppierung", "Rangfolgemethode; Bewertung: summarisch; Quantifizierung: Reihung", "Rangreihenmethode; Bewertung: Stufung; Quantifizierung: summarisch", "Rangfolgemethode; Bewertung: Gruppierung; Quantifizierung: Stufung", "Rangreihenmethode; Bewertung: Reihung; Quantifizierung: analytisch"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Gemäss Abraham Maslow (1954) wirkt ein Anreiz...",
+    options: ["...besonders für diejenigen Mitarbeitenden motivierend, welche die Fähigkeit haben, ein durch die Wahl des Anreizes beabsichtigtes Verhalten zu zeigen.", "...dann auf Mitarbeitende motivierend, wenn eine positive Instrumentalität zwischen den Zielen des Anreizes und dem Anreiz selbst besteht.", "...vorwiegend auf diejenigen Mitarbeitenden motivierend, die nicht befriedigte, aber mit dem Anreiz korrespondierende Motive haben.", "...auf die meisten Mitarbeitenden gleich, da die Instrumentalität und Erreichbarkeit eines Anreizes für alle identisch sind.", "...auf die Mehrheit der Mitarbeitenden auch dann motivierend, wenn das Selbstverwirklichungsbedürfnis befriedigt ist."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "In den Semesterferien arbeiten Sie als Aushilfe in einem Lebensmittelgeschäft und sind für das Auffüllen der Regale zuständig. Sie finden diese Arbeit nicht besonders abwechslungsreich und füllen daher nur zwei Regale pro Stunde auf. Gemäss dem Hawthorne-Effekt würden Sie mehr Regale auffüllen, wenn...",
+    options: ["...Sie alle zwei Stunden eine kurze Pause machen.", "...Sie vom Filialleiter beobachtet werden.", "...Ihr Lohn von der Anzahl aufgefüllter Regale abhängt.", "...Sie zur Abwechslung an der Kasse arbeiten dürfen.", "...die Beleuchtung im Verkaufsraum reguliert wird."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Welche der folgenden Aussagen zu Auszeichnungen als immaterielle Belohnung ist falsch?",
+    options: ["Auszeichnungen sollten abgestimmt auf bestehende Elemente des Anreizsystems erschaffen werden.", "Auszeichnungen wirken über die Befriedigung menschlicher Bedürfnisse nach Anerkennung, Status und Zugehörigkeit.", "Auszeichnungen haben aufgrund des zunehmenden Grenznutzens eine stärkere Wirkung als finanzielle Belohnungen.", "Auszeichnungen bieten aus ökonomischer Sicht ein attraktives Preis-Leistungs-Verhältnis.", "Auszeichnungen können durch eine entsprechende Inszenierung signalisieren, was dem Verleiher wichtig ist."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-HRM", category: "Human Resource Management",
+    prompt: "Herr Basler arbeitet seit 10 Jahren bei der Zürcher AG, die im letzten Jahr eine Umstrukturierung durchgeführt hat. Seine Arbeit gefiel ihm vor der Umstrukturierung besser. Vergleicht er seine neue Situation allerdings mit derjenigen seiner Arbeitskollegen, ist er immer noch sehr zufrieden. Denn seine Arbeitskollegen, so sagt sich Herr Basler, haben es nach der Umstrukturierung noch viel schlechter als er. Die Reaktion von Herrn Basler entspricht nach Agnes Bruggemann (1974) am ehesten der...",
+    options: ["...fixierten Arbeitszufriedenheit.", "...komparativen Arbeitszufriedenheit.", "...stabilisierten Arbeitsunzufriedenheit.", "...konstruktiven Arbeitsunzufriedenheit.", "...resignativen Arbeitszufriedenheit."],
+    correct: null
+  },
+]);
+
+QUESTIONS.push(...[
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Welche der folgenden Antworten stellt keinen Vorteil bzw. keinen Nutzen von Stäben dar?",
+    options: ["Nutzung von Spezialwissen", "Fundiertere Entscheidungsvorbereitung", "Einfachere Problemdefinition", "Entlastung der Entscheidungsinstanzen", "Beratung der Linie"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Welches Problem ist allen Formen der organisatorischen Differenzierung gemein?",
+    options: ["Effizienzverluste", "Verdünnung der Kommunikation", "Erhöhter Personaleinsatz", "Spezialisierungsnachteile", "Überlastung der Spitze"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Eine Holding ist eine spezielle Form der...",
+    options: ["...objektorientierten Organisation.", "...verrichtungsorientierten Organisation.", "...Mehrlinienorganisation.", "...Ablauforganisation.", "...Prozessorganisation."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Welche Organisationsform liegt in der Abbildung vor? Die Abbildung zeigt eine Geschäftsleitung mit Leitungen für den Schweizer Markt, für EU-Länder und für Nicht-EU-Länder; darunter sind jeweils Funktionen wie Werbung, Service, Vertrieb und Qualitätssicherung angeordnet.",
+    options: ["Verrichtungsorientierte Organisation", "Funktionale Organisation", "Divisionale Organisation", "Matrix-Organisation", "Mischform aus funktionaler und divisionaler Organisation"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "In einem Start-up kommt es vor allem auf eine schnelle Entwicklung neuer Routinen und auf den direkten Informationsaustausch zwischen den Mitarbeitern an. Was würden Sie einem Start-up bezüglich dessen Leitungsebene und Gliederungstiefe empfehlen?",
+    options: ["Die Anzahl der Leitungsebenen sollte gross sein, damit auch die Gliederungstiefe hoch ist.", "Die Anzahl der Leitungsebenen sollte gross sein, damit die Gliederungstiefe niedrig ist.", "Die Anzahl der Leitungsebenen sollte gering sein, damit die Gliederungstiefe hoch ist.", "Die Anzahl der Leitungsebenen sollte gering sein, damit die Gliederungstiefe niedrig ist.", "Die Anzahl der Leitungsebenen und die Gliederungstiefe spielen in diesem Fall keine grosse Rolle."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Die Grossbank PMB ist international tätig. Herr Peters und Frau Stern von der Geschäftsleitung beraten sich, wie sie die Arbeitsteilung optimal gestalten können. Beide möchten, dass die Flexibilität und Schnelligkeit bei der Einführung von neuen Produkten gesteigert wird. Zudem ist es Herrn Peters wichtig, in der Gesamtführung entlastet zu werden. Der Wunsch von Frau Stern hingegen ist es, die Motivation der Mitarbeiter durch eine grössere Eigenverantwortung zu fördern. Welche Massnahme würden Sie den beiden empfehlen, um ihre verschiedenen Ziele zu erreichen?",
+    options: ["Einführung einer verrichtungsorientierten Organisation", "Einführung einer divisionalen Organisation", "Einführung einer Stab-Linien-Organisation", "Erhöhung der Gliederungstiefe", "Keine der genannten Massnahmen ist optimal, da sich die Wünsche von Frau Stern und Herrn Peters schlecht vereinbaren lassen."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Das klassische Integrations- und Koordinationsinstrument ist die Hierarchie. Welche der folgenden fünf Aussagen zur hierarchischen Abstimmung ist korrekt?",
+    options: ["Das Basisprinzip der Einlinienorganisation ist die Spezialisierung der Leitung.", "Das Basisprinzip der Mehrlinienorganisation ist die Einheit der Auftragserteilung.", "Sowohl bei der Einlinien- als auch bei der Mehrlinienorganisation sind die Zuständigkeiten bei Abstimmungsproblemen klar geregelt.", "Das Abstimmungsprinzip bei der Einlinien- und Mehrlinienorganisation ist die persönliche Weisung.", "Sowohl die Einlinien- als auch die Mehrlinienorganisation führen zur Vermeidung von Konflikten."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Die neue Mitarbeiterin eines Start-ups hat Probleme, sich in der Unternehmung zurechtzufinden. Von ihrem vorherigen Arbeitgeber, einem grossen Konzern, war sie es gewohnt, dass alle Aufgaben und Vorgänge über ihren Vorgesetzten ablaufen. Hier ist es jedoch anders: Es gibt wenig formale Regeln, und Abstimmungen erfolgen oft individuell und ad hoc. Ihr fällt allerdings auf, dass alle Mitarbeiter bestimmte Vorstellungs- und Orientierungsmuster teilen, die den Rahmen für die Abstimmungen bilden. Welcher der folgenden Begriffe beschreibt die Form der Integration in diesem Start-up am besten?",
+    options: ["Fayol'sche Brücke", "Interner Markt", "Clan-Lösung", "Projektorganisation", "Linking Pin"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Das Start-up SunPhone ist rasant gewachsen, so dass die Personalstrukturen unübersichtlich wurden und die Personalkosten stark gestiegen sind. Die Geschäftsführerin von SunPhone bittet den Personalchef um eine Einschätzung der Situation. An einer Teamsitzung erläutert der Personalchef seine Sicht der Situation: (1) Mit dem Wachstum des Unternehmens nimmt zwangsläufig die Leitungsintensität überproportional zu, da die Notwendigkeit zur Integration zunimmt. (2) Steile Hierarchien verursachen im Verhältnis zu flachen erheblich höhere Führungskosten. Wie sind diese beiden Aussagen aus Sicht der Organisationslehre zu beurteilen?",
+    options: ["Aussage (1) ist falsch, Aussage (2) ist korrekt.", "Aussage (1) ist korrekt, Aussage (2) ist falsch.", "Beide Aussagen sind falsch.", "Beide Aussagen sind korrekt.", "Die Organisationslehre kann die Richtigkeit der Aussagen nicht beurteilen."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Was ist keine Form der horizontalen Integration?",
+    options: ["Ausschuss", "Fayol'sche Brücke", "Interner Markt", "Matrixorganisation", "Projektorganisation"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Welcher der folgenden fünf Begriffe beschreibt keinen Aspekt der lateralen Integration?",
+    options: ["Informelle Kommunikation", "Multiple, überlappende Teams", "Kompetenzzentren", "Koordination nach eigenem Ermessen", "Zentrale Steuerung"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Der CEO von Oveo entscheidet sich für eine Reorganisation seines Unternehmens und wählt dafür die Matrixorganisation. Auf alle beteiligten Manager kommen dabei spezifische Herausforderungen zu. Welche der folgenden Herausforderungen betreffen speziell den CEO?",
+    options: ["Führungsverantwortung für zwei Linien, Pflegen einer produktiven Diskussionskultur, Loyalitätskonflikte", "Führungsverantwortung für zwei Linien, Sichtbarmachen auftretender Widersprüche, Lösung von Konflikten", "Permanentes Ausbalancieren der Macht, unterschiedliche Sichtweisen, gemeinsames Management der Entscheidungsprozesse", "Pflegen einer produktiven Diskussionskultur, permanentes Ausbalancieren der Macht, Führungsverantwortung für zwei Linien", "Unterschiedliche Sichtweisen, Lösung von Konflikten, gemeinsames Management der Entscheidungsprozesse"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Eine neue Mitarbeiterin stellt fest, dass in ihrem neuen Unternehmen, im Gegensatz zu ihrem bisherigen Unternehmen, die Unternehmensumwelt grundsätzlich feindlich aufgefasst wird. Diese Feststellung betrifft...",
+    options: ["...das Symbolsystem der neuen Organisation.", "...die moralischen Vorstellungen der neuen Organisation.", "...die Basisannahmen der neuen Organisation.", "...die Werte und Normen der neuen Organisation.", "...die ethischen Vorstellungen der neuen Organisation."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Welche der folgenden Aussagen bezüglich Organisationskulturen trifft zu?",
+    options: ["Heterogene Kulturen weisen eher Kulturdenken auf als homogene Kulturen.", "Heterogene Kulturen weisen eine höhere Handlungsorientierung auf als homogene Kulturen.", "Stark internalisierte Kulturen weisen einen höheren Grad an Flexibilität auf als weniger stark internalisierte Kulturen.", "Prägnante Kulturen weisen eine höhere Verankerungstiefe auf als stark internalisierte Kulturen.", "Keine der obigen Aussagen trifft zu."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Die Prägnanz einer Unternehmenskultur ist definiert als...",
+    options: ["...das Ausmass, in dem die Organisationsmitglieder kulturelle Muster teilen.", "...der Grad der Internalisierung von kulturellen Mustern.", "...die Stärke von kulturellen Mustern.", "...die Klarheit und Reichweite der kulturellen Muster.", "...das Entwicklungsniveau der kulturellen Muster."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Welche der folgenden Rahmenbedingungen begünstigt die Entstehung von Subkulturen nicht?",
+    options: ["Art der Aufgaben", "Abteilungszugehörigkeit", "Ereignisgemeinschaften", "Professioneller Hintergrund", "Alle der oben genannten Rahmenbedingungen können die Entstehung von Subkulturen begünstigen."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Organisationen mobilisieren viel Energie, um bewährte Strukturen zu festigen und vor Veränderungen zu schützen. Wie nennt man dieses Phänomen?",
+    options: ["Threat-Rigidity-Effekt", "«Not-Invented-Here»-Syndrom", "Frustrations-Regressions-Effekt", "Systemträgheit", "Kollektive Orientierungsmuster"],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Das Top-Management der Müller AG plant eine Verlegung ihrer Produktionsstätte. Zur Reduzierung des Widerstands wurden mehrere Massnahmen geplant. Viele der Massnahmen lassen sich auf Erkenntnisse von Lewin zurückführen. Welche der folgenden Massnahmen lässt sich nicht darauf zurückführen? Das Top-Managementteam...",
+    options: ["...beschliesst die Veränderungen gemeinsam mit den Mitarbeitern.", "...präsentiert den Mitarbeitern einen detaillierten Plan des Wandelvorhabens.", "...fördert die Zusammenarbeit aller beteiligten Abteilungen.", "...sucht und berücksichtigt die Rückmeldungen der Mitarbeiter.", "...fördert die Diskussion innerhalb der betroffenen Belegschaft."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Die Maier GmbH plant eine Fusion mit der in der gleichen Branche tätigen Kunz AG. Sie hat die erste Phase, die Vorbereitung, abgeschlossen. Welche der folgenden Massnahmen sollte das Unternehmen nach gängiger Organisationslehre als nächstes durchführen?",
+    options: ["Die Betroffenen über Entlassungen informieren.", "Die spezifischen Massnahmen zur Umsetzung des Wandels in den einzelnen Abteilungen diskutieren.", "Nach potentiellen Kandidaten für Unternehmensfusionen suchen.", "Workshops zur Einübung der neuen Arbeitsweisen und Routinen mit allen betroffenen Organisationsmitgliedern durchführen.", "Vorteile der Fusion an die relevanten Stakeholder kommunizieren."],
+    correct: null
+  },
+  {
+    subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-ORG", category: "Organisation",
+    prompt: "Welche der folgenden fünf Aussagen ist in Bezug auf Prozessberatung (nach Edgar Schein) korrekt?",
+    options: ["Prozessberatung liefert inhaltliche Vorschläge zur Problemlösung.", "Der Prozessberatung ist typischerweise eine Mitarbeiterbefragung vorgeschaltet.", "Prozessberatung erarbeitet zusammen mit den Mitarbeitern inhaltliche Vorschläge zur Problemlösung.", "Prozessberatung macht bewusst keine Gestaltungsvorgaben und befähigt die Organisation, selbständig eine Lösung zu finden.", "Prozessberatung stellt die Umweltanalyse in den Mittelpunkt."],
+    correct: null
+  },
+]);
+
+const BWL_BOTH_SOURCE_PREFIXES = [
+  "Welchen Nachteil hat die divisionale Organisation",
+  "Eine Instanz Y leitet direkt 9 Ausführungsstellen",
+  "Frau Schmidt unterstützt den Abteilungsleiter",
+  "Werbeagentur: Kundenanfragen",
+  "Aus welchen Kennzahlen ergibt sich",
+  "Welche Faktoren könnten gegen eine rein hierarchische Organisation",
+  "Ein Energieunternehmen trennt Produktion",
+  "Wandelprozess: Anforderungen ausloten",
+];
+
+QUESTIONS.forEach(q => {
+  if (q.subject !== "BWL II" || q.sourceYears) return;
+  const inBoth = q.set === "BWL2-SM" || BWL_BOTH_SOURCE_PREFIXES.some(p => q.prompt.startsWith(p));
+  q.sourceYears = inBoth ? ["2017", "2025"] : ["2017"];
+});
 
 // ═══════════════════════════════════════════════════════════════════════════
 // QUESTION IDS — stable across reorderings/insertions, derived from prompt
@@ -1897,16 +3488,19 @@ function weaknessScore(q) {
 }
 
 function getWeakestPool(limit = 15) {
+  const inSubject = i => questionSubject(QUESTIONS[i]) === state.subject;
   const seen = QUESTIONS
     .map((q, i) => ({ i, q, score: weaknessScore(q), stats: state.data.questionStats[q.id] }))
+    .filter(x => inSubject(x.i))
     .filter(x => x.stats && x.stats.attempts > 0);
   // Highest weakness first; tiebreaker: fewer attempts (less data → review)
   seen.sort((a, b) => b.score - a.score || (a.stats.attempts - b.stats.attempts));
   let result = seen.filter(x => x.score > 0).slice(0, limit).map(x => x.i);
-  // If still short, fill with unseen questions
+  // If still short, fill with unseen questions (still subject-filtered)
   if (result.length < limit) {
     const unseen = QUESTIONS
       .map((q, i) => ({ i, stats: state.data.questionStats[q.id] }))
+      .filter(x => inSubject(x.i))
       .filter(x => !x.stats || !x.stats.attempts);
     for (const u of unseen) {
       if (result.length >= limit) break;
@@ -1917,17 +3511,46 @@ function getWeakestPool(limit = 15) {
 }
 
 function totalAttempts() {
-  return Object.values(state.data.questionStats).reduce((a, s) => a + (s.attempts || 0), 0);
+  const ids = new Set(QUESTIONS.filter(q => questionSubject(q) === state.subject).map(q => q.id));
+  return Object.entries(state.data.questionStats)
+    .filter(([id]) => ids.has(id))
+    .reduce((a, [, s]) => a + (s.attempts || 0), 0);
 }
 function totalQuestionsSeen() {
-  return Object.values(state.data.questionStats).filter(s => s && s.attempts > 0).length;
+  const ids = new Set(QUESTIONS.filter(q => questionSubject(q) === state.subject).map(q => q.id));
+  return Object.entries(state.data.questionStats)
+    .filter(([id, s]) => ids.has(id) && s && s.attempts > 0).length;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════════════════════════
+const SUBJECTS = [
+  { id: "Financial Reporting", label: "Financial Reporting" },
+  { id: "BWL II",              label: "BWL II" },
+];
+const SUBJECT_KEY = "quiz-subject";
+const DEFAULT_SUBJECT = "Financial Reporting";
+const TIMER_KEY = "quiz-question-timer-seconds";
+const TIMER_OPTIONS = [
+  { seconds: 0,   label: "No timer" },
+  { seconds: 90,  label: "1:30" },
+  { seconds: 60,  label: "1:00" },
+];
+
+function getSubject() {
+  const saved = localStorage.getItem(SUBJECT_KEY);
+  return SUBJECTS.some(s => s.id === saved) ? saved : DEFAULT_SUBJECT;
+}
+function questionSubject(q) { return q.subject || "Financial Reporting"; }
+function getTimerSeconds() {
+  const saved = parseInt(localStorage.getItem(TIMER_KEY) || "0", 10);
+  return TIMER_OPTIONS.some(t => t.seconds === saved) ? saved : 0;
+}
+
 const state = {
   screen: "start",           // "start" | "quiz" | "results"
+  subject: getSubject(),     // which subject (tab) is active
   selectedCats: new Set(),   // empty = all
   order: [],                 // indices into QUESTIONS for this run
   idx: 0,
@@ -1943,22 +3566,103 @@ const state = {
   data: loadLocalData(),     // persisted progress (questionStats, etc.)
   syncStatus: getPat() ? "connected" : "local",
   settingsOpen: false,
+  timerSeconds: getTimerSeconds(),
+  timerRemaining: 0,
+  timerDeadline: 0,
+  timerId: null,
 };
 
-const ALL_CATS = [...new Set(QUESTIONS.map(q => q.category))];
+function setSubject(s) {
+  if (s === state.subject) return;
+  stopQuestionTimer();
+  state.subject = s;
+  try { localStorage.setItem(SUBJECT_KEY, s); } catch {}
+  state.selectedCats = new Set();
+  state.screen = "start";
+  render();
+}
+
+function setTimerSeconds(seconds) {
+  if (!TIMER_OPTIONS.some(t => t.seconds === seconds)) return;
+  state.timerSeconds = seconds;
+  try { localStorage.setItem(TIMER_KEY, String(seconds)); } catch {}
+  render();
+}
+
+function formatTimer(seconds) {
+  const s = Math.max(0, seconds | 0);
+  const mins = Math.floor(s / 60);
+  return `${mins}:${String(s % 60).padStart(2, "0")}`;
+}
+
+function stopQuestionTimer() {
+  if (!state.timerId) return;
+  clearInterval(state.timerId);
+  state.timerId = null;
+}
+
+function updateTimerDisplay() {
+  const el = document.getElementById("timerPill");
+  if (!el || !state.timerSeconds || state.answered) return;
+  const remaining = Math.max(0, Math.ceil((state.timerDeadline - Date.now()) / 1000));
+  state.timerRemaining = remaining;
+  el.textContent = formatTimer(remaining);
+  el.classList.toggle("warning", remaining <= 30 && remaining > 10);
+  el.classList.toggle("danger", remaining <= 10);
+  if (remaining <= 0) expireQuestionTimer();
+}
+
+function startQuestionTimer() {
+  stopQuestionTimer();
+  if (!state.timerSeconds || state.screen !== "quiz" || state.answered) return;
+  state.timerRemaining = state.timerSeconds;
+  state.timerDeadline = Date.now() + state.timerSeconds * 1000;
+  updateTimerDisplay();
+  state.timerId = setInterval(updateTimerDisplay, 250);
+}
+
+function expireQuestionTimer() {
+  if (state.answered) return;
+  stopQuestionTimer();
+  pickAnswer(-1, true);
+}
+
+function subjectIndices(subject) {
+  const result = [];
+  for (let i = 0; i < QUESTIONS.length; i++) {
+    if (questionSubject(QUESTIONS[i]) === subject) result.push(i);
+  }
+  return result;
+}
+function getActiveCats() {
+  return [...new Set(
+    QUESTIONS.filter(q => questionSubject(q) === state.subject).map(q => q.category)
+  )];
+}
 
 // Curated decks (course handouts + AI variants).
 const DECKS = [
-  { id: "AE1",     label: "Additional Exercises 1",          sub: "Course handout",         sets: ["AE1"] },
-  { id: "AE1+AI",  label: "Additional Exercises 1 + AI",     sub: "Handout + AI add-ons",   sets: ["AE1", "AE1-AI"] },
-  { id: "R1",      label: "Recitation 1",                    sub: "Course handout",         sets: ["R1"] },
-  { id: "R1+AI",   label: "Recitation 1 + AI",               sub: "Handout + AI add-ons",   sets: ["R1", "R1-AI"] },
+  { id: "AE1",      subject: "Financial Reporting", label: "Additional Exercises 1",      sub: "Course handout",        sets: ["AE1"] },
+  { id: "AE1+AI",   subject: "Financial Reporting", label: "Additional Exercises 1 + AI", sub: "Handout + AI add-ons",  sets: ["AE1", "AE1-AI"] },
+  { id: "R1",       subject: "Financial Reporting", label: "Recitation 1",                sub: "Course handout",        sets: ["R1"] },
+  { id: "R1+AI",    subject: "Financial Reporting", label: "Recitation 1 + AI",           sub: "Handout + AI add-ons",  sets: ["R1", "R1-AI"] },
+  { id: "BWL2-SM",  subject: "BWL II",              label: "Teil 1: Strategisches Management", sub: "Probeprüfung 2017", sets: ["BWL2-SM"] },
+  { id: "BWL2-HRM", subject: "BWL II",              label: "Teil 2: Human Resource Management", sub: "Probeprüfung 2017", sets: ["BWL2-HRM"] },
+  { id: "BWL2-ORG", subject: "BWL II",              label: "Teil 3: Organisation",        sub: "Probeprüfung 2017",     sets: ["BWL2-ORG"] },
+  { id: "BWL2-HRM25", subject: "BWL II",            label: "FS25: Human Resource Management", sub: "Probeprüfung 2025", sets: ["BWL2-HRM25"] },
+  { id: "BWL2-ORG25", subject: "BWL II",            label: "FS25: Organisation",         sub: "Probeprüfung 2025",     sets: ["BWL2-ORG25"] },
+  { id: "BWL2-JUN17-SM",  subject: "BWL II",        label: "Juni 2017: Strategisches Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-SM"] },
+  { id: "BWL2-JUN17-HRM", subject: "BWL II",        label: "Juni 2017: Human Resource Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-HRM"] },
+  { id: "BWL2-JUN17-ORG", subject: "BWL II",        label: "Juni 2017: Organisation",    sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-ORG"] },
 ];
 function deckPool(deck) {
   return QUESTIONS
     .map((q, i) => ({ q, i }))
     .filter(x => deck.sets.includes(x.q.set))
     .map(x => x.i);
+}
+function activeDecks() {
+  return DECKS.filter(d => (d.subject || "Financial Reporting") === state.subject);
 }
 
 function shuffle(arr) {
@@ -1981,68 +3685,138 @@ function render() {
   if (state.screen === "results") return renderResults();
 }
 
+function renderSubjectTabs() {
+  return `
+    <div class="tab-bar" id="tabBar">
+      ${SUBJECTS.map(s => `
+        <button class="tab ${state.subject === s.id ? "active" : ""}" data-subj="${escapeHtml(s.id)}">${escapeHtml(s.label)}</button>
+      `).join("")}
+    </div>
+  `;
+}
+
+function wireSubjectTabs() {
+  document.querySelectorAll("#tabBar .tab").forEach(b => {
+    b.addEventListener("click", () => setSubject(b.dataset.subj));
+  });
+}
+
+function formatSourceYears(q) {
+  const years = q.sourceYears || [];
+  if (!years.length) return "";
+  return years.join(" + ");
+}
+
+function renderSourceBadge(q) {
+  const label = formatSourceYears(q);
+  return label ? `<span class="source-tag">${escapeHtml(label)}</span>` : "";
+}
+
+function hasAnswerKey(q) {
+  return Number.isInteger(q.correct) && q.correct >= 0 && q.correct < q.options.length;
+}
+
 function renderStart() {
-  const total = QUESTIONS.length;
-  const selected = state.selectedCats.size === 0 ? total
-    : QUESTIONS.filter(q => state.selectedCats.has(q.category)).length;
+  stopQuestionTimer();
+  const subjectPool = subjectIndices(state.subject);
+  const total = subjectPool.length;
+  const selected = state.selectedCats.size === 0
+    ? total
+    : subjectPool.filter(i => state.selectedCats.has(QUESTIONS[i].category)).length;
   const weakPool = getWeakestPool(15);
   const weakCount = weakPool.length;
   const seenCount = totalQuestionsSeen();
   const hasStats = seenCount > 0;
+  const cats = getActiveCats();
+  const decks = activeDecks();
+  const isBWL = state.subject === "BWL II";
+
+  const heroTitle = isBWL ? "BWL II Trainer" : "Journal Entry Trainer";
+  const heroSub   = isBWL ? "Strategie · HRM · Organisation" : "Debit the receiver · credit the giver";
+
+  const rulesHtml = isBWL ? `
+        <div class="row"><span class="pill" style="background:var(--dr-soft);color:var(--dr);border:1px solid var(--dr-line);">DE</span><div>Probeprüfungen BWL II (2017/2025) — Strategisches Management, HRM und Organisation.</div></div>
+        <div class="row"><span class="pill cr">5×</span><div>Jede Frage hat <b>5 Antwortmöglichkeiten</b> (A–E). Nur eine ist richtig.</div></div>
+        <div class="row"><span class="pill" style="background:var(--gold-soft);color:#7a6c4e;border:1px solid var(--gold-line);">?</span><div>Direktes Feedback erklärt jede Antwort.</div></div>
+      ` : `
+        <div class="row"><span class="pill dr">DR</span><div>Debits are on the <b>left</b> — they increase assets and expenses, decrease liabilities, equity, and revenue.</div></div>
+        <div class="row"><span class="pill cr">CR</span><div>Credits are on the <b>right</b> — they do the opposite.</div></div>
+        <div class="row"><span class="pill" style="background:var(--gold-soft);color:#7a6c4e;border:1px solid var(--gold-line);">?</span><div>Pick the entry that records the transaction. Immediate feedback explains each answer.</div></div>
+      `;
+
+  const sectionTitles = isBWL
+    ? { howto: "Anleitung", decks: "Themenblöcke", all: "Alle Fragen", allHint: "(nach Thema filtern, optional)", timer: "Timer", timerHint: "(pro Frage, optional)", start: "Quiz starten", weakLabel: "Schwächste üben" }
+    : { howto: "How to play", decks: "Curated decks", all: "Every question", allHint: "(filter by topic, optional)", timer: "Timer", timerHint: "(per question, optional)", start: "Start Quiz", weakLabel: "Practice your weakest" };
+
+  const keyboardHint = isBWL
+    ? `Tasten: <span class="kbd">A</span><span class="kbd">B</span><span class="kbd">C</span><span class="kbd">D</span><span class="kbd">E</span> für Antwort · <span class="kbd">Enter</span> / <span class="kbd">Space</span> für weiter`
+    : `Keyboard: <span class="kbd">A</span><span class="kbd">B</span><span class="kbd">C</span><span class="kbd">D</span> to answer · <span class="kbd">Enter</span> / <span class="kbd">Space</span> for next`;
 
   app.innerHTML = `
     <div class="topbar">
       <span class="sync-pill ${state.syncStatus}" id="syncPill"><span class="dot"></span>${escapeHtml(syncStatusLabel(state.syncStatus))}</span>
       <button class="gear-btn" id="settingsBtn" title="Sync &amp; reset">⚙ Settings</button>
     </div>
+    ${renderSubjectTabs()}
     <div class="hero">
-      <h1>Journal Entry Trainer</h1>
-      <div class="sub">Debit the receiver · credit the giver</div>
+      <h1>${escapeHtml(heroTitle)}</h1>
+      <div class="sub">${escapeHtml(heroSub)}</div>
     </div>
     <div class="start-card">
-      <h2>How to play</h2>
-      <div class="rules">
-        <div class="row"><span class="pill dr">DR</span><div>Debits are on the <b>left</b> — they increase assets and expenses, decrease liabilities, equity, and revenue.</div></div>
-        <div class="row"><span class="pill cr">CR</span><div>Credits are on the <b>right</b> — they do the opposite.</div></div>
-        <div class="row"><span class="pill" style="background:var(--gold-soft);color:#7a6c4e;border:1px solid var(--gold-line);">?</span><div>Pick the entry that records the transaction. Immediate feedback explains each answer.</div></div>
-      </div>
-      <h2>Curated decks</h2>
+      <h2>${escapeHtml(sectionTitles.howto)}</h2>
+      <div class="rules">${rulesHtml}</div>
+      ${decks.length ? `
+      <h2>${escapeHtml(sectionTitles.decks)}</h2>
       <div class="deck-grid" id="deckGrid">
-        ${DECKS.map(d => {
+        ${decks.map(d => {
           const n = deckPool(d).length;
           return `<button class="deck-card" data-deck="${escapeHtml(d.id)}" ${n ? "" : "disabled"}>
             <span class="deck-label">${escapeHtml(d.label)}</span>
             <span class="deck-sub">${escapeHtml(d.sub)}</span>
-            <span class="deck-count">${n} question${n !== 1 ? "s" : ""}</span>
+            <span class="deck-count">${n} ${isBWL ? "Frage" + (n !== 1 ? "n" : "") : "question" + (n !== 1 ? "s" : "")}</span>
           </button>`;
         }).join("")}
       </div>
-      <h2>Every question <span style="font-weight:400;color:var(--faint);font-size:0.78rem;font-family:var(--font-sans);">(filter by topic, optional)</span></h2>
+      ` : ""}
+      <h2>${escapeHtml(sectionTitles.all)} <span style="font-weight:400;color:var(--faint);font-size:0.78rem;font-family:var(--font-sans);">${escapeHtml(sectionTitles.allHint)}</span></h2>
       <div class="category-filter" id="catFilter">
-        ${ALL_CATS.map(c =>
-          `<button class="cat-chip ${state.selectedCats.has(c) ? "active" : ""}" data-cat="${c}">${c} (${QUESTIONS.filter(q=>q.category===c).length})</button>`
-        ).join("")}
+        ${cats.map(c => {
+          const count = QUESTIONS.filter(q => questionSubject(q) === state.subject && q.category === c).length;
+          return `<button class="cat-chip ${state.selectedCats.has(c) ? "active" : ""}" data-cat="${escapeHtml(c)}">${escapeHtml(c)} (${count})</button>`;
+        }).join("")}
+      </div>
+      <h2>${escapeHtml(sectionTitles.timer)} <span style="font-weight:400;color:var(--faint);font-size:0.78rem;font-family:var(--font-sans);">${escapeHtml(sectionTitles.timerHint)}</span></h2>
+      <div class="timer-control" id="timerControl">
+        ${TIMER_OPTIONS.map(t => {
+          const label = isBWL && t.seconds === 0 ? "Ohne Timer" : t.label;
+          return `<button class="timer-chip ${state.timerSeconds === t.seconds ? "active" : ""}" data-seconds="${t.seconds}">${escapeHtml(label)}</button>`;
+        }).join("")}
       </div>
       <button class="btn btn-primary" id="startBtn">
-        Start Quiz · ${selected} question${selected !== 1 ? "s" : ""}
+        ${escapeHtml(sectionTitles.start)} · ${selected} ${isBWL ? "Frage" + (selected !== 1 ? "n" : "") : "question" + (selected !== 1 ? "s" : "")}
       </button>
       <div class="secondary-action-row">
         <button class="btn btn-weak" id="weakBtn" ${hasStats ? "" : "disabled"}>
           <span class="label">
-            <span>Practice your weakest ${weakCount || 0}</span>
+            <span>${escapeHtml(sectionTitles.weakLabel)} ${weakCount || 0}</span>
             <span class="meta">${hasStats
-              ? `Drawn from ${seenCount} attempted · ${totalAttempts()} total answers`
-              : "Answer some questions first to build a weakness profile"}</span>
+              ? (isBWL
+                  ? `Aus ${seenCount} versuchten · ${totalAttempts()} Antworten insgesamt`
+                  : `Drawn from ${seenCount} attempted · ${totalAttempts()} total answers`)
+              : (isBWL
+                  ? "Erst ein paar Fragen beantworten, um ein Schwächenprofil aufzubauen"
+                  : "Answer some questions first to build a weakness profile")}</span>
           </span>
           <span class="arrow">→</span>
         </button>
       </div>
       <div style="text-align:center;margin-top:18px;color:var(--faint);font-size:0.72rem;letter-spacing:0.04em;">
-        Keyboard: <span class="kbd">A</span><span class="kbd">B</span><span class="kbd">C</span><span class="kbd">D</span> to answer · <span class="kbd">Enter</span> / <span class="kbd">Space</span> for next
+        ${keyboardHint}
       </div>
     </div>
     ${state.settingsOpen ? renderSettingsModal() : ""}
   `;
+  wireSubjectTabs();
   document.querySelectorAll("#catFilter .cat-chip").forEach(b => {
     b.addEventListener("click", () => {
       const c = b.dataset.cat;
@@ -2050,6 +3824,9 @@ function renderStart() {
       else state.selectedCats.add(c);
       render();
     });
+  });
+  document.querySelectorAll("#timerControl .timer-chip").forEach(b => {
+    b.addEventListener("click", () => setTimerSeconds(parseInt(b.dataset.seconds, 10)));
   });
   document.getElementById("startBtn").addEventListener("click", () => startQuiz());
   document.querySelectorAll("#deckGrid .deck-card").forEach(b => {
@@ -2179,6 +3956,7 @@ function wireSettingsModal() {
 }
 
 function startWeakQuiz() {
+  stopQuestionTimer();
   const pool = getWeakestPool(15);
   if (!pool.length) return;
   state.mode = "weak";
@@ -2195,6 +3973,7 @@ function startWeakQuiz() {
 }
 
 function startDeckQuiz(deckId) {
+  stopQuestionTimer();
   const deck = DECKS.find(d => d.id === deckId);
   if (!deck) return;
   const pool = deckPool(deck);
@@ -2213,9 +3992,11 @@ function startDeckQuiz(deckId) {
 }
 
 function startQuiz() {
+  stopQuestionTimer();
+  const subjectPool = subjectIndices(state.subject);
   const pool = state.selectedCats.size === 0
-    ? QUESTIONS.map((_, i) => i)
-    : QUESTIONS.map((q, i) => state.selectedCats.has(q.category) ? i : -1).filter(i => i >= 0);
+    ? subjectPool
+    : subjectPool.filter(i => state.selectedCats.has(QUESTIONS[i].category));
   if (!pool.length) return;
   state.mode = "all";
   state.deckId = null;
@@ -2243,20 +4024,25 @@ function renderQuiz() {
   const pct = Math.round((state.idx / total) * 100);
 
   app.innerHTML = `
+    ${renderSubjectTabs()}
     <div class="meta-row">
       <div>Question ${state.idx + 1} of ${total}</div>
       <div>
+        ${state.timerSeconds ? `<span class="timer-pill" id="timerPill">${formatTimer(state.timerSeconds)}</span>` : ""}
         <span class="score-pill">✓ ${state.score}</span>
         ${state.streak > 1 ? `<span class="streak-pill">🔥 ${state.streak}</span>` : ""}
       </div>
     </div>
     <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
     <div class="qcard">
-      <div class="cat-tag">${q.category}</div>
+      <div class="q-meta">
+        <span class="cat-tag">${escapeHtml(q.category)}</span>
+        ${renderSourceBadge(q)}
+      </div>
       <div class="question-text">${escapeHtml(q.prompt)}</div>
       <div class="options" id="options">
         ${state.optionOrder.map((origIdx, displayIdx) => {
-          const letter = "ABCD"[displayIdx];
+          const letter = "ABCDE"[displayIdx];
           return `<button class="option" data-i="${displayIdx}">
             <span class="option-letter">${letter}</span>
             <span>${escapeHtml(q.options[origIdx])}</span>
@@ -2267,54 +4053,64 @@ function renderQuiz() {
     </div>
   `;
 
+  wireSubjectTabs();
   document.querySelectorAll("#options .option").forEach(b => {
     b.addEventListener("click", () => pickAnswer(parseInt(b.dataset.i, 10)));
   });
+  startQuestionTimer();
 }
 
-function pickAnswer(displayIdx) {
+function pickAnswer(displayIdx, timedOut = false) {
   if (state.answered) return;
+  stopQuestionTimer();
   state.answered = true;
   state.picked = displayIdx;
   const q = QUESTIONS[state.order[state.idx]];
-  const pickedOriginal = state.optionOrder[displayIdx];
-  const correctDisplay = state.optionOrder.indexOf(q.correct);
-  const isCorrect = pickedOriginal === q.correct;
+  const answerKeyAvailable = hasAnswerKey(q);
+  const pickedOriginal = timedOut ? -1 : state.optionOrder[displayIdx];
+  const correctDisplay = answerKeyAvailable ? state.optionOrder.indexOf(q.correct) : -1;
+  const isCorrect = answerKeyAvailable && !timedOut && pickedOriginal === q.correct;
 
   if (isCorrect) {
     state.score++;
     state.streak++;
     state.bestStreak = Math.max(state.bestStreak, state.streak);
     showPonyReward();
-  } else {
+  } else if (answerKeyAvailable) {
     state.streak = 0;
     state.wrong.push({
       prompt: q.prompt,
-      picked: q.options[pickedOriginal],
+      picked: timedOut ? "Time expired" : q.options[pickedOriginal],
       correct: q.options[q.correct],
       explanation: q.explanation,
     });
+  } else {
+    state.streak = 0;
   }
 
-  recordAnswer(q, isCorrect);
-  queueGistSave(state.data);
+  if (answerKeyAvailable) {
+    recordAnswer(q, isCorrect);
+    queueGistSave(state.data);
+  }
 
   // Highlight options
   document.querySelectorAll("#options .option").forEach((btn, i) => {
     btn.disabled = true;
-    if (i === correctDisplay) btn.classList.add("correct");
-    else if (i === displayIdx) btn.classList.add("wrong");
+    if (answerKeyAvailable && i === correctDisplay) btn.classList.add("correct");
+    else if (!timedOut && i === displayIdx) btn.classList.add(answerKeyAvailable ? "wrong" : "correct");
     else btn.classList.add("dimmed");
   });
 
   // Render feedback
   const slot = document.getElementById("feedbackSlot");
   slot.innerHTML = `
-    <div class="feedback ${isCorrect ? "" : "wrong"}">
-      <div class="feedback-title ${isCorrect ? "ok" : "bad"}">
-        ${isCorrect ? "✓ Correct" : "✗ Not quite"}
+    <div class="feedback ${isCorrect || !answerKeyAvailable ? "" : "wrong"}">
+      <div class="feedback-title ${isCorrect || !answerKeyAvailable ? "ok" : "bad"}">
+        ${answerKeyAvailable
+          ? (timedOut ? "Time expired" : (isCorrect ? "✓ Correct" : "✗ Not quite"))
+          : "Answer key not available"}
       </div>
-      <div class="feedback-body">${escapeHtml(q.explanation)}</div>
+      <div class="feedback-body">${escapeHtml(answerKeyAvailable ? q.explanation : "This question was imported from the scanned June 2017 PDF. The scan contains the question and choices, but no reliable official answer key.")}</div>
       ${renderTAccount(q.entry)}
     </div>
     <div class="next-btn-row">
@@ -2359,10 +4155,14 @@ function next() {
 }
 
 function renderResults() {
+  stopQuestionTimer();
   const total = state.order.length;
-  const pct = Math.round((state.score / total) * 100);
+  const scoredTotal = state.order.filter(i => hasAnswerKey(QUESTIONS[i])).length;
+  const unscoredTotal = total - scoredTotal;
+  const pct = scoredTotal ? Math.round((state.score / scoredTotal) * 100) : 0;
   let msg = "Back to the books 📚";
-  if (pct === 100) msg = "Perfect. Auditor-grade. 🏆";
+  if (!scoredTotal) msg = "Scanned questions reviewed.";
+  else if (pct === 100) msg = "Perfect. Auditor-grade. 🏆";
   else if (pct >= 90) msg = "Excellent — you know the ledgers cold.";
   else if (pct >= 75) msg = "Strong result.";
   else if (pct >= 60) msg = "Solid foundation — review the misses below.";
@@ -2376,10 +4176,11 @@ function renderResults() {
   }
 
   app.innerHTML = `
-    <div class="results">
+    ${renderSubjectTabs()}
+      <div class="results">
       <div class="cat-tag" style="margin-bottom:14px;">${escapeHtml(modeTag)}</div>
-      <div class="score-big">${state.score} / ${total}</div>
-      <div class="score-pct">${pct}% correct · best streak ${state.bestStreak}</div>
+      <div class="score-big">${state.score} / ${scoredTotal || total}</div>
+      <div class="score-pct">${scoredTotal ? `${pct}% correct · best streak ${state.bestStreak}` : "Unscored scanned set"}${unscoredTotal ? ` · ${unscoredTotal} unscored` : ""}</div>
       <div class="score-msg">${msg}</div>
 
       ${state.wrong.length ? `
@@ -2400,6 +4201,7 @@ function renderResults() {
       </div>
     </div>
   `;
+  wireSubjectTabs();
   document.getElementById("homeBtn").addEventListener("click", () => {
     state.screen = "start";
     render();
@@ -2440,13 +4242,13 @@ document.addEventListener("keydown", (e) => {
   if (state.screen === "quiz") {
     if (!state.answered) {
       const key = e.key.toUpperCase();
-      const idx = "ABCD".indexOf(key);
+      const idx = "ABCDE".indexOf(key);
       if (idx >= 0 && idx < state.optionOrder.length) {
         pickAnswer(idx);
         e.preventDefault();
       }
       const num = parseInt(e.key, 10);
-      if (!isNaN(num) && num >= 1 && num <= 4 && num - 1 < state.optionOrder.length) {
+      if (!isNaN(num) && num >= 1 && num <= 5 && num - 1 < state.optionOrder.length) {
         pickAnswer(num - 1);
         e.preventDefault();
       }
