@@ -2066,6 +2066,205 @@ const QUESTIONS = [
   // ════════════════════════════════════════════════════════════════════════
 
   // ── Teil 1: Strategisches Management ──────────────────────────────────
+  // Recitation II (investments and consolidations)
+  {
+    category: "Investments",
+    set: "R2",
+    prompt: "Lugano SA declares and distributes a cash dividend that is a result of current earnings. How will the investor's receipt of those dividends affect the investment account under each method? Fair Value Method / Equity Method",
+    options: [
+      "No Effect / Decrease",
+      "Increase / Decrease",
+      "No Effect / No Effect",
+      "Decrease / No Effect"
+    ],
+    correct: 0,
+    explanation: "Under the fair value method, dividends from current earnings are recorded as dividend revenue, so the investment account is not changed. Under the equity method, dividends are treated as a return of investment and reduce the Investment account."
+  },
+  {
+    category: "Investments",
+    set: "R2",
+    prompt: "Zurich AG owns 20,000 of the 50,000 outstanding shares of Basel AG's common stock. During 2022, Basel earns 800,000 CHF and pays cash dividends of 640,000 CHF. If the beginning balance of Zurich's Investment in Basel account was 500,000 CHF, the balance at December 31, 2022 should be:",
+    options: [
+      "820,000 CHF",
+      "660,000 CHF",
+      "564,000 CHF",
+      "500,000 CHF"
+    ],
+    correct: 2,
+    explanation: "Zurich owns 40% (20,000 / 50,000). Equity-method carrying amount = 500,000 + 40% x 800,000 income - 40% x 640,000 dividends = 500,000 + 320,000 - 256,000 = 564,000 CHF."
+  },
+  {
+    category: "Investments",
+    set: "R2",
+    prompt: "Zurich AG owns 20,000 of the 50,000 outstanding shares of Basel AG's common stock. During 2022, Basel earns 800,000 CHF and pays cash dividends of 640,000 CHF. Zurich should report investment revenue for 2022 of:",
+    options: [
+      "320,000 CHF",
+      "256,000 CHF",
+      "64,000 CHF",
+      "0 CHF"
+    ],
+    correct: 0,
+    explanation: "Under the equity method, investment revenue is the investor's share of investee income: 40% x 800,000 = 320,000 CHF. The dividends reduce the investment account; they are not revenue under the equity method."
+  },
+  {
+    category: "Consolidation",
+    set: "R2",
+    prompt: "In an acquisition where 100% control is acquired, how would the land accounts of the parent and the land accounts of the subsidiary be reported on consolidated financial statements? Parent / Subsidiary",
+    options: [
+      "Book Value / Book Value",
+      "Book Value / Fair Value",
+      "Fair Value / Fair Value",
+      "Fair Value / Book Value"
+    ],
+    correct: 1,
+    explanation: "The parent's own assets remain at the parent's book values. The acquired subsidiary's identifiable assets and liabilities are brought into consolidation at acquisition-date fair value."
+  },
+  {
+    category: "Consolidation",
+    set: "R2",
+    prompt: "Prior to the business combination, Botkins Inc. and Volkerson Corp. had this stockholders' equity: Botkins common stock ($1 par) $220,000, APIC $110,000, retained earnings $360,000; Volkerson common stock $54,000, APIC $25,000, retained earnings $130,000. Botkins issued 56,000 new shares of its common stock valued at $3.25 per share for all outstanding stock of Volkerson. Assume Botkins acquired Volkerson on January 1, 2022 and Volkerson maintains a separate corporate existence. At what amount did Botkins record the investment in Volkerson?",
+    options: [
+      "$56,000",
+      "$182,000",
+      "$209,000",
+      "$312,000"
+    ],
+    correct: 1,
+    explanation: "The investment is recorded at the fair value of the consideration transferred: 56,000 shares x $3.25 = $182,000."
+  },
+  {
+    category: "Consolidation",
+    set: "R2",
+    prompt: "Prior to the business combination, Botkins Inc. and Volkerson Corp. had this stockholders' equity: Botkins common stock ($1 par) $220,000, APIC $110,000, retained earnings $360,000; Volkerson common stock $54,000, APIC $25,000, retained earnings $130,000. Botkins issued 56,000 new shares of its common stock valued at $3.25 per share for all outstanding stock of Volkerson. Immediately afterwards, what is the value of consolidated Common Stock?",
+    options: [
+      "$330,000",
+      "$402,000",
+      "$274,000",
+      "$276,000"
+    ],
+    correct: 3,
+    explanation: "Only the parent's common stock appears in consolidated equity. Botkins had $220,000 common stock before the deal and issued 56,000 shares with $1 par value, adding $56,000. Consolidated Common Stock = $276,000."
+  },
+
+  // Practice variants for Recitation II
+  {
+    category: "Investments",
+    set: "R2-AI",
+    prompt: "Bern AG holds an investment using the fair value method. The investee declares a cash dividend from earnings earned after Bern acquired the shares. What is the effect on Bern's Investment account?",
+    options: [
+      "No effect; Bern records dividend revenue",
+      "Increase; Bern records its share of income",
+      "Decrease; the dividend is a return of investment",
+      "Decrease; Bern records a fair value loss"
+    ],
+    correct: 0,
+    explanation: "Under the fair value method, ordinary dividends from post-acquisition earnings are recorded as dividend revenue. They do not change the Investment account."
+  },
+  {
+    category: "Investments",
+    set: "R2-AI",
+    prompt: "Neuchatel SA accounts for an investment using the fair value method. It receives a cash dividend identified as a liquidating dividend from pre-acquisition retained earnings rather than current earnings. What is the effect on the Investment account?",
+    options: [
+      "No effect; all dividends are dividend revenue",
+      "Increase; the dividend is added to the investment",
+      "Decrease; the dividend is treated as a return of investment",
+      "No effect; it is recorded only in other comprehensive income"
+    ],
+    correct: 2,
+    explanation: "A normal dividend from current or post-acquisition earnings is dividend revenue under the fair value method. A liquidating dividend, however, is a return of the investor's cost and reduces the Investment account."
+  },
+  {
+    category: "Investments",
+    set: "R2-AI",
+    prompt: "St. Gallen AG owns 30% of Thun AG and applies the equity method. Thun reports net income of 500,000 CHF and pays dividends of 120,000 CHF. St. Gallen's beginning Investment in Thun balance is 900,000 CHF. What is the ending Investment balance?",
+    options: [
+      "1,014,000 CHF",
+      "1,050,000 CHF",
+      "936,000 CHF",
+      "900,000 CHF"
+    ],
+    correct: 0,
+    explanation: "Equity-method balance = 900,000 + 30% x 500,000 - 30% x 120,000 = 900,000 + 150,000 - 36,000 = 1,014,000 CHF."
+  },
+  {
+    category: "Investments",
+    set: "R2-AI",
+    prompt: "Geneva SA owns 25% of Fribourg SA and uses the equity method. Fribourg earns 240,000 CHF and declares dividends of 80,000 CHF. How much investment revenue should Geneva report?",
+    options: [
+      "60,000 CHF",
+      "20,000 CHF",
+      "80,000 CHF",
+      "40,000 CHF"
+    ],
+    correct: 0,
+    explanation: "Investment revenue under the equity method equals the investor's share of investee income: 25% x 240,000 = 60,000 CHF. The 25% share of dividends reduces the Investment account."
+  },
+  {
+    category: "Investments",
+    set: "R2-AI",
+    prompt: "Lucerne AG owns 35% of Zug AG and uses the equity method. Zug reports a net loss of 200,000 CHF and pays no dividends. Lucerne's beginning Investment balance is 700,000 CHF. What is the ending Investment balance?",
+    options: [
+      "770,000 CHF",
+      "630,000 CHF",
+      "700,000 CHF",
+      "500,000 CHF"
+    ],
+    correct: 1,
+    explanation: "The investor reduces the Investment account for its share of the investee's loss: 35% x 200,000 = 70,000. Ending balance = 700,000 - 70,000 = 630,000 CHF."
+  },
+  {
+    category: "Consolidation",
+    set: "R2-AI",
+    prompt: "ParentCo acquires 100% of SubCo. On the acquisition date, ParentCo's buildings have a book value below fair value, and SubCo's equipment also has a book value below fair value. Which amounts appear in the consolidated balance sheet immediately after acquisition?",
+    options: [
+      "Parent buildings at book value; Sub equipment at fair value",
+      "Parent buildings at fair value; Sub equipment at fair value",
+      "Parent buildings at book value; Sub equipment at book value",
+      "Parent buildings at fair value; Sub equipment at book value"
+    ],
+    correct: 0,
+    explanation: "The parent's pre-existing assets keep their book values. The subsidiary's identifiable assets and liabilities are measured at acquisition-date fair values in consolidation."
+  },
+  {
+    category: "Consolidation",
+    set: "R2-AI",
+    prompt: "Arosa Inc. issues 40,000 new $1 par common shares with a market value of $5 per share to acquire all shares of Davos Corp., which remains separately incorporated. At what amount does Arosa record its Investment in Davos?",
+    options: [
+      "$40,000",
+      "$160,000",
+      "$200,000",
+      "$240,000"
+    ],
+    correct: 2,
+    explanation: "The Investment is recorded at the fair value of consideration transferred: 40,000 shares x $5 = $200,000. Par value affects common stock/APIC, not the investment measurement."
+  },
+  {
+    category: "Consolidation",
+    set: "R2-AI",
+    prompt: "Montreux Corp. has common stock of $300,000 ($1 par). It issues 25,000 new common shares to acquire 100% of Vevey Corp. Immediately after acquisition, what consolidated Common Stock balance should be reported?",
+    options: [
+      "$25,000",
+      "$300,000",
+      "$325,000",
+      "Montreux common stock plus Vevey common stock"
+    ],
+    correct: 2,
+    explanation: "Consolidated equity reports the parent's common stock only, including shares issued in the acquisition. $300,000 + 25,000 x $1 par = $325,000."
+  },
+  {
+    category: "Consolidation",
+    set: "R2-AI",
+    prompt: "Lausanne Corp. has common stock of $150,000 ($2 par) and APIC of $90,000. It issues 10,000 new shares with a fair value of $7 per share to acquire a subsidiary. Ignoring issuance costs, how much APIC is added by the share issuance?",
+    options: [
+      "$20,000",
+      "$50,000",
+      "$70,000",
+      "$90,000"
+    ],
+    correct: 1,
+    explanation: "The issuance proceeds are 10,000 x $7 = $70,000. Common stock increases by par value, 10,000 x $2 = $20,000. The excess, $50,000, is added to APIC."
+  },
+
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
     prompt: "Welche Aussage zu Markteintrittsbarrieren und Marktaustrittsbarrieren ist am ehesten richtig?",
@@ -3872,6 +4071,8 @@ const DECKS = [
   { id: "AE1+AI",   subject: "Financial Reporting", label: "Additional Exercises 1 + AI", sub: "Handout + AI add-ons",  sets: ["AE1", "AE1-AI"] },
   { id: "R1",       subject: "Financial Reporting", label: "Recitation 1",                sub: "Course handout",        sets: ["R1"] },
   { id: "R1+AI",    subject: "Financial Reporting", label: "Recitation 1 + AI",           sub: "Handout + AI add-ons",  sets: ["R1", "R1-AI"] },
+  { id: "R2",       subject: "Financial Reporting", label: "Recitation II",               sub: "Course handout",        sets: ["R2"] },
+  { id: "R2+AI",    subject: "Financial Reporting", label: "Recitation II + AI",          sub: "Handout + AI add-ons",  sets: ["R2", "R2-AI"] },
   { id: "BWL2-SM",  subject: "BWL II",              label: "Teil 1: Strategisches Management", sub: "Probeprüfung 2017", sets: ["BWL2-SM"] },
   { id: "BWL2-HRM", subject: "BWL II",              label: "Teil 2: Human Resource Management", sub: "Probeprüfung 2017", sets: ["BWL2-HRM"] },
   { id: "BWL2-ORG", subject: "BWL II",              label: "Teil 3: Organisation",        sub: "Probeprüfung 2017",     sets: ["BWL2-ORG"] },
@@ -3959,6 +4160,8 @@ const QUESTION_SOURCE_LABELS = {
   "AE1-AI": "AI",
   R1: "Recitation I",
   "R1-AI": "AI",
+  R2: "Recitation II",
+  "R2-AI": "AI",
   "BWL2-SM": "Probeprufung 2017",
   "BWL2-HRM": "Probeprufung 2017",
   "BWL2-ORG": "Probeprufung 2017",
