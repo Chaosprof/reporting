@@ -354,6 +354,16 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
+  .source-tag.ai {
+    border-color: var(--dr-line);
+    background: var(--dr-soft);
+    color: var(--dr);
+  }
+  .source-tag.problemset {
+    border-color: var(--gold-line);
+    background: var(--gold-soft);
+    color: #7a6c4e;
+  }
   .question-text {
     font-family: var(--font-serif);
     font-size: 1.25rem;
@@ -1091,7 +1101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // QUESTION BANK
 // ═══════════════════════════════════════════════════════════════════════════
 // Each question has:
-//   category, prompt, options[], correct (index into options),
+//   category, optional source set, prompt, options[], correct (index into options),
 //   explanation (why), entry ({ debits:[[acct,amt]], credits:[[acct,amt]] })
 //
 const QUESTIONS = [
@@ -3770,15 +3780,34 @@ function wireSubjectTabs() {
   });
 }
 
-function formatSourceYears(q) {
-  const years = q.sourceYears || [];
-  if (!years.length) return "";
-  return years.join(" + ");
+const QUESTION_SOURCE_LABELS = {
+  AE1: "Additional Exercises I",
+  "AE1-AI": "AI",
+  R1: "Recitation I",
+  "R1-AI": "AI",
+  "BWL2-SM": "Probeprufung 2017",
+  "BWL2-HRM": "Probeprufung 2017",
+  "BWL2-ORG": "Probeprufung 2017",
+  "BWL2-HRM25": "Probeprufung 2025",
+  "BWL2-ORG25": "Probeprufung 2025",
+  "BWL2-JUN17-SM": "Assessment Jun 2017",
+  "BWL2-JUN17-HRM": "Assessment Jun 2017",
+  "BWL2-JUN17-ORG": "Assessment Jun 2017",
+};
+
+function questionSource(q) {
+  const bwlProbe = q.subject === "BWL II" && q.sourceYears && q.sourceYears.length && !String(q.set || "").startsWith("BWL2-JUN17");
+  const label = bwlProbe
+    ? `Probeprufung ${q.sourceYears.join(" + ")}`
+    : QUESTION_SOURCE_LABELS[q.set] || (q.sourceYears && q.sourceYears.length
+      ? `Probeprufung ${q.sourceYears.join(" + ")}`
+      : "AI");
+  return { label, kind: label === "AI" ? "ai" : "problemset" };
 }
 
 function renderSourceBadge(q) {
-  const label = formatSourceYears(q);
-  return label ? `<span class="source-tag">${escapeHtml(label)}</span>` : "";
+  const source = questionSource(q);
+  return `<span class="source-tag ${source.kind}" title="Question source: ${escapeHtml(source.label)}">${escapeHtml(source.label)}</span>`;
 }
 
 function hasAnswerKey(q) {
