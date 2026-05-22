@@ -86,9 +86,10 @@
   .container {
     position: relative;
     z-index: 1;
-    max-width: 600px;
+    width: 100%;
+    max-width: 1040px;
     margin: 0 auto;
-    padding: 48px 20px 80px;
+    padding: 56px 24px 88px;
     animation: pageLift 0.45s ease-out both;
   }
 
@@ -115,7 +116,7 @@
     background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(247,248,250,0.97));
     border: 1px solid var(--line);
     border-radius: 22px;
-    padding: 36px 28px;
+    padding: 40px 42px;
     box-shadow: var(--shadow-md);
     animation: fadeIn 0.6s ease-out;
   }
@@ -129,6 +130,7 @@
   }
   .rules {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
     margin-bottom: 28px;
     font-size: 0.86rem;
@@ -322,7 +324,7 @@
     background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(247,248,250,0.97));
     border: 1px solid var(--line);
     border-radius: 22px;
-    padding: 30px 26px;
+    padding: 36px 42px;
     box-shadow: var(--shadow-md);
     animation: fadeIn 0.35s ease-out;
   }
@@ -378,6 +380,69 @@
     letter-spacing: -0.01em;
     margin-bottom: 24px;
     color: var(--ink-strong);
+  }
+
+  .question-visual {
+    margin: -6px 0 24px;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.62);
+    overflow-x: auto;
+  }
+  .question-visual svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 420px;
+    font-family: var(--font-sans);
+  }
+  .visual-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 12px;
+    min-width: 460px;
+  }
+  .visual-grid .wide {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+  .mini-rent {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--panel);
+    padding: 10px;
+  }
+  .mini-title {
+    font-family: var(--font-serif);
+    font-size: 0.96rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: var(--ink-strong);
+  }
+  .value-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 520px;
+    font-size: 0.84rem;
+    background: var(--panel);
+  }
+  .value-table th,
+  .value-table td {
+    border: 1px solid var(--line-strong);
+    padding: 10px 12px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .value-table th {
+    background: var(--panel-soft);
+    color: var(--ink-strong);
+    font-weight: 800;
+  }
+  .value-table td:first-child,
+  .value-table th:first-child {
+    text-align: left;
+    font-weight: 800;
   }
 
   .options { display: flex; flex-direction: column; gap: 10px; }
@@ -631,7 +696,7 @@
   /* ─── Curated decks ─────────────────────────────────────── */
   .deck-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 10px;
     margin-bottom: 22px;
   }
@@ -706,7 +771,7 @@
   }
   .bwl-paper-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
   .bwl-paper-card {
@@ -798,10 +863,19 @@
     opacity: 0.45;
     cursor: not-allowed;
   }
+  @media (max-width: 900px) {
+    .rules { grid-template-columns: 1fr; }
+    .deck-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bwl-paper-grid { grid-template-columns: 1fr; }
+  }
   @media (max-width: 480px) {
     .deck-grid { grid-template-columns: 1fr; }
     .bwl-paper-card { grid-template-columns: 1fr; }
     .bwl-paper-count { white-space: normal; }
+    .visual-grid { grid-template-columns: 1fr; min-width: 320px; }
+    .visual-grid .wide { max-width: none; }
+    .question-visual { padding: 12px; }
+    .question-visual svg { min-width: 320px; }
   }
 
   /* ─── Practice-weakest secondary action ─────────────────── */
@@ -955,6 +1029,7 @@
     .score-big { font-size: 3.6rem; }
     .qcard, .start-card { padding: 24px 20px; border-radius: 18px; }
     .container { padding: 32px 14px 60px; }
+    .deck-grid { grid-template-columns: 1fr; }
     .question-text { font-size: 1.1rem; }
     .modal { padding: 22px 18px; border-radius: 18px; }
   }
@@ -3389,7 +3464,9 @@ QUESTIONS.push(...[
   },
   {
     subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    decks: ["BWL2-MATH"],
     prompt: "In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    visual: "jun17-sm-q5-producer-rent",
     options: ["a) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=10, P2=4, K2=2.", "b) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=8, P2=5, K2=2.", "c) Firma 1: B1=8, P1=6, K1=2; Firma 2: B2=10, P2=9, K2=5.", "d) Firma 1: B1=P1=6, K1=2; Firma 2: B2=10, P2=6, K2=4.", "e) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=10, P2=6, K2=4."],
     correct: 2
   },
@@ -3407,7 +3484,9 @@ QUESTIONS.push(...[
   },
   {
     subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
-    prompt: "In einer Branche existieren zwei Firmen X und Y. Die Preise (P), die Durchschnittskosten (DK) sowie die Qualität ihrer Produkte sind gegeben (Abbildung mit Indifferenzkurve, DKx, DKy, Qualitätx und Qualitätsy). Welche Aussage zur dargestellten Situation ist am ehesten richtig?",
+    decks: ["BWL2-MATH"],
+    prompt: "In einer Branche existieren zwei Firmen X und Y. Die Preise (P), die Durchschnittskosten (DK) sowie die Qualität ihrer Produkte sind gegeben. Welche Aussage zur dargestellten Situation ist am ehesten richtig?",
+    visual: "jun17-sm-q8-indifference",
     options: ["Die Angebote der Firma X und der Firma Y erreichen die gleiche maximale Zahlungsbereitschaft.", "Die Preisdifferenz zwischen den beiden Produkten ist kleiner als die Wertschätzungsdifferenz.", "Firma Y erzielt eine höhere Wertschöpfung als Firma X.", "Firma Y bietet eine höhere Konsumentenrente als Firma X an.", "Keine der oben genannten Aussagen ist richtig."],
     correct: 2
   },
@@ -3425,6 +3504,7 @@ QUESTIONS.push(...[
   },
   {
     subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    decks: ["BWL2-MATH"],
     prompt: "In der Branche X produzieren alle Unternehmen mit folgender Totalkostenfunktion: TK(Q) = 100 + 5*Q. Welche Schlussfolgerung zur Kostenstruktur ist zulässig? In der Branche X...",
     options: ["...sind Erfahrungskurveneffekte wichtiger als Economies of Scale.", "...wirken die Fixkosten stärker auf die Totalkosten als die variablen Kosten.", "...kann ein Unternehmen nie Diseconomies of Scale erzielen.", "...können mit Produktivitätssteigerungen auf den variablen Inputs Economies of Scale erzielt werden.", "Keine der oben genannten Aussagen ist richtig."],
     correct: 2
@@ -3443,7 +3523,9 @@ QUESTIONS.push(...[
   },
   {
     subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
-    prompt: "Gegeben sind die Erfahrungskurve für eine Branche sowie die kumulierten Produktionsmengen für die Firmen X und Y zu einem bestimmten Zeitpunkt. Aus der Abbildung: DKx = 10, DKy = 8; kumulierte Produktionsmenge Q: X = 100, Y = 200. Welche der folgenden Schlussfolgerungen ist zulässig?",
+    decks: ["BWL2-MATH"],
+    prompt: "Gegeben sind die Erfahrungskurve für eine Branche sowie die kumulierten Produktionsmengen für die Firmen X und Y zu einem bestimmten Zeitpunkt. Welche der folgenden Schlussfolgerungen ist zulässig?",
+    visual: "jun17-sm-q14-experience",
     options: ["Firma Y produziert näher an der kostenoptimalen Betriebsgrösse s*.", "Firma Y produziert Güter mit einer höheren Qualität als Firma X.", "Firma Y besitzt einen Erfahrungsvorsprung gegenüber Firma X.", "Firma Y realisiert Economies of Scale.", "Keine der oben genannten Schlussfolgerungen ist zulässig."],
     correct: 2
   },
@@ -3461,7 +3543,9 @@ QUESTIONS.push(...[
   },
   {
     subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
-    prompt: "Die Firma ADIWAS produziert 100'000 Fussbälle pro Jahr. Von den hergestellten Fussbällen werden 40'000 an den Grosshandel und 60'000 in eigenen Shops verkauft. Die Firma ADIWAS schöpft beim Verkauf die maximale Zahlungsbereitschaft der Abnehmer ab. Angaben: Stufe 1 Produktion: variable Stückkosten 10, Fixkosten 3'200'000, Verkaufspreis 60, verarbeitete Menge 100'000. Stufe 2 Vertrieb in eigenen Shops: variable Stückkosten 10, Fixkosten 1'600'000, Verkaufspreis 130, verarbeitete Menge 60'000. Wie hoch ist die Wertschöpfung von ADIWAS in der Stufe 2?",
+    decks: ["BWL2-MATH"],
+    prompt: "Die Firma ADIWAS produziert 100'000 Fussbälle pro Jahr. Von den hergestellten Fussbällen werden 40'000 an den Grosshandel und 60'000 in eigenen Shops verkauft. Die Firma ADIWAS schöpft beim Verkauf die maximale Zahlungsbereitschaft der Abnehmer ab. Folgende Angaben zu den beiden Stufen in der Wertschöpfungskette von ADIWAS sind bekannt: Wie hoch ist die Wertschöpfung von ADIWAS in der Stufe 2?",
+    visual: "jun17-sm-q17-adiwas-table",
     options: ["1'200'000", "1'800'000", "2'000'000", "3'600'000", "5'600'000"],
     correct: 2
   },
@@ -3479,9 +3563,89 @@ QUESTIONS.push(...[
   },
   {
     subject: "BWL II", sourceYears: ["2017-06"], set: "BWL2-JUN17-SM", category: "Strategisches Management",
+    decks: ["BWL2-MATH"],
     prompt: "In der Mützen-Branche produziert die etablierte Firma OldCap mit der Totalkostenfunktion TKo = 500 + 3Qo und die neueingetretene Firma NewHat mit der Totalkostenfunktion TKn = 400 + 20Qn. Im betrachteten Jahr produziert OldCap Qo = 50. NewHat produziert die «minimale Einstiegsmenge», um sich bei gegebenem Verkaufspreis von P = 40 gerade so am Markt behaupten zu können. Wie gross ist der Kostennachteil (pro Mütze) des Neueinsteigers NewHat gegenüber dem etablierten Konkurrenten OldCap?",
     options: ["13", "17", "27", "40", "150"],
     correct: 2
+  },
+]);
+
+QUESTIONS.push(...[
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH"],
+    prompt: "In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    visual: "ai-math-q5-producer-rent",
+    options: [
+      "a) Firma 1: B1=12, P1=10, K1=5; Firma 2: B2=12, P2=6, K2=3.",
+      "b) Firma 1: B1=12, P1=9, K1=5; Firma 2: B2=10, P2=6, K2=3.",
+      "c) Firma 1: B1=12, P1=9, K1=3; Firma 2: B2=14, P2=13, K2=7.",
+      "d) Firma 1: B1=P1=8, K1=3; Firma 2: B2=13, P2=8, K2=5.",
+      "e) Firma 1: B1=12, P1=9, K1=5; Firma 2: B2=12, P2=7, K2=5."
+    ],
+    correct: 2,
+    explanation: "In c) hat Firma 1 eine höhere Wertschöpfung als Firma 2: 12 - 3 = 9 gegenüber 14 - 7 = 7. Der Vorteil bleibt auch bei Preisangriffen bestehen."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH"],
+    prompt: "In einer Branche existieren zwei Firmen A und B. Die Preise (P), die Durchschnittskosten (DK) sowie die Qualität ihrer Produkte sind gegeben. Welche Aussage zur dargestellten Situation ist am ehesten richtig?",
+    visual: "ai-math-q8-indifference",
+    options: [
+      "Die Angebote der Firma A und der Firma B erreichen die gleiche maximale Zahlungsbereitschaft.",
+      "Die Preisdifferenz zwischen den beiden Produkten ist grösser als die Wertschätzungsdifferenz.",
+      "Firma B erzielt eine höhere Wertschöpfung als Firma A.",
+      "Firma B bietet eine höhere Konsumentenrente als Firma A an.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    correct: 2,
+    explanation: "Beide Produkte liegen auf derselben Indifferenzkurve und haben dieselben Durchschnittskosten. Das höherwertige Produkt B erlaubt deshalb eine höhere Wertschöpfung."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH"],
+    prompt: "In einer Branche produzieren alle Unternehmen mit folgender Totalkostenfunktion: TK(Q) = 240 + 6*Q. Welche Schlussfolgerung zur Kostenstruktur ist zulässig? In dieser Branche...",
+    options: [
+      "...sind Erfahrungskurveneffekte wichtiger als Economies of Scale.",
+      "...steigen die Durchschnittskosten mit jeder zusätzlich produzierten Einheit.",
+      "...kann ein Unternehmen bei dieser Kostenfunktion keine Diseconomies of Scale erzielen.",
+      "...sind die variablen Stückkosten bei Q = 40 höher als bei Q = 10.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    correct: 2,
+    explanation: "Die Durchschnittskosten sind DK(Q) = 240/Q + 6 und fallen mit zunehmender Menge. Bei konstanten variablen Stückkosten entstehen aus dieser Funktion keine Diseconomies of Scale."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH"],
+    prompt: "Gegeben sind die Erfahrungskurve für eine Branche sowie die kumulierten Produktionsmengen für die Firmen A und B zu einem bestimmten Zeitpunkt. Welche der folgenden Schlussfolgerungen ist zulässig?",
+    visual: "ai-math-q14-experience",
+    options: [
+      "Firma B produziert näher an der kostenoptimalen Betriebsgrösse s*.",
+      "Firma B produziert Güter mit einer höheren Qualität als Firma A.",
+      "Firma B besitzt einen Erfahrungsvorsprung gegenüber Firma A.",
+      "Firma B realisiert zwingend Economies of Scope.",
+      "Keine der oben genannten Schlussfolgerungen ist zulässig."
+    ],
+    correct: 2,
+    explanation: "Die Kurve zeigt kumulierte Produktionsmenge, nicht aktuelle Betriebsgrösse. Die höhere kumulierte Menge von Firma B zeigt einen Erfahrungsvorsprung."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH"],
+    prompt: "Die Firma VeloPro produziert 80'000 Helme pro Jahr. Von den hergestellten Helmen werden 30'000 an den Grosshandel und 50'000 in eigenen Shops verkauft. Die Firma VeloPro schöpft beim Verkauf die maximale Zahlungsbereitschaft der Abnehmer ab. Folgende Angaben zu den beiden Stufen in der Wertschöpfungskette von VeloPro sind bekannt: Wie hoch ist die Wertschöpfung von VeloPro in der Stufe 2?",
+    visual: "ai-math-q17-value-table",
+    options: ["900'000", "1'200'000", "1'500'000", "2'000'000", "2'600'000"],
+    correct: 2,
+    explanation: "Stufe 2: (Endpreis 115 - Transferpreis 55 - variable Stückkosten 8) * 50'000 - 1'100'000 = 1'500'000."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH"],
+    prompt: "In der Rucksack-Branche produziert die etablierte Firma AlphaBag mit der Totalkostenfunktion TKa = 720 + 4Qa und die neueingetretene Firma BetaPack mit der Totalkostenfunktion TKb = 360 + 22Qb. Im betrachteten Jahr produziert AlphaBag Qa = 60. BetaPack produziert die «minimale Einstiegsmenge», um sich bei gegebenem Verkaufspreis von P = 40 gerade so am Markt behaupten zu können. Wie gross ist der Kostennachteil (pro Rucksack) des Neueinsteigers BetaPack gegenüber AlphaBag?",
+    options: ["14", "18", "24", "36", "40"],
+    correct: 2,
+    explanation: "AlphaBag hat DK = (720 + 4*60)/60 = 16. BetaPack braucht bei P = 40 genau 20 Stück: 360 + 22Q = 40Q. Dann sind DK = 40. Kostennachteil: 40 - 16 = 24."
   },
 ]);
 
@@ -4078,6 +4242,7 @@ const DECKS = [
   { id: "BWL2-ORG", subject: "BWL II",              label: "Teil 3: Organisation",        sub: "Probeprüfung 2017",     sets: ["BWL2-ORG"] },
   { id: "BWL2-HRM25", subject: "BWL II",            label: "FS25: Human Resource Management", sub: "Probeprüfung 2025", sets: ["BWL2-HRM25"] },
   { id: "BWL2-ORG25", subject: "BWL II",            label: "FS25: Organisation",         sub: "Probeprüfung 2025",     sets: ["BWL2-ORG25"] },
+  { id: "BWL2-MATH", subject: "BWL II",             label: "Math Practice",              sub: "Juni 2017 + AI variants", sets: [] },
   { id: "BWL2-JUN17-SM",  subject: "BWL II",        label: "Juni 2017: Strategisches Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-SM"] },
   { id: "BWL2-JUN17-HRM", subject: "BWL II",        label: "Juni 2017: Human Resource Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-HRM"] },
   { id: "BWL2-JUN17-ORG", subject: "BWL II",        label: "Juni 2017: Organisation",    sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-ORG"] },
@@ -4085,7 +4250,7 @@ const DECKS = [
 function deckPool(deck) {
   return QUESTIONS
     .map((q, i) => ({ q, i }))
-    .filter(x => deck.sets.includes(x.q.set))
+    .filter(x => deck.sets.includes(x.q.set) || (Array.isArray(x.q.decks) && x.q.decks.includes(deck.id)))
     .map(x => x.i);
 }
 function activeDecks() {
@@ -4170,6 +4335,7 @@ const QUESTION_SOURCE_LABELS = {
   "BWL2-JUN17-SM": "Assessment Jun 2017",
   "BWL2-JUN17-HRM": "Assessment Jun 2017",
   "BWL2-JUN17-ORG": "Assessment Jun 2017",
+  "BWL2-MATH-AI": "AI",
 };
 
 function questionSource(q) {
@@ -4251,7 +4417,7 @@ function renderStart() {
   const seenCount = totalQuestionsSeen();
   const hasStats = seenCount > 0;
   const cats = getActiveCats();
-  const decks = isBWL ? [] : activeDecks();
+  const decks = isBWL ? activeDecks().filter(d => d.id === "BWL2-MATH") : activeDecks();
 
   const heroTitle = isBWL ? "BWL II Trainer" : "Journal Entry Trainer";
   const heroSub   = isBWL ? "Strategie · HRM · Organisation" : "Debit the receiver · credit the giver";
@@ -4290,6 +4456,19 @@ function renderStart() {
       ${isBWL ? `
       <h2>${escapeHtml(sectionTitles.decks)}</h2>
       ${renderBwlThemeSelector()}
+      ${decks.length ? `
+      <h2>Practice decks</h2>
+      <div class="deck-grid" id="deckGrid">
+        ${decks.map(d => {
+          const n = deckPool(d).length;
+          return `<button class="deck-card" data-deck="${escapeHtml(d.id)}" ${n ? "" : "disabled"}>
+            <span class="deck-label">${escapeHtml(d.label)}</span>
+            <span class="deck-sub">${escapeHtml(d.sub)}</span>
+            <span class="deck-count">${n} Frage${n !== 1 ? "n" : ""}</span>
+          </button>`;
+        }).join("")}
+      </div>
+      ` : ""}
       ` : decks.length ? `
       <h2>${escapeHtml(sectionTitles.decks)}</h2>
       <div class="deck-grid" id="deckGrid">
@@ -4591,6 +4770,7 @@ function renderQuiz() {
         ${renderSourceBadge(q)}
       </div>
       <div class="question-text">${escapeHtml(q.prompt)}</div>
+      ${renderQuestionVisual(q.visual)}
       <div class="options" id="options">
         ${state.optionOrder.map((origIdx, displayIdx) => {
           const letter = "ABCDE"[displayIdx];
@@ -4609,6 +4789,300 @@ function renderQuiz() {
     b.addEventListener("click", () => pickAnswer(parseInt(b.dataset.i, 10)));
   });
   startQuestionTimer();
+}
+
+function renderQuestionVisual(visual) {
+  if (!visual) return "";
+  if (visual === "jun17-sm-q5-producer-rent") return renderProducerRentVisual();
+  if (visual === "jun17-sm-q8-indifference") return renderIndifferenceVisual();
+  if (visual === "jun17-sm-q14-experience") return renderExperienceVisual();
+  if (visual === "jun17-sm-q17-adiwas-table") return renderAdidasValueTable();
+  if (visual === "ai-math-q5-producer-rent") return renderAiProducerRentVisual();
+  if (visual === "ai-math-q8-indifference") return renderAiIndifferenceVisual();
+  if (visual === "ai-math-q14-experience") return renderAiExperienceVisual();
+  if (visual === "ai-math-q17-value-table") return renderVeloProValueTable();
+  return "";
+}
+
+function renderProducerRentVisual() {
+  const scenarios = [
+    { label: "a", f1: { b: 10, p: 8, k: 4 }, f2: { b: 10, p: 4, k: 2 } },
+    { label: "b", f1: { b: 10, p: 8, k: 4 }, f2: { b: 8, p: 5, k: 2 } },
+    { label: "c", f1: { b: 8, p: 6, k: 2 }, f2: { b: 10, p: 9, k: 5 } },
+    { label: "d", f1: { b: 6, p: 6, k: 2 }, f2: { b: 10, p: 6, k: 4 } },
+    { label: "e", f1: { b: 10, p: 8, k: 4 }, f2: { b: 10, p: 6, k: 4 } },
+  ];
+  return `
+    <div class="question-visual" aria-label="Balkendiagramme zu Wertschätzung, Preis und Stückkosten">
+      <div class="visual-grid">
+        ${scenarios.map(renderRentScenario).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function renderRentScenario(scenario) {
+  return `
+    <div class="mini-rent ${scenario.label === "e" ? "wide" : ""}">
+      <div class="mini-title">${scenario.label})</div>
+      <svg viewBox="-18 -28 276 221" role="img" aria-label="Situation ${scenario.label}">
+        <line x1="36" y1="148" x2="205" y2="148" stroke="#111" stroke-width="1.4"/>
+        ${renderRentBar(78, "1", scenario.f1, -1)}
+        ${renderRentBar(162, "2", scenario.f2, 1)}
+        <text x="78" y="172" text-anchor="middle" font-size="13" font-weight="700">Firma 1</text>
+        <text x="162" y="172" text-anchor="middle" font-size="13" font-weight="700">Firma 2</text>
+      </svg>
+    </div>
+  `;
+}
+
+function renderRentBar(x, suffix, values, side) {
+  const barW = 34;
+  const base = 148;
+  const scale = 11;
+  const y = value => base - value * scale;
+  const labelX = side < 0 ? x - 25 : x + 25;
+  const anchor = side < 0 ? "end" : "start";
+  const label = (letter, value) => `
+    <text x="${labelX}" y="${y(value) + 4}" text-anchor="${anchor}" font-size="12" font-weight="700">
+      ${letter}<tspan baseline-shift="sub" font-size="8">${suffix}</tspan> = ${value}
+    </text>
+  `;
+  const bpLabels = values.b === values.p ? `
+    <text x="${x}" y="${y(values.b) - 6}" text-anchor="middle" font-size="11" font-weight="700">
+      B<tspan baseline-shift="sub" font-size="8">${suffix}</tspan> = P<tspan baseline-shift="sub" font-size="8">${suffix}</tspan> = ${values.b}
+    </text>
+  ` : `${label("B", values.b)}${label("P", values.p)}`;
+  return `
+    <rect x="${x - barW / 2}" y="${y(values.b)}" width="${barW}" height="${values.b * scale}" fill="#fff" stroke="#111" stroke-width="1.2"/>
+    <rect x="${x - barW / 2}" y="${y(values.k)}" width="${barW}" height="${values.k * scale}" fill="#9ca3af" stroke="#111" stroke-width="1.1"/>
+    <line x1="${x - barW / 2}" y1="${y(values.p)}" x2="${x + barW / 2}" y2="${y(values.p)}" stroke="#111" stroke-width="1.3"/>
+    ${bpLabels}
+    ${label("K", values.k)}
+  `;
+}
+
+function renderIndifferenceVisual() {
+  return `
+    <div class="question-visual" aria-label="Indifferenzkurve mit Produkten X und Y">
+      <svg viewBox="-75 0 760 380" role="img">
+        <defs>
+          <marker id="arrow-q8" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#111"></path>
+          </marker>
+        </defs>
+        <line x1="78" y1="325" x2="568" y2="325" stroke="#111" stroke-width="2" marker-end="url(#arrow-q8)"/>
+        <line x1="78" y1="325" x2="78" y2="42" stroke="#111" stroke-width="2" marker-end="url(#arrow-q8)"/>
+        <text x="58" y="38" font-size="20" font-weight="700">DK, P</text>
+        <text x="565" y="355" font-size="20" font-weight="700">Qualität</text>
+
+        <line x1="78" y1="250" x2="456" y2="250" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
+        <line x1="78" y1="178" x2="260" y2="178" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
+        <line x1="78" y1="105" x2="456" y2="105" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
+        <line x1="260" y1="178" x2="260" y2="325" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
+        <line x1="456" y1="105" x2="456" y2="325" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
+
+        <path d="M145 300 C170 235 215 195 260 178 C330 135 376 112 456 105 C493 102 520 99 548 98" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="260" cy="178" r="9" fill="#111"/>
+        <circle cx="456" cy="105" r="9" fill="#111"/>
+
+        <text x="44" y="254" text-anchor="end" font-size="17" font-weight="700">DK<tspan baseline-shift="sub" font-size="11">X</tspan> = DK<tspan baseline-shift="sub" font-size="11">Y</tspan></text>
+        <text x="55" y="182" text-anchor="end" font-size="18" font-weight="700">P<tspan baseline-shift="sub" font-size="11">X</tspan></text>
+        <text x="55" y="109" text-anchor="end" font-size="18" font-weight="700">P<tspan baseline-shift="sub" font-size="11">Y</tspan></text>
+        <text x="260" y="354" text-anchor="middle" font-size="18" font-weight="700">Qualität<tspan baseline-shift="sub" font-size="11">X</tspan></text>
+        <text x="456" y="354" text-anchor="middle" font-size="18" font-weight="700">Qualität<tspan baseline-shift="sub" font-size="11">Y</tspan></text>
+        <text x="198" y="145" font-size="18" font-weight="700">Produkt</text>
+        <text x="198" y="168" font-size="18" font-weight="700">Firma X</text>
+        <text x="400" y="72" font-size="18" font-weight="700">Produkt</text>
+        <text x="400" y="95" font-size="18" font-weight="700">Firma Y</text>
+        <text x="485" y="112" font-size="19" font-weight="700">Indifferenzkurve</text>
+      </svg>
+    </div>
+  `;
+}
+
+function renderExperienceVisual() {
+  return `
+    <div class="question-visual" aria-label="Erfahrungskurve mit kumulierter Produktionsmenge">
+      <svg viewBox="-45 0 825 360" role="img">
+        <defs>
+          <marker id="arrow-q14" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#111"></path>
+          </marker>
+        </defs>
+        <line x1="82" y1="300" x2="565" y2="300" stroke="#111" stroke-width="2" marker-end="url(#arrow-q14)"/>
+        <line x1="82" y1="300" x2="82" y2="38" stroke="#111" stroke-width="2" marker-end="url(#arrow-q14)"/>
+        <text x="66" y="36" font-size="20" font-weight="700">DK</text>
+        <text x="566" y="315" font-size="18" font-weight="700">kumulierte</text>
+        <text x="566" y="337" font-size="18" font-weight="700">Produktionsmenge Q</text>
+
+        <path d="M95 75 C120 155 188 194 245 208 C315 226 370 241 395 250 C448 269 505 278 548 282" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+        <line x1="82" y1="208" x2="245" y2="208" stroke="#374151" stroke-width="1.6" stroke-dasharray="7 7"/>
+        <line x1="82" y1="250" x2="395" y2="250" stroke="#374151" stroke-width="1.6" stroke-dasharray="7 7"/>
+        <line x1="245" y1="208" x2="245" y2="300" stroke="#374151" stroke-width="1.6" stroke-dasharray="7 7"/>
+        <line x1="395" y1="250" x2="395" y2="300" stroke="#374151" stroke-width="1.6" stroke-dasharray="7 7"/>
+
+        <text x="65" y="213" text-anchor="end" font-size="18" font-weight="700">DK<tspan baseline-shift="sub" font-size="11">X</tspan> = 10</text>
+        <text x="65" y="255" text-anchor="end" font-size="18" font-weight="700">DK<tspan baseline-shift="sub" font-size="11">Y</tspan> = 8</text>
+        <text x="245" y="328" text-anchor="middle" font-size="18" font-weight="700">Q<tspan baseline-shift="sub" font-size="11">X</tspan> = 100</text>
+        <text x="395" y="328" text-anchor="middle" font-size="18" font-weight="700">Q<tspan baseline-shift="sub" font-size="11">Y</tspan> = 200</text>
+      </svg>
+    </div>
+  `;
+}
+
+function renderAdidasValueTable() {
+  return `
+    <div class="question-visual" aria-label="Wertschöpfungskette ADIWAS">
+      <table class="value-table">
+        <thead>
+          <tr>
+            <th>Stufe</th>
+            <th>Variable Stückkosten pro Stufe</th>
+            <th>Fixkosten pro Stufe</th>
+            <th>Verkaufspreis</th>
+            <th>Verarbeitete Menge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Stufe 1: Produktion</td>
+            <td>10</td>
+            <td>3'200'000</td>
+            <td>60</td>
+            <td>100'000</td>
+          </tr>
+          <tr>
+            <td>Stufe 2: Vertrieb in eigenen Shops</td>
+            <td>10</td>
+            <td>1'600'000</td>
+            <td>130</td>
+            <td>60'000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderAiProducerRentVisual() {
+  const scenarios = [
+    { label: "a", f1: { b: 12, p: 10, k: 5 }, f2: { b: 12, p: 6, k: 3 } },
+    { label: "b", f1: { b: 12, p: 9, k: 5 }, f2: { b: 10, p: 6, k: 3 } },
+    { label: "c", f1: { b: 12, p: 9, k: 3 }, f2: { b: 14, p: 13, k: 7 } },
+    { label: "d", f1: { b: 8, p: 8, k: 3 }, f2: { b: 13, p: 8, k: 5 } },
+    { label: "e", f1: { b: 12, p: 9, k: 5 }, f2: { b: 12, p: 7, k: 5 } },
+  ];
+  return `
+    <div class="question-visual" aria-label="AI-Balkendiagramme zu Wertschätzung, Preis und Stückkosten">
+      <div class="visual-grid">
+        ${scenarios.map(renderRentScenario).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function renderAiIndifferenceVisual() {
+  return `
+    <div class="question-visual" aria-label="AI-Indifferenzkurve mit Produkten A und B">
+      <svg viewBox="-75 0 760 380" role="img">
+        <defs>
+          <marker id="arrow-ai-q8" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#111"></path>
+          </marker>
+        </defs>
+        <line x1="78" y1="325" x2="568" y2="325" stroke="#111" stroke-width="2" marker-end="url(#arrow-ai-q8)"/>
+        <line x1="78" y1="325" x2="78" y2="42" stroke="#111" stroke-width="2" marker-end="url(#arrow-ai-q8)"/>
+        <text x="58" y="38" font-size="20" font-weight="700">DK, P</text>
+        <text x="565" y="355" font-size="20" font-weight="700">Qualität</text>
+
+        <line x1="78" y1="252" x2="468" y2="252" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
+        <line x1="78" y1="188" x2="248" y2="188" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
+        <line x1="78" y1="96" x2="468" y2="96" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
+        <line x1="248" y1="188" x2="248" y2="325" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
+        <line x1="468" y1="96" x2="468" y2="325" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
+
+        <path d="M138 300 C162 244 207 205 248 188 C320 140 383 105 468 96 C500 92 526 91 550 92" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="248" cy="188" r="9" fill="#111"/>
+        <circle cx="468" cy="96" r="9" fill="#111"/>
+
+        <text x="44" y="256" text-anchor="end" font-size="17" font-weight="700">DK<tspan baseline-shift="sub" font-size="11">A</tspan> = DK<tspan baseline-shift="sub" font-size="11">B</tspan></text>
+        <text x="55" y="192" text-anchor="end" font-size="18" font-weight="700">P<tspan baseline-shift="sub" font-size="11">A</tspan></text>
+        <text x="55" y="100" text-anchor="end" font-size="18" font-weight="700">P<tspan baseline-shift="sub" font-size="11">B</tspan></text>
+        <text x="248" y="354" text-anchor="middle" font-size="18" font-weight="700">Qualität<tspan baseline-shift="sub" font-size="11">A</tspan></text>
+        <text x="468" y="354" text-anchor="middle" font-size="18" font-weight="700">Qualität<tspan baseline-shift="sub" font-size="11">B</tspan></text>
+        <text x="188" y="154" font-size="18" font-weight="700">Produkt</text>
+        <text x="188" y="177" font-size="18" font-weight="700">Firma A</text>
+        <text x="406" y="63" font-size="18" font-weight="700">Produkt</text>
+        <text x="406" y="86" font-size="18" font-weight="700">Firma B</text>
+        <text x="496" y="106" font-size="19" font-weight="700">Indifferenzkurve</text>
+      </svg>
+    </div>
+  `;
+}
+
+function renderAiExperienceVisual() {
+  return `
+    <div class="question-visual" aria-label="AI-Erfahrungskurve mit kumulierter Produktionsmenge">
+      <svg viewBox="-45 0 825 360" role="img">
+        <defs>
+          <marker id="arrow-ai-q14" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#111"></path>
+          </marker>
+        </defs>
+        <line x1="82" y1="300" x2="565" y2="300" stroke="#111" stroke-width="2" marker-end="url(#arrow-ai-q14)"/>
+        <line x1="82" y1="300" x2="82" y2="38" stroke="#111" stroke-width="2" marker-end="url(#arrow-ai-q14)"/>
+        <text x="66" y="36" font-size="20" font-weight="700">DK</text>
+        <text x="566" y="315" font-size="18" font-weight="700">kumulierte</text>
+        <text x="566" y="337" font-size="18" font-weight="700">Produktionsmenge Q</text>
+
+        <path d="M96 70 C124 146 180 184 224 202 C304 232 390 251 450 262 C490 270 523 274 550 276" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+        <line x1="82" y1="202" x2="224" y2="202" stroke="#374151" stroke-width="1.6" stroke-dasharray="7 7"/>
+        <line x1="82" y1="262" x2="450" y2="262" stroke="#374151" stroke-width="1.6" stroke-dasharray="7 7"/>
+        <line x1="224" y1="202" x2="224" y2="300" stroke="#374151" stroke-width="1.6" stroke-dasharray="7 7"/>
+        <line x1="450" y1="262" x2="450" y2="300" stroke="#374151" stroke-width="1.6" stroke-dasharray="7 7"/>
+
+        <text x="65" y="207" text-anchor="end" font-size="18" font-weight="700">DK<tspan baseline-shift="sub" font-size="11">A</tspan> = 12</text>
+        <text x="65" y="267" text-anchor="end" font-size="18" font-weight="700">DK<tspan baseline-shift="sub" font-size="11">B</tspan> = 9</text>
+        <text x="224" y="328" text-anchor="middle" font-size="18" font-weight="700">Q<tspan baseline-shift="sub" font-size="11">A</tspan> = 80</text>
+        <text x="450" y="328" text-anchor="middle" font-size="18" font-weight="700">Q<tspan baseline-shift="sub" font-size="11">B</tspan> = 240</text>
+      </svg>
+    </div>
+  `;
+}
+
+function renderVeloProValueTable() {
+  return `
+    <div class="question-visual" aria-label="Wertschöpfungskette VeloPro">
+      <table class="value-table">
+        <thead>
+          <tr>
+            <th>Stufe</th>
+            <th>Variable Stückkosten pro Stufe</th>
+            <th>Fixkosten pro Stufe</th>
+            <th>Verkaufspreis</th>
+            <th>Verarbeitete Menge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Stufe 1: Produktion</td>
+            <td>12</td>
+            <td>2'000'000</td>
+            <td>55</td>
+            <td>80'000</td>
+          </tr>
+          <tr>
+            <td>Stufe 2: Vertrieb in eigenen Shops</td>
+            <td>8</td>
+            <td>1'100'000</td>
+            <td>115</td>
+            <td>50'000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `;
 }
 
 function pickAnswer(displayIdx, timedOut = false) {
