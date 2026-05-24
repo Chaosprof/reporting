@@ -649,8 +649,9 @@
   .review-item .yours { color: #7a3f37; font-size: 0.8rem; }
   .review-item .correct-text { color: #5a6f49; font-size: 0.8rem; margin-top: 2px; font-weight: 600; }
 
-  .action-row { display: flex; gap: 10px; margin-top: 28px; }
-  .action-row .btn { flex: 1; }
+  .action-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .action-row .btn { flex: 1 1 160px; justify-content: center; }
+  .action-row .btn-primary { width: auto; }
 
   .kbd {
     display: inline-block;
@@ -4906,8 +4907,8 @@ const state = {
   answered: false,
   picked: -1,                // index into shuffled options
   optionOrder: [],           // mapping: display_index → original_option_index
-  wrong: [],                 // [{q, picked, correctText}]
-  mode: "all",               // "all" | "weak" | "deck" — what the current run is drawn from
+  wrong: [],                 // [{questionIndex, prompt, picked, correct, explanation}]
+  mode: "all",               // "all" | "weak" | "deck" | "mistakes" — what the current run is drawn from
   deckId: null,              // when mode === "deck", which deck
   resultRecorded: false,
   data: loadLocalData(),     // persisted progress (questionStats, etc.)
@@ -5191,7 +5192,7 @@ function deckFillColor(pct) {
   if (pct === 100) return "rgba(215, 185, 79, 0.26)";
   if (pct >= 90) return "rgba(148, 163, 184, 0.24)";
   if (pct >= 70) return "rgba(217, 177, 124, 0.24)";
-  return "rgba(92, 138, 168, 0.14)";
+  return "rgba(220, 38, 38, 0.18)";
 }
 
 function renderDeckCards(decks, countLabel) {
@@ -5548,6 +5549,25 @@ function startDeckQuiz(deckId) {
   if (!pool.length) return;
   state.mode = "deck";
   state.deckId = deckId;
+  state.order = shuffle(pool);
+  state.idx = 0;
+  state.score = 0;
+  state.streak = 0;
+  state.bestStreak = 0;
+  state.resultRecorded = false;
+  state.wrong = [];
+  state.screen = "quiz";
+  loadCurrent();
+  render();
+}
+
+function startMistakeQuiz(questionIndices) {
+  stopQuestionTimer();
+  getAudioCtx();
+  const pool = [...new Set(questionIndices)]
+    .filter(i => Number.isInteger(i) && QUESTIONS[i] && hasAnswerKey(QUESTIONS[i]));
+  if (!pool.length) return;
+  state.mode = "mistakes";
   state.order = shuffle(pool);
   state.idx = 0;
   state.score = 0;
@@ -6312,7 +6332,8 @@ function pickAnswer(displayIdx, timedOut = false) {
   stopQuestionTimer();
   state.answered = true;
   state.picked = displayIdx;
-  const q = QUESTIONS[state.order[state.idx]];
+  const questionIndex = state.order[state.idx];
+  const q = QUESTIONS[questionIndex];
   const answerKeyAvailable = hasAnswerKey(q);
   const pickedOriginal = timedOut ? -1 : state.optionOrder[displayIdx];
   const correctDisplay = answerKeyAvailable ? state.optionOrder.indexOf(q.correct) : -1;
@@ -6328,6 +6349,7 @@ function pickAnswer(displayIdx, timedOut = false) {
     state.streak = 0;
     playSadViolinSound();
     state.wrong.push({
+      questionIndex,
       prompt: q.prompt,
       picked: timedOut ? "Time expired" : q.options[pickedOriginal],
       correct: q.options[q.correct],
@@ -6430,6 +6452,9 @@ function renderResults() {
   const scoredTotal = state.order.filter(i => hasAnswerKey(QUESTIONS[i])).length;
   const unscoredTotal = total - scoredTotal;
   const pct = scoredTotal ? Math.round((state.score / scoredTotal) * 100) : 0;
+  const mistakeIndices = [...new Set(state.wrong.map(w => w.questionIndex))]
+    .filter(i => Number.isInteger(i) && QUESTIONS[i] && hasAnswerKey(QUESTIONS[i]));
+  const canPracticeMistakes = (state.mode === "deck" || state.mode === "mistakes") && mistakeIndices.length > 0;
   let msg = "Back to the books 📚";
   if (!scoredTotal) msg = "Scanned questions reviewed.";
   else if (pct === 100) msg = "Perfect. Auditor-grade. 🏆";
@@ -6444,6 +6469,9 @@ function renderResults() {
   else if (state.mode === "deck") {
     const deck = getDeckById(state.deckId);
     modeTag = deck ? deck.label : "Deck";
+  } else if (state.mode === "mistakes") {
+    const deck = getDeckById(state.deckId);
+    modeTag = deck ? `${deck.label} mistakes` : "Practice mistakes";
   }
   recordCompletedDeckResult(scoredTotal, pct);
 
@@ -6469,6 +6497,7 @@ function renderResults() {
 
       <div class="action-row">
         <button class="btn btn-ghost" id="homeBtn">← Home</button>
+        ${canPracticeMistakes ? `<button class="btn btn-ghost" id="mistakesBtn">Practice mistakes</button>` : ""}
         <button class="btn btn-primary" id="againBtn">${state.mode === "weak" ? "Practice weak again" : state.mode === "deck" ? "Replay deck" : "Play again"}</button>
       </div>
     </div>
@@ -6481,7 +6510,11 @@ function renderResults() {
   document.getElementById("againBtn").addEventListener("click", () => {
     if (state.mode === "weak") startWeakQuiz();
     else if (state.mode === "deck") startDeckQuiz(state.deckId);
+    else if (state.mode === "mistakes") startMistakeQuiz(state.order);
     else startQuiz();
+  });
+  document.getElementById("mistakesBtn")?.addEventListener("click", () => {
+    startMistakeQuiz(mistakeIndices);
   });
 }
 
@@ -6534,6 +6567,7 @@ document.addEventListener("keydown", (e) => {
   } else if (state.screen === "results" && e.key === "Enter") {
     if (state.mode === "weak") startWeakQuiz();
     else if (state.mode === "deck") startDeckQuiz(state.deckId);
+    else if (state.mode === "mistakes") startMistakeQuiz(state.order);
     else startQuiz();
     e.preventDefault();
   }
