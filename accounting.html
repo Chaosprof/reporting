@@ -2340,6 +2340,231 @@ const QUESTIONS = [
     explanation: "The issuance proceeds are 10,000 x $7 = $70,000. Common stock increases by par value, 10,000 x $2 = $20,000. The excess, $50,000, is added to APIC."
   },
 
+  // Additional Exercises 2 (business combinations, audit thresholds, investments)
+  {
+    category: "Consolidation",
+    set: "AE2",
+    prompt: "Which of the following is traditionally not a reason firms combine in business combinations?",
+    options: [
+      "Reduction of costs",
+      "Economies of scope",
+      "Expansion of products and services",
+      "Highly competitive business environment"
+    ],
+    correct: 3,
+    explanation: "Common motives for business combinations include cost reduction, economies of scale or scope, and expansion of products, services, or markets. A highly competitive environment is business context, not itself a traditional accounting reason for combining."
+  },
+  {
+    category: "Consolidation",
+    set: "AE2",
+    prompt: "UBS agreed to acquire Credit Suisse. According to some sources, the Credit Suisse brand may not be buried and Credit Suisse may still operate as a separate, independent firm. This description is best summarized as a:",
+    options: [
+      "Statutory merger",
+      "Statutory consolidation",
+      "Stock acquisition",
+      "Statutory acquisition"
+    ],
+    correct: 2,
+    explanation: "In a stock acquisition, the acquirer obtains shares of the target. The acquired company can continue as a separate legal entity, unlike a statutory merger or statutory consolidation."
+  },
+  {
+    category: "Audit",
+    set: "AE2",
+    prompt: "Compared to small companies, middle-sized Swiss companies are required to do a Limited Statutory Examination (Eingeschraenkte Revision) if they fulfill certain criteria. Which of the following is such a criterion?",
+    options: [
+      "Shares are traded on a stock exchange",
+      "Total assets exceed CHF 20 million",
+      "The company has more than 250 FTE employees on its payroll",
+      "The company has less than CHF 40 million of revenues"
+    ],
+    correct: 3,
+    explanation: "Listed companies and companies exceeding ordinary-audit size thresholds are subject to an ordinary audit. A limited statutory examination applies below those ordinary-audit thresholds, so revenue below CHF 40 million is the matching criterion among the options."
+  },
+  {
+    category: "Investments",
+    set: "AE2",
+    prompt: "If an investor has significant influence over an investee, what is the effect of the investee's net income and dividends paid by the investee on the investor's Investment account? Earnings / Dividends",
+    options: [
+      "Increase / Decrease",
+      "Increase / Increase",
+      "Decrease / Decrease",
+      "Decrease / Increase"
+    ],
+    correct: 0,
+    explanation: "Significant influence normally means the equity method. Under the equity method, the investor increases the Investment account for its share of investee net income and decreases it for dividends received."
+  },
+  {
+    category: "Investments",
+    set: "AE2",
+    prompt: "Onex AG bought trading securities for CHF 1,800,000 and non-trading securities for CHF 2,200,000 in 2022. At year-end, the trading securities had a fair value of CHF 1,400,000 and the non-trading securities had a fair value of CHF 1,900,000. What amount of Unrealized Holding Loss - Income should Onex AG report?",
+    options: [
+      "CHF 300,000",
+      "CHF 400,000",
+      "CHF 700,000",
+      "CHF 1,400,000"
+    ],
+    correct: 1,
+    explanation: "Only the trading securities' fair value change is reported in income. Trading securities fell from 1,800,000 to 1,400,000, so the Unrealized Holding Loss - Income is CHF 400,000. The non-trading loss is not included in income here."
+  },
+  {
+    category: "Investments",
+    set: "AE2",
+    prompt: "Losone AG bought trading securities during 2022. At year-end it held ordinary shares with these cost and fair value amounts: Locarno AG cost CHF 46,400, fair value CHF 50,000; Ascona AG cost CHF 60,000, fair value CHF 53,800; Tegna AG cost CHF 70,000, fair value CHF 72,000. In April 2023, the Ascona shares are sold for cash of CHF 57,500. The gain or loss on the sale is a:",
+    options: [
+      "Gain of CHF 3,700",
+      "Loss of CHF 2,500",
+      "Loss of CHF 6,200",
+      "Gain of CHF 2,500"
+    ],
+    correct: 0,
+    explanation: "Trading securities are carried at fair value. Ascona's carrying amount after the 2022 fair value adjustment is CHF 53,800. Selling for CHF 57,500 creates a gain of CHF 3,700."
+  },
+  {
+    category: "Investments",
+    set: "AE2",
+    prompt: "Grand SA has significant influence over Petit SA. On January 1, 2020, Grand SA bought 30% of Petit SA for CHF 300,000. Petit reported income and dividends as follows: 2020 income CHF 1,000,000, dividends CHF 200,000; 2021 loss CHF 300,000, dividends CHF 0; 2022 income CHF 450,000, dividends CHF 150,000. What amount should Grand's Investment in Petit account show at the end of 2022?",
+    options: [
+      "CHF 750,000",
+      "CHF 240,000",
+      "CHF 645,000",
+      "CHF 540,000"
+    ],
+    correct: 3,
+    explanation: "Equity-method balance = initial cost 300,000 + 30% x total net income/loss (1,000,000 - 300,000 + 450,000 = 1,150,000) - 30% x dividends (200,000 + 0 + 150,000 = 350,000). That is 300,000 + 345,000 - 105,000 = CHF 540,000."
+  },
+
+  // AI variants for Additional Exercises 2
+  {
+    category: "Consolidation",
+    set: "AE2-AI",
+    prompt: "A company acquires a competitor mainly to combine production sites, eliminate duplicate administration, and share distribution channels. Which motive best describes this business combination?",
+    options: [
+      "Reduction of costs",
+      "Liquidating dividend treatment",
+      "Limited statutory examination",
+      "Separate legal existence"
+    ],
+    correct: 0,
+    explanation: "Combining production, administration, and distribution is aimed at cost savings and operating efficiencies, a common motive for a business combination."
+  },
+  {
+    category: "Consolidation",
+    set: "AE2-AI",
+    prompt: "Parent AG acquires 80% of Target AG's voting shares. Target AG keeps its own legal identity and continues operating under its existing name. What type of business combination structure is this?",
+    options: [
+      "Statutory merger",
+      "Stock acquisition",
+      "Statutory consolidation",
+      "Asset liquidation"
+    ],
+    correct: 1,
+    explanation: "The parent acquired voting shares while the target remained legally separate. That is a stock acquisition."
+  },
+  {
+    category: "Consolidation",
+    set: "AE2-AI",
+    prompt: "Alpha SA and Beta SA combine and both original legal entities cease to exist. A newly created company, Gamma SA, takes over the combined business. This is a:",
+    options: [
+      "Stock acquisition",
+      "Statutory merger",
+      "Statutory consolidation",
+      "Non-trading security purchase"
+    ],
+    correct: 2,
+    explanation: "In a statutory consolidation, the combining companies are dissolved and a new legal entity is formed. In a statutory merger, one of the original companies survives."
+  },
+  {
+    category: "Audit",
+    set: "AE2-AI",
+    prompt: "Which Swiss company profile most clearly points to an ordinary audit rather than a Limited Statutory Examination?",
+    options: [
+      "A company with shares traded on a stock exchange",
+      "A private company below the ordinary-audit thresholds",
+      "A company with less than CHF 40 million revenue and no listing",
+      "A company with fewer than 250 FTE employees and no public debt"
+    ],
+    correct: 0,
+    explanation: "A listed company is subject to an ordinary audit. The limited statutory examination applies to companies that are not subject to ordinary audit and have not opted out."
+  },
+  {
+    category: "Audit",
+    set: "AE2-AI",
+    prompt: "A Swiss company is not listed and does not exceed the ordinary-audit thresholds. It has at least 10 FTE employees and has not opted out. Which audit requirement normally applies?",
+    options: [
+      "No review of any kind",
+      "Limited Statutory Examination",
+      "Ordinary audit because it is not listed",
+      "Consolidated audit only"
+    ],
+    correct: 1,
+    explanation: "Companies below the ordinary-audit thresholds are generally subject to a limited statutory examination unless they qualify for and choose an opt-out."
+  },
+  {
+    category: "Investments",
+    set: "AE2-AI",
+    prompt: "Bern AG owns 30% of Uri AG and has significant influence. Uri reports net income of CHF 600,000 and pays dividends of CHF 100,000. What is the net increase in Bern's Investment in Uri account for the year?",
+    options: [
+      "CHF 30,000",
+      "CHF 150,000",
+      "CHF 180,000",
+      "CHF 210,000"
+    ],
+    correct: 1,
+    explanation: "Under the equity method, the Investment account increases by Bern's share of income, 30% x 600,000 = 180,000, and decreases by Bern's share of dividends, 30% x 100,000 = 30,000. Net increase = CHF 150,000."
+  },
+  {
+    category: "Investments",
+    set: "AE2-AI",
+    prompt: "Luzern AG buys trading securities for CHF 900,000 and non-trading securities for CHF 500,000. At year-end, the trading securities are worth CHF 960,000 and the non-trading securities are worth CHF 430,000. What Unrealized Holding Gain - Income should Luzern report?",
+    options: [
+      "CHF 60,000",
+      "CHF 70,000",
+      "CHF 10,000 loss",
+      "CHF 130,000"
+    ],
+    correct: 0,
+    explanation: "Unrealized holding gains and losses in income come from trading securities. The trading securities increased by 960,000 - 900,000 = CHF 60,000. The non-trading securities' loss is not included in income here."
+  },
+  {
+    category: "Investments",
+    set: "AE2-AI",
+    prompt: "Morges SA held trading securities in Nyon SA with a year-end fair value and carrying amount of CHF 84,000 after original cost of CHF 90,000. The shares are sold the next year for CHF 81,500. What gain or loss is recognized on sale?",
+    options: [
+      "Loss of CHF 2,500",
+      "Loss of CHF 8,500",
+      "Gain of CHF 2,500",
+      "No gain or loss"
+    ],
+    correct: 0,
+    explanation: "After fair value adjustment, the carrying amount is CHF 84,000. Sale proceeds of CHF 81,500 produce a loss of CHF 2,500."
+  },
+  {
+    category: "Investments",
+    set: "AE2-AI",
+    prompt: "Rigi SA buys 25% of Pilatus SA for CHF 200,000 and has significant influence. Across the next two years, Pilatus reports total net income of CHF 500,000 and declares total dividends of CHF 120,000. What is Rigi's Investment in Pilatus balance after two years?",
+    options: [
+      "CHF 295,000",
+      "CHF 325,000",
+      "CHF 170,000",
+      "CHF 230,000"
+    ],
+    correct: 0,
+    explanation: "Equity-method carrying amount = 200,000 + 25% x 500,000 - 25% x 120,000 = 200,000 + 125,000 - 30,000 = CHF 295,000."
+  },
+  {
+    category: "Investments",
+    set: "AE2-AI",
+    prompt: "Zug AG owns 40% of Sarnen AG and applies the equity method. Sarnen reports a net loss of CHF 250,000 and pays dividends of CHF 50,000. Zug's beginning Investment balance is CHF 700,000. What is the ending Investment balance?",
+    options: [
+      "CHF 600,000",
+      "CHF 580,000",
+      "CHF 800,000",
+      "CHF 680,000"
+    ],
+    correct: 1,
+    explanation: "The equity-method account decreases for the investor's share of both the loss and dividends: 40% x 250,000 = 100,000 loss share and 40% x 50,000 = 20,000 dividend share. Ending balance = 700,000 - 100,000 - 20,000 = CHF 580,000."
+  },
+
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
     prompt: "Welche Aussage zu Markteintrittsbarrieren und Marktaustrittsbarrieren ist am ehesten richtig?",
@@ -3907,7 +4132,7 @@ const BWL_BOTH_SOURCE_PREFIXES = [
 ];
 
 QUESTIONS.forEach(q => {
-  if (q.subject !== "BWL II" || q.sourceYears) return;
+  if (q.subject !== "BWL II" || q.sourceYears || String(q.set || "").endsWith("-AI")) return;
   const inBoth = q.set === "BWL2-SM" || BWL_BOTH_SOURCE_PREFIXES.some(p => q.prompt.startsWith(p));
   q.sourceYears = inBoth ? ["2017", "2025"] : ["2017"];
 });
@@ -4233,6 +4458,8 @@ function getActiveCats() {
 const DECKS = [
   { id: "AE1",      subject: "Financial Reporting", label: "Additional Exercises 1",      sub: "Course handout",        sets: ["AE1"] },
   { id: "AE1+AI",   subject: "Financial Reporting", label: "Additional Exercises 1 + AI", sub: "Handout + AI add-ons",  sets: ["AE1", "AE1-AI"] },
+  { id: "AE2",      subject: "Financial Reporting", label: "Additional Exercises 2",      sub: "Course handout",        sets: ["AE2"] },
+  { id: "AE2+AI",   subject: "Financial Reporting", label: "Additional Exercises 2 + AI", sub: "Handout + AI add-ons",  sets: ["AE2", "AE2-AI"] },
   { id: "R1",       subject: "Financial Reporting", label: "Recitation 1",                sub: "Course handout",        sets: ["R1"] },
   { id: "R1+AI",    subject: "Financial Reporting", label: "Recitation 1 + AI",           sub: "Handout + AI add-ons",  sets: ["R1", "R1-AI"] },
   { id: "R2",       subject: "Financial Reporting", label: "Recitation II",               sub: "Course handout",        sets: ["R2"] },
@@ -4323,6 +4550,8 @@ function wireSubjectTabs() {
 const QUESTION_SOURCE_LABELS = {
   AE1: "Additional Exercises I",
   "AE1-AI": "AI",
+  AE2: "Additional Exercises 2",
+  "AE2-AI": "AI",
   R1: "Recitation I",
   "R1-AI": "AI",
   R2: "Recitation II",
@@ -4339,6 +4568,9 @@ const QUESTION_SOURCE_LABELS = {
 };
 
 function questionSource(q) {
+  if (QUESTION_SOURCE_LABELS[q.set] === "AI" || String(q.set || "").endsWith("-AI")) {
+    return { label: "AI", kind: "ai" };
+  }
   const bwlProbe = q.subject === "BWL II" && q.sourceYears && q.sourceYears.length && !String(q.set || "").startsWith("BWL2-JUN17");
   const label = bwlProbe
     ? `Probeprufung ${q.sourceYears.join(" + ")}`
