@@ -1116,6 +1116,15 @@
     margin-top: 8px;
     font-family: var(--font-mono);
   }
+  .modal-info.error {
+    color: #7a3f37;
+    background: var(--bad-soft);
+    border: 1px solid var(--bad-line);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-family: var(--font-sans);
+    line-height: 1.45;
+  }
   .modal-close-row {
     display: flex;
     justify-content: flex-end;
@@ -4678,8 +4687,19 @@ const DEFAULT_DATA = {
   lastUpdated: 0,
 };
 
+function normalizePat(t) {
+  return String(t || "")
+    .trim()
+    .replace(/^Bearer\s+/i, "")
+    .replace(/^token\s+/i, "")
+    .trim();
+}
 function getPat()   { return localStorage.getItem(PAT_KEY) || ""; }
-function setPat(t)  { if (t) localStorage.setItem(PAT_KEY, t); else localStorage.removeItem(PAT_KEY); }
+function setPat(t)  {
+  const token = normalizePat(t);
+  if (token) localStorage.setItem(PAT_KEY, token);
+  else localStorage.removeItem(PAT_KEY);
+}
 function getGistId(){ return localStorage.getItem(GIST_ID_KEY) || ""; }
 function setGistId(id){ if (id) localStorage.setItem(GIST_ID_KEY, id); else localStorage.removeItem(GIST_ID_KEY); }
 
@@ -4708,9 +4728,24 @@ async function gistFetch(path, opts = {}) {
   if (!pat) throw new Error("No PAT configured");
   const r = await fetch(`https://api.github.com${path}`, {
     ...opts,
-    headers: { Authorization: `token ${pat}`, Accept: "application/vnd.github+json", ...(opts.headers || {}) },
+    headers: {
+      Authorization: `Bearer ${pat}`,
+      Accept: "application/vnd.github+json",
+      "Content-Type": "application/json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      ...(opts.headers || {})
+    },
   });
-  if (!r.ok) throw new Error(`GitHub API ${r.status}: ${r.statusText}`);
+  if (!r.ok) {
+    let detail = r.statusText;
+    try {
+      const body = await r.json();
+      detail = body && body.message ? body.message : detail;
+    } catch {
+      try { detail = await r.text() || detail; } catch {}
+    }
+    throw new Error(`GitHub API ${r.status}: ${detail}`);
+  }
   return r.json();
 }
 
@@ -4737,7 +4772,7 @@ async function _drainGistSave() {
     setSyncStatus("synced");
   } catch (e) {
     console.warn("Gist save failed:", e);
-    setSyncStatus("error");
+    setSyncStatus("error", syncErrorText(e));
   } finally {
     _gistSaveInFlight = null;
   }
@@ -4755,15 +4790,19 @@ async function saveGistData(data) {
   const gistId = getGistId();
   const body = { files: { [GIST_FILENAME]: { content: JSON.stringify(data, null, 2) } } };
   if (gistId) {
-    return gistFetch(`/gists/${gistId}`, { method: "PATCH", body: JSON.stringify(body) });
-  } else {
-    const gist = await gistFetch("/gists", {
-      method: "POST",
-      body: JSON.stringify({ description: "Journal Entry Trainer — saved progress", public: false, ...body }),
-    });
-    setGistId(gist.id);
-    return gist;
+    try {
+      return await gistFetch(`/gists/${gistId}`, { method: "PATCH", body: JSON.stringify(body) });
+    } catch (e) {
+      if (!isGistNotFoundError(e)) throw e;
+      setGistId("");
+    }
   }
+  const gist = await gistFetch("/gists", {
+    method: "POST",
+    body: JSON.stringify({ description: "Journal Entry Trainer — saved progress", public: false, ...body }),
+  });
+  setGistId(gist.id);
+  return gist;
 }
 
 // Merge two data snapshots: take whichever has more attempts per question.
@@ -4913,6 +4952,7 @@ const state = {
   resultRecorded: false,
   data: loadLocalData(),     // persisted progress (questionStats, etc.)
   syncStatus: getPat() ? "connected" : "local",
+  syncError: "",
   settingsOpen: false,
   timerSeconds: getTimerSeconds(),
   timerRemaining: 0,
@@ -5420,13 +5460,26 @@ function syncStatusLabel(s) {
   return "Local only";
 }
 
-function setSyncStatus(s) {
+function setSyncStatus(s, errorMessage = "") {
   state.syncStatus = s;
+  state.syncError = s === "error" ? String(errorMessage || "Sync failed. Check the token and try again.") : "";
   const el = document.getElementById("syncPill");
   if (el) {
     el.className = "sync-pill " + s;
     el.innerHTML = `<span class="dot"></span>${escapeHtml(syncStatusLabel(s))}`;
   }
+}
+
+function syncErrorText(e) {
+  const msg = e && e.message ? e.message : String(e || "Unknown sync error");
+  if (msg.includes("401")) return `${msg}. The token was rejected. Generate a new token and paste only the token value.`;
+  if (msg.includes("403")) return `${msg}. The token needs Gists permission set to read and write.`;
+  if (msg.includes("404")) return `${msg}. The saved Gist may no longer exist or this token cannot access it. Disconnect and sync again to create a new private Gist.`;
+  return msg;
+}
+
+function isGistNotFoundError(e) {
+  return !!(e && e.message && e.message.includes("GitHub API 404"));
 }
 
 function renderSettingsModal() {
@@ -5444,16 +5497,17 @@ function renderSettingsModal() {
           <span class="modal-label">Cloud sync (optional)</span>
           <p class="modal-help">
             Save your progress to a private GitHub Gist so you can resume on any device.
-            Create a token with <b>gist</b> scope at
-            <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener">github.com/settings/tokens</a>
-            and paste it below.
+            Create a token at
+            <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a>
+            with <b>Gists</b> permission set to <b>Read and write</b>, then paste only the token value below.
           </p>
-          <input type="password" id="patInput" placeholder="ghp_… (Personal Access Token)" value="${escapeHtml(pat)}" autocomplete="off" spellcheck="false">
+          <input type="password" id="patInput" placeholder="github_pat_… or ghp_…" value="${escapeHtml(pat)}" autocomplete="off" spellcheck="false">
           <div class="modal-row">
             <button class="btn btn-primary" id="savePatBtn">Save &amp; sync</button>
             ${pat ? `<button class="btn btn-ghost" id="disconnectBtn">Disconnect</button>` : ""}
           </div>
           ${gistId ? `<div class="modal-info">Gist: ${escapeHtml(gistId.slice(0, 12))}…</div>` : ""}
+          ${state.syncError ? `<div class="modal-info error">${escapeHtml(state.syncError)}</div>` : ""}
         </div>
 
         <div class="modal-section">
@@ -5484,24 +5538,34 @@ function wireSettingsModal() {
     render();
   });
   document.getElementById("savePatBtn").addEventListener("click", async () => {
-    const v = document.getElementById("patInput").value.trim();
+    const v = normalizePat(document.getElementById("patInput").value);
     if (!v) return;
+    const oldPat = getPat();
+    const oldGistId = getGistId();
     setPat(v);
     setSyncStatus("saving");
     try {
       // Try to load any existing gist; merge with local data
-      const remote = await loadGistData();
+      let remote = null;
+      try {
+        remote = await loadGistData();
+      } catch (e) {
+        if (!isGistNotFoundError(e)) throw e;
+        setGistId("");
+      }
       if (remote) state.data = mergeData(state.data, remote);
       state.data.lastUpdated = Date.now();
       // Save merged result back
       await saveGistData(state.data);
       saveLocalData(state.data);
       setSyncStatus("synced");
+      state.settingsOpen = false;
     } catch (e) {
       console.warn(e);
-      setSyncStatus("error");
+      setPat(oldPat);
+      setGistId(oldGistId);
+      setSyncStatus("error", syncErrorText(e));
     }
-    state.settingsOpen = false;
     render();
   });
   const disc = document.getElementById("disconnectBtn");
@@ -6594,7 +6658,7 @@ if (getPat()) {
     })
     .catch(e => {
       console.warn("Initial gist load failed:", e);
-      setSyncStatus("error");
+      setSyncStatus("error", syncErrorText(e));
     });
 }
 </script>
