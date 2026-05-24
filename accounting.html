@@ -4686,6 +4686,7 @@ const DEFAULT_DATA = {
   deckBestResults: {}, // { deckId: { pct, score, total, completedAt, label } }
   totalSessions: 0,
   lastUpdated: 0,
+  resetAt: 0,
 };
 
 function normalizePat(t) {
@@ -4721,7 +4722,13 @@ function freshData(data = {}) {
     ...data,
     questionStats: { ...(data.questionStats || {}) },
     deckBestResults: { ...(data.deckBestResults || {}) },
+    resetAt: Number(data.resetAt || 0),
   };
+}
+
+function resetProgressData() {
+  const now = Date.now();
+  return freshData({ lastUpdated: now, resetAt: now });
 }
 
 async function gistFetch(path, opts = {}) {
@@ -4824,6 +4831,8 @@ async function saveGistData(data) {
 function mergeData(a, b) {
   a = freshData(a);
   b = freshData(b);
+  if ((a.resetAt || 0) > (b.lastUpdated || 0) && (a.resetAt || 0) >= (b.resetAt || 0)) return a;
+  if ((b.resetAt || 0) > (a.lastUpdated || 0) && (b.resetAt || 0) >= (a.resetAt || 0)) return b;
   const out = freshData(a);
   out.questionStats = { ...(a.questionStats || {}) };
   for (const [id, sb] of Object.entries(b.questionStats || {})) {
@@ -4839,6 +4848,7 @@ function mergeData(a, b) {
   }
   out.totalSessions = Math.max(a.totalSessions || 0, b.totalSessions || 0);
   out.lastUpdated   = Math.max(a.lastUpdated   || 0, b.lastUpdated   || 0);
+  out.resetAt       = Math.max(a.resetAt       || 0, b.resetAt       || 0);
   return out;
 }
 
@@ -5592,11 +5602,21 @@ function wireSettingsModal() {
     state.settingsOpen = false;
     render();
   });
-  document.getElementById("resetBtn").addEventListener("click", () => {
+  document.getElementById("resetBtn").addEventListener("click", async () => {
     if (!confirm("Reset all local progress? This cannot be undone.")) return;
-    state.data = freshData({ lastUpdated: Date.now() });
-    queueGistSave(state.data);
-    state.settingsOpen = false;
+    state.data = resetProgressData();
+    saveLocalData(state.data);
+    setSyncStatus(getPat() ? "saving" : "local");
+    if (getPat()) {
+      try {
+        await saveGistData(state.data);
+        setSyncStatus("synced");
+      } catch (e) {
+        console.warn(e);
+        setSyncStatus("error", syncErrorText(e));
+      }
+    }
+    state.settingsOpen = state.syncStatus === "error";
     render();
   });
 }
