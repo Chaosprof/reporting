@@ -4676,6 +4676,7 @@ QUESTIONS.forEach(q => { q.id = hashId(q.prompt); });
 // PERSISTENCE — local storage + optional GitHub Gist sync
 // ═══════════════════════════════════════════════════════════════════════════
 const GIST_FILENAME  = "journal-quiz-data.json";
+const GIST_DESCRIPTION = "Journal Entry Trainer — saved progress";
 const PAT_KEY        = "journal-quiz-pat";
 const GIST_ID_KEY    = "journal-quiz-gist-id";
 const LOCAL_DATA_KEY = "journal-quiz-data";
@@ -4749,8 +4750,21 @@ async function gistFetch(path, opts = {}) {
   return r.json();
 }
 
+async function findExistingProgressGist() {
+  const gists = await gistFetch("/gists?per_page=100");
+  if (!Array.isArray(gists)) return null;
+  const matches = gists
+    .filter(g => g && g.id && g.files && g.files[GIST_FILENAME])
+    .sort((a, b) => new Date(b.updated_at || 0) - new Date(a.updated_at || 0));
+  const exact = matches.find(g => g.description === GIST_DESCRIPTION);
+  const gist = exact || matches[0] || null;
+  if (gist) setGistId(gist.id);
+  return gist;
+}
+
 async function loadGistData() {
-  const gistId = getGistId();
+  const existing = await findExistingProgressGist();
+  const gistId = existing && existing.id ? existing.id : getGistId();
   if (!gistId) return null;
   const gist = await gistFetch(`/gists/${gistId}`);
   const file = gist.files && gist.files[GIST_FILENAME];
@@ -4787,7 +4801,8 @@ function queueGistSave(data) {
 }
 
 async function saveGistData(data) {
-  const gistId = getGistId();
+  const existing = await findExistingProgressGist();
+  let gistId = existing && existing.id ? existing.id : getGistId();
   const body = { files: { [GIST_FILENAME]: { content: JSON.stringify(data, null, 2) } } };
   if (gistId) {
     try {
@@ -4799,7 +4814,7 @@ async function saveGistData(data) {
   }
   const gist = await gistFetch("/gists", {
     method: "POST",
-    body: JSON.stringify({ description: "Journal Entry Trainer — saved progress", public: false, ...body }),
+    body: JSON.stringify({ description: GIST_DESCRIPTION, public: false, ...body }),
   });
   setGistId(gist.id);
   return gist;
@@ -5473,7 +5488,7 @@ function setSyncStatus(s, errorMessage = "") {
 function syncErrorText(e) {
   const msg = e && e.message ? e.message : String(e || "Unknown sync error");
   if (msg.includes("401")) return `${msg}. The token was rejected. Generate a new token and paste only the token value.`;
-  if (msg.includes("403")) return `${msg}. The token needs Gists permission set to read and write.`;
+  if (msg.includes("403")) return `${msg}. Use a classic token with only the gist scope, or a fine-grained token with Account permissions -> Gists set to Write if GitHub shows that option.`;
   if (msg.includes("404")) return `${msg}. The saved Gist may no longer exist or this token cannot access it. Disconnect and sync again to create a new private Gist.`;
   return msg;
 }
@@ -5497,9 +5512,10 @@ function renderSettingsModal() {
           <span class="modal-label">Cloud sync (optional)</span>
           <p class="modal-help">
             Save your progress to a private GitHub Gist so you can resume on any device.
-            Create a token at
-            <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a>
-            with <b>Gists</b> permission set to <b>Read and write</b>, then paste only the token value below.
+            Recommended: create a classic token at
+            <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener">github.com/settings/tokens/new</a>
+            and check only the <b>gist</b> scope. A fine-grained token can also work if GitHub shows
+            <b>Account permissions -> Gists</b> and lets you set it to <b>Write</b>.
           </p>
           <input type="password" id="patInput" placeholder="github_pat_… or ghp_…" value="${escapeHtml(pat)}" autocomplete="off" spellcheck="false">
           <div class="modal-row">
@@ -6648,12 +6664,14 @@ render();
 if (getPat()) {
   setSyncStatus("saving");
   loadGistData()
-    .then(remote => {
+    .then(async remote => {
       if (remote) {
         state.data = mergeData(state.data, remote);
         saveLocalData(state.data);
-        if (state.screen === "start") render();
       }
+      await saveGistData(state.data);
+      saveLocalData(state.data);
+      if (state.screen === "start") render();
       setSyncStatus("synced");
     })
     .catch(e => {
