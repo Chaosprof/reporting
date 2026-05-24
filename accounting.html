@@ -714,11 +714,31 @@
     color: var(--ink-strong);
     transition: all 0.15s ease;
     box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+  .deck-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: var(--best-pct, 0%);
+    background: var(--best-fill, rgba(171, 148, 101, 0.14));
+    pointer-events: none;
+    transition: width 0.2s ease;
   }
   .deck-card:hover {
     border-color: var(--gold-line);
     background: var(--gold-soft);
     transform: translateY(-1px);
+  }
+  .deck-card:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+    transform: none;
+  }
+  .deck-card > span {
+    position: relative;
+    z-index: 1;
   }
   .deck-card .deck-label {
     font-family: var(--font-serif);
@@ -739,6 +759,75 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     font-family: var(--font-mono);
+  }
+  .deck-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    margin-top: 2px;
+  }
+  .deck-best {
+    font-size: 0.7rem;
+    color: var(--mute);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+  }
+  .result-badge {
+    font-size: 0.64rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--mute);
+  }
+  .result-badge.bronze {
+    color: #805a2b;
+    border-color: #d9b17c;
+    background: #fff4e5;
+  }
+  .result-badge.silver {
+    color: #55606d;
+    border-color: #c7d0dc;
+    background: #f4f7fb;
+  }
+  .result-badge.gold {
+    color: #79601d;
+    border-color: #d7b94f;
+    background: #fff7c8;
+  }
+  .deck-mode-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: -6px 0 16px;
+  }
+  .deck-mode-tab {
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--mute);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .deck-mode-tab:hover {
+    border-color: var(--line-strong);
+    color: var(--ink-strong);
+  }
+  .deck-mode-tab.active {
+    background: var(--gold-soft);
+    border-color: var(--gold-line);
+    color: var(--ink-strong);
   }
   .bwl-selector {
     display: grid;
@@ -4567,6 +4656,7 @@ const LOCAL_DATA_KEY = "journal-quiz-data";
 
 const DEFAULT_DATA = {
   questionStats: {},   // { id: { attempts, correct, lastWrong, lastSeen } }
+  deckBestResults: {}, // { deckId: { pct, score, total, completedAt, label } }
   totalSessions: 0,
   lastUpdated: 0,
 };
@@ -4579,12 +4669,21 @@ function setGistId(id){ if (id) localStorage.setItem(GIST_ID_KEY, id); else loca
 function loadLocalData() {
   try {
     const raw = localStorage.getItem(LOCAL_DATA_KEY);
-    if (!raw) return { ...DEFAULT_DATA };
-    return { ...DEFAULT_DATA, ...JSON.parse(raw) };
-  } catch { return { ...DEFAULT_DATA }; }
+    if (!raw) return freshData();
+    return freshData(JSON.parse(raw));
+  } catch { return freshData(); }
 }
 function saveLocalData(data) {
   try { localStorage.setItem(LOCAL_DATA_KEY, JSON.stringify(data)); } catch {}
+}
+
+function freshData(data = {}) {
+  return {
+    ...DEFAULT_DATA,
+    ...data,
+    questionStats: { ...(data.questionStats || {}) },
+    deckBestResults: { ...(data.deckBestResults || {}) },
+  };
 }
 
 async function gistFetch(path, opts = {}) {
@@ -4604,7 +4703,7 @@ async function loadGistData() {
   const gist = await gistFetch(`/gists/${gistId}`);
   const file = gist.files && gist.files[GIST_FILENAME];
   if (!file) return null;
-  try { return { ...DEFAULT_DATA, ...JSON.parse(file.content) }; }
+  try { return freshData(JSON.parse(file.content)); }
   catch { return null; }
 }
 
@@ -4652,7 +4751,9 @@ async function saveGistData(data) {
 
 // Merge two data snapshots: take whichever has more attempts per question.
 function mergeData(a, b) {
-  const out = { ...DEFAULT_DATA, ...a };
+  a = freshData(a);
+  b = freshData(b);
+  const out = freshData(a);
   out.questionStats = { ...(a.questionStats || {}) };
   for (const [id, sb] of Object.entries(b.questionStats || {})) {
     const sa = out.questionStats[id];
@@ -4660,9 +4761,23 @@ function mergeData(a, b) {
       out.questionStats[id] = sb;
     }
   }
+  out.deckBestResults = { ...(a.deckBestResults || {}) };
+  for (const [id, rb] of Object.entries(b.deckBestResults || {})) {
+    const ra = out.deckBestResults[id];
+    if (isBetterDeckResult(rb, ra)) out.deckBestResults[id] = rb;
+  }
   out.totalSessions = Math.max(a.totalSessions || 0, b.totalSessions || 0);
   out.lastUpdated   = Math.max(a.lastUpdated   || 0, b.lastUpdated   || 0);
   return out;
+}
+
+function isBetterDeckResult(next, current) {
+  if (!next) return false;
+  if (!current) return true;
+  const nextPct = Number(next.pct) || 0;
+  const currentPct = Number(current.pct) || 0;
+  if (nextPct !== currentPct) return nextPct > currentPct;
+  return (Number(next.total) || 0) > (Number(current.total) || 0);
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -4764,6 +4879,7 @@ const state = {
   screen: "start",           // "start" | "quiz" | "results"
   subject: getSubject(),     // which subject (tab) is active
   selectedCats: new Set(),   // empty = all
+  accountingDeckTab: "exam",
   selectedBwlPapers: new Set(BWL_PAPERS.map(p => p.id)),
   bwlCategory: "all",
   order: [],                 // indices into QUESTIONS for this run
@@ -4777,6 +4893,7 @@ const state = {
   wrong: [],                 // [{q, picked, correctText}]
   mode: "all",               // "all" | "weak" | "deck" — what the current run is drawn from
   deckId: null,              // when mode === "deck", which deck
+  resultRecorded: false,
   data: loadLocalData(),     // persisted progress (questionStats, etc.)
   syncStatus: getPat() ? "connected" : "local",
   settingsOpen: false,
@@ -4864,6 +4981,23 @@ function getActiveCats() {
   )];
 }
 
+const ACCOUNTING_DECK_TABS = [
+  { id: "exam", label: "Exam prep" },
+  { id: "problem", label: "By problem sheet" },
+  { id: "topic", label: "By topic" },
+];
+
+const EXAM_PREP_DECKS = [
+  { id: "exam-2026-05-24", subject: "Financial Reporting", label: "May 24 Sunday",    sub: "Recitation I + Additional Exercises I", sets: ["R1", "AE1"] },
+  { id: "exam-2026-05-25", subject: "Financial Reporting", label: "May 25 Monday",    sub: "Recitation II + Additional Exercises 2", sets: ["R2", "AE2"] },
+  { id: "exam-2026-05-26", subject: "Financial Reporting", label: "May 26 Tuesday",   sub: "Recitation I-II + Additional Exercises 1-2", sets: ["R1", "R2", "AE1", "AE2"] },
+  { id: "exam-2026-05-27", subject: "Financial Reporting", label: "May 27 Wednesday", sub: "Recitation 3 + Additional Exercises 3", sets: ["R3", "AE3"] },
+  { id: "exam-2026-05-28", subject: "Financial Reporting", label: "May 28 Thursday",  sub: "Recitation 2-3 + Additional Exercises 2-3", sets: ["R2", "R3", "AE2", "AE3"] },
+  { id: "exam-2026-05-29", subject: "Financial Reporting", label: "May 29 Friday",    sub: "All recitations + all additional exercises", sets: ["R1", "R2", "R3", "AE1", "AE2", "AE3"] },
+  { id: "exam-2026-05-30", subject: "Financial Reporting", label: "May 30 Saturday",  sub: "All recitations + all additional exercises", sets: ["R1", "R2", "R3", "AE1", "AE2", "AE3"] },
+  { id: "exam-2026-05-31", subject: "Financial Reporting", label: "May 31 Sunday",    sub: "All recitations + all additional exercises", sets: ["R1", "R2", "R3", "AE1", "AE2", "AE3"] },
+];
+
 // Curated decks (course handouts + AI variants).
 const DECKS = [
   { id: "AE1",      subject: "Financial Reporting", label: "Additional Exercises 1",      sub: "Course handout",        sets: ["AE1"] },
@@ -4891,11 +5025,34 @@ const DECKS = [
 function deckPool(deck) {
   return QUESTIONS
     .map((q, i) => ({ q, i }))
-    .filter(x => deck.sets.includes(x.q.set) || (Array.isArray(x.q.decks) && x.q.decks.includes(deck.id)))
+    .filter(x => (
+      (Array.isArray(deck.sets) && deck.sets.includes(x.q.set)) ||
+      (deck.category && questionSubject(x.q) === (deck.subject || "Financial Reporting") && x.q.category === deck.category) ||
+      (Array.isArray(x.q.decks) && x.q.decks.includes(deck.id))
+    ))
     .map(x => x.i);
 }
 function activeDecks() {
   return DECKS.filter(d => (d.subject || "Financial Reporting") === state.subject);
+}
+function activeExamPrepDecks() {
+  return EXAM_PREP_DECKS.filter(d => (d.subject || "Financial Reporting") === state.subject);
+}
+function topicDecks() {
+  return getActiveCats().map(c => ({
+    id: `topic:${c}`,
+    subject: state.subject,
+    label: c,
+    sub: "Topic practice",
+    category: c,
+  }));
+}
+function getDeckById(deckId) {
+  return [
+    ...EXAM_PREP_DECKS,
+    ...DECKS,
+    ...topicDecks(),
+  ].find(d => d.id === deckId);
 }
 function bwlPaperPool(paperId, category = "all") {
   return QUESTIONS
@@ -5003,6 +5160,63 @@ function renderSourceBadge(q) {
   return `<span class="source-tag ${source.kind}" title="Question source: ${escapeHtml(source.label)}">${escapeHtml(source.label)}</span>`;
 }
 
+function deckBestResult(deckId) {
+  return (state.data.deckBestResults || {})[deckId] || null;
+}
+
+function deckResultBadge(pct) {
+  if (pct === 100) return { label: "Gold", cls: "gold" };
+  if (pct >= 90) return { label: "Silver", cls: "silver" };
+  if (pct >= 70) return { label: "Bronze", cls: "bronze" };
+  return null;
+}
+
+function deckFillColor(pct) {
+  if (pct === 100) return "rgba(215, 185, 79, 0.26)";
+  if (pct >= 90) return "rgba(148, 163, 184, 0.24)";
+  if (pct >= 70) return "rgba(217, 177, 124, 0.24)";
+  return "rgba(92, 138, 168, 0.14)";
+}
+
+function renderDeckCards(decks, countLabel) {
+  return `
+    <div class="deck-grid" id="deckGrid">
+      ${decks.map(d => {
+        const n = deckPool(d).length;
+        const best = deckBestResult(d.id);
+        const hasBest = best && Number.isFinite(Number(best.pct));
+        const pct = hasBest ? Math.max(0, Math.min(100, Math.round(Number(best.pct)))) : 0;
+        const badge = hasBest ? deckResultBadge(pct) : null;
+        return `<button class="deck-card" data-deck="${escapeHtml(d.id)}" style="--best-pct:${pct}%;--best-fill:${deckFillColor(pct)};" ${n ? "" : "disabled"}>
+          <span class="deck-label">${escapeHtml(d.label)}</span>
+          <span class="deck-sub">${escapeHtml(d.sub)}</span>
+          <span class="deck-count">${n} ${escapeHtml(countLabel(n))}</span>
+          <span class="deck-meta-row">
+            <span class="deck-best">${hasBest ? `Best ${pct}%` : "Best --"}</span>
+            ${badge ? `<span class="result-badge ${badge.cls}">${badge.label}</span>` : ""}
+          </span>
+        </button>`;
+      }).join("")}
+    </div>
+  `;
+}
+
+function renderAccountingDeckSelector() {
+  const decks = state.accountingDeckTab === "exam"
+    ? activeExamPrepDecks()
+    : state.accountingDeckTab === "problem"
+    ? activeDecks()
+    : topicDecks();
+  return `
+    <div class="deck-mode-tabs" id="deckModeTabs">
+      ${ACCOUNTING_DECK_TABS.map(t => `
+        <button class="deck-mode-tab ${state.accountingDeckTab === t.id ? "active" : ""}" data-deck-tab="${escapeHtml(t.id)}">${escapeHtml(t.label)}</button>
+      `).join("")}
+    </div>
+    ${renderDeckCards(decks, n => `question${n !== 1 ? "s" : ""}`)}
+  `;
+}
+
 function hasAnswerKey(q) {
   return Number.isInteger(q.correct) && q.correct >= 0 && q.correct < q.options.length;
 }
@@ -5067,7 +5281,7 @@ function renderStart() {
   const seenCount = totalQuestionsSeen();
   const hasStats = seenCount > 0;
   const cats = getActiveCats();
-  const decks = isBWL ? activeDecks().filter(d => d.id === "BWL2-MATH") : activeDecks();
+  const decks = isBWL ? activeDecks().filter(d => d.id === "BWL2-MATH") : [];
 
   const heroTitle = isBWL ? "BWL II Trainer" : "Journal Entry Trainer";
   const heroSub   = isBWL ? "Strategie · HRM · Organisation" : "Debit the receiver · credit the giver";
@@ -5108,30 +5322,12 @@ function renderStart() {
       ${renderBwlThemeSelector()}
       ${decks.length ? `
       <h2>Practice decks</h2>
-      <div class="deck-grid" id="deckGrid">
-        ${decks.map(d => {
-          const n = deckPool(d).length;
-          return `<button class="deck-card" data-deck="${escapeHtml(d.id)}" ${n ? "" : "disabled"}>
-            <span class="deck-label">${escapeHtml(d.label)}</span>
-            <span class="deck-sub">${escapeHtml(d.sub)}</span>
-            <span class="deck-count">${n} Frage${n !== 1 ? "n" : ""}</span>
-          </button>`;
-        }).join("")}
-      </div>
+      ${renderDeckCards(decks, n => `Frage${n !== 1 ? "n" : ""}`)}
       ` : ""}
-      ` : decks.length ? `
+      ` : `
       <h2>${escapeHtml(sectionTitles.decks)}</h2>
-      <div class="deck-grid" id="deckGrid">
-        ${decks.map(d => {
-          const n = deckPool(d).length;
-          return `<button class="deck-card" data-deck="${escapeHtml(d.id)}" ${n ? "" : "disabled"}>
-            <span class="deck-label">${escapeHtml(d.label)}</span>
-            <span class="deck-sub">${escapeHtml(d.sub)}</span>
-            <span class="deck-count">${n} ${isBWL ? "Frage" + (n !== 1 ? "n" : "") : "question" + (n !== 1 ? "s" : "")}</span>
-          </button>`;
-        }).join("")}
-      </div>
-      ` : ""}
+      ${renderAccountingDeckSelector()}
+      `}
       ${isBWL ? "" : `
       <h2>${escapeHtml(sectionTitles.all)} <span style="font-weight:400;color:var(--faint);font-size:0.78rem;font-family:var(--font-sans);">${escapeHtml(sectionTitles.allHint)}</span></h2>
       <div class="category-filter" id="catFilter">
@@ -5173,6 +5369,12 @@ function renderStart() {
     ${state.settingsOpen ? renderSettingsModal() : ""}
   `;
   wireSubjectTabs();
+  document.querySelectorAll("#deckModeTabs .deck-mode-tab").forEach(b => {
+    b.addEventListener("click", () => {
+      state.accountingDeckTab = b.dataset.deckTab || "exam";
+      render();
+    });
+  });
   document.querySelectorAll("#catFilter .cat-chip").forEach(b => {
     b.addEventListener("click", () => {
       const c = b.dataset.cat;
@@ -5323,7 +5525,7 @@ function wireSettingsModal() {
   });
   document.getElementById("resetBtn").addEventListener("click", () => {
     if (!confirm("Reset all local progress? This cannot be undone.")) return;
-    state.data = { ...DEFAULT_DATA, lastUpdated: Date.now() };
+    state.data = freshData({ lastUpdated: Date.now() });
     queueGistSave(state.data);
     state.settingsOpen = false;
     render();
@@ -5342,6 +5544,7 @@ function startWeakQuiz() {
   state.score = 0;
   state.streak = 0;
   state.bestStreak = 0;
+  state.resultRecorded = false;
   state.wrong = [];
   state.screen = "quiz";
   loadCurrent();
@@ -5351,7 +5554,7 @@ function startWeakQuiz() {
 function startDeckQuiz(deckId) {
   stopQuestionTimer();
   getAudioCtx();
-  const deck = DECKS.find(d => d.id === deckId);
+  const deck = getDeckById(deckId);
   if (!deck) return;
   const pool = deckPool(deck);
   if (!pool.length) return;
@@ -5362,6 +5565,7 @@ function startDeckQuiz(deckId) {
   state.score = 0;
   state.streak = 0;
   state.bestStreak = 0;
+  state.resultRecorded = false;
   state.wrong = [];
   state.screen = "quiz";
   loadCurrent();
@@ -5385,6 +5589,7 @@ function startQuiz() {
   state.score = 0;
   state.streak = 0;
   state.bestStreak = 0;
+  state.resultRecorded = false;
   state.wrong = [];
   state.screen = "quiz";
   loadCurrent();
@@ -6158,6 +6363,27 @@ function next() {
   }
 }
 
+function recordCompletedDeckResult(scoredTotal, pct) {
+  if (state.resultRecorded) return;
+  state.resultRecorded = true;
+  if (state.mode !== "deck" || !state.deckId || !scoredTotal) return;
+
+  const deck = getDeckById(state.deckId);
+  const result = {
+    pct,
+    score: state.score,
+    total: scoredTotal,
+    completedAt: Date.now(),
+    label: deck ? deck.label : state.deckId,
+  };
+  state.data.deckBestResults = { ...(state.data.deckBestResults || {}) };
+  if (isBetterDeckResult(result, state.data.deckBestResults[state.deckId])) {
+    state.data.deckBestResults[state.deckId] = result;
+    state.data.lastUpdated = Date.now();
+    queueGistSave(state.data);
+  }
+}
+
 function renderResults() {
   stopQuestionTimer();
   const total = state.order.length;
@@ -6176,9 +6402,10 @@ function renderResults() {
   if (state.mode === "weak") modeTag = "Weakest practice";
   else if (state.mode === "bwl-selection") modeTag = "BWL Themenauswahl";
   else if (state.mode === "deck") {
-    const deck = DECKS.find(d => d.id === state.deckId);
+    const deck = getDeckById(state.deckId);
     modeTag = deck ? deck.label : "Deck";
   }
+  recordCompletedDeckResult(scoredTotal, pct);
 
   app.innerHTML = `
     ${renderSubjectTabs()}
