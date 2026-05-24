@@ -444,6 +444,20 @@
     text-align: left;
     font-weight: 800;
   }
+  .statement-info-table {
+    min-width: 560px;
+  }
+  .statement-info-table td:nth-child(1),
+  .statement-info-table td:nth-child(3) {
+    text-align: left;
+    font-weight: 800;
+  }
+  .statement-info-table td:nth-child(2),
+  .statement-info-table td:nth-child(4) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
 
   .options { display: flex; flex-direction: column; gap: 10px; }
   .option {
@@ -1891,7 +1905,8 @@ const QUESTIONS = [
   {
     category: "Fundamentals",
     set: "AE1",
-    prompt: "Malagny SA — end of 2022: Inventories 1,000; Revenues 21,000; Expenses 12,000; Cash 13,000; AP 9,000; Dividends 1,000; AR 3,000; NP 1,000; Common Stock 2,000; Buildings 4,000; Beginning RE 3,000; Machines 2,000. What are net income, total equity, and total assets?",
+    prompt: "Malagny SA presents the following information at the end of the year 2022. Calculate the net income, total equity and total assets.",
+    visual: "ae1-malagny-statement-table",
     options: [
       "NI 9,000 · Equity 13,000 · Assets 23,000",
       "NI 9,000 · Equity 14,000 · Assets 22,000",
@@ -2000,7 +2015,8 @@ const QUESTIONS = [
   {
     category: "Fundamentals",
     set: "AE1-AI",
-    prompt: "Sion SA — end of 2023: Cash 8,000; AR 4,000; Inventory 2,000; Equipment 6,000; AP 5,000; Notes Payable 3,000; Common Stock 4,000; Beginning RE 2,000; Revenues 18,000; Expenses 11,000; Dividends 1,000. What are net income, ending equity, and total assets?",
+    prompt: "Sion SA presents the following information at the end of the year 2023. Calculate the net income, total equity and total assets.",
+    visual: "ae1-ai-sion-statement-table",
     options: [
       "NI 7,000 · Equity 12,000 · Assets 20,000",
       "NI 6,000 · Equity 11,000 · Assets 19,000",
@@ -5280,25 +5296,14 @@ function renderStart() {
   const weakCount = weakPool.length;
   const seenCount = totalQuestionsSeen();
   const hasStats = seenCount > 0;
-  const cats = getActiveCats();
   const decks = isBWL ? activeDecks().filter(d => d.id === "BWL2-MATH") : [];
 
   const heroTitle = isBWL ? "BWL II Trainer" : "Journal Entry Trainer";
   const heroSub   = isBWL ? "Strategie · HRM · Organisation" : "Debit the receiver · credit the giver";
 
-  const rulesHtml = isBWL ? `
-        <div class="row"><span class="pill" style="background:var(--dr-soft);color:var(--dr);border:1px solid var(--dr-line);">DE</span><div>Probeprüfungen BWL II (2017/2025) — Strategisches Management, HRM und Organisation.</div></div>
-        <div class="row"><span class="pill cr">5×</span><div>Jede Frage hat <b>5 Antwortmöglichkeiten</b> (A–E). Nur eine ist richtig.</div></div>
-        <div class="row"><span class="pill" style="background:var(--gold-soft);color:#7a6c4e;border:1px solid var(--gold-line);">?</span><div>Direktes Feedback erklärt jede Antwort.</div></div>
-      ` : `
-        <div class="row"><span class="pill dr">DR</span><div>Debits are on the <b>left</b> — they increase assets and expenses, decrease liabilities, equity, and revenue.</div></div>
-        <div class="row"><span class="pill cr">CR</span><div>Credits are on the <b>right</b> — they do the opposite.</div></div>
-        <div class="row"><span class="pill" style="background:var(--gold-soft);color:#7a6c4e;border:1px solid var(--gold-line);">?</span><div>Pick the entry that records the transaction. Immediate feedback explains each answer.</div></div>
-      `;
-
   const sectionTitles = isBWL
-    ? { howto: "Anleitung", decks: "Themenblöcke", all: "Alle Fragen", allHint: "(nach Thema filtern, optional)", timer: "Timer", timerHint: "(pro Frage, optional)", start: "Quiz starten", weakLabel: "Schwächste üben" }
-    : { howto: "How to play", decks: "Curated decks", all: "Every question", allHint: "(filter by topic, optional)", timer: "Timer", timerHint: "(per question, optional)", start: "Start Quiz", weakLabel: "Practice your weakest" };
+    ? { decks: "Themenblöcke", timer: "Timer", timerHint: "(pro Frage, optional)", start: "Quiz starten", weakLabel: "Schwächste üben" }
+    : { decks: "Curated decks", timer: "Timer", timerHint: "(per question, optional)", start: "Start Quiz", weakLabel: "Practice your weakest" };
 
   const keyboardHint = isBWL
     ? `Tasten: <span class="kbd">A</span><span class="kbd">B</span><span class="kbd">C</span><span class="kbd">D</span><span class="kbd">E</span> für Antwort · <span class="kbd">Enter</span> / <span class="kbd">Space</span> für weiter`
@@ -5315,8 +5320,6 @@ function renderStart() {
       <div class="sub">${escapeHtml(heroSub)}</div>
     </div>
     <div class="start-card">
-      <h2>${escapeHtml(sectionTitles.howto)}</h2>
-      <div class="rules">${rulesHtml}</div>
       ${isBWL ? `
       <h2>${escapeHtml(sectionTitles.decks)}</h2>
       ${renderBwlThemeSelector()}
@@ -5328,15 +5331,6 @@ function renderStart() {
       <h2>${escapeHtml(sectionTitles.decks)}</h2>
       ${renderAccountingDeckSelector()}
       `}
-      ${isBWL ? "" : `
-      <h2>${escapeHtml(sectionTitles.all)} <span style="font-weight:400;color:var(--faint);font-size:0.78rem;font-family:var(--font-sans);">${escapeHtml(sectionTitles.allHint)}</span></h2>
-      <div class="category-filter" id="catFilter">
-        ${cats.map(c => {
-          const count = QUESTIONS.filter(q => questionSubject(q) === state.subject && q.category === c).length;
-          return `<button class="cat-chip ${state.selectedCats.has(c) ? "active" : ""}" data-cat="${escapeHtml(c)}">${escapeHtml(c)} (${count})</button>`;
-        }).join("")}
-      </div>
-      `}
       <h2>${escapeHtml(sectionTitles.timer)} <span style="font-weight:400;color:var(--faint);font-size:0.78rem;font-family:var(--font-sans);">${escapeHtml(sectionTitles.timerHint)}</span></h2>
       <div class="timer-control" id="timerControl">
         ${TIMER_OPTIONS.map(t => {
@@ -5344,9 +5338,11 @@ function renderStart() {
           return `<button class="timer-chip ${state.timerSeconds === t.seconds ? "active" : ""}" data-seconds="${t.seconds}">${escapeHtml(label)}</button>`;
         }).join("")}
       </div>
+      ${isBWL ? `
       <button class="btn btn-primary" id="startBtn" ${selected ? "" : "disabled"}>
         ${escapeHtml(sectionTitles.start)} · ${selected} ${isBWL ? "Frage" + (selected !== 1 ? "n" : "") : "question" + (selected !== 1 ? "s" : "")}
       </button>
+      ` : ""}
       <div class="secondary-action-row">
         <button class="btn btn-weak" id="weakBtn" ${hasStats ? "" : "disabled"}>
           <span class="label">
@@ -5375,18 +5371,10 @@ function renderStart() {
       render();
     });
   });
-  document.querySelectorAll("#catFilter .cat-chip").forEach(b => {
-    b.addEventListener("click", () => {
-      const c = b.dataset.cat;
-      if (state.selectedCats.has(c)) state.selectedCats.delete(c);
-      else state.selectedCats.add(c);
-      render();
-    });
-  });
   document.querySelectorAll("#timerControl .timer-chip").forEach(b => {
     b.addEventListener("click", () => setTimerSeconds(parseInt(b.dataset.seconds, 10)));
   });
-  document.getElementById("startBtn").addEventListener("click", () => startQuiz());
+  document.getElementById("startBtn")?.addEventListener("click", () => startQuiz());
   document.getElementById("bwlAllPapersBtn")?.addEventListener("click", () => {
     state.selectedBwlPapers = new Set(BWL_PAPERS.map(p => p.id));
     render();
@@ -5663,6 +5651,8 @@ function renderQuestionVisual(visual) {
   if (visual === "ae3-ai-nova-orbit-fv-table") return renderNovaOrbitFairValueTable();
   if (visual === "ae3-ai-helvetia-ticino-equity-table") return renderHelvetiaTicinoEquityTable();
   if (visual === "ae3-ai-bern-lugano-buildings-table") return renderBernLuganoBuildingsTable();
+  if (visual === "ae1-malagny-statement-table") return renderMalagnyStatementTable();
+  if (visual === "ae1-ai-sion-statement-table") return renderSionStatementTable();
   if (visual === "r2-zurich-basel-table") return renderZurichBaselTable();
   if (visual === "r2-botkins-volkerson-table") return renderBotkinsVolkersonTable();
   if (visual === "r2-ai-st-gallen-thun-table") return renderStGallenThunTable();
@@ -5695,6 +5685,56 @@ function renderDataTable(ariaLabel, headers, rows) {
       </table>
     </div>
   `;
+}
+
+function renderStatementInfoTable(ariaLabel, rows) {
+  return `
+    <div class="question-visual" aria-label="${escapeHtml(ariaLabel)}">
+      <table class="value-table statement-info-table">
+        <thead>
+          <tr>
+            <th>Account</th>
+            <th>Amount</th>
+            <th>Account</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map(row => `
+            <tr>${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderMalagnyStatementTable() {
+  return renderStatementInfoTable(
+    "Financial information for Malagny SA at the end of 2022",
+    [
+      ["Inventories", "CHF 1,000", "Revenues", "CHF 21,000"],
+      ["Expenses", "CHF 12,000", "Cash", "CHF 13,000"],
+      ["Accounts payable", "CHF 9,000", "Dividends", "CHF 1,000"],
+      ["Accounts receivable", "CHF 3,000", "Notes payable", "CHF 1,000"],
+      ["Common stock", "CHF 2,000", "Buildings", "CHF 4,000"],
+      ["Beginning retained earnings", "CHF 3,000", "Machines", "CHF 2,000"]
+    ]
+  );
+}
+
+function renderSionStatementTable() {
+  return renderStatementInfoTable(
+    "Financial information for Sion SA at the end of 2023",
+    [
+      ["Cash", "CHF 8,000", "Accounts receivable", "CHF 4,000"],
+      ["Inventory", "CHF 2,000", "Equipment", "CHF 6,000"],
+      ["Accounts payable", "CHF 5,000", "Notes payable", "CHF 3,000"],
+      ["Common stock", "CHF 4,000", "Beginning retained earnings", "CHF 2,000"],
+      ["Revenues", "CHF 18,000", "Expenses", "CHF 11,000"],
+      ["Dividends", "CHF 1,000", "", ""]
+    ]
+  );
 }
 
 function renderLosoneSecuritiesTable() {
