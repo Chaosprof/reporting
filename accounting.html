@@ -2351,8 +2351,8 @@ const QUESTIONS = [
       "Expansion of products and services",
       "Highly competitive business environment"
     ],
-    correct: 3,
-    explanation: "Common motives for business combinations include cost reduction, economies of scale or scope, and expansion of products, services, or markets. A highly competitive environment is business context, not itself a traditional accounting reason for combining."
+    correct: 1,
+    explanation: "For this course question, the traditional reasons include reduction of costs, expansion of products and services, and response to a highly competitive business environment. Economies of scope is therefore the item that is not treated as a traditional reason here."
   },
   {
     category: "Consolidation",
@@ -2409,20 +2409,22 @@ const QUESTIONS = [
   {
     category: "Investments",
     set: "AE2",
-    prompt: "Losone AG bought trading securities during 2022. At year-end it held ordinary shares with these cost and fair value amounts: Locarno AG cost CHF 46,400, fair value CHF 50,000; Ascona AG cost CHF 60,000, fair value CHF 53,800; Tegna AG cost CHF 70,000, fair value CHF 72,000. In April 2023, the Ascona shares are sold for cash of CHF 57,500. The gain or loss on the sale is a:",
+    prompt: "Losone AG bought trading securities during 2022. At year-end it held the following ordinary shares. In April 2023, the Ascona shares are sold for cash of CHF 57,500. The gain or loss on the sale is a:",
+    visual: "ae2-losone-securities-table",
     options: [
       "Gain of CHF 3,700",
       "Loss of CHF 2,500",
       "Loss of CHF 6,200",
       "Gain of CHF 2,500"
     ],
-    correct: 0,
-    explanation: "Trading securities are carried at fair value. Ascona's carrying amount after the 2022 fair value adjustment is CHF 53,800. Selling for CHF 57,500 creates a gain of CHF 3,700."
+    correct: 1,
+    explanation: "Following the course rule for gain or loss on sale: selling price minus acquisition price. For Ascona, CHF 57,500 - CHF 60,000 = CHF -2,500, so the sale creates a loss of CHF 2,500."
   },
   {
     category: "Investments",
     set: "AE2",
-    prompt: "Grand SA has significant influence over Petit SA. On January 1, 2020, Grand SA bought 30% of Petit SA for CHF 300,000. Petit reported income and dividends as follows: 2020 income CHF 1,000,000, dividends CHF 200,000; 2021 loss CHF 300,000, dividends CHF 0; 2022 income CHF 450,000, dividends CHF 150,000. What amount should Grand's Investment in Petit account show at the end of 2022?",
+    prompt: "Grand SA has significant influence over Petit SA. On January 1, 2020, Grand SA bought 30% of Petit SA for CHF 300,000. Petit reported the following income and dividends. What amount should Grand's Investment in Petit account show at the end of 2022?",
+    visual: "ae2-grand-petit-table",
     options: [
       "CHF 750,000",
       "CHF 240,000",
@@ -2437,15 +2439,15 @@ const QUESTIONS = [
   {
     category: "Consolidation",
     set: "AE2-AI",
-    prompt: "A company acquires a competitor mainly to combine production sites, eliminate duplicate administration, and share distribution channels. Which motive best describes this business combination?",
+    prompt: "Which of the following is not treated in this course as a traditional reason for firms to combine in a business combination?",
     options: [
       "Reduction of costs",
-      "Liquidating dividend treatment",
-      "Limited statutory examination",
-      "Separate legal existence"
+      "Expansion of products and services",
+      "Economies of scope",
+      "A highly competitive business environment"
     ],
-    correct: 0,
-    explanation: "Combining production, administration, and distribution is aimed at cost savings and operating efficiencies, a common motive for a business combination."
+    correct: 2,
+    explanation: "Following the course treatment, reduction of costs, product/service expansion, and competitive pressure are traditional reasons for business combinations. Economies of scope is the exception."
   },
   {
     category: "Consolidation",
@@ -2502,7 +2504,8 @@ const QUESTIONS = [
   {
     category: "Investments",
     set: "AE2-AI",
-    prompt: "Bern AG owns 30% of Uri AG and has significant influence. Uri reports net income of CHF 600,000 and pays dividends of CHF 100,000. What is the net increase in Bern's Investment in Uri account for the year?",
+    prompt: "Bern AG owns 30% of Uri AG and has significant influence. Uri reports the following income and dividends. What is the net increase in Bern's Investment in Uri account for the year?",
+    visual: "ae2-ai-bern-uri-table",
     options: [
       "CHF 30,000",
       "CHF 150,000",
@@ -2528,20 +2531,22 @@ const QUESTIONS = [
   {
     category: "Investments",
     set: "AE2-AI",
-    prompt: "Morges SA held trading securities in Nyon SA with a year-end fair value and carrying amount of CHF 84,000 after original cost of CHF 90,000. The shares are sold the next year for CHF 81,500. What gain or loss is recognized on sale?",
+    prompt: "Morges SA bought trading securities during 2022. At year-end it held the following ordinary shares. The Nyon SA shares are sold the next year for CHF 81,500. What gain or loss is recognized on sale?",
+    visual: "ae2-ai-morges-securities-table",
     options: [
       "Loss of CHF 2,500",
       "Loss of CHF 8,500",
       "Gain of CHF 2,500",
       "No gain or loss"
     ],
-    correct: 0,
-    explanation: "After fair value adjustment, the carrying amount is CHF 84,000. Sale proceeds of CHF 81,500 produce a loss of CHF 2,500."
+    correct: 1,
+    explanation: "Following the course rule for gain or loss on sale: selling price minus acquisition price. For Nyon, CHF 81,500 - CHF 90,000 = CHF -8,500, so the sale creates a loss of CHF 8,500."
   },
   {
     category: "Investments",
     set: "AE2-AI",
-    prompt: "Rigi SA buys 25% of Pilatus SA for CHF 200,000 and has significant influence. Across the next two years, Pilatus reports total net income of CHF 500,000 and declares total dividends of CHF 120,000. What is Rigi's Investment in Pilatus balance after two years?",
+    prompt: "Rigi SA buys 25% of Pilatus SA for CHF 200,000 and has significant influence. Pilatus reports the following total income and dividends across the next two years. What is Rigi's Investment in Pilatus balance after two years?",
+    visual: "ae2-ai-rigi-pilatus-table",
     options: [
       "CHF 295,000",
       "CHF 325,000",
@@ -2554,7 +2559,8 @@ const QUESTIONS = [
   {
     category: "Investments",
     set: "AE2-AI",
-    prompt: "Zug AG owns 40% of Sarnen AG and applies the equity method. Sarnen reports a net loss of CHF 250,000 and pays dividends of CHF 50,000. Zug's beginning Investment balance is CHF 700,000. What is the ending Investment balance?",
+    prompt: "Zug AG owns 40% of Sarnen AG and applies the equity method. Zug's beginning Investment balance is CHF 700,000. Sarnen reports the following income and dividends. What is the ending Investment balance?",
+    visual: "ae2-ai-zug-sarnen-table",
     options: [
       "CHF 600,000",
       "CHF 580,000",
@@ -5029,11 +5035,94 @@ function renderQuestionVisual(visual) {
   if (visual === "jun17-sm-q8-indifference") return renderIndifferenceVisual();
   if (visual === "jun17-sm-q14-experience") return renderExperienceVisual();
   if (visual === "jun17-sm-q17-adiwas-table") return renderAdidasValueTable();
+  if (visual === "ae2-losone-securities-table") return renderLosoneSecuritiesTable();
+  if (visual === "ae2-grand-petit-table") return renderGrandPetitTable();
+  if (visual === "ae2-ai-bern-uri-table") return renderBernUriTable();
+  if (visual === "ae2-ai-morges-securities-table") return renderMorgesSecuritiesTable();
+  if (visual === "ae2-ai-rigi-pilatus-table") return renderRigiPilatusTable();
+  if (visual === "ae2-ai-zug-sarnen-table") return renderZugSarnenTable();
   if (visual === "ai-math-q5-producer-rent") return renderAiProducerRentVisual();
   if (visual === "ai-math-q8-indifference") return renderAiIndifferenceVisual();
   if (visual === "ai-math-q14-experience") return renderAiExperienceVisual();
   if (visual === "ai-math-q17-value-table") return renderVeloProValueTable();
   return "";
+}
+
+function renderDataTable(ariaLabel, headers, rows) {
+  return `
+    <div class="question-visual" aria-label="${escapeHtml(ariaLabel)}">
+      <table class="value-table">
+        <thead>
+          <tr>${headers.map(h => `<th>${escapeHtml(h)}</th>`).join("")}</tr>
+        </thead>
+        <tbody>
+          ${rows.map(row => `
+            <tr>${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderLosoneSecuritiesTable() {
+  return renderDataTable(
+    "Cost and fair value of Losone AG trading securities",
+    ["Ordinary shares", "Cost", "Fair value"],
+    [
+      ["Locarno AG", "CHF 46,400", "CHF 50,000"],
+      ["Ascona AG", "CHF 60,000", "CHF 53,800"],
+      ["Tegna AG", "CHF 70,000", "CHF 72,000"],
+    ]
+  );
+}
+
+function renderGrandPetitTable() {
+  return renderDataTable(
+    "Income and dividends reported by Petit SA",
+    ["Year", "Income of Petit", "Dividends declared by Petit"],
+    [
+      ["2020", "CHF 1,000,000", "CHF 200,000"],
+      ["2021", "CHF -300,000", "CHF 0"],
+      ["2022", "CHF 450,000", "CHF 150,000"],
+    ]
+  );
+}
+
+function renderBernUriTable() {
+  return renderDataTable(
+    "Income and dividends reported by Uri AG",
+    ["Year", "Income of Uri", "Dividends paid by Uri"],
+    [["Current year", "CHF 600,000", "CHF 100,000"]]
+  );
+}
+
+function renderMorgesSecuritiesTable() {
+  return renderDataTable(
+    "Cost and fair value of Morges SA trading securities",
+    ["Ordinary shares", "Cost", "Fair value"],
+    [
+      ["Nyon SA", "CHF 90,000", "CHF 84,000"],
+      ["Rolle SA", "CHF 42,000", "CHF 45,500"],
+      ["Gland SA", "CHF 58,000", "CHF 56,000"],
+    ]
+  );
+}
+
+function renderRigiPilatusTable() {
+  return renderDataTable(
+    "Income and dividends reported by Pilatus SA",
+    ["Period", "Income of Pilatus", "Dividends declared by Pilatus"],
+    [["Two-year total", "CHF 500,000", "CHF 120,000"]]
+  );
+}
+
+function renderZugSarnenTable() {
+  return renderDataTable(
+    "Income and dividends reported by Sarnen AG",
+    ["Year", "Income of Sarnen", "Dividends paid by Sarnen"],
+    [["Current year", "CHF -250,000", "CHF 50,000"]]
+  );
 }
 
 function renderProducerRentVisual() {
