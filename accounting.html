@@ -2758,6 +2758,223 @@ const QUESTIONS = [
     explanation: "The equity-method account decreases for the investor's share of both the loss and dividends: 40% x 250,000 = 100,000 loss share and 40% x 50,000 = 20,000 dividend share. Ending balance = 700,000 - 100,000 - 20,000 = CHF 580,000."
   },
 
+  // Additional Exercises 3 (intangibles, goodwill, subsequent consolidation)
+  {
+    category: "Intangibles",
+    set: "AE3",
+    prompt: "Which of the following is not an intangible asset?",
+    options: [
+      "Construction permit",
+      "Accounts receivable",
+      "Internet domain names",
+      "Musical work"
+    ],
+    correct: 1,
+    explanation: "Construction permits, domain names, and musical works can be intangible assets. Accounts receivable is a financial asset, not an intangible asset."
+  },
+  {
+    category: "Goodwill",
+    set: "AE3",
+    prompt: "Which of the following statements regarding goodwill is true?",
+    options: [
+      "Under IFRS, goodwill is allocated at the lowest operating level called reporting units.",
+      "Swiss GAAP FER allows a reduction of goodwill in excess of its carrying value, meaning other assets are then reduced pro rata.",
+      "Goodwill impairment cannot be reversed under IFRS and US GAAP, but may be reversed under Swiss GAAP FER when certain criteria are fulfilled.",
+      "Fair value less costs to sell is the value a company attributes to an asset when using it in internal operations."
+    ],
+    correct: 2,
+    explanation: "IFRS and US GAAP do not allow reversal of goodwill impairment. The course distinction here is that Swiss GAAP FER may allow reversal when the required criteria are met. Reporting units are a US GAAP term; IFRS uses cash-generating units. Fair value less costs to sell is an exit-value concept, not value in use."
+  },
+  {
+    category: "Consolidation",
+    set: "AE3",
+    prompt: "Venti acquired Grande on January 1, 2020 for $400,000 cash. Grande continues as a separate legal entity. Grande's identified net book value was $100,000. Using the acquisition-date fair-value table, what amount should Venti report under consolidation Journal Entry A for Equipment on December 31, 2023?",
+    visual: "ae3-venti-grande-fv-table",
+    options: [
+      "$21,000",
+      "$15,000",
+      "$6,000",
+      "$5,000"
+    ],
+    correct: 1,
+    explanation: "The acquisition-date equipment fair-value excess is $36,000 - $6,000 = $30,000. It is amortized over 6 years, or $5,000 per year. Entry A in the 2023 consolidation carries forward the unamortized excess after the prior years 2020-2022: $30,000 - 3 x $5,000 = $15,000. The current-year $5,000 is recorded through the excess amortization entry."
+  },
+  {
+    category: "Consolidation",
+    set: "AE3",
+    prompt: "In the consolidation process, Venti's accountant needs the consolidated total of Common Stock. Goodwill from the acquisition is $200,000 and annual excess amortization is $40,000. Using the equity table, compute consolidated Common Stock.",
+    visual: "ae3-venti-grande-equity-table",
+    options: [
+      "$500,000",
+      "$300,000",
+      "$260,000",
+      "$400,000"
+    ],
+    correct: 3,
+    explanation: "In consolidated financial statements, the parent's equity accounts remain and the subsidiary's equity accounts are eliminated. Because Venti paid cash and did not issue new common stock, consolidated Common Stock is Venti's $400,000."
+  },
+  {
+    category: "Consolidation",
+    set: "AE3",
+    prompt: "During 2023, Venti declared a dividend of $4 per share on 200,000 shares. Grande also declared total dividends of $30,000. As of December 31, 2023, both payments remain unpaid. What is the correct consolidated total of Dividends declared?",
+    options: [
+      "Debit - $830,000",
+      "Credit - $830,000",
+      "Debit - $800,000",
+      "Credit - $800,000"
+    ],
+    correct: 2,
+    explanation: "Dividends declared is a debit to equity. Consolidated dividends reflect the parent's dividends to its shareholders: $4 x 200,000 = $800,000. The subsidiary's dividends are eliminated in consolidation."
+  },
+  {
+    category: "Goodwill",
+    set: "AE3",
+    prompt: "Charles AG acquired King AG and allocated goodwill of CHF 150,000 to this cash-generating unit. King has a carrying amount of CHF 1,000,000. Value in use is CHF 1,200,000 and fair value less costs to sell is CHF 950,000. What goodwill impairment should Charles AG report under IFRS?",
+    options: [
+      "CHF 0",
+      "CHF 50,000",
+      "CHF 200,000",
+      "CHF 250,000"
+    ],
+    correct: 0,
+    explanation: "Under IFRS, impairment is tested against recoverable amount, the higher of value in use and fair value less costs of disposal. Recoverable amount is CHF 1,200,000, which exceeds the CGU carrying amount of CHF 1,000,000, so no impairment is recorded."
+  },
+  {
+    category: "Consolidation",
+    set: "AE3",
+    prompt: "Which of the following accounts does not appear in the consolidated financial statements?",
+    options: [
+      "Goodwill",
+      "Investment in Subsidiary",
+      "Retained Earnings",
+      "Amortization Expense"
+    ],
+    correct: 1,
+    explanation: "The parent's Investment in Subsidiary account is eliminated in consolidation. Consolidated statements may include goodwill, retained earnings, and amortization expense."
+  },
+  {
+    category: "Consolidation",
+    set: "AE3",
+    prompt: "Beau SA bought all shares of Lieu SA on January 1, 2020. On that date, Lieu's buildings had book value CHF 240,000 and fair value CHF 300,000. Beau's own buildings had book value CHF 120,000 and fair value CHF 180,000. The buildings had a 10-year remaining life. If only straight-line depreciation occurred, what building amount is reported in consolidated financial statements at the end of 2022?",
+    options: [
+      "CHF 210,000",
+      "CHF 252,000",
+      "CHF 294,000",
+      "CHF 336,000"
+    ],
+    correct: 2,
+    explanation: "The parent's own buildings stay at Beau's book basis: CHF 120,000 - 3 x CHF 12,000 = CHF 84,000. The acquired subsidiary's buildings are consolidated at acquisition-date fair value: CHF 300,000 - 3 x CHF 30,000 = CHF 210,000. Total buildings = CHF 294,000."
+  },
+
+  // AI variants for Additional Exercises 3
+  {
+    category: "Intangibles",
+    set: "AE3-AI",
+    prompt: "Which acquired item is least likely to qualify as an identifiable intangible asset in a business combination?",
+    options: [
+      "Patented production technology",
+      "Registered trademark",
+      "Customer contract",
+      "Expected future synergies"
+    ],
+    correct: 3,
+    explanation: "Patents, trademarks, and customer contracts can be identifiable intangible assets because they arise from legal or contractual rights. Expected future synergies are normally part of goodwill."
+  },
+  {
+    category: "Goodwill",
+    set: "AE3-AI",
+    prompt: "Under IFRS, a cash-generating unit that includes goodwill has carrying amount CHF 850,000. Its value in use is CHF 780,000 and its fair value less costs of disposal is CHF 810,000. What total impairment loss is recognized?",
+    options: [
+      "CHF 0",
+      "CHF 40,000",
+      "CHF 70,000",
+      "CHF 810,000"
+    ],
+    correct: 1,
+    explanation: "Recoverable amount is the higher of value in use and fair value less costs of disposal: CHF 810,000. Carrying amount is CHF 850,000, so the impairment loss is CHF 40,000."
+  },
+  {
+    category: "Consolidation",
+    set: "AE3-AI",
+    prompt: "Nova acquired Orbit on January 1, 2021. Orbit remains a separate legal entity. Using the acquisition-date fair-value table, what amount should Nova report under consolidation Journal Entry A for Equipment on December 31, 2023?",
+    visual: "ae3-ai-nova-orbit-fv-table",
+    options: [
+      "$6,000",
+      "$12,000",
+      "$18,000",
+      "$24,000"
+    ],
+    correct: 1,
+    explanation: "The equipment fair-value excess is $64,000 - $40,000 = $24,000. Annual excess depreciation is $24,000 / 4 = $6,000. Entry A for 2023 carries forward the unamortized excess after the prior years 2021-2022: $24,000 - 2 x $6,000 = $12,000. The current-year $6,000 is handled by the excess amortization entry."
+  },
+  {
+    category: "Consolidation",
+    set: "AE3-AI",
+    prompt: "Helvetia AG acquires all shares of Ticino AG for cash. Using the equity table, what Common Stock amount appears in the consolidated balance sheet immediately after the acquisition?",
+    visual: "ae3-ai-helvetia-ticino-equity-table",
+    options: [
+      "CHF 250,000",
+      "CHF 650,000",
+      "CHF 900,000",
+      "CHF 1,150,000"
+    ],
+    correct: 2,
+    explanation: "Consolidated common stock is the parent's common stock unless the parent issued shares in the acquisition. The subsidiary's common stock is eliminated. Helvetia's CHF 900,000 remains."
+  },
+  {
+    category: "Consolidation",
+    set: "AE3-AI",
+    prompt: "Parent SA declares CHF 2 per share on 150,000 shares. Its wholly owned subsidiary declares CHF 60,000 of dividends to Parent SA. Both remain unpaid at year-end. What consolidated Dividends declared amount should be reported?",
+    options: [
+      "Debit - CHF 300,000",
+      "Credit - CHF 300,000",
+      "Debit - CHF 360,000",
+      "Credit - CHF 360,000"
+    ],
+    correct: 0,
+    explanation: "Dividends declared is a debit to equity. Only dividends declared by the parent to its shareholders remain in consolidation: CHF 2 x 150,000 = CHF 300,000. The subsidiary dividend is eliminated."
+  },
+  {
+    category: "Consolidation",
+    set: "AE3-AI",
+    prompt: "Which account is eliminated when a parent prepares consolidated financial statements after acquiring 100% of a subsidiary in a stock acquisition?",
+    options: [
+      "Parent cash",
+      "Investment in Subsidiary",
+      "Consolidated retained earnings",
+      "Goodwill"
+    ],
+    correct: 1,
+    explanation: "The parent's Investment in Subsidiary account is replaced in consolidation by the subsidiary's underlying assets and liabilities, plus any goodwill. It does not appear in consolidated statements."
+  },
+  {
+    category: "Consolidation",
+    set: "AE3-AI",
+    prompt: "Bern SA acquired all shares of Lugano SA on January 1, 2022. Using the buildings table and assuming only straight-line depreciation, what building amount is reported in consolidated financial statements at the end of 2023?",
+    visual: "ae3-ai-bern-lugano-buildings-table",
+    options: [
+      "CHF 600,000",
+      "CHF 690,000",
+      "CHF 760,000",
+      "CHF 935,000"
+    ],
+    correct: 1,
+    explanation: "Bern's own buildings stay on parent book basis: CHF 500,000 - 2 x CHF 62,500 = CHF 375,000. Lugano's acquired buildings are consolidated at fair value: CHF 420,000 - 2 x CHF 52,500 = CHF 315,000. Total buildings = CHF 690,000."
+  },
+  {
+    category: "Goodwill",
+    set: "AE3-AI",
+    prompt: "A company recorded CHF 200,000 goodwill in an acquisition. Later, the related cash-generating unit has carrying amount CHF 1,500,000 and recoverable amount CHF 1,420,000. Under IFRS, how is the impairment allocated first?",
+    options: [
+      "First to goodwill",
+      "First to retained earnings",
+      "First to cash",
+      "Pro rata to all assets before goodwill"
+    ],
+    correct: 0,
+    explanation: "Under IFRS, an impairment loss for a CGU is allocated first to reduce goodwill. Any remaining impairment is then allocated to the other assets of the CGU subject to the applicable limits."
+  },
+
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
     prompt: "Welche Aussage zu Markteintrittsbarrieren und Marktaustrittsbarrieren ist am ehesten richtig?",
@@ -4653,6 +4870,8 @@ const DECKS = [
   { id: "AE1+AI",   subject: "Financial Reporting", label: "Additional Exercises 1 + AI", sub: "Handout + AI add-ons",  sets: ["AE1", "AE1-AI"] },
   { id: "AE2",      subject: "Financial Reporting", label: "Additional Exercises 2",      sub: "Course handout",        sets: ["AE2"] },
   { id: "AE2+AI",   subject: "Financial Reporting", label: "Additional Exercises 2 + AI", sub: "Handout + AI add-ons",  sets: ["AE2", "AE2-AI"] },
+  { id: "AE3",      subject: "Financial Reporting", label: "Additional Exercises 3",      sub: "Course handout",        sets: ["AE3"] },
+  { id: "AE3+AI",   subject: "Financial Reporting", label: "Additional Exercises 3 + AI", sub: "Handout + AI add-ons",  sets: ["AE3", "AE3-AI"] },
   { id: "R1",       subject: "Financial Reporting", label: "Recitation 1",                sub: "Course handout",        sets: ["R1"] },
   { id: "R1+AI",    subject: "Financial Reporting", label: "Recitation 1 + AI",           sub: "Handout + AI add-ons",  sets: ["R1", "R1-AI"] },
   { id: "R2",       subject: "Financial Reporting", label: "Recitation II",               sub: "Course handout",        sets: ["R2"] },
@@ -4747,6 +4966,8 @@ const QUESTION_SOURCE_LABELS = {
   "AE1-AI": "AI",
   AE2: "Additional Exercises 2",
   "AE2-AI": "AI",
+  AE3: "Additional Exercises 3",
+  "AE3-AI": "AI",
   R1: "Recitation I",
   "R1-AI": "AI",
   R2: "Recitation II",
@@ -5232,6 +5453,11 @@ function renderQuestionVisual(visual) {
   if (visual === "ae2-ai-morges-securities-table") return renderMorgesSecuritiesTable();
   if (visual === "ae2-ai-rigi-pilatus-table") return renderRigiPilatusTable();
   if (visual === "ae2-ai-zug-sarnen-table") return renderZugSarnenTable();
+  if (visual === "ae3-venti-grande-fv-table") return renderVentiGrandeFairValueTable();
+  if (visual === "ae3-venti-grande-equity-table") return renderVentiGrandeEquityTable();
+  if (visual === "ae3-ai-nova-orbit-fv-table") return renderNovaOrbitFairValueTable();
+  if (visual === "ae3-ai-helvetia-ticino-equity-table") return renderHelvetiaTicinoEquityTable();
+  if (visual === "ae3-ai-bern-lugano-buildings-table") return renderBernLuganoBuildingsTable();
   if (visual === "r2-zurich-basel-table") return renderZurichBaselTable();
   if (visual === "r2-botkins-volkerson-table") return renderBotkinsVolkersonTable();
   if (visual === "r2-ai-st-gallen-thun-table") return renderStGallenThunTable();
@@ -5323,6 +5549,65 @@ function renderZugSarnenTable() {
     "Income and dividends reported by Sarnen AG",
     ["Year", "Income of Sarnen", "Dividends paid by Sarnen"],
     [["Current year", "CHF -250,000", "CHF 50,000"]]
+  );
+}
+
+function renderVentiGrandeFairValueTable() {
+  return renderDataTable(
+    "Venti acquisition-date fair-value adjustments for Grande",
+    ["Account", "Book value", "Fair value", "Remaining life from Jan. 1, 2020"],
+    [
+      ["Accounts receivable", "$4,000", "$10,000", "10 years"],
+      ["Buildings", "$12,000", "$50,000", "6 years"],
+      ["Equipment", "$6,000", "$36,000", "6 years"],
+    ]
+  );
+}
+
+function renderVentiGrandeEquityTable() {
+  return renderDataTable(
+    "Venti and Grande equity accounts",
+    ["Account", "Venti", "Grande"],
+    [
+      ["Common Stock", "$400,000", "$100,000"],
+      ["Share Premium", "$2,800,000", "$350,000"],
+      ["Retained Earnings", "($600,000)", "$20,000"],
+    ]
+  );
+}
+
+function renderNovaOrbitFairValueTable() {
+  return renderDataTable(
+    "Nova acquisition-date fair-value adjustments for Orbit",
+    ["Account", "Book value", "Fair value", "Remaining life from Jan. 1, 2021"],
+    [
+      ["Accounts receivable", "$18,000", "$20,000", "2 years"],
+      ["Buildings", "$80,000", "$116,000", "9 years"],
+      ["Equipment", "$40,000", "$64,000", "4 years"],
+    ]
+  );
+}
+
+function renderHelvetiaTicinoEquityTable() {
+  return renderDataTable(
+    "Helvetia and Ticino equity accounts",
+    ["Account", "Helvetia", "Ticino"],
+    [
+      ["Common Stock", "CHF 900,000", "CHF 250,000"],
+      ["Share Premium", "CHF 1,600,000", "CHF 300,000"],
+      ["Retained Earnings", "CHF 420,000", "CHF 80,000"],
+    ]
+  );
+}
+
+function renderBernLuganoBuildingsTable() {
+  return renderDataTable(
+    "Bern SA acquisition of Lugano SA",
+    ["Company", "Buildings book value", "Buildings fair value", "Remaining life"],
+    [
+      ["Bern SA", "CHF 500,000", "CHF 620,000", "8 years"],
+      ["Lugano SA", "CHF 300,000", "CHF 420,000", "8 years"],
+    ]
   );
 }
 
