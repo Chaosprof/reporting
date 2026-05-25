@@ -3176,7 +3176,8 @@ const QUESTIONS = [
   },
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
-    prompt: "TK(5,0)=150, TK(10,0)=320, TK(0,50)=100, TK(0,100)=210, TK(5,50)=240, TK(10,100)=500. Basierend auf diesen Angaben beinhaltet die Produktionstechnologie…",
+    prompt: "Eine Firma kann zwei unterschiedliche Güter, X und Y, produzieren. Die Produktionstechnologie führt zu folgenden Totalkosten TK(Qx, Qy) für Qx Einheiten von X und Qy Einheiten von Y:\nBasierend auf diesen Angaben beinhaltet die Produktionstechnologie…",
+    visual: "tk-verbundeffekte-table",
     options: [
       "…von X Economies of Scale und von Y Economies of Scale.",
       "…von X Economies of Scale und von Y Diseconomies of Scale.",
@@ -3185,7 +3186,7 @@ const QUESTIONS = [
       "…von X Diseconomies of Scale und Diseconomies of Scope bei der Produktion beider Güter."
     ],
     correct: 3,
-    explanation: "DK(X) steigt: 150/5=30 → 320/10=32 (Diseconomies). TK(5,50)=240 < TK(5,0)+TK(0,50)=250 → Economies of Scope. Gemeinsame Produktion ist günstiger als getrennte."
+    explanation: "DK(X) steigt: 150/5=30 → 320/10=32 (Diseconomies of Scale bei X). DK(Y) steigt: 100/50=2 → 210/100=2.1 (Diseconomies of Scale bei Y). TK(5,50)=240 < TK(5,0)+TK(0,50)=250 → Economies of Scope. Auch TK(10,100)=500 < TK(10,0)+TK(0,100)=530. Gemeinsame Produktion ist günstiger als getrennte."
   },
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
@@ -3202,6 +3203,7 @@ const QUESTIONS = [
   },
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-DIAGRAMS"],
     prompt: "Gegeben sind zwei unterschiedliche Branchen sowie die Produktionsmengen und die Durchschnittskosten der etablierten Firmen (vgl. Grafiken).\nEine 5-Kräfte-Analyse gemäss Porter hat gezeigt, dass die «interne Rivalität» in der Branche 1 höher ist als in der Branche 2.\nWomit kann die höhere «interne Rivalität» in der Branche 1 am ehesten begründet werden?",
     visual: "fs25-sm-q6-branchen",
     options: [
@@ -4882,6 +4884,170 @@ QUESTIONS.push(...[
     options: ["Prozessberatung liefert inhaltliche Vorschläge zur Problemlösung.", "Der Prozessberatung ist typischerweise eine Mitarbeiterbefragung vorgeschaltet.", "Prozessberatung erarbeitet zusammen mit den Mitarbeitern inhaltliche Vorschläge zur Problemlösung.", "Prozessberatung macht bewusst keine Gestaltungsvorgaben und befähigt die Organisation, selbständig eine Lösung zu finden.", "Prozessberatung stellt die Umweltanalyse in den Mittelpunkt."],
     correct: 3
   },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // BWL II — Übung FS26 Strategisches Management (14 Übungsfragen)
+  // ════════════════════════════════════════════════════════════════════════
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "«Wechsel auf Technologien mit anderer Kostenstruktur»\nIn Bezug auf Kosteneinsparungen, lohnen sich Technologiewechsel...",
+    options: [
+      "...nur wenn die Fixkosten höher sind als die variablen Kosten.",
+      "...nur wenn die variablen Kosten höher sind als die Fixkosten.",
+      "...nur wenn die gegebene Technologie von der Konkurrenz bereits benutzt wird.",
+      "...nur in bestimmten Outputbereichen.",
+      "...immer."
+    ],
+    correct: 3,
+    explanation: "Bei drei Technologien (A, B, C) mit unterschiedlichen Kostenstrukturen ergeben sich unterschiedliche Durchschnittskostenverläufe. Welche Technologie kostenoptimal ist, hängt von der gewählten Outputmenge ab. Ein Technologiewechsel lohnt sich daher nur in bestimmten Outputbereichen, in denen eine andere Technologie tiefere Durchschnittskosten aufweist. Aussagen a und b sind unzulässige Pauschalisierungen; c ist irrelevant; e ist falsch."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "«Economies of Scale in der IT Branche» (2)\nWelche Schlussfolgerung ist auf Basis der Geschäftszahlen am ehesten zulässig?\nIn der IT Branche…",
+    options: [
+      "…existieren keine Economies of Scale.",
+      "…existieren Economies of Scale, welche sich in der Umsatzsteigerung widerspiegeln.",
+      "…existieren Economies of Scale, welche in den Herstellungskosten realisiert werden.",
+      "…existieren Economies of Scale, welche in den Vertriebs-, Verwaltungs-, Gemeinkosten realisiert werden.",
+      "Keine der oben genannten Lösungen ist richtig."
+    ],
+    correct: 3,
+    explanation: "Bei IT-/Softwareunternehmen sind die Grenzkosten zusätzlicher Einheiten sehr tief (digitale Vervielfältigung). Skaleneffekte realisieren sich daher typischerweise nicht in den Herstellungs-/Produktionskosten, sondern in den Vertriebs-, Verwaltungs- und Gemeinkosten (Marketing, F&E, Infrastruktur). Eine Umsatzsteigerung ist kein Skaleneffekt sondern eine Mengenwirkung."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "Frage 1: «Einstiegsmenge»\nIn der Branche für Motorboote verursacht die Produktionstechnologie für Boote jährliche Totalkosten von\nTK(Q) = 5·Q² − 5'000·Q + 5'000'000.\nDer Verkaufspreis für ein Motorboot liegt bei CHF 80'000.\nWelche Absatzmenge muss ein potentieller Neueinsteiger mindestens erreichen, um bei gegebenem Verkaufspreis am Markt bestehen zu können?",
+    options: ["58", "59", "60", "61", "Keine der oben genannten Lösungen ist richtig."],
+    correct: 1,
+    explanation: "Break-even: P·Q ≥ TK(Q) → 80'000·Q ≥ 5Q² − 5'000Q + 5'000'000 → 5Q² − 85'000Q + 5'000'000 ≤ 0 → Q² − 17'000Q + 1'000'000 ≤ 0. Untere Nullstelle: Q = (17'000 − √(17'000² − 4'000'000))/2 ≈ (17'000 − 16'882.6)/2 ≈ 58.7. Da nur ganze Boote produziert werden: mindestens 59."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "Frage 2: «Kostennachteil des Neueinsteigers»\nDer potentielle Neueinsteiger entscheidet sich für einen Markteintritt mit der Absatzmenge von 500 Motorbooten.\nWie gross ist der Kostennachteil (pro Motorboot) des Neueinsteigers gegenüber einem etablierten Konkurrenten, der bereits bei s* kostenoptimal produziert?\n(TK(Q) = 5·Q² − 5'000·Q + 5'000'000)",
+    options: ["1'000", "1'500", "2'000", "2'500", "Keine der oben genannten Lösungen ist richtig."],
+    correct: 3,
+    explanation: "DK(Q) = 5Q − 5'000 + 5'000'000/Q. Minimum: dDK/dQ = 5 − 5'000'000/Q² = 0 → Q* = 1'000 mit DK(1'000) = 5'000 − 5'000 + 5'000 = 5'000. Bei Q = 500: DK(500) = 2'500 − 5'000 + 10'000 = 7'500. Kostennachteil = 7'500 − 5'000 = 2'500."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "«Economies of Scale & Erfahrungskurveneffekte»\nWelche Aussage zu Economies of Scale und Erfahrungskurveneffekten ist am ehesten falsch?",
+    options: [
+      "Für eine Branche, in welcher die etablierten Unternehmen bereits Erfahrungsvorsprünge aufgebaut haben, erwarten wir ceteris paribus eine tiefere Gefahr durch Neueintritte.",
+      "Im Allgemeinen sind kapitalintensive Produktionsprozesse eher mit Skaleneffekten verbunden als arbeitsintensive Produktionsprozesse.",
+      "Economies of Scale treten oft im Zusammenhang mit Marketingkosten, F&E und Einkauf auf.",
+      "Kostenvorteile aufgrund von Erfahrungskurveneffekten entstehen durch die Auslastung unteilbarer Vermögensgegenstände.",
+      "Unternehmen, die im Bereich von Diseconomies of Scale produzieren, können Erfahrungskurveneffekte realisieren."
+    ],
+    correct: 3,
+    explanation: "Aussage d ist falsch. Die Auslastung unteilbarer Vermögensgegenstände begründet Economies of Scale (Fixkostendegression), nicht Erfahrungskurveneffekte. Erfahrungskurven entstehen durch Lerneffekte mit wachsender kumulierter Produktionsmenge – unabhängig von der aktuellen Outputrate."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "«Wettbewerbsvorteil»\nIn der Branche für Luxusuhren konkurrieren fünf Firmen. Die fünf Firmen charakterisieren sich durch die Kosten (K), Wertschätzung (B) und Preise (P) gemäss Tabelle.\nWelche der folgenden fünf Firmen hat in der Branche für Luxusuhren einen Wettbewerbsvorteil?",
+    visual: "ubung-luxusuhren-table",
+    options: ["Firma A", "Firma B", "Firma C", "Firma D", "Firma E"],
+    correct: 1,
+    explanation: "Wettbewerbsvorteil = höchste Wertschöpfung (WS = B − K). WS_A = 6−3 = 3; WS_B = 9−4 = 5; WS_C = 7−4 = 3; WS_D = 8−5 = 3; WS_E = 10−6 = 4. Firma B hat mit WS = 5 die höchste Wertschöpfung und damit den Wettbewerbsvorteil."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "«Value Map»\nIn welchem Szenario sinkt die Konsumentenrente (KR = B − P) bei einem Wechsel von Produkt A zu Produkt X?",
+    visual: "ubung-value-map-diagrams",
+    options: [
+      "A und X liegen auf derselben Indifferenzkurve (gleiche KR).",
+      "X hat einen tieferen Preis bei gleicher Qualität wie A (KR steigt).",
+      "X hat eine höhere Qualität zum selben Preis – A und X auf gleicher Indifferenzkurve (gleiche KR).",
+      "X hat eine höhere Qualität zum selben Preis wie A (KR steigt).",
+      "A hat eine höhere Qualität zum selben Preis wie X (KR sinkt beim Wechsel zu X)."
+    ],
+    correct: 4,
+    explanation: "Konsumentenrente KR = B − P. Bei e) hat A höhere Wertschätzung bei gleichem Preis wie X. Ein Wechsel von A zu X bedeutet: B sinkt, P bleibt gleich → KR_X < KR_A, also sinkt die Konsumentenrente. In den anderen Szenarien bleibt die KR gleich (a, c) oder steigt (b, d)."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "«Pricing-Strategien»\nDie Firma «Top Salt» ist in der Branche für Speisesalz etabliert und ist Kostenführer.\nWelche Pricing-Strategie ist für die Firma «Top Salt» am ehesten zu empfehlen?\nDie Firma «Top Salt» sollte…",
+    options: [
+      "…einen Premiumpreis verlangen, da sie damit höhere Margen als die Konkurrenz abschöpfen kann.",
+      "…die Preise der Konkurrenz angleichen, da sie damit höhere Margen als die Konkurrenz abschöpfen kann.",
+      "…die Preise der Konkurrenz angleichen, um damit hohe Marktanteile abzuschöpfen.",
+      "…die Preise der Konkurrenz unterbieten, um damit hohe Marktanteile abzuschöpfen.",
+      "Keine der oben genannten Strategien ist kurzfristig empfehlenswert."
+    ],
+    correct: 3,
+    explanation: "Speisesalz ist ein nahezu homogenes Gut (Salz ist Salz) mit hoher Preiselastizität der Nachfrage. Für Kostenführer mit hoher Preiselastizität gilt «Go for share»: Preise unterbieten, um Marktanteile zu gewinnen. Premiumpreise (a) sind die Strategie eines Wertschätzungsführers; Preisparität (b, c) verschenkt den Kostenvorteil."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "Beispiel-Aufgabe 1\nGegeben sei die Zulieferer-Abnehmer-Beziehung zwischen Mikrochip-Herstellern und Computerfirmen, wobei die Mikrochip-Hersteller die Zulieferer sind.\nWelche Aussage zu den Machtverhältnissen in dieser Zulieferer-Abnehmer-Beziehung ist am ehesten richtig?\nIn dieser Geschäftsbeziehung sind die Computerfirmen umso mächtiger, …",
+    options: [
+      "… je weniger Substitute es für Mikrochips gibt.",
+      "… je tiefer die relative Konzentration bei den Mikrochip-Herstellern ist.",
+      "… je mehr die Computerfirmen zuliefererspezifisch investiert haben.",
+      "… je glaubhafter die Computerfirmen mit einer Vorwärtsintegration drohen können.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    correct: 1,
+    explanation: "Die Macht der Abnehmer (Computerfirmen) steigt, wenn ihre Zulieferer (Mikrochip-Hersteller) weniger konzentriert sind – also viele Anbieter konkurrieren und keiner Marktmacht ausüben kann. a ist umgekehrt (mehr Substitute = mehr Macht); c würde die Computerfirmen erpressbar machen (Hold-up); d ist falsch, weil eine glaubhafte RÜCKWÄRTSintegration (in die Chipherstellung) die Macht der Computerfirmen stärken würde, nicht eine Vorwärtsintegration."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "Beispiel-Aufgabe 2\nWelche Aussage zur Verteidigung von Wettbewerbsvorteilen ist am ehesten richtig?",
+    options: [
+      "Die Nachhaltigkeit von Wettbewerbsvorteilen basiert auf temporären Unterschieden zwischen den Unternehmen.",
+      "Capabilities sind unternehmensspezifische Vermögensgegenstände.",
+      "Für Firma A verstärken Isolationsmechanismen das Ausmass, in dem Firma B Wettbewerbsvorteile der Firma A neutralisieren kann.",
+      "Immobilität und Knappheit der Ressourcen garantieren keine nachhaltigen Wettbewerbsvorteile.",
+      "Patente eignen sich nicht als Isolationsmechanismus, da sie nur einer Firma gehören."
+    ],
+    correct: 3,
+    explanation: "Nachhaltige Wettbewerbsvorteile erfordern Ressourcen, die VRIN sind: Valuable, Rare (knapp), non-Imitable, non-Substitutable. Immobilität und Knappheit allein sind notwendige, aber nicht hinreichende Bedingungen – ohne Nicht-Imitierbarkeit und Nicht-Substituierbarkeit ist keine Nachhaltigkeit garantiert. a ist falsch (nachhaltige Vorteile basieren auf dauerhaften Unterschieden); b verwechselt Capabilities mit Ressourcen; c ist umgekehrt (Isolationsmechanismen erschweren die Neutralisierung); e ist falsch (Patente sind klassische Isolationsmechanismen)."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "Beispiel-Aufgabe 3\nWelche Aussage zur Positionierung für Wettbewerbsvorteile gemäss Porter ist am ehesten richtig?\nEin neuer Anbieter für Pauschalurlaubsreisen sollte sich bei der Strategiewahl ceteris paribus für die Kostenführerschaft entscheiden, …",
+    options: [
+      "…wenn er bei Zulieferern die gleichen Konditionen erhält wie seine Konkurrenzanbieter.",
+      "…wenn etablierte Reiseunternehmen viel Erfahrung in der Branche für Pauschalurlaubsreisen akkumuliert haben.",
+      "…wenn der neue Anbieter glaubhaft eine überlegene Qualität seiner Urlaubsreisen signalisieren kann.",
+      "…wenn der typische Urlauber bereit ist, einen Aufschlag für zusätzliche Produktattribute zu bezahlen.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    correct: 4,
+    explanation: "Kostenführerschaft setzt einen Kostenvorteil voraus. a ist falsch: gleiche Konditionen ergeben keinen Vorteil – der Neueinsteiger bräuchte BESSERE Konditionen. b ist falsch: bei viel Erfahrung der Etablierten sinkt der eigene relative Kostenvorteil. c ist falsch: überlegene Qualität signalisieren = Wertschätzungsführerschaft, nicht Kostenführerschaft. d ist falsch: Zahlungsbereitschaft für Attribute spricht für Differenzierung. Daher e."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "Beispiel-Aufgabe 4\nIn der Autowasch-Branche gibt es die beiden Anbieter X und Y.\nDie Kunden nehmen das Angebot für eine Komplettreinigung der beiden Anbieter mit einer Wertschätzung von 15 als gleich wahr. Die Stückkosten unterscheiden sich folgendermassen: K_X = 9.5, K_Y = 12.\nDie Preiselastizität der Nachfrage in der Autowasch-Branche ist hoch.\nWelche der folgenden Aussagen ist am ehesten falsch?",
+    options: [
+      "Die maximale Konsumentenrente bei Y ist 3, wenn P_Y = K_Y ist.",
+      "Die «nichtangreifbare Produzentenrente» von X ist 2.5.",
+      "Es ist für X sinnvoll Preisparität mit Y zu suchen, wenn P_Y = K_Y ist.",
+      "Es ist für X sinnvoll den Preis von Y zu unterbieten, wenn P_Y = K_Y ist.",
+      "Um Marktanteile zu gewinnen setzt X den Preis unter 12."
+    ],
+    correct: 2,
+    explanation: "c ist falsch. Bei homogener Wertschätzung (B = 15) und hoher Preiselastizität gewinnt im Preiskampf, wer den tieferen Preis bietet. X hat den Kostenvorteil (K_X = 9.5 < K_Y = 12) und sollte Y unterbieten, statt Preisparität zu suchen. a: KR = 15 − 12 = 3 ✓. b: nichtangreifbare PR von X = K_Y − K_X = 12 − 9.5 = 2.5 ✓. d und e folgen aus dem «Go for share»-Prinzip bei Kostenvorteil und hoher Preiselastizität."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "Beispiel-Aufgabe 5\nDie Firma CHAIR produziert Stühle mit der Totalkostenfunktion TK(Q) = 70Q + 211, wobei Q für die jährlich hergestellte Menge steht.\nAngenommen, dass jeder hergestellte Stuhl verkauft werden kann, wie viele Stühle muss die Firma CHAIR mindestens herstellen, um sich bei gegebenem Verkaufspreis von P = 80 am Markt behaupten zu können und keinen Verlust zu erwirtschaften?",
+    options: ["21", "22", "23", "24", "25"],
+    correct: 1,
+    explanation: "Break-even: P·Q ≥ TK(Q) → 80Q ≥ 70Q + 211 → 10Q ≥ 211 → Q ≥ 21.1. Bei Q = 21 entsteht ein Verlust (Umsatz 1'680, Kosten 1'681). Bei Q = 22 ist der Gewinn 1'760 − 1'751 = 9 ≥ 0. Mindestmenge: 22 Stühle."
+  },
+  {
+    subject: "BWL II", sourceYears: ["ubung"], set: "BWL2-UBUNG", category: "Strategisches Management",
+    prompt: "Klicker: Gefahr durch Neueintritte\nWelche der folgenden Gegebenheiten ist keine signifikante Eintrittsbarriere in den Markt für Verkehrsflugzeughersteller?",
+    options: [
+      "Hohe Entwicklungskosten",
+      "Beschränkte Rohstoffe",
+      "Erfahrungskurveneffekte in der Produktion",
+      "Fluggesellschaften kaufen aufgrund eingespielter Lieferbeziehungen bevorzugt beim selben Hersteller",
+      "Fluggesellschaften sind aus Reputationsgründen wenig gewillt, Flugzeuge bei Newcomern zu kaufen"
+    ],
+    correct: 1,
+    explanation: "Beschränkte Rohstoffe (z.B. Aluminium) treffen Etablierte und Neueintreter gleichermassen – was alle gleich trifft, ist kein Wettbewerbsnachteil für Neueintreter und somit keine Eintrittsbarriere. (Erst privilegierter Zugang zu Rohstoffen wäre eine Barriere.) Hohe Entwicklungskosten (a), Erfahrungskurven (c), eingespielte Lieferbeziehungen (d) und Reputationsanforderungen (e) wirken alle als signifikante Eintrittsbarrieren."
+  },
 ]);
 
 const BWL_BOTH_SOURCE_PREFIXES = [
@@ -5225,6 +5391,7 @@ const BWL_PAPERS = [
   { id: "2017", label: "Probeprüfung 2017", sub: "Frühjahrssemester" },
   { id: "2025", label: "Probeprüfung 2025", sub: "Frühjahrssemester" },
   { id: "2017-06", label: "Assessment Juni 2017", sub: "Juni 2017" },
+  { id: "ubung", label: "Übung FS26", sub: "Strategisches Management" },
 ];
 
 function getSubject() {
@@ -5388,6 +5555,7 @@ const DECKS = [
   { id: "BWL2-JUN17-SM",  subject: "BWL II",        label: "Juni 2017: Strategisches Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-SM"] },
   { id: "BWL2-JUN17-HRM", subject: "BWL II",        label: "Juni 2017: Human Resource Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-HRM"] },
   { id: "BWL2-JUN17-ORG", subject: "BWL II",        label: "Juni 2017: Organisation",    sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-ORG"] },
+  { id: "BWL2-UBUNG",     subject: "BWL II",        label: "Übung: Strategisches Management", sub: "Übungsfragen FS26", sets: ["BWL2-UBUNG"] },
 ];
 function deckPool(deck) {
   return QUESTIONS
@@ -5506,6 +5674,7 @@ const QUESTION_SOURCE_LABELS = {
   "BWL2-JUN17-SM": "Assessment Jun 2017",
   "BWL2-JUN17-HRM": "Assessment Jun 2017",
   "BWL2-JUN17-ORG": "Assessment Jun 2017",
+  "BWL2-UBUNG": "Übung FS26",
   "BWL2-MATH-AI": "AI",
 };
 
@@ -5513,7 +5682,8 @@ function questionSource(q) {
   if (QUESTION_SOURCE_LABELS[q.set] === "AI" || String(q.set || "").endsWith("-AI")) {
     return { label: "AI", kind: "ai" };
   }
-  const bwlProbe = q.subject === "BWL II" && q.sourceYears && q.sourceYears.length && !String(q.set || "").startsWith("BWL2-JUN17");
+  const setStr = String(q.set || "");
+  const bwlProbe = q.subject === "BWL II" && q.sourceYears && q.sourceYears.length && !setStr.startsWith("BWL2-JUN17") && setStr !== "BWL2-UBUNG";
   const label = bwlProbe
     ? `Probeprufung ${q.sourceYears.join(" + ")}`
     : QUESTION_SOURCE_LABELS[q.set] || (q.sourceYears && q.sourceYears.length
@@ -6135,6 +6305,9 @@ function renderQuestionVisual(visual) {
   if (visual === "fs25-sm-q6-branchen") return renderFs25BranchenVisual();
   if (visual === "fs25-sm-q13-effizienzgrenze") return renderFs25EffizienzgrenzeVisual();
   if (visual === "fs25-sm-q15-oilster-table") return renderOilsterValueTable();
+  if (visual === "tk-verbundeffekte-table") return renderVerbundeffekteTable();
+  if (visual === "ubung-luxusuhren-table") return renderLuxusuhrenTable();
+  if (visual === "ubung-value-map-diagrams") return renderValueMapDiagrams();
   return "";
 }
 
@@ -6344,6 +6517,152 @@ function renderDataTable(ariaLabel, headers, rows) {
           `).join("")}
         </tbody>
       </table>
+    </div>
+  `;
+}
+
+function renderVerbundeffekteTable() {
+  return `
+    <div class="question-visual" aria-label="Totalkosten TK(Qx, Qy) für zwei Güter X und Y">
+      <table class="value-table" style="min-width: 360px; max-width: 520px;">
+        <thead>
+          <tr>
+            <th>TK(Qx, Qy)</th>
+            <th>Wert</th>
+            <th>TK(Qx, Qy)</th>
+            <th>Wert</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TK(5, 0)</td>
+            <td>150</td>
+            <td>TK(0, 50)</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <td>TK(10, 0)</td>
+            <td>320</td>
+            <td>TK(0, 100)</td>
+            <td>210</td>
+          </tr>
+          <tr>
+            <td>TK(5, 50)</td>
+            <td>240</td>
+            <td>TK(10, 100)</td>
+            <td>500</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderLuxusuhrenTable() {
+  return `
+    <div class="question-visual" aria-label="Kosten, Wertschätzung und Preise der fünf Luxusuhren-Firmen">
+      <table class="value-table" style="min-width: 380px; max-width: 560px;">
+        <thead>
+          <tr>
+            <th>Firma</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>K (Kosten)</td>
+            <td>3</td>
+            <td>4</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>B (Wertschätzung)</td>
+            <td>6</td>
+            <td>9</td>
+            <td>7</td>
+            <td>8</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>P (Preis)</td>
+            <td>5</td>
+            <td>6</td>
+            <td>5</td>
+            <td>7</td>
+            <td>7</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderValueMapDiagrams() {
+  const axes = (markerId) => `
+    <line x1="38" y1="160" x2="220" y2="160" stroke="#111" stroke-width="1.6" marker-end="url(#${markerId})"/>
+    <line x1="38" y1="160" x2="38"  y2="22"  stroke="#111" stroke-width="1.6" marker-end="url(#${markerId})"/>
+    <text x="30" y="22" text-anchor="end" font-size="13" font-weight="700">P</text>
+    <text x="218" y="178" text-anchor="middle" font-size="13" font-weight="700">Qualität</text>
+  `;
+  const indiff = `<path d="M55 35 C90 75 140 110 200 140" fill="none" stroke="#111" stroke-width="2"/>`;
+  const indiff2 = `<path d="M70 60 C105 95 160 125 210 150" fill="none" stroke="#111" stroke-width="2" stroke-dasharray="5 5"/>`;
+  const dot = (x, y, label, dx=0, dy=-6) => `<circle cx="${x}" cy="${y}" r="4" fill="#111"/><text x="${x+dx}" y="${y+dy}" font-size="13" font-weight="700">${label}</text>`;
+
+  const variant = (id, title, content, marker) => `
+    <div class="vm-panel" style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <div style="font-weight:700;font-size:0.9rem;color:var(--ink-strong);">${title}</div>
+      <svg viewBox="0 0 240 188" role="img" style="max-width:100%;height:auto;">
+        <defs>
+          <marker id="${marker}" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#111"/>
+          </marker>
+        </defs>
+        ${axes(marker)}
+        ${content}
+      </svg>
+    </div>
+  `;
+
+  const a = variant("a", "a)", `
+    ${indiff}
+    ${dot(95, 92, "A", 8, -4)}
+    ${dot(140, 121, "X", 6, 16)}
+  `, "arr-vm-a");
+  const b = variant("b", "b)", `
+    ${indiff}
+    ${indiff2}
+    ${dot(120, 102, "A", 8, -4)}
+    ${dot(70, 132, "X", -16, -4)}
+  `, "arr-vm-b");
+  const c = variant("c", "c)", `
+    ${indiff}
+    ${dot(95, 92, "A", -16, -4)}
+    ${dot(165, 130, "X", 8, 0)}
+  `, "arr-vm-c");
+  const d = variant("d", "d)", `
+    ${indiff}
+    ${indiff2}
+    ${dot(100, 92, "A", -16, -4)}
+    ${dot(170, 108, "X", 8, -4)}
+  `, "arr-vm-d");
+  const e = variant("e", "e)", `
+    ${indiff}
+    ${indiff2}
+    ${dot(160, 95, "A", 8, -4)}
+    ${dot(95, 130, "X", -16, -4)}
+  `, "arr-vm-e");
+
+  return `
+    <div class="question-visual" aria-label="Fünf Value-Map-Diagramme mit Produkt A und Produkt X">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;width:100%;">
+        ${a}${b}${c}${d}${e}
+      </div>
     </div>
   `;
 }
