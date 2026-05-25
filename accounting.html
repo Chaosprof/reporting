@@ -380,6 +380,7 @@
     letter-spacing: -0.01em;
     margin-bottom: 24px;
     color: var(--ink-strong);
+    white-space: pre-line;
   }
 
   .question-visual {
@@ -419,6 +420,25 @@
     font-weight: 800;
     margin-bottom: 4px;
     color: var(--ink-strong);
+  }
+  .branchen-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 16px;
+    min-width: 680px;
+  }
+  .branchen-panel {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--panel);
+    padding: 10px;
+  }
+  .branchen-panel svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 300px;
+    font-family: var(--font-sans);
   }
   .value-table {
     width: 100%;
@@ -3182,7 +3202,7 @@ const QUESTIONS = [
   },
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
-    prompt: "Gegeben sind zwei unterschiedliche Branchen sowie die Produktionsmengen und die Durchschnittskosten der etablierten Firmen (vgl. Grafiken). Eine 5-Kräfte-Analyse gemäss Porter hat gezeigt, dass die «interne Rivalität» in der Branche 1 höher ist als in der Branche 2. Womit kann die höhere «interne Rivalität» in der Branche 1 am ehesten begründet werden?",
+    prompt: "Gegeben sind zwei unterschiedliche Branchen sowie die Produktionsmengen und die Durchschnittskosten der etablierten Firmen (vgl. Grafiken).\nEine 5-Kräfte-Analyse gemäss Porter hat gezeigt, dass die «interne Rivalität» in der Branche 1 höher ist als in der Branche 2.\nWomit kann die höhere «interne Rivalität» in der Branche 1 am ehesten begründet werden?",
     visual: "fs25-sm-q6-branchen",
     options: [
       "Firma A besitzt höhere Anreize für Preisangriffe als Firma X.",
@@ -6156,66 +6176,64 @@ function renderBetflixOrganigram() {
 function renderFs25BranchenVisual() {
   const sub = (s) => `<tspan baseline-shift="sub" font-size="10">${s}</tspan>`;
 
-  // Branche 1: two downward-sloping DK(Q) curves; Firma A above, Firma B below; A produces less than B
-  const branche1 = `
-    <g transform="translate(0,0)">
-      <text x="195" y="22" text-anchor="middle" font-size="18" font-weight="700">Branche 1</text>
-      <line x1="60" y1="200" x2="345" y2="200" stroke="#111" stroke-width="1.6" marker-end="url(#arr-q6)"/>
-      <line x1="60" y1="200" x2="60"  y2="40"  stroke="#111" stroke-width="1.6" marker-end="url(#arr-q6)"/>
-      <text x="56" y="46" text-anchor="end" font-size="13" font-weight="700">DK</text>
-      <text x="340" y="220" text-anchor="middle" font-size="12" font-weight="700">Q${sub("Produkt")}</text>
-
-      <path d="M75 70 C120 82 170 92 220 100 C260 105 295 109 320 112" fill="none" stroke="#111" stroke-width="1.8"/>
-      <text x="225" y="92" font-size="11" font-weight="700">DK(Q) Firma A</text>
-
-      <path d="M75 130 C120 142 170 152 220 160 C260 165 295 169 320 172" fill="none" stroke="#111" stroke-width="1.8"/>
-      <text x="225" y="184" font-size="11" font-weight="700">DK(Q) Firma B</text>
-
-      <line x1="60"  y1="86" x2="140" y2="86" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="4 4"/>
-      <line x1="140" y1="86" x2="140" y2="200" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="4 4"/>
-      <circle cx="140" cy="86" r="3" fill="#111"/>
-      <text x="56" y="90" text-anchor="end" font-size="12" font-weight="700">DK${sub("A")}</text>
-      <text x="140" y="220" text-anchor="middle" font-size="12" font-weight="700">Q${sub("A")}</text>
-
-      <line x1="60"  y1="161" x2="235" y2="161" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="4 4"/>
-      <line x1="235" y1="161" x2="235" y2="200" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="4 4"/>
-      <circle cx="235" cy="161" r="3" fill="#111"/>
-      <text x="56" y="165" text-anchor="end" font-size="12" font-weight="700">DK${sub("B")}</text>
-      <text x="235" y="220" text-anchor="middle" font-size="12" font-weight="700">Q${sub("B")}</text>
-    </g>
+  const axes = (markerId) => `
+    <line x1="70" y1="238" x2="372" y2="238" stroke="#111" stroke-width="1.7" marker-end="url(#${markerId})"/>
+    <line x1="70" y1="238" x2="70"  y2="42"  stroke="#111" stroke-width="1.7" marker-end="url(#${markerId})"/>
+    <text x="62" y="45" text-anchor="end" font-size="15" font-weight="700">DK</text>
+    <text x="365" y="260" text-anchor="middle" font-size="13" font-weight="700">Q${sub("Produkt")}</text>
   `;
 
-  // Branche 2: single shared DK curve for both firms; one tick (DK_X = DK_Y)
+  const branche1 = `
+    <svg viewBox="0 0 420 286" role="img" aria-label="Branche 1: Firma A und Firma B">
+      <defs>
+        <marker id="arr-q6-1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#111"/>
+        </marker>
+      </defs>
+      <text x="210" y="24" text-anchor="middle" font-size="18" font-weight="700">Branche 1</text>
+      ${axes("arr-q6-1")}
+      <path d="M88 72 C132 83 183 94 232 102 C280 110 322 116 352 120" fill="none" stroke="#111" stroke-width="2"/>
+      <path d="M88 138 C132 149 183 161 232 170 C280 178 322 184 352 188" fill="none" stroke="#111" stroke-width="2"/>
+      <text x="245" y="93" font-size="12" font-weight="700">DK(Q) Firma A</text>
+      <text x="245" y="207" font-size="12" font-weight="700">DK(Q) Firma B</text>
+      <line x1="70" y1="91" x2="148" y2="91" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="5 5"/>
+      <line x1="148" y1="91" x2="148" y2="238" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="5 5"/>
+      <circle cx="148" cy="91" r="3.5" fill="#111"/>
+      <text x="62" y="95" text-anchor="end" font-size="12" font-weight="700">DK${sub("A")}</text>
+      <text x="148" y="260" text-anchor="middle" font-size="12" font-weight="700">Q${sub("A")}</text>
+      <line x1="70" y1="174" x2="248" y2="174" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="5 5"/>
+      <line x1="248" y1="174" x2="248" y2="238" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="5 5"/>
+      <circle cx="248" cy="174" r="3.5" fill="#111"/>
+      <text x="62" y="178" text-anchor="end" font-size="12" font-weight="700">DK${sub("B")}</text>
+      <text x="248" y="260" text-anchor="middle" font-size="12" font-weight="700">Q${sub("B")}</text>
+    </svg>
+  `;
+
   const branche2 = `
-    <g transform="translate(380,0)">
-      <text x="195" y="22" text-anchor="middle" font-size="18" font-weight="700">Branche 2</text>
-      <line x1="60" y1="200" x2="345" y2="200" stroke="#111" stroke-width="1.6" marker-end="url(#arr-q6)"/>
-      <line x1="60" y1="200" x2="60"  y2="40"  stroke="#111" stroke-width="1.6" marker-end="url(#arr-q6)"/>
-      <text x="56" y="46" text-anchor="end" font-size="13" font-weight="700">DK</text>
-      <text x="340" y="220" text-anchor="middle" font-size="12" font-weight="700">Q${sub("Produkt")}</text>
-
-      <path d="M75 95 C120 110 170 122 220 130 C260 136 295 140 320 143" fill="none" stroke="#111" stroke-width="1.8"/>
-      <text x="225" y="138" font-size="11" font-weight="700">DK(Q) Firma X = DK(Q) Firma Y</text>
-
-      <line x1="60"  y1="131" x2="225" y2="131" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="4 4"/>
-      <line x1="225" y1="131" x2="225" y2="200" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="4 4"/>
-      <circle cx="225" cy="131" r="3" fill="#111"/>
-      <text x="56" y="135" text-anchor="end" font-size="12" font-weight="700">DK${sub("X")} = DK${sub("Y")}</text>
-      <text x="225" y="220" text-anchor="middle" font-size="12" font-weight="700">Q${sub("X")} = Q${sub("Y")}</text>
-    </g>
+    <svg viewBox="0 0 420 286" role="img" aria-label="Branche 2: Firma X und Firma Y">
+      <defs>
+        <marker id="arr-q6-2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#111"/>
+        </marker>
+      </defs>
+      <text x="210" y="24" text-anchor="middle" font-size="18" font-weight="700">Branche 2</text>
+      ${axes("arr-q6-2")}
+      <path d="M88 94 C132 108 183 121 232 132 C280 142 322 150 352 155" fill="none" stroke="#111" stroke-width="2"/>
+      <text x="204" y="125" font-size="12" font-weight="700">DK(Q) Firma X = DK(Q) Firma Y</text>
+      <line x1="70" y1="133" x2="232" y2="133" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="5 5"/>
+      <line x1="232" y1="133" x2="232" y2="238" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="5 5"/>
+      <circle cx="232" cy="133" r="3.5" fill="#111"/>
+      <text x="62" y="137" text-anchor="end" font-size="12" font-weight="700">DK${sub("X")} = DK${sub("Y")}</text>
+      <text x="232" y="260" text-anchor="middle" font-size="12" font-weight="700">Q${sub("X")} = Q${sub("Y")}</text>
+    </svg>
   `;
 
   return `
     <div class="question-visual" aria-label="Zwei Branchen mit Durchschnittskosten und Produktionsmengen">
-      <svg viewBox="0 0 760 240" role="img" style="max-width: 100%; height: auto;">
-        <defs>
-          <marker id="arr-q6" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#111"/>
-          </marker>
-        </defs>
-        ${branche1}
-        ${branche2}
-      </svg>
+      <div class="branchen-visual-grid">
+        <div class="branchen-panel">${branche1}</div>
+        <div class="branchen-panel">${branche2}</div>
+      </div>
     </div>
   `;
 }
