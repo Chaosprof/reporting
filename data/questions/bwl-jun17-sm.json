@@ -1,0 +1,364 @@
+[
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zu Porters sogenannten «generischen Wettbewerbsstrategien» ist am ehesten richtig? Porters generische Wettbewerbsstrategien beschreiben für eine Firma grundsätzliche Möglichkeiten, um...",
+    "options": [
+      "...Resources und Capabilities nachhaltig in überlegener Weise zu nutzen.",
+      "...eine attraktive Position in einer Branche einzunehmen.",
+      "...Wettbewerbsvorteile nachhaltig zu verteidigen.",
+      "...das Modell der fünf Wettbewerbskräfte anzuwenden.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 1
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "In Porters 5-Kräfte-Analyse spielt die «interne Rivalität» eine wichtige Rolle. Wodurch wird der Preiswettbewerb in einer Branche ceteris paribus am ehesten geschwächt?",
+    "options": [
+      "Durch hohe Überkapazitäten in der Branche, weil Marktanteilsgewinne und nicht Preisangriffe im Fokus der Anbieter stehen.",
+      "Durch privat verhandelbare Preise, weil die Konkurrenten Preissenkungen nur schwer beobachten können.",
+      "Durch Stagnation in der Branche, weil es keinen Akquisitionswettbewerb um Neukunden gibt.",
+      "Durch undifferenzierte Produkte, weil Kunden nicht bereit sind, unterschiedliche Preise zu bezahlen.",
+      "Durch viele Kleinaufträge, weil Preissenkungen von der Konkurrenz mit wenig Zeitverzögerung gekontert werden könnten."
+    ],
+    "correct": 4
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "Gegeben sind drei benachbarte Branchen in einer vertikalen Produktionskette: Milchbauern, Käsehersteller und Detailhändler. Diese Branchen stehen in folgender Zulieferer-Abnehmer-Beziehung zueinander: Milchbauern → Käsehersteller → Detailhändler. Welche Aussage zu den Machtverhältnissen zwischen den Branchen ist ceteris paribus am ehesten richtig?",
+    "options": [
+      "Die Macht der Käsehersteller steigt mit einer Zunahme der Konzentration bei den Milchbauern.",
+      "Die Käsehersteller sind umso mächtiger, je grösser die Einkaufsvolumina der Detailhändler sind.",
+      "Die Detailhändler sind umso mächtiger, je glaubhafter die Käsehersteller mit einer Rückwärtsintegration drohen können.",
+      "Je höher die zuliefererspezifischen Investitionen der Detailhändler sind, desto mächtiger wird ihre Position in der Beziehung mit den Käseherstellern.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 4
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zu Porters 5-Kräfte-Analyse ist am ehesten richtig?",
+    "options": [
+      "In Branchen mit vielen kleinen Firmen ist der Preiswettbewerb ceteris paribus weniger scharf als in Branchen mit wenigen grossen Firmen.",
+      "Bei der Analyse der fünf Wettbewerbskräfte geht es um die Aufdeckung von Positionierungseffekten innerhalb einer Branche.",
+      "Bei der Analyse der fünf Wettbewerbskräfte geht es stets um die Bedrohung der Profite derjenigen Firmen, welche sich in der zu untersuchenden Branche befinden.",
+      "Neueintreter erhöhen die Konzentration in einer Branche und verschärfen dadurch den Preiswettbewerb zwischen den Firmen in einer Branche.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH"
+    ],
+    "prompt": "In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "visual": "jun17-sm-q5-producer-rent",
+    "options": [
+      "a) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=10, P2=4, K2=2.",
+      "b) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=8, P2=5, K2=2.",
+      "c) Firma 1: B1=8, P1=6, K1=2; Firma 2: B2=10, P2=9, K2=5.",
+      "d) Firma 1: B1=P1=6, K1=2; Firma 2: B2=10, P2=6, K2=4.",
+      "e) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=10, P2=6, K2=4."
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zum Konzept der Economies of Scale ist am ehesten richtig?",
+    "options": [
+      "Je unterschiedlicher die Firmen in einer Branche von Economies of Scale profitieren, desto intensiver ist ceteris paribus der Preiswettbewerb.",
+      "Firmen, die von Economies of Scale profitieren, produzieren auf der Effizienzgrenze.",
+      "Kosteneinsparungen durch den Wechsel auf eine Technologie mit höheren Fixkosten und geringeren variablen Kosten lohnen sich für Neueintreter mehr als für etablierte Firmen.",
+      "Eine Ursache von Diseconomies of Scale sind variable Inputs in der Produktion, die bei einer Ausdehnung der Produktionsmenge progressiv auf den Output wirken.",
+      "Eine Firma kann nicht gleichzeitig von Economies of Scale und Economies of Scope profitieren."
+    ],
+    "correct": 0
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zu Resources und Capabilities ist am ehesten falsch?",
+    "options": [
+      "Fehlende Märkte und beziehungsspezifische Vermögensgegenstände sind Gründe für imperfekte Mobilität von Resources und Capabilities.",
+      "Knappheit und imperfekte Mobilität von Resources und Capabilities sind eine notwendige Bedingung für nachhaltige Wettbewerbsvorteile.",
+      "Die Reputation einer Firma ist keine Ressource, weil Reputation keiner Knappheit unterliegt und andere Firmen die Möglichkeit haben, eigene Reputation aufzubauen.",
+      "Capabilities bleiben einer Firma typischerweise auch dann erhalten, wenn einzelne Mitarbeiter die Firma verlassen, weil Capabilities in die organisationalen Routinen einer Firma eingebettet sind.",
+      "Je mobiler Ressourcen sind, desto geringer sind die Möglichkeiten für eine Firma mit diesen Ressourcen nachhaltige Wettbewerbsvorteile aufzubauen."
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH"
+    ],
+    "prompt": "In einer Branche existieren zwei Firmen X und Y. Die Preise (P), die Durchschnittskosten (DK) sowie die Qualität ihrer Produkte sind gegeben. Welche Aussage zur dargestellten Situation ist am ehesten richtig?",
+    "visual": "jun17-sm-q8-indifference",
+    "options": [
+      "Die Angebote der Firma X und der Firma Y erreichen die gleiche maximale Zahlungsbereitschaft.",
+      "Die Preisdifferenz zwischen den beiden Produkten ist kleiner als die Wertschätzungsdifferenz.",
+      "Firma Y erzielt eine höhere Wertschöpfung als Firma X.",
+      "Firma Y bietet eine höhere Konsumentenrente als Firma X an.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage bezüglich Targeting und Marktsegmentierung ist am ehesten richtig?",
+    "options": [
+      "Eine Firma mit einer Fokusstrategie ist entweder Kostenführer oder Wertschätzungsführer, aber nicht beides gleichzeitig.",
+      "Je unterschiedlicher die Kunden innerhalb eines Segmentes auf eine Preisänderung reagieren, desto wertvoller ist die Segmentierung für eine Firma.",
+      "Der Fokus auf ein spezifisches Marktsegment, wie zum Beispiel eine «Altersklasse», kann trotz begrenzter Economies of Scale und Scope eine gute Kostenkontrolle erlauben.",
+      "Zur Bestimmung der Attraktivität einzelner Marktsegmente kann nicht auf das Framework der fünf Wettbewerbskräfte zurückgegriffen werden, weil das Framework immer die gesamte Branche abdeckt.",
+      "Bei der Eingrenzung des Marktauftritts ist die Kundenspezialisierung eine Art Spezialfall der geografischen Spezialisierung."
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "Fly ist eine etablierte Firma in der «Airline Industry». Welche Aussage zu dieser Branche ist gemäss der 5-Kräfte-Analyse von Porter am ehesten falsch?",
+    "options": [
+      "Obwohl die Branche durch hohe Kapitalinvestitionen charakterisiert ist, ist Fly durch Neueintritte gefährdet, da Leasing-Gesellschaften die Markteintrittsbarrieren senken.",
+      "Vergleichsportale erlauben es Fluggesellschaften zwar, ihre Flüge zu tiefen Kosten einer grossen Menge Kunden anzubieten, jedoch verbessern sie die Preis-Transparenz zwischen Fluggesellschaften, wodurch die Marktmacht der Abnehmer steigt.",
+      "Die Branche ist durch relativ tiefe Wechselkosten für Kunden gekennzeichnet, was den Markteintritt für neue Firmen erschwert.",
+      "Die Marktmacht der Flugzeughersteller ist wegen ihrer hohen relativen Konzentration hoch, wodurch die Verhandlungsmacht bei Fly tiefer ist.",
+      "Airline-Allianzen erlauben es Fly mit anderen Fluggesellschaften zu kooperieren und von einer finanziellen Unterstützung in schwierigen Zeiten zu profitieren, was die Marktaustrittswahrscheinlichkeit der Firma Fly verkleinert."
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH"
+    ],
+    "prompt": "In der Branche X produzieren alle Unternehmen mit folgender Totalkostenfunktion: TK(Q) = 100 + 5*Q. Welche Schlussfolgerung zur Kostenstruktur ist zulässig? In der Branche X...",
+    "options": [
+      "...sind Erfahrungskurveneffekte wichtiger als Economies of Scale.",
+      "...wirken die Fixkosten stärker auf die Totalkosten als die variablen Kosten.",
+      "...kann ein Unternehmen nie Diseconomies of Scale erzielen.",
+      "...können mit Produktivitätssteigerungen auf den variablen Inputs Economies of Scale erzielt werden.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zu den Pricing-Strategien «Go for share» und «Go for margin» ist am ehesten richtig?",
+    "options": [
+      "Bei einem Kostenvorteil und hoher Preiselastizität der Nachfrage sollte Preisparität gehalten werden, um Marktanteilsgewinne zu realisieren.",
+      "Bei einem Kostenvorteil und niedriger Preiselastizität der Nachfrage sollte Preisparität gehalten werden, um Marktanteilsgewinne zu realisieren.",
+      "Eine «Go for share» Strategie ist einer «Go for margin» Strategie dann vorzuziehen, wenn der Marktanteilsgewinn von einem Margenverzicht überkompensiert wird.",
+      "Im Gegensatz zu einem Wertschätzungsvorteil ist bei einem Kostenvorteil eine «Go for share» Strategie einer «Go for margin» Strategie zu bevorzugen.",
+      "Bei einem Wertschätzungsvorteil und niedriger Preiselastizität der Nachfrage sollte ein Premiumpreis verlangt werden, um eine höhere Marge abzuschöpfen als die Konkurrenz."
+    ],
+    "correct": 4
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "Die Firma SixPack ist in der Branche für Getränkeverpackungen tätig und hat sich in dieser Branche einen Wettbewerbsvorteil gegenüber der Konkurrenz erarbeitet. Mit dem Wettbewerbsvorteil erzielt SixPack eine «nichtangreifbare Produzentenrente». SixPack hat den Wettbewerbsvorteil über die «Stossrichtung» der Kostenführerschaft erreicht. Welche der folgenden Schlussfolgerungen ist aufgrund dieser Informationen zulässig?",
+    "options": [
+      "SixPack muss die grösste Wertschöpfung der gesamten Branche haben.",
+      "SixPack muss die grösste Wertschätzung der gesamten Branche haben.",
+      "SixPack muss die tiefsten Totalkosten der gesamten Branche haben.",
+      "SixPack muss die tiefsten Durchschnittskosten der gesamten Branche haben.",
+      "SixPack muss die tiefste Wertschätzung der gesamten Branche haben."
+    ],
+    "correct": 3
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH"
+    ],
+    "prompt": "Gegeben sind die Erfahrungskurve für eine Branche sowie die kumulierten Produktionsmengen für die Firmen X und Y zu einem bestimmten Zeitpunkt. Welche der folgenden Schlussfolgerungen ist zulässig?",
+    "visual": "jun17-sm-q14-experience",
+    "options": [
+      "Firma Y produziert näher an der kostenoptimalen Betriebsgrösse s*.",
+      "Firma Y produziert Güter mit einer höheren Qualität als Firma X.",
+      "Firma Y besitzt einen Erfahrungsvorsprung gegenüber Firma X.",
+      "Firma Y realisiert Economies of Scale.",
+      "Keine der oben genannten Schlussfolgerungen ist zulässig."
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zur Positionierung für Wettbewerbsvorteile gemäss Porter ist am ehesten richtig?",
+    "options": [
+      "Die Strategie der Kostenführerschaft schützt ceteris paribus besser vor dem Preiswettbewerb in einer Branche als die Strategie der Wertschätzungsführerschaft.",
+      "Eine etablierte Firma in einer Branche mit tiefer Konzentration soll sich für einen Mittelweg zwischen Kostenführerschaft und Wertschätzungsführerschaft entscheiden.",
+      "Das Ziel einer guten Positionierung besteht darin, im Wettbewerb eine möglichst hohe Produzentenrente abzuschirmen, indem mehr Wert geschöpft wird als in den Konkurrenzfirmen.",
+      "Bei einer Wertschöpfungsanalyse sind für einen Wertschätzungsführer nur die Wertschätzungstreiber relevant.",
+      "Das Ziel einer Fokusstrategie besteht darin, die Wertschöpfungsbemühungen auf möglichst viele Marktsegmente auszurichten, indem Märkte nach Kunden und Produkten segmentiert werden."
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "In Porters 5-Kräfte-Analyse spielt die «Gefahr durch Neueintritte» eine wichtige Rolle. Welche Aussage ist gemäss Porter am ehesten falsch? Die «Gefahr durch Neueintritte» ist ceteris paribus tiefer, wenn...",
+    "options": [
+      "...reputationsempfindliche Konsumenten den Markt prägen, weil Neueintreter bei Qualitätsunsicherheit Preisabschläge in Kauf nehmen müssen.",
+      "...die Etablierten «vertical foreclosure» nutzen, weil Neueintreter ihre Produkte dadurch mit einem Patent schützen müssen.",
+      "...die Etablierten branchenspezifische Investitionen getätigt haben, weil Neueintreter dadurch aggressivere Reaktionen der Etablierten erwarten müssen.",
+      "...die installierte Basis der Etablierten hoch ist, weil Neueintreter keinen vergleichbaren Zusatznutzen aus positiven Nachfrageexternalitäten anbieten können.",
+      "...Gesamtarbeitsverträge in einer Branche vorliegen, weil Neueintreter die Personalkostenstruktur der Etablierten übernehmen müssen."
+    ],
+    "correct": 1
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH"
+    ],
+    "prompt": "Die Firma ADIWAS produziert 100'000 Fussbälle pro Jahr. Von den hergestellten Fussbällen werden 40'000 an den Grosshandel und 60'000 in eigenen Shops verkauft. Die Firma ADIWAS schöpft beim Verkauf die maximale Zahlungsbereitschaft der Abnehmer ab. Folgende Angaben zu den beiden Stufen in der Wertschöpfungskette von ADIWAS sind bekannt: Wie hoch ist die Wertschöpfung von ADIWAS in der Stufe 2?",
+    "visual": "jun17-sm-q17-adiwas-table",
+    "options": [
+      "1'200'000",
+      "1'800'000",
+      "2'000'000",
+      "3'600'000",
+      "5'600'000"
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage bezüglich Isolationsmechanismen ist am ehesten richtig?",
+    "options": [
+      "Isolationsmechanismen sind für eine Firma das Äquivalent zu den Marktaustrittsbarrieren für eine Branche.",
+      "Reputation als Isolationsmechanismus ist bei Inspektionsgütern von grösserer Bedeutung als bei Erfahrungsgütern.",
+      "«Vertical foreclosure» wirkt als Isolationsmechanismus, weil eine breit installierte Basis positive Netzwerkexternalitäten generiert.",
+      "Isolationsmechanismen schützen eigene Wettbewerbsvorteile vor neutralisierenden Ressourcenbildungsaktivitäten anderer Firmen.",
+      "Knappheit und imperfekte Mobilität von Resources und Capabilities sind eine hinreichende Bedingung für nachhaltige Wettbewerbsvorteile und wirken als Isolationsmechanismus."
+    ],
+    "correct": 3
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "prompt": "Die Firma Top-Q hält die Wertschätzungsführerschaft in der Computer-Branche. Zudem ist Top-Q in der Smartphone-Branche tätig. Welche Aussage ist gemäss Porters Logik der generischen Wettbewerbsstrategien am ehesten falsch?",
+    "options": [
+      "In der Computer-Branche ist Top-Q vor marktmächtigen Abnehmern geschützt, da die Alleinstellungsmerkmale ihrer Computer dazu führen, dass aus Sicht der Abnehmer Alternativen fehlen.",
+      "Die Kundenbindung aufgrund der Alleinstellungsmerkmale der Wertschätzungsführerschaft in der Computer-Branche kann Top-Q auch in der Smartphone-Branche Wettbewerbsvorteile bringen.",
+      "Top-Q ist vor marktmächtigen Zulieferern geschützt, da Zulieferer für ein «einzigartiges Produkt» keinen Preissenkungsspielraum haben.",
+      "Top-Q ist vom Preiswettbewerb in der Computer-Branche weniger bedroht, weil die Wertschätzungsführerschaft eine «nichtangreifbare Produzentenrente» generiert.",
+      "Die Wertschätzungsführerschaft schützt Top-Q vor Substituten, weil die damit einhergehende Kundenloyalität die Bedrohung durch Ersatzprodukte senkt."
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-SM",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH"
+    ],
+    "prompt": "In der Mützen-Branche produziert die etablierte Firma OldCap mit der Totalkostenfunktion TKo = 500 + 3Qo und die neueingetretene Firma NewHat mit der Totalkostenfunktion TKn = 400 + 20Qn. Im betrachteten Jahr produziert OldCap Qo = 50. NewHat produziert die «minimale Einstiegsmenge», um sich bei gegebenem Verkaufspreis von P = 40 gerade so am Markt behaupten zu können. Wie gross ist der Kostennachteil (pro Mütze) des Neueinsteigers NewHat gegenüber dem etablierten Konkurrenten OldCap?",
+    "options": [
+      "13",
+      "17",
+      "27",
+      "40",
+      "150"
+    ],
+    "correct": 2
+  }
+]

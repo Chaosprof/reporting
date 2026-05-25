@@ -1,0 +1,918 @@
+[
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zu Markteintrittsbarrieren und Marktaustrittsbarrieren ist am ehesten richtig?",
+    "options": [
+      "Preissenkungen als Massnahme zur Verteidigung der eigenen Positionen in einer Branche werden bei hohen Marktaustrittsbarrieren seltener angewendet.",
+      "Positive Netzwerkexternalitäten machen einen Markteintritt für neue Firmen mit Konkurrenztechnologien attraktiver, weil Neueintreter die installierte Basis der Etablierten nutzen können.",
+      "Die Einführung eines Mindestlohns in einer Branche wirkt als Markteintrittsbarriere und stärkt die Position der Firmen, welche sich bereits im Markt befinden.",
+      "Eine erhöhte Reputationsempfindlichkeit der Konsumenten erleichtert neuen Firmen den Markteinstieg, weil diese dadurch schneller eigene Reputation aufbauen können.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 2,
+    "explanation": "Ein Mindestlohn erhöht die Personalkosten für alle, trifft aber Neueintreter stärker (keine etablierten Effizienzvorteile) und schützt damit die Position der bereits im Markt befindlichen Firmen."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Gegeben sei eine Branche mit nicht differenzierbaren Produkten. Welche Aussage zur Positionierung für Wettbewerbsvorteile gemäss Porter ist am ehesten richtig? Der Kostenführer ist ceteris paribus…",
+    "options": [
+      "…vor interner Rivalität geschützt, da er durch den Wertschöpfungsvorteil einen höheren Preis als die Konkurrenz verlangen kann.",
+      "…vor Substituten geschützt, da tiefe Kosten auch tiefe Preise zulassen und dadurch die Anreize, ein Substitut zu entwickeln, sinken.",
+      "…vor Neueintritten geschützt, da er durch den Kostenvorteil «vertical foreclosure» betreiben kann.",
+      "…vor marktmächtigen Zulieferern geschützt, da die Zulieferer ihre Preise nicht senken können.",
+      "…vor marktmächtigen Abnehmern geschützt, da die Abnehmer ihre Kosten nur auf das Niveau des zweiteffizientesten Konkurrenten drücken können."
+    ],
+    "correct": 1,
+    "explanation": "Tiefe Kosten erlauben tiefe Preise. Da Substitute v. a. dann attraktiv werden, wenn Preise hoch sind, sinken die Anreize, ein Substitut zu entwickeln, beim Kostenführer."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Die Käserei Emmenzeller bezieht Milch von einem Milchlieferanten und produziert damit Käse. Bisher hat Emmenzeller den Käse ausschliesslich an einen Grosshändler weiterverkauft. Nun eröffnet Emmenzeller einen eigenen Laden und verkauft einen Teil seiner Ware direkt an den Endkunden. Welche der folgenden Aussagen ist ceteris paribus am ehesten richtig?",
+    "options": [
+      "Die vertikale Wertschöpfungskette wird verkürzt.",
+      "Der Milchlieferant gewinnt an Verhandlungsmacht.",
+      "Auf Stufe des Grosshändlers nimmt die relative Konzentration zu.",
+      "Die Käserei Emmenzeller vollzieht eine Vorwärtsintegration.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 3,
+    "explanation": "Emmenzeller übernimmt eine nachgelagerte Stufe (Detailhandel/Endkundenverkauf) – per Definition eine Vorwärtsintegration in die Wertschöpfungskette."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Eine Firma kann zwei unterschiedliche Güter, X und Y, produzieren. Die Produktionstechnologie führt zu folgenden Totalkosten TK(Qx, Qy) für Qx Einheiten von X und Qy Einheiten von Y:\nBasierend auf diesen Angaben beinhaltet die Produktionstechnologie…",
+    "visual": "tk-verbundeffekte-table",
+    "options": [
+      "…von X Economies of Scale und von Y Economies of Scale.",
+      "…von X Economies of Scale und von Y Diseconomies of Scale.",
+      "…von X Diseconomies of Scale und von Y Economies of Scale.",
+      "…von X Diseconomies of Scale und Economies of Scope bei der Produktion beider Güter.",
+      "…von X Diseconomies of Scale und Diseconomies of Scope bei der Produktion beider Güter."
+    ],
+    "correct": 3,
+    "explanation": "DK(X) steigt: 150/5=30 → 320/10=32 (Diseconomies of Scale bei X). DK(Y) steigt: 100/50=2 → 210/100=2.1 (Diseconomies of Scale bei Y). TK(5,50)=240 < TK(5,0)+TK(0,50)=250 → Economies of Scope. Auch TK(10,100)=500 < TK(10,0)+TK(0,100)=530. Gemeinsame Produktion ist günstiger als getrennte."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zum Modell der fünf Wettbewerbskräfte von Porter ist am ehesten falsch?",
+    "options": [
+      "Der Ausschluss der Neueintreter von etablierten Vertriebskanälen wirkt als Markteintrittsbarriere.",
+      "Die Macht der Kunden ist hoch, wenn die Produkte unterschiedlicher Anbieter als undifferenziert wahrgenommen werden.",
+      "Die Macht der Zulieferer ist hoch, wenn sie abnehmerspezifisch investiert haben.",
+      "Überkapazitäten erhöhen die interne Rivalität.",
+      "Substitute vermindern die Konzentration im Markt und verschärfen den Preiswettbewerb."
+    ],
+    "correct": 2,
+    "explanation": "Genau umgekehrt: Wenn der Zulieferer abnehmerspezifisch investiert hat (sunk costs), wird er erpressbar (Hold-up-Problem) – seine Macht sinkt, nicht steigt."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-DIAGRAMS"
+    ],
+    "prompt": "Gegeben sind zwei unterschiedliche Branchen sowie die Produktionsmengen und die Durchschnittskosten der etablierten Firmen (vgl. Grafiken).\nEine 5-Kräfte-Analyse gemäss Porter hat gezeigt, dass die «interne Rivalität» in der Branche 1 höher ist als in der Branche 2.\nWomit kann die höhere «interne Rivalität» in der Branche 1 am ehesten begründet werden?",
+    "visual": "fs25-sm-q6-branchen",
+    "options": [
+      "Firma A besitzt höhere Anreize für Preisangriffe als Firma X.",
+      "Firma A hat einen Kostennachteil gegenüber Firma B.",
+      "Firma B produziert eine kleinere Menge als Firma A.",
+      "Firma B realisiert weniger Economies of Scale als Firma X.",
+      "Firma B nutzt weniger Erfahrungskurveneffekte als Firma X."
+    ],
+    "correct": 1,
+    "explanation": "In Branche 1 hat Firma B tiefere DK als A. Dieser Kostenunterschied gibt B Anreize zu Preisangriffen – die interne Rivalität steigt. In Branche 2 sind die DK identisch, also kein Anreiz zum Preiskampf."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zu Überkapazitäten in einer Branche ist am ehesten richtig? Überkapazitäten der etablierten Firmen…",
+    "options": [
+      "…erhöhen ceteris paribus ihre Anreize, kurzfristig eine «Go for share» Strategie zu wählen.",
+      "…reduzieren ceteris paribus ihre Fixkosten.",
+      "…signalisieren eine kooperative Preissetzung und erschweren damit Markteintritte.",
+      "…führen in einer stagnierenden Branche ceteris paribus zu weniger Preiswettbewerb.",
+      "…führen ceteris paribus zu tieferen Marktaustrittsbarrieren und tieferem Preiswettbewerb."
+    ],
+    "correct": 0,
+    "explanation": "Bei Überkapazitäten sind v. a. variable Kosten relevant; die Firmen versuchen aggressiv, ihre Kapazitäten auszulasten – sie wählen kurzfristig eine «Go for share» Strategie."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Die Thek AG vertreibt Rucksäcke und überlegt, die Preise zu senken. Welche Situation spricht am ehesten für eine Preissenkung?",
+    "options": [
+      "Allfällige Preissenkungen von der Thek AG werden vom Konkurrenzunternehmen Pack AG unmittelbar wahrgenommen.",
+      "Das einzige Konkurrenzunternehmen in der Branche ist die Pack AG.",
+      "Das Konkurrenzunternehmen Pack AG ist auch in der Kleiderproduktion tätig und realisiert dadurch hohe Economies of Scope.",
+      "Die Thek AG besitzt aufgrund der längeren Zeit in der Branche einen deutlichen Erfahrungsvorsprung gegenüber der Konkurrenz.",
+      "Die Kapazitäten der Thek AG sind weitgehend ausgelastet."
+    ],
+    "correct": 3,
+    "explanation": "Ein Kostenvorteil durch Erfahrung bedeutet, dass die Konkurrenz Preissenkungen weniger lang durchhält. Die Preissenkung wird glaubwürdig und der Marktanteilsgewinn nachhaltig."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Firmen A und B haben gleiche Kosten und verlangen denselben Preis, aber Konsumenten haben für A mehr Wertschätzung. Welche Aussage ist am ehesten richtig?",
+    "options": [
+      "Die Konsumentenrente von Firma B ist grösser als die Konsumentenrente von Firma A.",
+      "Die Differenz in der Wertschätzung entspricht der nichtangreifbaren Produzentenrente von Firma A.",
+      "Die Wertschöpfung von Firma B ist grösser als die Wertschöpfung von Firma A.",
+      "Die Differenz im Preis entspricht der nichtangreifbaren Produzentenrente von Firma A.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 1,
+    "explanation": "Bei gleichen Kosten und Preis bleibt der WTP-Vorsprung von A auch im Preiskampf bestehen – diese Wertschätzungsdifferenz ist die «nicht-angreifbare» Produzentenrente von A."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zu nachhaltigen Wettbewerbsvorteilen gemäss «Resource-Based Theory of the Firm» ist am ehesten richtig? Nachhaltige Wettbewerbsvorteile begründen sich durch Resources und Capabilities, welche…",
+    "options": [
+      "…sowohl knapp als auch substituierbar sind.",
+      "…sowohl beziehungsspezifisch als auch imitierbar sind.",
+      "…sowohl knapp als auch perfekt handelbar sind.",
+      "…sowohl tazit als auch perfekt mobil sind.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 4,
+    "explanation": "Nachhaltige Vorteile erfordern Ressourcen, die knapp, nicht-imitierbar, nicht-substituierbar und nicht-handelbar/mobil sind (VRIN). Alle anderen Optionen enthalten widersprüchliche Eigenschaften."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Die Firma FFP produziert Krawatten mit TK(Q) = 99Q + 250. Verkaufspreis P = 110. Wie viele Krawatten muss FFP mindestens herstellen, um keinen Verlust zu erwirtschaften?",
+    "options": [
+      "19",
+      "20",
+      "21",
+      "22",
+      "23"
+    ],
+    "correct": 4,
+    "explanation": "Gewinn = (110 − 99)·Q − 250 ≥ 0 → 11Q ≥ 250 → Q ≥ 22,73. Da nur ganze Krawatten produziert werden, mindestens 23."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "In Porters 5-Kräfte-Analyse spielt die «Macht der Zulieferer» eine wichtige Rolle. Welche Aussage ist gemäss Porter am ehesten falsch?",
+    "options": [
+      "Je grösser die Einkaufsvolumina der Downstream-Unternehmen, desto höher ist, ceteris paribus, ihre Verhandlungsmacht gegenüber den Zulieferern.",
+      "Je mehr substitutive Inputs den Downstream-Unternehmen zur Verfügung stehen, desto tiefer ist, ceteris paribus, die Marktmacht der Zulieferer.",
+      "Die Hold-up Problematik definiert sich über die ein- oder zweiseitige Erpressbarkeit der Vertragspartner nach Vertragsabschluss.",
+      "Upstream-Unternehmen können ihre eigene Position stärken, indem sie überzeugend ankünden, selbständig im Downstream-Markt zu agieren.",
+      "Upstream-Unternehmen können ihre eigene Position stärken, indem sie in Vermögensgegenstände investieren, die einer spezifischen Lieferbeziehung gewidmet sind."
+    ],
+    "correct": 4,
+    "explanation": "Beziehungsspezifische Investitionen machen den Zulieferer erpressbar (sunk costs, Hold-up). Sie schwächen die Position des Zulieferers, anstatt sie zu stärken."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-DIAGRAMS"
+    ],
+    "prompt": "In einer Branche mit homogenen Konsumentenpräferenzen existieren drei Produktbündel X, Y und Z. Gegeben sind neben den Preisen (P) auch die Durchschnittskosten (DK) und eine Effizienzgrenze. Welche Aussage zur dargestellten Situation ist am ehesten falsch?",
+    "visual": "fs25-sm-q13-effizienzgrenze",
+    "options": [
+      "Das Produkt Y bietet eine tiefere Konsumentenrente als das Produkt X.",
+      "Das Produkt Z generiert die gleiche Produzentenrente wie das Produkt X.",
+      "Das Produkt X generiert eine positive Produzentenrente.",
+      "Unternehmen X produziert effizienter als Unternehmen Z.",
+      "Für die Produkte X und Z entspricht der Wertschätzungsunterschied dem Preisunterschied."
+    ],
+    "correct": 1,
+    "explanation": "Antwort B ist falsch. Im Quellbild gilt P_X = DK_{Y,Z}; damit ist PR_X = P_X − DK_X deutlich grösser als PR_Z = P_Z − DK_{Y,Z}. X und Z liegen auf derselben Indifferenzkurve, daher ist Aussage E korrekt; X liegt zudem näher an der Effizienzgrenze als Z."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zu Resources und Capabilities ist am ehesten richtig?",
+    "options": [
+      "Capabilities sind jeweils nur in einem Markt oder für ein Produkt wertvoll.",
+      "Der zusätzliche Gewinn durch den Einsatz einer knappen und perfekt mobilen Ressource wird vom Eigentümer dieser Ressource abgeschöpft.",
+      "Je mobiler eine Ressource ist, desto höher sind die Möglichkeiten für eine Firma damit langfristige Wettbewerbsvorteile aufzubauen.",
+      "Der Verstärkungseffekt von positiven Netzwerkexternalitäten resultiert bei Capabilities aus dem Zusatznutzen durch den Schutz vor Neueintritten.",
+      "Resources und Capabilities sind immer an das individuelle und unternehmensspezifische Know-How der einzelnen Mitarbeiter gebunden."
+    ],
+    "correct": 1,
+    "explanation": "Bei perfekter Mobilität wird die Ressource im Markt zu ihrem Wert gehandelt – der Vorteil fliesst zum Eigentümer der Ressource, nicht zur nutzenden Firma."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-VALUE"
+    ],
+    "prompt": "Der Mineralölkonzern Oilster fördert Rohöl und verkauft einen Teil davon auf dem Rohölmarkt. Das restliche Rohöl wird in der eigenen Raffinerie zu Benzin verarbeitet. Dieses wird einerseits an Grossverteiler und andererseits über eigene Tankstellen direkt an den Endkunden verkauft. Oilster schöpft die maximale Zahlungsbereitschaft der Abnehmer ab. Wie gross ist die Wertschöpfung von Oilster in der 1. Stufe? Folgende Angaben sind bekannt:",
+    "visual": "fs25-sm-q15-oilster-table",
+    "options": [
+      "-10’000",
+      "50’000",
+      "80’000",
+      "100’000",
+      "1’200’000"
+    ],
+    "correct": 1,
+    "explanation": "Wertschöpfung = (Gesamtwert der 100'000 Einheiten zum Marktpreis 2) − Kosten = 200'000 − (100'000·1 + 50'000) = 50'000. Die intern weitergeleitete Menge wird zum Marktpreis bewertet."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Zwei Anbieter X und Y von Büroklammern. Wertschätzung ist anbieter-unabhängig; X hat Kostenvorteile. Welche Aussage ist am ehesten richtig?",
+    "options": [
+      "Wenn beide Anbieter denselben Preis verlangen, sind die Produzentenrenten von Anbieter X und Anbieter Y identisch.",
+      "Wenn der Preis gleich der Wertschätzung ist, beträgt die Produzentenrente von Anbieter Y immer null.",
+      "Die Wertschöpfung von Anbieter X ist kleiner als die Wertschöpfung von Anbieter Y.",
+      "Die Kostendifferenz zwischen den beiden Anbietern entspricht der «nicht-angreifbaren Produzentenrente» von Anbieter X.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 3,
+    "explanation": "Auch im Preiskampf bleibt der Kostenvorteil von X erhalten. Die Kostendifferenz ist daher die «nicht-angreifbare» Produzentenrente von X."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zur Verteidigung von Wettbewerbsvorteilen ist am ehesten richtig?",
+    "options": [
+      "Besitzt eine Firma knappe, immobile Ressourcen ist sie nachhaltig vor Angriffen der Konkurrenz geschützt.",
+      "Ressourcen sind nur dann vorteilhaft, wenn sie über mehrere Produkte hinweg wertvoll sind.",
+      "Isolationsmechanismen einer Firma sind vergleichbar mit den Marktaustrittsbarrieren bei der Branchenwahl.",
+      "Bei identischen Resources und Capabilities aller Konkurrenten findet sich stets eine Strategie, um sich besser als die anderen zu positionieren.",
+      "Gemäss der «Resource-Based Theory of the Firm» basieren nachhaltige Wettbewerbsvorteile auf dauerhaften Unterschieden zwischen Firmen."
+    ],
+    "correct": 4,
+    "explanation": "Kernprinzip der RBV: Nur dauerhafte, nicht-imitierbare Unterschiede zwischen Firmen ermöglichen nachhaltige Wettbewerbsvorteile. Identische Ressourcen lassen keinen Vorsprung zu."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "SwissCam (Kameras, viele Nicht-Preis-Attribute) hat einen Wertschätzungsvorteil ohne Kostennachteil. Welche Pricing-Strategie ist am ehesten empfehlenswert? SwissCam sollte…",
+    "options": [
+      "…die Preise der Konkurrenz unterbieten, um damit hohe Marktanteile abzuschöpfen.",
+      "…die Preise der Konkurrenz angleichen, da sie damit höhere Margen als die Konkurrenz abschöpfen kann.",
+      "…nichts unternehmen, da sie bereits von einer «nicht-angreifbaren Konsumentenrente» profitiert.",
+      "…die Preise der Konkurrenz angleichen, um damit hohe Marktanteile abzuschöpfen.",
+      "…einen Premiumpreis verlangen, da sie damit höhere Margen als die Konkurrenz abschöpfen kann."
+    ],
+    "correct": 4,
+    "explanation": "Bei Erfahrungsgütern mit vielen Non-Price-Attributen dient der Preis als Qualitätssignal. Mit echtem WTP-Vorteil sollte SwissCam einen Premiumpreis verlangen und so höhere Margen abschöpfen."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zu Positionierungsstrategien ist am ehesten richtig?",
+    "options": [
+      "Nutzen etablierte Konkurrenten Economies of Scale bereits vollständig aus, stellt die Kostenführerschaft die geeignetere Positionierungsstrategie eines Neueintreters dar.",
+      "In einer Branche mit Inspektionsgütern ist eine Wertschätzungsstrategie empfehlenswert, da die Kunden die Qualität eines Produktes oder einer Dienstleistung zuerst inspizieren müssen.",
+      "Die Kostenführerschaft in einer Branche schützt eine Firma vor Substituten, was der Firma zu Wettbewerbsvorteilen in anderen Branchen verhilft.",
+      "Um sich als Wertschätzungsführer zwischen einer Fokusstrategie und einer Broad Coverage Strategie entscheiden zu können, ist eine Marktsegmentierung nötig.",
+      "Verschiedene Marktsegmente unterscheiden sich in der angesprochenen Kundengruppe beziehungsweise im angebotenen Produkt, jedoch nicht in ihrer Attraktivität, da sie zum selben Markt gehören."
+    ],
+    "correct": 3,
+    "explanation": "Erst die Marktsegmentierung erlaubt es einem Wertschätzungsführer, zwischen Fokus- und Broad-Coverage-Strategie zu entscheiden – sie liefert die Grundlage für diese Wahl."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-SM",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zum Konzept Economies of Scale ist am ehesten richtig?",
+    "options": [
+      "Die Produktion der kostenoptimalen Betriebsgrösse maximiert stets die kumulierte Produktionsmenge.",
+      "Die Ursache für «long-run» Economies of Scale liegt in der Verteilung der Fixkosten.",
+      "In einem Produktionsprozess ohne variable Kosten kann eine Firma keine Diseconomies of Scale realisieren.",
+      "In einem Produktionsprozess ohne Fixkosten kann eine Firma keine Economies of Scale realisieren.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 2,
+    "explanation": "Diseconomies of Scale entstehen aus steigenden variablen Stückkosten (Koordination, Engpässe). Ohne variable Kosten existiert nichts, was mit der Menge steigen könnte."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "«Wenn du deine Hausaufgaben machst und danach den Rasen mähst, bekommst du diese Woche 5 Franken mehr Taschengeld.» Welche Funktion finanzieller Anreize wird in dieser Aussage nicht abgedeckt?",
+    "options": [
+      "Entschädigungsfunktion",
+      "Selbstselektionsfunktion",
+      "Verhaltenssteuerungsfunktion",
+      "Disziplinierungsfunktion",
+      "Motivationsfunktion"
+    ],
+    "correct": 1,
+    "explanation": "Selbstselektion (Anreize, die nur die «richtigen» Personen anziehen) ist im Eltern-Kind-Kontext nicht relevant – das Kind ist bereits gewählt. Es geht hier um Disziplinierung, Motivation, Verhaltenssteuerung und Entschädigung."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Herr Brötli (Bäcker) leidet unter Schlafstörungen wegen seines frühen Arbeitsbeginns. Sein Chef versetzt ihn für drei Monate als Verkäufer in die Bäckerei (Arbeitsbeginn 6 statt 3 Uhr). Welche Arbeitsgestaltungsmassnahme wurde vorgeschlagen?",
+    "options": [
+      "Job Circulation",
+      "Job Changement",
+      "Job Enlargement",
+      "Job Enrichment",
+      "Job Rotation"
+    ],
+    "correct": 4,
+    "explanation": "Ein Stellenwechsel auf gleicher Hierarchieebene ohne Erweiterung des Tätigkeitsspektrums ist Job Rotation. «Job Circulation» und «Job Changement» sind keine etablierten Begriffe."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Hoover AG: Wer am meisten Staubsauger verkauft, gewinnt einen Heissluftballon-Flug. Hans hat Höhenangst und liegt umsatzmässig nur halb so hoch wie seine Kollegen. Wodurch erklärt Victor Vroom die tiefe Motivation?",
+    "options": [
+      "Mangelnde Instrumentalität und Valenz",
+      "Unklare Instrumentalität",
+      "Fehlende Valenz und Erreichbarkeit",
+      "Geringe Erreichbarkeit und Instrumentalität",
+      "Ungenügende Erreichbarkeit"
+    ],
+    "correct": 2,
+    "explanation": "Vroom: Motivation = Valenz × Instrumentalität × Erwartung. Höhenangst → Valenz null; halb so viele Verkäufe → Erreichbarkeit (Erwartung) tief."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Dave Ulrich (1997) beschreibt vier Aufgabenfelder des HRM. Welche Position übernimmt am ehesten die Rolle eines Performance Coaches?",
+    "options": [
+      "Personalabteilung",
+      "Abteilungsleiter",
+      "Chief Executive Officer",
+      "Verwaltungsrat",
+      "Externer HR Consultant"
+    ],
+    "correct": 1,
+    "explanation": "Nach Ulrichs Modell ist der direkte Vorgesetzte/Abteilungsleiter der Performance Coach. Die Personalabteilung übernimmt eher strategische und administrative HR-Rollen."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Welche Funktion trifft am ehesten auf das variable Gehalt zu? Das variable Gehalt soll…",
+    "options": [
+      "…gesichertes Einkommen garantieren.",
+      "…aussergewöhnliche persönliche Leistung auszeichnen.",
+      "…unternehmerisches Denken und Handeln fördern.",
+      "…die Mitarbeiter an das Unternehmen binden.",
+      "…den Entscheidungsspielraum der Führungskräfte vergrössern."
+    ],
+    "correct": 2,
+    "explanation": "Variables Gehalt verknüpft Vergütung mit Unternehmenserfolg und fördert so unternehmerisches Denken/Handeln. Das Grundgehalt sichert Einkommen; Prämien zeichnen Spitzenleistung aus."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Welche Aussage zum Job-Characteristics-Modell und MPA-Index nach Hackman & Oldham ist falsch?",
+    "options": [
+      "Beträgt der MPA-Wert einer Projektleiterstelle 20 und derjenige einer Supportstelle 10, so ist der Projektleiter doppelt so motiviert wie der Mitarbeiter im Support.",
+      "Das Job-Characteristics-Modell macht spezifische, theoretisch und empirisch überprüfbare Aussagen über die motivationalen Ressourcen der Arbeitsgestaltung.",
+      "In der Formel zur Berechnung des MPA bestehen zwischen den Variablen „Anforderungsvielfalt“, „Ganzheitlichkeit“ und „Wichtigkeit“ kompensatorische Ausgleichsmöglichkeiten, weshalb diese drei Variablen additiv verknüpft sind.",
+      "Die fünf Variablen zur Berechnung des MPA werden subjektiv wahrgenommen, weshalb das MPA für zwei Personen, die der gleichen Arbeitstätigkeit nachgehen, unterschiedlich ausfallen kann.",
+      "Mit dem Job-Characteristics-Modell wird primär untersucht, welche Charakteristika der Arbeitsgestaltung zu welchem intrinsischen Motivationspotenzial führen."
+    ],
+    "correct": 0,
+    "explanation": "Der MPA ist ein ordinaler Index, kein Verhältnisindex. Ein doppelt so hoher MPA-Wert bedeutet nicht doppelt so viel Motivation – nur eine höhere Motivationschance."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Herr Vitori muss die Lohnsumme kürzen und will Unzufriedenheit minimieren. Was würde er gemäss Prospect Theory tun?",
+    "options": [
+      "Er nimmt bei jedem Mitarbeitenden eine Lohnkürzung in der gleichen Höhe vor.",
+      "Er streicht Ausgaben im Bereich der Arbeitsbedingungen.",
+      "Er erzählt seinen Mitarbeitenden von den geringen Löhnen der Konkurrenz.",
+      "Er setzt den Lohn eines Mitarbeitenden drastisch herunter.",
+      "Er kürzt die in Aussicht gestellten variablen Lohnkomponenten aller Mitarbeitenden."
+    ],
+    "correct": 3,
+    "explanation": "Prospect Theory: konkave Wertfunktion bei Verlusten. Ein grosser Verlust bei einem Mitarbeiter erzeugt weniger Gesamtunzufriedenheit als viele kleine Verluste verteilt auf alle."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Herr Abi ist viel abwesend; seine Mitarbeiter strengen sich in seiner Abwesenheit weniger an. Welche Aussage trifft am ehesten zu?",
+    "options": [
+      "Das Verhalten der Mitarbeitenden lässt sich dadurch erklären, dass die Mitarbeitenden dem Bild des Durchschnittsmenschen nach Theorie X von McGregor entsprechen.",
+      "Das Verhalten der Mitarbeitenden lässt sich gemäss Herzberg dadurch erklären, dass die Abwesenheit von Herrn Abi als Satisfier wirkt und damit die Unzufriedenheit der Mitarbeitenden sinkt.",
+      "Das Verhalten der Mitarbeitenden lässt sich mit dem Hawthorne-Effekt erklären. Dieser Effekt besagt: Schenkt man den Mitarbeitenden keine Aufmerksamkeit, neigen sie zu Nachlässigkeit und Passivität.",
+      "Das Verhalten der Mitarbeitenden lässt sich mit dem Pygmalion-Effekt erklären. Dadurch, dass Herr Abi den Mitarbeitenden misstraut, zeigen sie nur wenig Motivation und Leistung.",
+      "Das Verhalten der Mitarbeitenden lässt sich gemäss der Motivationstheorie von Maslow damit erklären, dass sich die Mitarbeitenden während der Abwesenheit von Herrn Abi selbst verwirklichen wollen."
+    ],
+    "correct": 0,
+    "explanation": "McGregor Theorie X: Mitarbeiter sind arbeitsscheu und müssen kontrolliert werden, sonst drücken sie sich. Genau das beschreibt das Verhalten in Herrn Abis Abwesenheit."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Welche der folgenden Kombinationen aus einem Risiko von Leistungslöhnen und der Erläuterung ist falsch?",
+    "options": [
+      "Negative Teameffekte: Mit individuellen Leistungsprämien können Egoismen gezüchtet werden, die der Kohäsion im Team und dem Wissenstransfer im Weg stehen.",
+      "Frustrationseffekt: Frustration kann entstehen, wenn trotz hoher individueller Anstrengung der für eine Vergütung notwendige Output aufgrund externer Einflüsse nicht erreicht wird.",
+      "Kontraproduktive Verhaltenseffekte: Wiederholte über die individuelle Lernkurve hinausgehende Reduktion der Soll-Leistung, nachdem diese in der Vorperiode übertroffen wurde.",
+      "Sättigungseffekt: Zur Erreichung der gleichen Wirkung braucht es eine immer höhere ‚Dosis’ an finanziellen Anreizen, da finanzielle Anreize einem abnehmenden Grenznutzen unterliegen.",
+      "Time-lag: Zwischen der heutigen Anstrengung und dem morgigen Resultat besteht eine zeitliche Differenz, zu deren Überbrückung Ersatzindikatoren nötig sein können."
+    ],
+    "correct": 2,
+    "explanation": "Die Beschreibung («Reduktion der Soll-Leistung, nachdem die Vorperiode übertroffen wurde») gehört zum Ratchet-Effekt, nicht zu kontraproduktiven Verhaltenseffekten (Betrug/Gaming)."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Anja argumentiert in der Lohnverhandlung mit ihren regelmässigen Weiterbildungen und ihrer langjährigen Tätigkeit. Welche Gerechtigkeitsdimension(en) macht sie sich zunutze?",
+    "options": [
+      "Leistungsgerechtigkeit und Marktgerechtigkeit",
+      "Qualifikationsgerechtigkeit und Marktgerechtigkeit",
+      "Anforderungsgerechtigkeit",
+      "Qualifikationsgerechtigkeit",
+      "Anforderungsgerechtigkeit und Leistungsgerechtigkeit"
+    ],
+    "correct": 3,
+    "explanation": "Anja argumentiert mit Weiterbildungen (= erworbene Qualifikationen), nicht mit konkreter Leistung, Anforderung oder Marktlohn. Das ist reine Qualifikationsgerechtigkeit."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Ein Kunde lobt einen Verkäufer für seine Beratung. Nach Frederick Herzberg ist dieses Kompliment für den Verkäufer ein...",
+    "options": [
+      "Motivator",
+      "Hygienefaktor",
+      "Dissatisfier",
+      "Kontinentfaktor",
+      "Kontextfaktor"
+    ],
+    "correct": 0,
+    "explanation": "Herzberg: Anerkennung/Lob ist ein klassischer Motivator (Zufriedenheitsfaktor). Hygienefaktoren wären z.B. Lohn, Arbeitsbedingungen – ihre Abwesenheit erzeugt Unzufriedenheit, ihre Anwesenheit aber keine Zufriedenheit."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Die FLUCTUS AG erwägt, die Löhne zu erhöhen, weil Mitarbeitende den Lohn als Hauptgrund für einen potentiellen Firmenwechsel angeben. Was empfehlen Sie basierend auf dem HR-Barometer?",
+    "options": [
+      "Den Lohn der Mitarbeitenden zu erhöhen, da die potentiellen und tatsächlichen Gründe für einen Firmenwechsel gemäss dem HR-Barometer bezüglich des Faktors Lohn übereinstimmen.",
+      "Den Lohn der Mitarbeitenden so zu belassen, da die potentiellen und tatsächlichen Gründe für einen Firmenwechsel gemäss dem HR-Barometer bezüglich des Faktors Lohn nicht übereinstimmen.",
+      "Den Lohn der Mitarbeitenden deutlich zu erhöhen, da der Lohn als tatsächlicher Kündigungsgrund bei Befragungen zu potentiellen Kündigungsgründen gemäss den Ergebnissen des HR-Barometers stark unterschätzt wird.",
+      "Den Lohn der Mitarbeitenden so zu belassen, obwohl die potentiellen und tatsächlichen Gründe für einen Firmenwechsel gemäss dem HR-Barometer bezüglich des Faktors Lohn übereinstimmen.",
+      "Den Lohn der Mitarbeitenden zu senken, da die potentiellen und tatsächlichen Gründe für einen Firmenwechsel gemäss dem HR-Barometer bezüglich des Faktors Lohn nicht übereinstimmen."
+    ],
+    "correct": 1,
+    "explanation": "Der HR-Barometer zeigt: Lohn wird häufig als potentieller, aber selten als tatsächlicher Kündigungsgrund angegeben. Eine Lohnerhöhung adressiert nicht die echten Wechselgründe."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Mit welchem Begriff kann das dem Taylorismus zugrundeliegende Menschenbild am ehesten beschrieben werden?",
+    "options": [
+      "Theorie X",
+      "Theorie Y",
+      "Human Relations Bewegung",
+      "Scientific Management",
+      "Keiner der genannten Begriffe trifft zu"
+    ],
+    "correct": 0,
+    "explanation": "Taylorismus unterstellt arbeitsscheue, kontrollbedürftige Arbeiter, die durch enge Vorgaben gesteuert werden müssen – das entspricht McGregors Theorie X. (Scientific Management ist ein Synonym für Taylorismus, kein Menschenbild.)"
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Bei der METHOD AG verdienen Angestellte mit über 10 Jahren Erfahrung 5'500 CHF, andere 4'500 CHF. Auf welche Arbeitsbewertungsmethode lässt sich das zurückführen?",
+    "options": [
+      "Rangfolgemethode",
+      "Rangreihenmethode",
+      "Erfahrungswertmethode",
+      "Lohngruppenmethode",
+      "Stufenwertzahlmethode"
+    ],
+    "correct": 3,
+    "explanation": "Diskrete Lohnstufen anhand eines Kriteriums (>10 vs. <10 Jahre) sind das Kennzeichen der Lohngruppenmethode."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Ein Verurteilter empfindet das Urteil als fair, bemängelt aber die Zusammensetzung der Geschworenen und dass man ihm das Wort erst spät erteilt hat. Welche Gerechtigkeitsdimension ist verletzt?",
+    "options": [
+      "Die prozessuale Gerechtigkeit",
+      "Die distributive Gerechtigkeit",
+      "Die transaktionale Gerechtigkeit",
+      "Die interaktionelle Gerechtigkeit",
+      "Die prozedurale Gerechtigkeit"
+    ],
+    "correct": 4,
+    "explanation": "Zusammensetzung und Reihenfolge im Verfahren betreffen den Verfahrensablauf – das ist prozedurale Gerechtigkeit (distributiv = Ergebnis selbst empfindet er als fair)."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Die ABC AG teilt die HRM-Tätigkeiten auf: Personalauswahl, Leistungsbeurteilung, Belohnung und Personalentwicklung. Welchem Ansatz folgt die ABC AG?",
+    "options": [
+      "Michigan-Ansatz",
+      "Genfer Schema",
+      "Ansatz nach Dave Ulrich",
+      "Ressourcenorientierter Ansatz",
+      "Harvard-Ansatz"
+    ],
+    "correct": 0,
+    "explanation": "Der Michigan-Ansatz teilt HRM in genau diese vier Funktionen: Personalauswahl, Leistungsbeurteilung, Belohnung und Entwicklung."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Welche der folgenden Aussagen ist falsch? Individuelle Leistungslöhne sind umso nachteiliger, je...",
+    "options": [
+      "...schwieriger die Leistung zu messen ist.",
+      "...mehr das Arbeitsergebnis durch äussere Einflüsse bestimmt ist.",
+      "...grösser die Risikoaversion der Arbeitnehmer ist.",
+      "...teamorientierter die Zusammenarbeit ist.",
+      "...ausgeprägter die extrinsische Motivation ist."
+    ],
+    "correct": 4,
+    "explanation": "Bei stark extrinsisch motivierten Mitarbeitenden wirken Leistungslöhne besonders gut – das ist ein Vorteil, kein Nachteil. Alle anderen Punkte sind klassische Nachteile."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Auf welchen Gerechtigkeitsdimensionen basiert der in Art. 8 BV und im Gleichstellungsgesetz verankerte Grundsatz «gleicher Lohn für Frau und Mann»?",
+    "options": [
+      "Markt- und Sozialgerechtigkeit",
+      "Anforderungs- und Leistungsgerechtigkeit",
+      "Sozial- und Anforderungsgerechtigkeit",
+      "Leistungs- und Marktgerechtigkeit",
+      "Alle Antworten sind korrekt"
+    ],
+    "correct": 4,
+    "explanation": "Der Grundsatz «gleicher Lohn für gleiche Arbeit» stützt sich auf alle vier Gerechtigkeitsdimensionen – Markt, Anforderung, Leistung und Sozial."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Lea wollte aus Interesse «Personalökonomik» (3 ECTS) besuchen, entscheidet sich dann aber für «Nichtlineare Optimierung» (6 ECTS), obwohl das Thema sie kaum interessiert. Welche Aussage trifft zu?",
+    "options": [
+      "Lea entscheidet sich für «Nichtlineare Optimierung», da die Hygienefaktoren überwiegen.",
+      "Leas Entscheidung kann auf den Pygmalion-Effekt zurückgeführt werden.",
+      "Leas intrinsische Motivation wurde durch einen extrinsischen Anreiz verdrängt.",
+      "Lea wählt die Vorlesung „Nichtlineare Optimierung“ aufgrund der höheren Erreichbarkeit.",
+      "Leas Entscheidung hängt mit dem abnehmenden Grenznutzen der Instrumentalität zusammen."
+    ],
+    "correct": 2,
+    "explanation": "Klassischer Crowding-Out-Effekt: Das ursprüngliche fachliche Interesse (intrinsische Motivation) wird durch den extrinsischen Anreiz der höheren ECTS verdrängt."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-HRM",
+    "category": "Human Resource Management",
+    "prompt": "Sie sind von einem neuen Mitarbeiter überzeugt, geben ihm viel Handlungsspielraum und kontrollieren ihn kaum. Seine Leistungsbeurteilung am Jahresende ist sehr gut. Worauf ist das zurückzuführen?",
+    "options": [
+      "Hawthorne-Effekt",
+      "Ratchet-Effekt",
+      "Theorie X-Effekt",
+      "Rosenthal-Effekt",
+      "Selbstselektions-Effekt"
+    ],
+    "correct": 3,
+    "explanation": "Die positive Erwartungshaltung des Vorgesetzten führt zu hoher Leistung des Mitarbeitenden – das ist der Rosenthal- bzw. Pygmalion-Effekt (sich selbst erfüllende Prophezeiung)."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Worin besteht das Dualproblem der Organisationsgestaltung?",
+    "options": [
+      "Je komplexer die Aufgabe, desto mehr Personalbedarf und umgekehrt.",
+      "Je stärker die Differenzierung, desto leichter die Integration und umgekehrt.",
+      "Je ausgeprägter die Arbeitsteilung, desto effizienter die Aufgabenerfüllung und umgekehrt.",
+      "Je intensiver die Integration, desto weniger Differenzierung und umgekehrt.",
+      "Je besser die Integration der Mitarbeiter, desto geringer die Arbeitsvereinigung und umgekehrt."
+    ],
+    "correct": 3,
+    "explanation": "Das Dualproblem beschreibt die gegenläufige Beziehung zwischen Differenzierung (Spezialisierung) und Integration: Mehr Integration bedeutet weniger Differenzierungspotenzial – und umgekehrt."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Welchen Nachteil hat die divisionale Organisation gegenüber der verrichtungsorientierten (funktionalen) Differenzierung?",
+    "options": [
+      "Geringere Flexibilität",
+      "Potentieller Kannibalismus",
+      "Belastung der Gesamtführung",
+      "Geringe Transparenz der Geschäftsfeldaktivitäten",
+      "Erschwerte Leistungskontrolle"
+    ],
+    "correct": 1,
+    "explanation": "Divisionen mit ähnlichen Produkten/Kunden können sich gegenseitig kannibalisieren – ein typisches Risiko der divisionalen Organisation. Funktionale Organisationen leiden eher unter Koordinationsproblemen."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Was findet man typischerweise in divisional organisierten Firmen im Gegensatz zu funktional organisierten Firmen vor?",
+    "options": [
+      "Eine homogene Produktpalette",
+      "Homogene Kundengruppen",
+      "Autonome Sparten, oft auch als Profit-Center ausgestaltet",
+      "Zusammenlegung gleichartiger Verrichtungen",
+      "Keines der genannten Merkmale"
+    ],
+    "correct": 2,
+    "explanation": "Kernmerkmal der divisionalen Organisation: eigenständige Sparten mit eigener Ergebnisverantwortung (Profit-Center). Zusammenlegung gleichartiger Verrichtungen ist gerade das Merkmal der funktionalen Organisation."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Was ist keine typische Massnahme zur Vermeidung der klassischen Probleme zwischen Stab und Linie?",
+    "options": [
+      "Stab als Projektarbeit",
+      "Ausstattung des Stabs mit Entscheidungsgewalt über die Linie",
+      "Job-Rotation",
+      "Bewerberauslese",
+      "Systematischer Tausch der Arbeitsplätze der Mitarbeiter vom Stab in die Linie (und umgekehrt)"
+    ],
+    "correct": 1,
+    "explanation": "Stab mit Entscheidungsgewalt über die Linie würde den Stab-Linie-Konflikt gerade verschärfen (Kompetenzkonflikt mit dem Linienvorgesetzten). Die anderen Massnahmen entschärfen den Konflikt."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Eine Instanz Y leitet direkt 9 Ausführungsstellen X. Welche Aussage bezüglich der Abbildung ist korrekt?",
+    "options": [
+      "Die Leitungsspanne beträgt 9.",
+      "Die Leitungsspanne beträgt 2.",
+      "Die Leitungsebene beträgt 2.",
+      "Die Gliederungstiefe beträgt 1.",
+      "Die Leitungsebene beträgt 9."
+    ],
+    "correct": 0,
+    "explanation": "Leitungsspanne = Anzahl direkt unterstellter Stellen. Y leitet 9 Ausführungsstellen direkt → Leitungsspanne = 9."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Frau Schmidt unterstützt den Abteilungsleiter (recherchiert, prüft, erstellt Rapport); der Abteilungsleiter entscheidet auf dieser Basis. Welche Form der Differenzierung kommt zum Ausdruck?",
+    "options": [
+      "Differenzierung nach Regionen",
+      "Differenzierung nach Produkten",
+      "Differenzierung nach Projekten",
+      "Differenzierung nach Prozessen",
+      "Differenzierung nach Stab und Linie"
+    ],
+    "correct": 4,
+    "explanation": "Frau Schmidt bereitet Entscheidungen vor (Stab), der Abteilungsleiter entscheidet (Linie). Klassische Stab-Linie-Differenzierung – Stäbe haben kein Entscheidungsrecht, sondern beraten/unterstützen."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Werbeagentur: Kundenanfragen durchlaufen sequentiell Eingang → Design → Produktion → Projektmanagement → Kundenbetreuer (10 Tage bis 4 Wochen). Welche organisatorische Integrationsmassnahme ist zu empfehlen?",
+    "options": [
+      "Management by Objectives",
+      "Multiple, überlappende Teams",
+      "Koordinator",
+      "Business Reengineering",
+      "Fayol'sche Brücke"
+    ],
+    "correct": 3,
+    "explanation": "Eine end-to-end Prozesskette mit langen Durchlaufzeiten und vielen sequentiellen Schnittstellen verlangt eine grundlegende Neugestaltung der Geschäftsprozesse – das ist Business Reengineering."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Aus welchen Kennzahlen ergibt sich die Einteilung in flache und steile Hierarchien?",
+    "options": [
+      "Anzahl der Mitarbeiter, Anzahl der Führungskräfte",
+      "Anzahl der Hierarchieebenen, Anzahl der Mitarbeiter",
+      "Anzahl der Abteilungen, Anzahl der Führungskräfte",
+      "Anzahl der Geschäftseinheiten, Anzahl der Mitarbeiter",
+      "Keine der genannten Antworten"
+    ],
+    "correct": 1,
+    "explanation": "Flach vs. steil ergibt sich aus der Zahl der Hierarchieebenen bei gegebener Mitarbeiterzahl: viele Mitarbeiter / wenige Ebenen → flach (grosse Leitungsspannen)."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Welche Faktoren könnten gegen eine rein hierarchische Organisation sprechen?",
+    "options": [
+      "Zeitverlust, sinkende Akzeptanz, Intransparenz",
+      "Bürokratisierung, hohe Koordinationskosten, Intransparenz",
+      "Überlastung der Leitung, hohe Koordinationskosten, Zeitverlust",
+      "Personalkosten, Überlastung der Leitung, sinkende Akzeptanz",
+      "Störanfälligkeiten, Bürokratisierung, Kompetenzverlust"
+    ],
+    "correct": 3,
+    "explanation": "Klassische Nachteile der hierarchischen Organisation: hohe Personalkosten für Führungskräfte, Überlastung der Leitung (alle Entscheidungen laufen oben zusammen) und sinkende Akzeptanz wegen geringer Autonomie."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Ein Energieunternehmen trennt Produktion, Distribution und Vertrieb. Sie stimmen sich über Verrechnungspreise ab; der Vertrieb kann intern oder extern kaufen. Welche organisatorische Integration liegt vor?",
+    "options": [
+      "Netzwerkorganisation",
+      "Ressourcenpool-Organisation",
+      "Management by Objectives",
+      "Interner Markt",
+      "Matrixorganisation"
+    ],
+    "correct": 3,
+    "explanation": "Verrechnungspreise plus Wahlfreiheit (intern oder extern beziehen) sind die Kernmerkmale eines internen Marktes – die Einheiten verhalten sich wie Marktteilnehmer."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "CargoWorld: Paul kennt aus früheren Projekten Experten in den Landeszentralen und kontaktiert sie direkt für massgeschneiderte Lösungen. Welche Form der organisatorischen Abstimmung liegt vor?",
+    "options": [
+      "Clan Lösung",
+      "Integrationsmanager",
+      "Internes Netzwerk",
+      "Fayol'sche Brücke",
+      "Interner Markt"
+    ],
+    "correct": 2,
+    "explanation": "Informelle, auf früherer Zusammenarbeit basierende Verbindungen zwischen Experten aus verschiedenen Einheiten = internes Netzwerk. Es nutzt persönliche Kontakte statt formaler Strukturen."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Zwei Mitarbeiter auf gleicher Hierarchieebene, aber in unterschiedlichen Abteilungen, koordinieren ihre Arbeit direkt im Gespräch. Um welche Form der Integration handelt es sich?",
+    "options": [
+      "Horizontale Integration",
+      "Konditionalprogramm",
+      "Ressourcen-Pool",
+      "Linking Pin",
+      "Clan-Lösung"
+    ],
+    "correct": 0,
+    "explanation": "Direkte Abstimmung zwischen Mitarbeitern auf gleicher Ebene ohne Einschaltung der Vorgesetzten = horizontale Integration (laterale Koordination)."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Welcher der folgenden Effekte ist ein positiver Effekt einer starken Organisationskultur?",
+    "options": [
+      "Zurückstellen von Bedenken zugunsten kultureller Werte.",
+      "Erhöhte Wandelbarkeit von Organisationen.",
+      "Entstehung von Subkulturen.",
+      "Raschere Entscheidungsfindung aufgrund geteilter Wertesysteme.",
+      "Abschliessung der Organisation gegenüber externen Einflüssen."
+    ],
+    "correct": 3,
+    "explanation": "Geteilte Werte → weniger Aushandlungsbedarf, schnellere Konvergenz auf Entscheidungen. Die anderen Optionen sind allesamt negative Effekte einer (zu) starken Kultur."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Die Steve-Jobs-Garagengeschichte ist Bestandteil der Unternehmenskultur von Apple. Welcher Kulturebene nach Schein würden Sie diese Geschichte zuordnen?",
+    "options": [
+      "Der Ebene der Normen und Standards",
+      "Der Ebene der Symbolsysteme",
+      "Der Ebene der Basisannahmen",
+      "Allen drei Kulturebenen",
+      "Keiner der drei Kulturebenen"
+    ],
+    "correct": 1,
+    "explanation": "Nach Schein gehören Geschichten, Mythen und Rituale zur Ebene der Symbolsysteme (Artefakte) – sie sind sichtbare Manifestationen tieferer Werte und Annahmen."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Unter dem Verbreitungsgrad einer Unternehmenskultur versteht man...",
+    "options": [
+      "...die Stärke der Organisationskultur.",
+      "...den Grad der Internalisierung der Organisationskultur.",
+      "...den Grad der Geteiltheit der Organisationskultur unter den Mitgliedern.",
+      "...die Klarheit und Reichweite der Organisationskultur.",
+      "...die Stringenz der Organisationskultur."
+    ],
+    "correct": 2,
+    "explanation": "Verbreitungsgrad = wie viele Mitglieder die Kultur teilen. Stärke = Tiefe der Internalisierung; Klarheit/Reichweite = Eindeutigkeit der Werte."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Welche der nachfolgenden Aussagen zu Subkulturen ist korrekt?",
+    "options": [
+      "Subkulturen verstärken meistens die Hauptkultur. Sie existieren parallel oder ergänzend zur Hauptkultur, wie z. B. in Rechtsabteilungen.",
+      "Neutrale Subkulturen sind durchdrungen von der Hauptkultur. Sie achten auf Einhaltung der Kultur oder haben Modellcharakter.",
+      "Gegenkulturen laufen parallel oder ergänzend zur Hauptkultur. Sie sind dezidiert gegen die Hauptkultur gerichtet.",
+      "Verstärkende Subkulturen sind durchdrungen von der Hauptkultur. Sie achten auf Einhaltung der Kultur oder haben Modellcharakter.",
+      "Neutrale Subkulturen entstehen häufig infolge von Übernahmen. Sie sind häufig bei Vorstandsstäben vorzufinden."
+    ],
+    "correct": 3,
+    "explanation": "Verstärkende Subkulturen leben die Hauptkultur besonders intensiv – sie achten auf die Einhaltung der Werte oder haben Modellcharakter (z.B. Vorstandsstäbe)."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Widerstände gegen Wandel sind tendenziell geringer, wenn grundlegende Veränderungen gemeinsam beschlossen wurden, und…",
+    "options": [
+      "...die Idee zur Veränderung von aussen kommt.",
+      "...die Organisation strukturell stark aufgestellt ist.",
+      "...sie zuvor mit „internen Gegnern“ diskutiert wurden.",
+      "...die finanzielle Performance des Unternehmens gut ist.",
+      "...kollektive Orientierungsmuster durch die Veränderungen betroffen sind."
+    ],
+    "correct": 2,
+    "explanation": "Frühzeitige Auseinandersetzung mit Skeptikern senkt Widerstände – Gegner fühlen sich gehört, können den Wandel mitgestalten und werden so zu Mitträgern statt Bremsen."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Wandelprozess: Anforderungen ausloten → Informationsveranstaltung → Umsetzung und Auseinandersetzung mit Befürwortern/Gegnern → konkrete Umsetzungsmassnahmen. Welche Phase des erweiterten Phasenmodells fehlt?",
+    "options": [
+      "Roll-out",
+      "Verstetigung",
+      "Konsolidierung",
+      "Einstieg",
+      "Vorbereitung"
+    ],
+    "correct": 2,
+    "explanation": "Beschrieben werden Vorbereitung, Einstieg, Verstetigung und Roll-out. Die Konsolidierungsphase (Stabilisierung und nachhaltige Verankerung der Veränderungen) fehlt."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Worauf beruht die Frustration beim Frustrations-Regressions-Effekt?",
+    "options": [
+      "Frustration hervorgerufen durch verringerte Mitarbeiterentlohnung.",
+      "Frustration durch längere Arbeitszeiten.",
+      "Abwehrverhalten gegenüber organisationalen Veränderungen aufgrund von Gruppendynamiken.",
+      "Veränderungswiderstände aufgrund von Ersterfahrungen, die gegenüber späteren Erfahrungen bevorzugt werden.",
+      "Frustration, da eingeübte Verfahrensweisen nicht mehr funktionieren."
+    ],
+    "correct": 4,
+    "explanation": "Frustrations-Regressions-Effekt: Bewährte Routinen versagen in der neuen Situation; die Folge ist Rückfall in alte Verhaltensmuster (Regression) und Frustration über die Veränderung."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-ORG",
+    "category": "Organisation",
+    "prompt": "Welche der folgenden Aussagen ist in Bezug auf Prozessberatung (im Rahmen von OE) korrekt?",
+    "options": [
+      "Die Prozessberatung befasst sich mit Prozessoptimierung.",
+      "Der Berater begleitet und unterstützt die unternehmenseigene Problemfindung und -behebung.",
+      "Ausgangspunkt ist der Survey-Feedback-Ansatz.",
+      "Wertschöpfungsprozesse stehen im Vordergrund.",
+      "Kann besonders gut von der Abteilung für Inhouse Consulting durchgeführt werden, da diese die internen Perspektiven besonders gut durchschaut."
+    ],
+    "correct": 1,
+    "explanation": "Kern der Prozessberatung nach Schein: Der Berater liefert keine fertigen Lösungen, sondern unterstützt das Unternehmen dabei, eigene Probleme zu erkennen und zu lösen (Hilfe zur Selbsthilfe)."
+  }
+]

@@ -1,0 +1,2139 @@
+[
+  {
+    "category": "Revenue",
+    "set": "R1",
+    "prompt": "A journal entry to record the sale of inventory on account will include a:",
+    "options": [
+      "Debit to Inventory",
+      "Debit to Accounts Receivable",
+      "Debit to Sales Revenue",
+      "Credit to Cost of Goods Sold"
+    ],
+    "correct": 1,
+    "explanation": "When inventory is sold on account the customer owes us money. Accounts Receivable (an asset) increases with a debit; Sales Revenue is credited. A separate entry debits COGS and credits Inventory.",
+    "entry": {
+      "debits": [
+        [
+          "Accounts Receivable",
+          ""
+        ]
+      ],
+      "credits": [
+        [
+          "Sales Revenue",
+          ""
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Revenue",
+    "prompt": "A company sells merchandise for 2,000 cash. The journal entry to record the sale (ignoring COGS) is:",
+    "options": [
+      "Debit Cash 2,000; Credit Sales Revenue 2,000",
+      "Debit Sales Revenue 2,000; Credit Cash 2,000",
+      "Debit Accounts Receivable 2,000; Credit Sales Revenue 2,000",
+      "Debit Cash 2,000; Credit Accounts Receivable 2,000"
+    ],
+    "correct": 0,
+    "explanation": "Cash (asset) increases → debit. Sales Revenue (equity) is earned → credit.",
+    "entry": {
+      "debits": [
+        [
+          "Cash",
+          "2,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Sales Revenue",
+          "2,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Revenue",
+    "prompt": "To accompany the sale of merchandise (perpetual inventory system), the cost side of the entry is:",
+    "options": [
+      "Debit Inventory; Credit Cost of Goods Sold",
+      "Debit Cost of Goods Sold; Credit Inventory",
+      "Debit Cost of Goods Sold; Credit Sales Revenue",
+      "Debit Inventory; Credit Sales Revenue"
+    ],
+    "correct": 1,
+    "explanation": "Under the perpetual system, each sale triggers a second entry: COGS (expense) increases with a debit, Inventory (asset) decreases with a credit.",
+    "entry": {
+      "debits": [
+        [
+          "Cost of Goods Sold",
+          ""
+        ]
+      ],
+      "credits": [
+        [
+          "Inventory",
+          ""
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Revenue",
+    "prompt": "A consulting firm performs services for a client and bills them 5,000, payable in 30 days. The entry is:",
+    "options": [
+      "Debit Cash 5,000; Credit Service Revenue 5,000",
+      "Debit Service Revenue 5,000; Credit Accounts Receivable 5,000",
+      "Debit Accounts Receivable 5,000; Credit Service Revenue 5,000",
+      "Debit Accounts Receivable 5,000; Credit Cash 5,000"
+    ],
+    "correct": 2,
+    "explanation": "Revenue is earned (credit Service Revenue) and the client owes us (debit Accounts Receivable). No cash has moved yet.",
+    "entry": {
+      "debits": [
+        [
+          "Accounts Receivable",
+          "5,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Service Revenue",
+          "5,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Revenue",
+    "prompt": "A credit customer returns defective merchandise that had been sold for 800. The entry to record the return (ignore COGS side) is:",
+    "options": [
+      "Debit Cash 800; Credit Sales Returns & Allowances 800",
+      "Debit Sales Returns & Allowances 800; Credit Accounts Receivable 800",
+      "Debit Accounts Receivable 800; Credit Sales Returns & Allowances 800",
+      "Debit Sales Revenue 800; Credit Cash 800"
+    ],
+    "correct": 1,
+    "explanation": "Sales Returns & Allowances (a contra-revenue) is debited to reduce revenue; Accounts Receivable is credited because the customer no longer owes us.",
+    "entry": {
+      "debits": [
+        [
+          "Sales Returns & Allowances",
+          "800"
+        ]
+      ],
+      "credits": [
+        [
+          "Accounts Receivable",
+          "800"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Inventory",
+    "prompt": "A retailer purchases 10,000 of inventory on account. The entry is:",
+    "options": [
+      "Debit Accounts Payable 10,000; Credit Inventory 10,000",
+      "Debit Inventory 10,000; Credit Cash 10,000",
+      "Debit Inventory 10,000; Credit Accounts Payable 10,000",
+      "Debit Purchases 10,000; Credit Cash 10,000"
+    ],
+    "correct": 2,
+    "explanation": "Inventory (asset) increases → debit. Accounts Payable (liability) increases because we owe the supplier → credit.",
+    "entry": {
+      "debits": [
+        [
+          "Inventory",
+          "10,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Accounts Payable",
+          "10,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Inventory",
+    "prompt": "A company purchases 3,500 of inventory and pays cash immediately. The entry is:",
+    "options": [
+      "Debit Inventory 3,500; Credit Accounts Payable 3,500",
+      "Debit Inventory 3,500; Credit Cash 3,500",
+      "Debit Cash 3,500; Credit Inventory 3,500",
+      "Debit COGS 3,500; Credit Cash 3,500"
+    ],
+    "correct": 1,
+    "explanation": "Inventory (asset) increases → debit. Cash (asset) decreases → credit. COGS is only recorded when the inventory is sold.",
+    "entry": {
+      "debits": [
+        [
+          "Inventory",
+          "3,500"
+        ]
+      ],
+      "credits": [
+        [
+          "Cash",
+          "3,500"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Inventory",
+    "prompt": "A business returns defective inventory previously purchased on account for 600. The entry is:",
+    "options": [
+      "Debit Inventory 600; Credit Accounts Payable 600",
+      "Debit Cash 600; Credit Inventory 600",
+      "Debit Accounts Payable 600; Credit Inventory 600",
+      "Debit Purchases Returns 600; Credit Cash 600"
+    ],
+    "correct": 2,
+    "explanation": "We owe the supplier less (AP decreases → debit) and we no longer have this inventory (asset decreases → credit).",
+    "entry": {
+      "debits": [
+        [
+          "Accounts Payable",
+          "600"
+        ]
+      ],
+      "credits": [
+        [
+          "Inventory",
+          "600"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Receivables",
+    "prompt": "A customer pays the 5,000 they previously owed on account. The entry on receipt is:",
+    "options": [
+      "Debit Cash 5,000; Credit Sales Revenue 5,000",
+      "Debit Accounts Receivable 5,000; Credit Cash 5,000",
+      "Debit Cash 5,000; Credit Accounts Receivable 5,000",
+      "Debit Sales Revenue 5,000; Credit Accounts Receivable 5,000"
+    ],
+    "correct": 2,
+    "explanation": "Cash (asset) increases → debit. Accounts Receivable decreases because the customer no longer owes → credit. No new revenue is recorded — it was already recognized on the sale.",
+    "entry": {
+      "debits": [
+        [
+          "Cash",
+          "5,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Accounts Receivable",
+          "5,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Payables",
+    "prompt": "A company pays 4,200 to settle a supplier invoice previously recorded in accounts payable. The entry is:",
+    "options": [
+      "Debit Cash 4,200; Credit Accounts Payable 4,200",
+      "Debit Accounts Payable 4,200; Credit Cash 4,200",
+      "Debit Inventory 4,200; Credit Cash 4,200",
+      "Debit Accounts Payable 4,200; Credit Purchases 4,200"
+    ],
+    "correct": 1,
+    "explanation": "Accounts Payable (liability) decreases → debit. Cash (asset) decreases → credit.",
+    "entry": {
+      "debits": [
+        [
+          "Accounts Payable",
+          "4,200"
+        ]
+      ],
+      "credits": [
+        [
+          "Cash",
+          "4,200"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Expenses",
+    "prompt": "A firm pays 900 cash for the monthly electricity bill. The entry is:",
+    "options": [
+      "Debit Cash 900; Credit Utilities Expense 900",
+      "Debit Utilities Expense 900; Credit Cash 900",
+      "Debit Utilities Expense 900; Credit Accounts Payable 900",
+      "Debit Accounts Payable 900; Credit Cash 900"
+    ],
+    "correct": 1,
+    "explanation": "Utilities Expense (equity — expense) increases → debit. Cash decreases → credit.",
+    "entry": {
+      "debits": [
+        [
+          "Utilities Expense",
+          "900"
+        ]
+      ],
+      "credits": [
+        [
+          "Cash",
+          "900"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Expenses",
+    "prompt": "A company receives an electricity bill of 900 that will be paid next month. The entry TODAY is:",
+    "options": [
+      "No entry until the bill is paid",
+      "Debit Utilities Expense 900; Credit Cash 900",
+      "Debit Utilities Expense 900; Credit Accounts Payable 900",
+      "Debit Accounts Payable 900; Credit Utilities Expense 900"
+    ],
+    "correct": 2,
+    "explanation": "Accrual basis: the expense is recognized when incurred, not when paid. Utilities Expense is debited, and Accounts Payable (liability) is credited because we owe the utility.",
+    "entry": {
+      "debits": [
+        [
+          "Utilities Expense",
+          "900"
+        ]
+      ],
+      "credits": [
+        [
+          "Accounts Payable",
+          "900"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Expenses",
+    "prompt": "A company pays its employees 8,000 for work already performed this period. The entry is:",
+    "options": [
+      "Debit Salaries Expense 8,000; Credit Cash 8,000",
+      "Debit Cash 8,000; Credit Salaries Expense 8,000",
+      "Debit Salaries Payable 8,000; Credit Salaries Expense 8,000",
+      "Debit Salaries Expense 8,000; Credit Salaries Payable 8,000"
+    ],
+    "correct": 0,
+    "explanation": "Salaries Expense (expense) increases → debit. Cash (asset) decreases → credit.",
+    "entry": {
+      "debits": [
+        [
+          "Salaries Expense",
+          "8,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Cash",
+          "8,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Assets",
+    "prompt": "A company purchases equipment for 15,000 cash. The entry is:",
+    "options": [
+      "Debit Equipment 15,000; Credit Cash 15,000",
+      "Debit Equipment Expense 15,000; Credit Cash 15,000",
+      "Debit Cash 15,000; Credit Equipment 15,000",
+      "Debit Equipment 15,000; Credit Notes Payable 15,000"
+    ],
+    "correct": 0,
+    "explanation": "Equipment is a long-lived asset → debit. Cash decreases → credit. Equipment is capitalized, not expensed.",
+    "entry": {
+      "debits": [
+        [
+          "Equipment",
+          "15,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Cash",
+          "15,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Assets",
+    "prompt": "A company purchases a delivery truck for 30,000, paying 5,000 cash and signing a note for the balance. The entry is:",
+    "options": [
+      "Debit Truck 30,000; Credit Cash 30,000",
+      "Debit Truck 30,000; Credit Notes Payable 30,000",
+      "Debit Truck 30,000; Credit Cash 5,000 and Credit Notes Payable 25,000",
+      "Debit Cash 5,000 and Debit Notes Payable 25,000; Credit Truck 30,000"
+    ],
+    "correct": 2,
+    "explanation": "Truck (asset) is debited for the full 30,000. Cash drops by 5,000 (credit) and Notes Payable rises by 25,000 (credit). Debits = Credits = 30,000.",
+    "entry": {
+      "debits": [
+        [
+          "Truck",
+          "30,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Cash",
+          "5,000"
+        ],
+        [
+          "Notes Payable",
+          "25,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Assets",
+    "prompt": "A company pays 6,000 for a one-year insurance policy and records the full amount as an asset. The entry is:",
+    "options": [
+      "Debit Insurance Expense 6,000; Credit Cash 6,000",
+      "Debit Prepaid Insurance 6,000; Credit Cash 6,000",
+      "Debit Cash 6,000; Credit Prepaid Insurance 6,000",
+      "Debit Prepaid Insurance 6,000; Credit Insurance Expense 6,000"
+    ],
+    "correct": 1,
+    "explanation": "The benefit extends beyond the current period, so it is recorded as an asset: Prepaid Insurance (debit). Cash decreases (credit). Insurance Expense will be recognized as time passes.",
+    "entry": {
+      "debits": [
+        [
+          "Prepaid Insurance",
+          "6,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Cash",
+          "6,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Liabilities",
+    "prompt": "A company borrows 50,000 from a bank, signing a promissory note. The entry is:",
+    "options": [
+      "Debit Notes Payable 50,000; Credit Cash 50,000",
+      "Debit Cash 50,000; Credit Accounts Payable 50,000",
+      "Debit Cash 50,000; Credit Notes Payable 50,000",
+      "Debit Cash 50,000; Credit Interest Payable 50,000"
+    ],
+    "correct": 2,
+    "explanation": "Cash (asset) increases → debit. Notes Payable (liability) increases → credit. Interest is recorded separately as it accrues.",
+    "entry": {
+      "debits": [
+        [
+          "Cash",
+          "50,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Notes Payable",
+          "50,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Equity",
+    "prompt": "A corporation declares and pays a cash dividend of 3,000 on the same day. The entry on payment is:",
+    "options": [
+      "Debit Retained Earnings 3,000; Credit Dividend Revenue 3,000",
+      "Debit Dividends (or Retained Earnings) 3,000; Credit Cash 3,000",
+      "Debit Cash 3,000; Credit Dividends Payable 3,000",
+      "Debit Dividend Expense 3,000; Credit Cash 3,000"
+    ],
+    "correct": 1,
+    "explanation": "Dividends reduce equity (debit Dividends or Retained Earnings directly). Cash decreases → credit. Dividends are NOT an expense — they are a distribution to owners.",
+    "entry": {
+      "debits": [
+        [
+          "Dividends",
+          "3,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Cash",
+          "3,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Equity",
+    "prompt": "An owner invests 20,000 cash to start a business (sole proprietorship). The entry is:",
+    "options": [
+      "Debit Owner's Capital 20,000; Credit Cash 20,000",
+      "Debit Cash 20,000; Credit Sales Revenue 20,000",
+      "Debit Cash 20,000; Credit Owner's Capital 20,000",
+      "Debit Cash 20,000; Credit Notes Payable 20,000"
+    ],
+    "correct": 2,
+    "explanation": "Cash increases (debit). Owner's Capital increases to reflect the investment (credit). It is equity, not revenue or liability.",
+    "entry": {
+      "debits": [
+        [
+          "Cash",
+          "20,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Owner's Capital",
+          "20,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Adjusting",
+    "prompt": "Zurich AG paid cash of 12,000 CHF on June 1, 2019 for one year's rent in advance, and recorded the transaction with a debit to Prepaid Rent. On December 31, 2019, they should prepare the following adjusting entry:",
+    "options": [
+      "Debit Prepaid Rent and credit Rent Expense, 5,000 CHF",
+      "Debit Prepaid Rent and credit Rent Expense, 7,000 CHF",
+      "Debit Rent Expense and credit Prepaid Rent, 7,000 CHF",
+      "Debit Prepaid Rent and credit Cash, 5,000 CHF"
+    ],
+    "correct": 2,
+    "explanation": "From June 1 to December 31 is 7 months. Monthly rent = 12,000 / 12 = 1,000. Expired portion = 7 × 1,000 = 7,000 CHF. Rent Expense (expense) increases → debit; Prepaid Rent (asset) decreases → credit.",
+    "entry": {
+      "debits": [
+        [
+          "Rent Expense",
+          "7,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Prepaid Rent",
+          "7,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Adjusting",
+    "prompt": "On March 1 a company paid 2,400 for a 12-month insurance policy (recorded as Prepaid Insurance). The adjusting entry on December 31 is:",
+    "options": [
+      "Debit Insurance Expense 200; Credit Prepaid Insurance 200",
+      "Debit Insurance Expense 2,000; Credit Prepaid Insurance 2,000",
+      "Debit Prepaid Insurance 2,000; Credit Insurance Expense 2,000",
+      "Debit Insurance Expense 2,400; Credit Cash 2,400"
+    ],
+    "correct": 1,
+    "explanation": "From March 1 to December 31 = 10 months. Monthly cost = 2,400 / 12 = 200. Expired = 10 × 200 = 2,000. Insurance Expense (debit) and Prepaid Insurance (credit).",
+    "entry": {
+      "debits": [
+        [
+          "Insurance Expense",
+          "2,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Prepaid Insurance",
+          "2,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Adjusting",
+    "prompt": "Supplies had a beginning balance of 800. During the year, 3,000 of supplies were purchased and debited to Supplies. A year-end count shows 500 on hand. The adjusting entry is:",
+    "options": [
+      "Debit Supplies Expense 3,300; Credit Supplies 3,300",
+      "Debit Supplies 500; Credit Supplies Expense 500",
+      "Debit Supplies Expense 500; Credit Supplies 500",
+      "Debit Supplies Expense 3,000; Credit Supplies 3,000"
+    ],
+    "correct": 0,
+    "explanation": "Supplies used = Beginning + Purchases − Ending = 800 + 3,000 − 500 = 3,300. Supplies Expense is debited, Supplies (asset) is credited to bring it down to 500.",
+    "entry": {
+      "debits": [
+        [
+          "Supplies Expense",
+          "3,300"
+        ]
+      ],
+      "credits": [
+        [
+          "Supplies",
+          "3,300"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Adjusting",
+    "prompt": "Equipment costing 40,000 has annual depreciation of 4,000. The year-end adjusting entry is:",
+    "options": [
+      "Debit Depreciation Expense 4,000; Credit Equipment 4,000",
+      "Debit Equipment 4,000; Credit Accumulated Depreciation 4,000",
+      "Debit Depreciation Expense 4,000; Credit Accumulated Depreciation 4,000",
+      "Debit Accumulated Depreciation 4,000; Credit Depreciation Expense 4,000"
+    ],
+    "correct": 2,
+    "explanation": "Depreciation Expense (expense) is debited; Accumulated Depreciation (contra-asset) is credited. Equipment itself is never directly reduced — that is the purpose of the contra account.",
+    "entry": {
+      "debits": [
+        [
+          "Depreciation Expense",
+          "4,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Accumulated Depreciation",
+          "4,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Adjusting",
+    "prompt": "Employees earned 2,500 of wages in the last week of December but will be paid in January. The December 31 adjusting entry is:",
+    "options": [
+      "Debit Wages Expense 2,500; Credit Cash 2,500",
+      "Debit Wages Expense 2,500; Credit Wages Payable 2,500",
+      "Debit Wages Payable 2,500; Credit Wages Expense 2,500",
+      "No entry until wages are paid"
+    ],
+    "correct": 1,
+    "explanation": "Accrual principle: expense is recognized when incurred. Wages Expense (debit) increases, Wages Payable (liability, credit) is created to reflect what is owed.",
+    "entry": {
+      "debits": [
+        [
+          "Wages Expense",
+          "2,500"
+        ]
+      ],
+      "credits": [
+        [
+          "Wages Payable",
+          "2,500"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Adjusting",
+    "prompt": "A company signed a 60,000, 6%, 1-year note payable on October 1. The December 31 adjusting entry for accrued interest is:",
+    "options": [
+      "Debit Interest Expense 3,600; Credit Cash 3,600",
+      "Debit Interest Expense 900; Credit Interest Payable 900",
+      "Debit Interest Payable 900; Credit Interest Expense 900",
+      "Debit Interest Expense 3,600; Credit Interest Payable 3,600"
+    ],
+    "correct": 1,
+    "explanation": "Annual interest = 60,000 × 6% = 3,600. For 3 months (Oct–Dec): 3,600 × 3/12 = 900. Debit Interest Expense, credit Interest Payable (liability — we owe but haven't paid).",
+    "entry": {
+      "debits": [
+        [
+          "Interest Expense",
+          "900"
+        ]
+      ],
+      "credits": [
+        [
+          "Interest Payable",
+          "900"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Adjusting",
+    "prompt": "A 10,000 note receivable earning 8% annual interest was received on November 1. The December 31 adjusting entry for earned-but-unreceived interest is:",
+    "options": [
+      "Debit Cash 133; Credit Interest Revenue 133",
+      "Debit Interest Revenue 133; Credit Interest Receivable 133",
+      "Debit Interest Receivable 133; Credit Interest Revenue 133",
+      "Debit Interest Receivable 800; Credit Interest Revenue 800"
+    ],
+    "correct": 2,
+    "explanation": "Annual interest = 10,000 × 8% = 800. For 2 months (Nov–Dec): 800 × 2/12 = 133. Interest Receivable (asset, debit) is created; Interest Revenue (credit) is earned.",
+    "entry": {
+      "debits": [
+        [
+          "Interest Receivable",
+          "133"
+        ]
+      ],
+      "credits": [
+        [
+          "Interest Revenue",
+          "133"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Unearned",
+    "prompt": "A magazine publisher receives 1,200 cash in advance for a 12-month subscription on October 1 (recorded initially as Unearned Revenue). The December 31 adjusting entry is:",
+    "options": [
+      "Debit Cash 300; Credit Subscription Revenue 300",
+      "Debit Unearned Revenue 900; Credit Subscription Revenue 900",
+      "Debit Unearned Revenue 300; Credit Subscription Revenue 300",
+      "Debit Subscription Revenue 300; Credit Unearned Revenue 300"
+    ],
+    "correct": 2,
+    "explanation": "3 months have been earned (Oct–Dec): 1,200 × 3/12 = 300. Unearned Revenue (liability) decreases (debit); Subscription Revenue is recognized (credit).",
+    "entry": {
+      "debits": [
+        [
+          "Unearned Revenue",
+          "300"
+        ]
+      ],
+      "credits": [
+        [
+          "Subscription Revenue",
+          "300"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Unearned",
+    "prompt": "A company receives 5,000 cash from a customer for services to be performed next quarter. The entry at receipt is:",
+    "options": [
+      "Debit Cash 5,000; Credit Service Revenue 5,000",
+      "Debit Cash 5,000; Credit Unearned Revenue 5,000",
+      "Debit Unearned Revenue 5,000; Credit Cash 5,000",
+      "Debit Accounts Receivable 5,000; Credit Service Revenue 5,000"
+    ],
+    "correct": 1,
+    "explanation": "Cash increases (debit). We have NOT yet earned it — we owe the customer a service — so Unearned Revenue (liability, credit).",
+    "entry": {
+      "debits": [
+        [
+          "Cash",
+          "5,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Unearned Revenue",
+          "5,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Closing",
+    "prompt": "At year-end, Sales Revenue has a credit balance of 90,000. The closing entry to close Sales Revenue is:",
+    "options": [
+      "Debit Income Summary 90,000; Credit Sales Revenue 90,000",
+      "Debit Sales Revenue 90,000; Credit Retained Earnings 90,000",
+      "Debit Sales Revenue 90,000; Credit Income Summary 90,000",
+      "Debit Sales Revenue 90,000; Credit Cash 90,000"
+    ],
+    "correct": 2,
+    "explanation": "Revenue accounts have credit balances. To close them we debit them to bring them to zero, crediting Income Summary to collect the period's totals.",
+    "entry": {
+      "debits": [
+        [
+          "Sales Revenue",
+          "90,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Income Summary",
+          "90,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Closing",
+    "prompt": "Total expenses for the year are 62,000. The closing entry to close expense accounts is:",
+    "options": [
+      "Debit Expenses 62,000; Credit Income Summary 62,000",
+      "Debit Income Summary 62,000; Credit Expenses 62,000",
+      "Debit Retained Earnings 62,000; Credit Expenses 62,000",
+      "Debit Income Summary 62,000; Credit Cash 62,000"
+    ],
+    "correct": 1,
+    "explanation": "Expense accounts have debit balances. To close them, credit each expense account (bringing it to zero) and debit Income Summary.",
+    "entry": {
+      "debits": [
+        [
+          "Income Summary",
+          "62,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Expenses (each account)",
+          "62,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Payables",
+    "prompt": "A company pays off a 60,000 note along with 900 of accrued interest (recorded earlier as Interest Payable) and no new interest. The entry on payment is:",
+    "options": [
+      "Debit Cash 60,900; Credit Notes Payable 60,900",
+      "Debit Notes Payable 60,000; Debit Interest Expense 900; Credit Cash 60,900",
+      "Debit Notes Payable 60,000; Debit Interest Payable 900; Credit Cash 60,900",
+      "Debit Notes Payable 60,900; Credit Interest Payable 900; Credit Cash 60,000"
+    ],
+    "correct": 2,
+    "explanation": "Both liabilities are extinguished (debit Notes Payable 60,000 and Interest Payable 900), and cash decreases by the total paid (credit 60,900). Interest was already expensed in the adjusting entry.",
+    "entry": {
+      "debits": [
+        [
+          "Notes Payable",
+          "60,000"
+        ],
+        [
+          "Interest Payable",
+          "900"
+        ]
+      ],
+      "credits": [
+        [
+          "Cash",
+          "60,900"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Equity",
+    "set": "AE1",
+    "prompt": "Matterhorn AG has 400,000 ordinary shares (10 CHF par) and 80,000 cumulative preference shares (5 CHF par, 12% interest rate). No dividends were paid in 2020 or 2021. In 2022, the Board approves a total dividend of CHF 100,000. The preference shareholders will receive:",
+    "options": [
+      "0 CHF",
+      "100,000 CHF",
+      "48,000 CHF",
+      "4,000 CHF"
+    ],
+    "correct": 1,
+    "explanation": "Yearly preferred dividend = 80,000 × 5 × 12% = 48,000 CHF. Because the shares are cumulative, dividends in arrears for 2020 and 2021 (2 × 48,000 = 96,000) plus 2022 (48,000) = 144,000 must be paid to preference holders before any goes to ordinary shareholders. With only 100,000 available, the entire amount goes to preference shareholders."
+  },
+  {
+    "category": "Adjusting",
+    "set": "AE1",
+    "prompt": "Fleissig AG hired a new employee on September 1, 2022 with a yearly salary of CHF 120,000, payable in cash on September 1, 2023. No transactions have been recorded yet. The adjusting entry to Wages Payable on December 31, 2022 is:",
+    "options": [
+      "Credit Wages Payable, CHF 40,000",
+      "Debit Wages Payable, CHF 40,000",
+      "Credit Wages Payable, CHF 120,000",
+      "Debit Wages Payable, CHF 10,000"
+    ],
+    "correct": 0,
+    "explanation": "Four months of salary (Sep–Dec) have been earned but not yet paid: 120,000 × 4/12 = 40,000. Wages Expense is debited and Wages Payable (a liability) is credited.",
+    "entry": {
+      "debits": [
+        [
+          "Wages Expense",
+          "40,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Wages Payable",
+          "40,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Adjusting",
+    "set": "AE1",
+    "prompt": "Chur AG paid $12,000 on April 1, 2022 for advertising that will run for the next six months. What is the adjusting entry to Prepaid Expense and Advertising Expense on May 31, 2022?",
+    "options": [
+      "Credit Prepaid Expense $4,000; Debit Advertising Expense $4,000",
+      "Debit Prepaid Expense $4,000; Credit Advertising Expense $4,000",
+      "Debit Prepaid Expense $12,000; Credit Advertising Expense $12,000",
+      "Debit Prepaid Expense $2,000; Credit Advertising Expense $2,000"
+    ],
+    "correct": 0,
+    "explanation": "12,000 over 6 months = 2,000/month. By May 31, two months (April + May) have passed → 4,000 has been consumed. Debit Advertising Expense 4,000; Credit Prepaid Expense 4,000.",
+    "entry": {
+      "debits": [
+        [
+          "Advertising Expense",
+          "4,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Prepaid Expense",
+          "4,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Adjusting",
+    "set": "AE1",
+    "prompt": "Davos AG paid CHF 24,000 on August 1, 2021 for a two-year cable-car maintenance contract. What will the adjusting entry to Prepaid Maintenance recorded on December 31, 2021 look like?",
+    "options": [
+      "Debit: CHF 6,000",
+      "Credit: CHF 5,000",
+      "Debit: CHF 1,000",
+      "Credit: CHF 6,000"
+    ],
+    "correct": 1,
+    "explanation": "24,000 spread over 24 months = 1,000/month. From August 1 to December 31 is 5 months → 5,000 has been consumed. Debit Maintenance Expense 5,000; Credit Prepaid Maintenance 5,000.",
+    "entry": {
+      "debits": [
+        [
+          "Maintenance Expense",
+          "5,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Prepaid Maintenance",
+          "5,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Fundamentals",
+    "set": "AE1",
+    "prompt": "Which of the following statements is true according to the accounting equation?",
+    "options": [
+      "Assets − Equity = Liabilities",
+      "Assets + Liabilities = Equity",
+      "Equity = Liabilities − Dividends",
+      "Assets = Liabilities − Equity − Retained Earnings + Dividends"
+    ],
+    "correct": 0,
+    "explanation": "The fundamental accounting equation is Assets = Liabilities + Equity. Rearranging gives Assets − Equity = Liabilities, so option (a) is the only valid restatement."
+  },
+  {
+    "category": "Fundamentals",
+    "set": "AE1",
+    "prompt": "Malagny SA presents the following information at the end of the year 2022. Calculate the net income, total equity and total assets.",
+    "visual": "ae1-malagny-statement-table",
+    "options": [
+      "NI 9,000 · Equity 13,000 · Assets 23,000",
+      "NI 9,000 · Equity 14,000 · Assets 22,000",
+      "NI 8,000 · Equity 12,000 · Assets 23,000",
+      "NI 10,000 · Equity 13,000 · Assets 24,000"
+    ],
+    "correct": 0,
+    "explanation": "Net income = Revenues − Expenses = 21,000 − 12,000 = 9,000. Ending Equity = Common Stock + Beg. RE + Net Income − Dividends = 2,000 + 3,000 + 9,000 − 1,000 = 13,000. Total Assets = Inventories + Cash + AR + Buildings + Machines = 1,000 + 13,000 + 3,000 + 4,000 + 2,000 = 23,000. Check: Liabilities (9,000 + 1,000) + Equity (13,000) = 23,000 ✓"
+  },
+  {
+    "category": "Fundamentals",
+    "set": "AE1",
+    "prompt": "Debits…",
+    "options": [
+      "increase equity and liabilities.",
+      "decrease liabilities and revenues.",
+      "increase assets and increase liabilities.",
+      "decrease expenses and increase revenues."
+    ],
+    "correct": 1,
+    "explanation": "Debits increase assets, expenses, and dividends; they decrease liabilities, equity, and revenues. Of the options, only (b) is correct."
+  },
+  {
+    "category": "Equity",
+    "set": "AE1-AI",
+    "prompt": "Alpenblick AG has 200,000 ordinary shares (10 CHF par) and 60,000 cumulative preference shares (5 CHF par, 8% interest rate). No dividends were paid in 2021. In 2022, the Board approves a total dividend of CHF 80,000. The preference shareholders will receive:",
+    "options": [
+      "24,000 CHF",
+      "48,000 CHF",
+      "80,000 CHF",
+      "0 CHF"
+    ],
+    "correct": 1,
+    "explanation": "Yearly preferred dividend = 60,000 × 5 × 8% = 24,000. Cumulative arrears for 2021 (24,000) plus 2022 (24,000) = 48,000 go to preference holders before ordinary shareholders. The remaining 32,000 goes to ordinary."
+  },
+  {
+    "category": "Equity",
+    "set": "AE1-AI",
+    "prompt": "Helvetia SA has 100,000 ordinary shares and 40,000 cumulative preference shares (10 CHF par, 6% interest). No dividend was paid in 2020, 2021, or 2022. In 2023 the Board declares a total dividend of CHF 30,000. The ordinary shareholders will receive:",
+    "options": [
+      "0 CHF",
+      "6,000 CHF",
+      "24,000 CHF",
+      "30,000 CHF"
+    ],
+    "correct": 0,
+    "explanation": "Yearly preferred dividend = 40,000 × 10 × 6% = 24,000. Cumulative arrears (3 × 24,000 = 72,000) far exceed the 30,000 declared, so the entire amount goes to preference shareholders. Ordinary shareholders receive 0."
+  },
+  {
+    "category": "Adjusting",
+    "set": "AE1-AI",
+    "prompt": "Solide GmbH hired a consultant on May 1, 2022 with a yearly salary of CHF 96,000, payable in cash on May 1, 2023. No transactions have been recorded yet. The adjusting entry to Wages Payable on December 31, 2022 is:",
+    "options": [
+      "Credit Wages Payable, CHF 64,000",
+      "Credit Wages Payable, CHF 96,000",
+      "Debit Wages Payable, CHF 64,000",
+      "Credit Wages Payable, CHF 32,000"
+    ],
+    "correct": 0,
+    "explanation": "Eight months have accrued (May–Dec): 96,000 × 8/12 = 64,000. Debit Wages Expense 64,000; Credit Wages Payable 64,000.",
+    "entry": {
+      "debits": [
+        [
+          "Wages Expense",
+          "64,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Wages Payable",
+          "64,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Adjusting",
+    "set": "AE1-AI",
+    "prompt": "Lugano SA paid $18,000 on March 1, 2022 for a 12-month insurance policy. The adjusting entry recorded on June 30, 2022 is:",
+    "options": [
+      "Debit Insurance Expense $6,000; Credit Prepaid Insurance $6,000",
+      "Debit Prepaid Insurance $6,000; Credit Insurance Expense $6,000",
+      "Debit Insurance Expense $1,500; Credit Prepaid Insurance $1,500",
+      "Debit Insurance Expense $18,000; Credit Cash $18,000"
+    ],
+    "correct": 0,
+    "explanation": "18,000 over 12 months = 1,500/month. By June 30, four months (Mar–Jun) have elapsed → 6,000 has been consumed.",
+    "entry": {
+      "debits": [
+        [
+          "Insurance Expense",
+          "6,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Prepaid Insurance",
+          "6,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Adjusting",
+    "set": "AE1-AI",
+    "prompt": "Genève SA paid CHF 36,000 on October 1, 2022 for a three-year service contract. The adjusting entry to Prepaid Service on December 31, 2022 is:",
+    "options": [
+      "Credit Prepaid Service CHF 3,000",
+      "Debit Prepaid Service CHF 3,000",
+      "Credit Prepaid Service CHF 9,000",
+      "Credit Prepaid Service CHF 12,000"
+    ],
+    "correct": 0,
+    "explanation": "36,000 over 36 months = 1,000/month. Three months (Oct–Dec) have elapsed → 3,000 consumed. Debit Service Expense 3,000; Credit Prepaid Service 3,000.",
+    "entry": {
+      "debits": [
+        [
+          "Service Expense",
+          "3,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Prepaid Service",
+          "3,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Fundamentals",
+    "set": "AE1-AI",
+    "prompt": "Which of the following correctly restates the accounting equation?",
+    "options": [
+      "Liabilities = Assets + Equity",
+      "Equity = Assets − Liabilities",
+      "Assets = Equity − Liabilities",
+      "Equity + Liabilities = Assets − Dividends"
+    ],
+    "correct": 1,
+    "explanation": "Assets = Liabilities + Equity rearranges to Equity = Assets − Liabilities. Option (b) is the only valid form."
+  },
+  {
+    "category": "Fundamentals",
+    "set": "AE1-AI",
+    "prompt": "Sion SA presents the following information at the end of the year 2023. Calculate the net income, total equity and total assets.",
+    "visual": "ae1-ai-sion-statement-table",
+    "options": [
+      "NI 7,000 · Equity 12,000 · Assets 20,000",
+      "NI 6,000 · Equity 11,000 · Assets 19,000",
+      "NI 7,000 · Equity 13,000 · Assets 21,000",
+      "NI 8,000 · Equity 12,000 · Assets 21,000"
+    ],
+    "correct": 0,
+    "explanation": "Net income = 18,000 − 11,000 = 7,000. Ending Equity = 4,000 + 2,000 + 7,000 − 1,000 = 12,000. Total Assets = 8,000 + 4,000 + 2,000 + 6,000 = 20,000. Check: Liabilities (8,000) + Equity (12,000) = 20,000 ✓"
+  },
+  {
+    "category": "Fundamentals",
+    "set": "AE1-AI",
+    "prompt": "Credits…",
+    "options": [
+      "decrease assets and decrease expenses.",
+      "increase assets and decrease liabilities.",
+      "decrease equity and increase expenses.",
+      "increase expenses and decrease revenues."
+    ],
+    "correct": 0,
+    "explanation": "Credits decrease assets, expenses, and dividends; they increase liabilities, equity, and revenues. Option (a) correctly captures both: credits decrease assets and decrease expenses."
+  },
+  {
+    "category": "Fundamentals",
+    "set": "AE1-AI",
+    "prompt": "Which of the following pairs both increase with a debit?",
+    "options": [
+      "Assets and Liabilities",
+      "Expenses and Revenues",
+      "Assets and Expenses",
+      "Liabilities and Equity"
+    ],
+    "correct": 2,
+    "explanation": "Assets and expenses (and dividends) both have debit balances and increase with debits. Liabilities, equity, and revenues increase with credits."
+  },
+  {
+    "category": "Standards",
+    "set": "R1",
+    "prompt": "In Switzerland, a company whose shares are traded on the Domestic Standard of SIX:",
+    "options": [
+      "can only follow Swiss GAAP FER.",
+      "can only follow IFRS or US GAAP.",
+      "can follow Swiss GAAP FER, IFRS, the Banking Act standard, or US GAAP.",
+      "can follow any foreign accounting standard of its choice."
+    ],
+    "correct": 2,
+    "explanation": "The SIX Domestic Standard accepts the broadest range of frameworks: Swiss GAAP FER, IFRS, US GAAP, and (for banks) the Banking Act standard. The International Reporting Standard, by contrast, requires IFRS or US GAAP only."
+  },
+  {
+    "category": "Adjusting",
+    "set": "R1",
+    "prompt": "Zurich AG paid 12,000 CHF cash on June 1, 2019 for one year's rent in advance and recorded the transaction with a debit to Prepaid Rent. On December 31, 2019, the adjusting entry is:",
+    "options": [
+      "Debit Prepaid Rent and credit Rent Expense, 5,000 CHF",
+      "Debit Prepaid Rent and credit Rent Expense, 7,000 CHF",
+      "Debit Rent Expense and credit Prepaid Rent, 7,000 CHF",
+      "Debit Prepaid Rent and credit Cash, 5,000 CHF"
+    ],
+    "correct": 2,
+    "explanation": "12,000 / 12 months = 1,000 / month. From June 1 to December 31 = 7 months consumed → 7,000 expensed. Debit Rent Expense 7,000; Credit Prepaid Rent 7,000.",
+    "entry": {
+      "debits": [
+        [
+          "Rent Expense",
+          "7,000"
+        ]
+      ],
+      "credits": [
+        [
+          "Prepaid Rent",
+          "7,000"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Equity",
+    "set": "R1",
+    "prompt": "The pre-emptive right of an ordinary shareholder is the right to:",
+    "options": [
+      "share proportionately in corporate assets upon liquidation.",
+      "share proportionately in any new issues of stock of the same class.",
+      "receive cash dividends before they are distributed to preference shareholders.",
+      "exclude preference shareholders from voting rights."
+    ],
+    "correct": 1,
+    "explanation": "The pre-emptive right protects an existing ordinary shareholder against dilution by giving them the right to subscribe — proportionally to their current holding — to any new issue of shares of the same class."
+  },
+  {
+    "category": "Equity",
+    "set": "R1",
+    "prompt": "In January 2020, Genève SA, a newly formed company, issued 10,000 ordinary shares (10 CHF par) for 15 CHF per share. On July 1, 2020, Genève SA reacquired 1,000 of its outstanding shares for 12 CHF per share. The acquisition of these treasury shares:",
+    "options": [
+      "decreased total shareholders' equity.",
+      "increased total shareholders' equity.",
+      "did not change total shareholders' equity.",
+      "decreased the number of issued shares."
+    ],
+    "correct": 0,
+    "explanation": "Treasury share buybacks reduce total equity by the cash paid out (1,000 × 12 = 12,000 CHF). The shares remain issued — they are simply no longer outstanding — and only the 'treasury shares' contra-equity account changes."
+  },
+  {
+    "category": "Equity",
+    "set": "R1",
+    "prompt": "Basel AG was organized on January 1, 2020 with 1,200,000 authorized ordinary shares (par value 6 CHF). 2020 transactions: Jan 5 — issued 675,000 shares @ 10 CHF; July 28 — purchased 90,000 shares as treasury @ 11 CHF; Dec 31 — sold all 90,000 treasury shares @ 18 CHF. What is Basel AG's total Share Premium as of December 31, 2020?",
+    "options": [
+      "0",
+      "2,070,000",
+      "2,700,000",
+      "3,330,000"
+    ],
+    "correct": 3,
+    "explanation": "Premium on issuance = 675,000 × (10 − 6) = 2,700,000. Treasury resale: cost 90,000 × 11 = 990,000; proceeds 90,000 × 18 = 1,620,000 → 630,000 above cost flows to Share Premium. Total = 2,700,000 + 630,000 = 3,330,000."
+  },
+  {
+    "category": "Equity",
+    "set": "R1",
+    "prompt": "Lausanne SA has 100,000 ordinary shares (5 CHF par) and 30,000 cumulative preference shares (10 CHF par, 8% interest rate). No dividends were paid in 2018 or 2019. In 2020 the Board of Directors approves a total dividend of 150,000 CHF. How much will the ordinary shareholders receive?",
+    "options": [
+      "0 CHF",
+      "78,000 CHF",
+      "102,000 CHF",
+      "126,000 CHF"
+    ],
+    "correct": 1,
+    "explanation": "Annual preferred dividend = 30,000 × 10 × 8% = 24,000. Cumulative arrears (2018 + 2019) = 48,000; current (2020) = 24,000 → preferred receives 72,000 first. Ordinary shareholders take the remainder: 150,000 − 72,000 = 78,000."
+  },
+  {
+    "category": "Equity",
+    "set": "R1",
+    "prompt": "Solothurn AG has 80,000 ordinary shares (5 CHF par) and 40,000 cumulative preference shares (10 CHF par, 6% interest rate). No dividend was paid in 2019. In 2020 the Board of Directors approves 63,000 CHF as dividend. How much will the preference shareholders receive?",
+    "options": [
+      "21,000 CHF",
+      "24,000 CHF",
+      "48,000 CHF",
+      "63,000 CHF"
+    ],
+    "correct": 2,
+    "explanation": "Annual preferred dividend = 40,000 × 10 × 6% = 24,000. Cumulative arrears (2019) + current (2020) = 48,000 must be paid to preferred first. The remaining 15,000 goes to ordinary shareholders."
+  },
+  {
+    "category": "Standards",
+    "set": "R1-AI",
+    "prompt": "A Swiss company whose shares are traded on the International Reporting Standard of SIX must apply:",
+    "options": [
+      "Swiss GAAP FER only.",
+      "IFRS only.",
+      "IFRS or US GAAP.",
+      "any internationally recognized framework."
+    ],
+    "correct": 2,
+    "explanation": "The SIX International Reporting Standard restricts financial reporting to either IFRS or US GAAP — both globally recognized frameworks suitable for international investors."
+  },
+  {
+    "category": "Adjusting",
+    "set": "R1-AI",
+    "prompt": "Bern SA paid 18,000 CHF on April 1, 2022 for one year's office rent in advance, recorded as Prepaid Rent. The adjusting entry on December 31, 2022 is:",
+    "options": [
+      "Debit Rent Expense and credit Prepaid Rent, 13,500 CHF",
+      "Debit Prepaid Rent and credit Rent Expense, 13,500 CHF",
+      "Debit Rent Expense and credit Prepaid Rent, 4,500 CHF",
+      "Debit Rent Expense and credit Cash, 13,500 CHF"
+    ],
+    "correct": 0,
+    "explanation": "18,000 / 12 = 1,500 / month. From April 1 to December 31 = 9 months consumed → 13,500 expensed. Debit Rent Expense 13,500; Credit Prepaid Rent 13,500.",
+    "entry": {
+      "debits": [
+        [
+          "Rent Expense",
+          "13,500"
+        ]
+      ],
+      "credits": [
+        [
+          "Prepaid Rent",
+          "13,500"
+        ]
+      ]
+    }
+  },
+  {
+    "category": "Equity",
+    "set": "R1-AI",
+    "prompt": "Which of the following BEST describes a cumulative preference share?",
+    "options": [
+      "It receives a fixed dividend each year before ordinary shareholders, with any unpaid amounts carried forward to future years.",
+      "It can be converted into ordinary shares at the holder's option.",
+      "It carries voting rights identical to those of ordinary shares.",
+      "It receives both a fixed dividend and a share of residual profits."
+    ],
+    "correct": 0,
+    "explanation": "Cumulative preference shares accumulate unpaid (skipped) dividends as 'arrears' — the company must pay all arrears plus the current year's preferred dividend before any dividend can be paid to ordinary shareholders."
+  },
+  {
+    "category": "Equity",
+    "set": "R1-AI",
+    "prompt": "Aarau AG had 50,000 ordinary shares (10 CHF par) outstanding, originally issued at 14 CHF. In November 2022, it reacquired 5,000 shares for 16 CHF per share to hold as treasury shares. The treasury-share acquisition:",
+    "options": [
+      "increased total shareholders' equity by 80,000 CHF.",
+      "decreased total shareholders' equity by 80,000 CHF.",
+      "did not change total shareholders' equity.",
+      "decreased the number of authorized shares."
+    ],
+    "correct": 1,
+    "explanation": "5,000 × 16 = 80,000 CHF of cash leaves the company; the offsetting Treasury Shares account is a contra-equity account, so total shareholders' equity falls by 80,000. Authorized and issued share counts are unaffected — only outstanding shares decrease."
+  },
+  {
+    "category": "Equity",
+    "set": "R1-AI",
+    "prompt": "Lugano AG was newly organized on January 1, 2021 with 1,000,000 authorized ordinary shares (par 5 CHF). 2021 transactions: Feb 1 — issued 400,000 shares @ 8 CHF; Aug 15 — bought back 50,000 shares as treasury @ 9 CHF; Nov 30 — resold all 50,000 treasury shares @ 12 CHF. What is the total Share Premium at year-end?",
+    "options": [
+      "0",
+      "1,200,000",
+      "1,350,000",
+      "1,500,000"
+    ],
+    "correct": 2,
+    "explanation": "Premium on issuance = 400,000 × (8 − 5) = 1,200,000. Treasury resale gain = 50,000 × (12 − 9) = 150,000 added to Share Premium. Total = 1,350,000."
+  },
+  {
+    "category": "Equity",
+    "set": "R1-AI",
+    "prompt": "Winterthur AG has 80,000 ordinary shares (10 CHF par) and 20,000 cumulative preference shares (5 CHF par, 10% interest rate). No dividend was paid in 2020. In 2021 the Board approves a total dividend of 50,000 CHF. The ordinary shareholders will receive:",
+    "options": [
+      "0 CHF",
+      "30,000 CHF",
+      "40,000 CHF",
+      "50,000 CHF"
+    ],
+    "correct": 1,
+    "explanation": "Annual preferred = 20,000 × 5 × 10% = 10,000. Cumulative arrears (2020) + current (2021) = 20,000 to preferred. Ordinary receive 50,000 − 20,000 = 30,000."
+  },
+  {
+    "category": "Equity",
+    "set": "R1-AI",
+    "prompt": "Schaffhausen AG has 60,000 ordinary shares (5 CHF par) and 25,000 cumulative preference shares (10 CHF par, 8% interest rate). No dividend was paid in 2018 or 2019. In 2020 the Board approves 30,000 CHF. How much do the preference shareholders receive?",
+    "options": [
+      "20,000 CHF",
+      "30,000 CHF",
+      "40,000 CHF",
+      "60,000 CHF"
+    ],
+    "correct": 1,
+    "explanation": "Annual preferred = 25,000 × 10 × 8% = 20,000. Cumulative arrears (2018, 2019) + current (2020) = 60,000 owed, but only 30,000 is available — all of it goes to preference shareholders, leaving 0 for ordinary."
+  },
+  {
+    "category": "Investments",
+    "set": "R2",
+    "prompt": "Lugano SA declares and distributes a cash dividend that is a result of current earnings. How will the investor's receipt of those dividends affect the investment account under each method? Fair Value Method / Equity Method",
+    "options": [
+      "No Effect / Decrease",
+      "Increase / Decrease",
+      "No Effect / No Effect",
+      "Decrease / No Effect"
+    ],
+    "correct": 0,
+    "explanation": "Under the fair value method, dividends from current earnings are recorded as dividend revenue, so the investment account is not changed. Under the equity method, dividends are treated as a return of investment and reduce the Investment account."
+  },
+  {
+    "category": "Investments",
+    "set": "R2",
+    "prompt": "Using the Zurich/Basel investment data in the table, what should the balance of Zurich's Investment in Basel account be at December 31, 2022?",
+    "visual": "r2-zurich-basel-table",
+    "options": [
+      "820,000 CHF",
+      "660,000 CHF",
+      "564,000 CHF",
+      "500,000 CHF"
+    ],
+    "correct": 2,
+    "explanation": "Zurich owns 40% (20,000 / 50,000). Equity-method carrying amount = 500,000 + 40% x 800,000 income - 40% x 640,000 dividends = 500,000 + 320,000 - 256,000 = 564,000 CHF."
+  },
+  {
+    "category": "Investments",
+    "set": "R2",
+    "prompt": "Using the Zurich/Basel investment data in the table, how much investment revenue should Zurich report for 2022?",
+    "visual": "r2-zurich-basel-table",
+    "options": [
+      "320,000 CHF",
+      "256,000 CHF",
+      "64,000 CHF",
+      "0 CHF"
+    ],
+    "correct": 0,
+    "explanation": "Under the equity method, investment revenue is the investor's share of investee income: 40% x 800,000 = 320,000 CHF. The dividends reduce the investment account; they are not revenue under the equity method."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R2",
+    "prompt": "In an acquisition where 100% control is acquired, how would the land accounts of the parent and the land accounts of the subsidiary be reported on consolidated financial statements? Parent / Subsidiary",
+    "options": [
+      "Book Value / Book Value",
+      "Book Value / Fair Value",
+      "Fair Value / Fair Value",
+      "Fair Value / Book Value"
+    ],
+    "correct": 1,
+    "explanation": "The parent's own assets remain at the parent's book values. The acquired subsidiary's identifiable assets and liabilities are brought into consolidation at acquisition-date fair value."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R2",
+    "prompt": "Using the Botkins/Volkerson business-combination data in the table, and assuming Volkerson maintains a separate corporate existence, at what amount did Botkins record the investment in Volkerson?",
+    "visual": "r2-botkins-volkerson-table",
+    "options": [
+      "$56,000",
+      "$182,000",
+      "$209,000",
+      "$312,000"
+    ],
+    "correct": 1,
+    "explanation": "The investment is recorded at the fair value of the consideration transferred: 56,000 shares x $3.25 = $182,000."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R2",
+    "prompt": "Using the Botkins/Volkerson business-combination data in the table, what is the value of consolidated Common Stock immediately after the acquisition?",
+    "visual": "r2-botkins-volkerson-table",
+    "options": [
+      "$330,000",
+      "$402,000",
+      "$274,000",
+      "$276,000"
+    ],
+    "correct": 3,
+    "explanation": "Only the parent's common stock appears in consolidated equity. Botkins had $220,000 common stock before the deal and issued 56,000 shares with $1 par value, adding $56,000. Consolidated Common Stock = $276,000."
+  },
+  {
+    "category": "Investments",
+    "set": "R2-AI",
+    "prompt": "Bern AG holds an investment using the fair value method. The investee declares a cash dividend from earnings earned after Bern acquired the shares. What is the effect on Bern's Investment account?",
+    "options": [
+      "No effect; Bern records dividend revenue",
+      "Increase; Bern records its share of income",
+      "Decrease; the dividend is a return of investment",
+      "Decrease; Bern records a fair value loss"
+    ],
+    "correct": 0,
+    "explanation": "Under the fair value method, ordinary dividends from post-acquisition earnings are recorded as dividend revenue. They do not change the Investment account."
+  },
+  {
+    "category": "Investments",
+    "set": "R2-AI",
+    "prompt": "Neuchatel SA accounts for an investment using the fair value method. It receives a cash dividend identified as a liquidating dividend from pre-acquisition retained earnings rather than current earnings. What is the effect on the Investment account?",
+    "options": [
+      "No effect; all dividends are dividend revenue",
+      "Increase; the dividend is added to the investment",
+      "Decrease; the dividend is treated as a return of investment",
+      "No effect; it is recorded only in other comprehensive income"
+    ],
+    "correct": 2,
+    "explanation": "A normal dividend from current or post-acquisition earnings is dividend revenue under the fair value method. A liquidating dividend, however, is a return of the investor's cost and reduces the Investment account."
+  },
+  {
+    "category": "Investments",
+    "set": "R2-AI",
+    "prompt": "Using the St. Gallen/Thun equity-method data in the table, what is the ending Investment balance?",
+    "visual": "r2-ai-st-gallen-thun-table",
+    "options": [
+      "1,014,000 CHF",
+      "1,050,000 CHF",
+      "936,000 CHF",
+      "900,000 CHF"
+    ],
+    "correct": 0,
+    "explanation": "Equity-method balance = 900,000 + 30% x 500,000 - 30% x 120,000 = 900,000 + 150,000 - 36,000 = 1,014,000 CHF."
+  },
+  {
+    "category": "Investments",
+    "set": "R2-AI",
+    "prompt": "Using the Geneva/Fribourg equity-method data in the table, how much investment revenue should Geneva report?",
+    "visual": "r2-ai-geneva-fribourg-table",
+    "options": [
+      "60,000 CHF",
+      "20,000 CHF",
+      "80,000 CHF",
+      "40,000 CHF"
+    ],
+    "correct": 0,
+    "explanation": "Investment revenue under the equity method equals the investor's share of investee income: 25% x 240,000 = 60,000 CHF. The 25% share of dividends reduces the Investment account."
+  },
+  {
+    "category": "Investments",
+    "set": "R2-AI",
+    "prompt": "Using the Lucerne/Zug equity-method data in the table, what is the ending Investment balance?",
+    "visual": "r2-ai-lucerne-zug-table",
+    "options": [
+      "770,000 CHF",
+      "630,000 CHF",
+      "700,000 CHF",
+      "500,000 CHF"
+    ],
+    "correct": 1,
+    "explanation": "The investor reduces the Investment account for its share of the investee's loss: 35% x 200,000 = 70,000. Ending balance = 700,000 - 70,000 = 630,000 CHF."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R2-AI",
+    "prompt": "Using the ParentCo/SubCo acquisition data in the table, which amounts appear in the consolidated balance sheet immediately after acquisition?",
+    "visual": "r2-ai-parent-subco-table",
+    "options": [
+      "Parent buildings at book value; Sub equipment at fair value",
+      "Parent buildings at fair value; Sub equipment at fair value",
+      "Parent buildings at book value; Sub equipment at book value",
+      "Parent buildings at fair value; Sub equipment at book value"
+    ],
+    "correct": 0,
+    "explanation": "The parent's pre-existing assets keep their book values. The subsidiary's identifiable assets and liabilities are measured at acquisition-date fair values in consolidation."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R2-AI",
+    "prompt": "Using the Arosa/Davos acquisition data in the table, at what amount does Arosa record its Investment in Davos?",
+    "visual": "r2-ai-arosa-davos-table",
+    "options": [
+      "$40,000",
+      "$160,000",
+      "$200,000",
+      "$240,000"
+    ],
+    "correct": 2,
+    "explanation": "The Investment is recorded at the fair value of consideration transferred: 40,000 shares x $5 = $200,000. Par value affects common stock/APIC, not the investment measurement."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R2-AI",
+    "prompt": "Using the Montreux/Vevey acquisition data in the table, what consolidated Common Stock balance should be reported immediately after acquisition?",
+    "visual": "r2-ai-montreux-vevey-table",
+    "options": [
+      "$25,000",
+      "$300,000",
+      "$325,000",
+      "Montreux common stock plus Vevey common stock"
+    ],
+    "correct": 2,
+    "explanation": "Consolidated equity reports the parent's common stock only, including shares issued in the acquisition. $300,000 + 25,000 x $1 par = $325,000."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R2-AI",
+    "prompt": "Using the Lausanne acquisition data in the table, and ignoring issuance costs, how much APIC is added by the share issuance?",
+    "visual": "r2-ai-lausanne-share-issue-table",
+    "options": [
+      "$20,000",
+      "$50,000",
+      "$70,000",
+      "$90,000"
+    ],
+    "correct": 1,
+    "explanation": "The issuance proceeds are 10,000 x $7 = $70,000. Common stock increases by par value, 10,000 x $2 = $20,000. The excess, $50,000, is added to APIC."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R3",
+    "prompt": "Which one of the following accounts would not appear in the consolidated financial statements at the end of the first fiscal period of the combination?",
+    "options": [
+      "Goodwill",
+      "Equipment",
+      "Investment in Subsidiary",
+      "Share capital"
+    ],
+    "correct": 2,
+    "explanation": "The parent's Investment in Subsidiary account is eliminated in consolidation against the subsidiary's equity accounts. Consolidated statements can still include goodwill, equipment, and the parent's share capital."
+  },
+  {
+    "category": "Intangibles",
+    "set": "R3",
+    "prompt": "Which of the following is not an intangible asset?",
+    "options": [
+      "Customer list",
+      "Database",
+      "Trademark",
+      "Broken equipment"
+    ],
+    "correct": 3,
+    "explanation": "Customer lists, databases, and trademarks can be intangible assets because they lack physical substance but may provide future economic benefits. Broken equipment is a tangible item, even if impaired or unusable."
+  },
+  {
+    "category": "Goodwill",
+    "set": "R3",
+    "prompt": "Which statement is true about Swiss GAAP FER on goodwill accounting?",
+    "options": [
+      "Goodwill can be accounted for as a reduction of equity at the date of acquisition.",
+      "Goodwill does not have to be tested for impairment.",
+      "Goodwill cannot be amortized subsequent to acquisition.",
+      "Goodwill impairment can be reversed if the firm makes more profit."
+    ],
+    "correct": 0,
+    "explanation": "Swiss GAAP FER permits goodwill to be offset directly against equity at the acquisition date. If goodwill is capitalized instead, it is amortized and assessed for impairment when indicators exist."
+  },
+  {
+    "category": "Goodwill",
+    "set": "R3",
+    "prompt": "Perry Company acquires 100% of Hurley Corporation on January 1, 2017, for $3,800 cash. Using the acquisition-date data in the tables, compute goodwill, if any, at January 1, 2017.",
+    "visual": "r3-hurley-acquisition-tables",
+    "options": [
+      "$150",
+      "$250",
+      "$700",
+      "$1,200"
+    ],
+    "correct": 1,
+    "explanation": "Hurley's book equity is $3,100. Fair-value adjustments are: buildings -300, equipment +250, land +400, and long-term liabilities +100 to net assets because the liability fair value is lower than book value. Fair value of net assets = 3,100 - 300 + 250 + 400 + 100 = $3,550. Goodwill = consideration $3,800 - net assets $3,550 = $250."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R3",
+    "prompt": "Perry Company acquires 100% of Hurley Corporation on January 1, 2017, for $3,800 cash. Using the acquisition-date data in the tables, compute the amount of Hurley's buildings that would be reported in a December 31, 2017, consolidated balance sheet.",
+    "visual": "r3-hurley-acquisition-tables",
+    "options": [
+      "$1,560",
+      "$960",
+      "$1,440",
+      "$1,160"
+    ],
+    "correct": 1,
+    "explanation": "The acquired building is measured at acquisition-date fair value of $1,200 and depreciated over the remaining 5-year life. One year of depreciation is $1,200 / 5 = $240. Carrying amount at December 31, 2017 = $1,200 - $240 = $960."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R3",
+    "prompt": "Perry Company acquires 100% of Hurley Corporation on January 1, 2017, for $3,800 cash. Using the acquisition-date data in the tables, compute the amount of Hurley's land that would be reported in a December 31, 2018, consolidated balance sheet.",
+    "visual": "r3-hurley-acquisition-tables",
+    "options": [
+      "$900",
+      "$1,300",
+      "$400",
+      "$1,450"
+    ],
+    "correct": 1,
+    "explanation": "Land is not depreciated. The subsidiary's land is reported in consolidation at its acquisition-date fair value of $1,300, and that amount remains unchanged through December 31, 2018 unless a later impairment or disposal occurs."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R3-AI",
+    "prompt": "ParentCo acquires 100% of SubCo and SubCo remains a separate legal entity. Which account on ParentCo's own books is eliminated when consolidated financial statements are prepared?",
+    "options": [
+      "Investment in SubCo",
+      "ParentCo cash",
+      "ParentCo share capital",
+      "Consolidated goodwill"
+    ],
+    "correct": 0,
+    "explanation": "The parent's Investment in SubCo account is a parent-only account created by the stock acquisition. Consolidation replaces it with the subsidiary's identifiable assets, liabilities, and goodwill, so the investment account is eliminated."
+  },
+  {
+    "category": "Goodwill",
+    "set": "R3-AI",
+    "prompt": "Alpine AG acquires 100% of BernTech for CHF 5,200. BernTech's book equity is CHF 4,000. Identifiable fair-value adjustments are: land +600, equipment -200, unrecorded trademark +500, and liabilities have a fair value CHF 100 higher than book value. What goodwill is recognized?",
+    "options": [
+      "CHF 200",
+      "CHF 300",
+      "CHF 400",
+      "CHF 900"
+    ],
+    "correct": 2,
+    "explanation": "Fair value of net assets = 4,000 + 600 - 200 + 500 - 100 = CHF 4,800. Goodwill = consideration 5,200 - fair value of net assets 4,800 = CHF 400."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R3-AI",
+    "prompt": "At acquisition, SubCo's equipment has a book value of $900, fair value of $1,100, and remaining useful life of 4 years. What acquisition-date fair-value adjustment remains in the consolidated balance sheet after two full years?",
+    "options": [
+      "$0",
+      "$50",
+      "$100",
+      "$200"
+    ],
+    "correct": 2,
+    "explanation": "The initial fair-value increment is $200. It is depreciated over 4 years, so $50 reverses each year. After two years, $100 remains unamortized."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R3-AI",
+    "prompt": "At acquisition, SubCo's building has a book value of $2,000, fair value of $1,700, and remaining useful life of 10 years. Compared with SubCo's separate books, consolidated depreciation expense each year is:",
+    "options": [
+      "$30 lower",
+      "$30 higher",
+      "$300 lower",
+      "unchanged"
+    ],
+    "correct": 0,
+    "explanation": "The fair value is $300 below book value. Over 10 years, consolidated depreciation is $30 per year lower than depreciation based on SubCo's separate-book carrying amount."
+  },
+  {
+    "category": "Intangibles",
+    "set": "R3-AI",
+    "prompt": "Which acquired item is most likely recognized separately from goodwill in a business combination?",
+    "options": [
+      "Expected employee loyalty that cannot be separately identified",
+      "A legally protected customer contract",
+      "General reputation of the acquired company",
+      "Expected future synergies from combining operations"
+    ],
+    "correct": 1,
+    "explanation": "A legally protected customer contract is identifiable because it arises from contractual/legal rights. General reputation, assembled workforce loyalty, and synergies are normally part of goodwill rather than separate identifiable intangibles."
+  },
+  {
+    "category": "Goodwill",
+    "set": "R3-AI",
+    "prompt": "Under Swiss GAAP FER, a company capitalizes goodwill from an acquisition instead of offsetting it against equity. Which subsequent treatment is normally expected?",
+    "options": [
+      "Amortize it over its useful life and test for impairment when indicators exist.",
+      "Never amortize it and never test it for impairment.",
+      "Record it permanently at acquisition cost unless the subsidiary is sold.",
+      "Reverse prior impairments whenever current-year profit increases."
+    ],
+    "correct": 0,
+    "explanation": "If Swiss GAAP FER goodwill is capitalized, it is amortized over useful life and reviewed for impairment when there are indications of impairment."
+  },
+  {
+    "category": "Goodwill",
+    "set": "R3-AI",
+    "prompt": "Lake AG pays CHF 2,700 for 100% of River SA. The acquisition-date fair value of River's identifiable net assets is CHF 3,000. Ignoring tax effects, this acquisition creates:",
+    "options": [
+      "Goodwill of CHF 300",
+      "A bargain purchase gain of CHF 300",
+      "An investment account of CHF 3,000 in consolidated statements",
+      "No consolidation adjustment"
+    ],
+    "correct": 1,
+    "explanation": "Consideration is CHF 300 below the fair value of identifiable net assets. That shortfall is a bargain purchase gain, not goodwill."
+  },
+  {
+    "category": "Consolidation",
+    "set": "R3-AI",
+    "prompt": "Parent AG acquires 100% of Sub AG. On the acquisition date, Parent's land has book value CHF 800 and fair value CHF 1,100. Sub's land has book value CHF 500 and fair value CHF 700. What land amount is included in the consolidated balance sheet immediately after acquisition?",
+    "options": [
+      "CHF 1,300",
+      "CHF 1,500",
+      "CHF 1,600",
+      "CHF 1,800"
+    ],
+    "correct": 1,
+    "explanation": "The parent's existing land stays at parent book value, CHF 800. The acquired subsidiary's land is brought in at fair value, CHF 700. Consolidated land = CHF 1,500."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE2",
+    "prompt": "Which of the following is traditionally not a reason firms combine in business combinations?",
+    "options": [
+      "Reduction of costs",
+      "Economies of scope",
+      "Expansion of products and services",
+      "Highly competitive business environment"
+    ],
+    "correct": 1,
+    "explanation": "For this course question, the traditional reasons include reduction of costs, expansion of products and services, and response to a highly competitive business environment. Economies of scope is therefore the item that is not treated as a traditional reason here."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE2",
+    "prompt": "UBS agreed to acquire Credit Suisse. According to some sources, the Credit Suisse brand may not be buried and Credit Suisse may still operate as a separate, independent firm. This description is best summarized as a:",
+    "options": [
+      "Statutory merger",
+      "Statutory consolidation",
+      "Stock acquisition",
+      "Statutory acquisition"
+    ],
+    "correct": 2,
+    "explanation": "In a stock acquisition, the acquirer obtains shares of the target. The acquired company can continue as a separate legal entity, unlike a statutory merger or statutory consolidation."
+  },
+  {
+    "category": "Audit",
+    "set": "AE2",
+    "prompt": "Compared to small companies, middle-sized Swiss companies are required to do a Limited Statutory Examination (Eingeschraenkte Revision) if they fulfill certain criteria. Which of the following is such a criterion?",
+    "options": [
+      "Shares are traded on a stock exchange",
+      "Total assets exceed CHF 20 million",
+      "The company has more than 250 FTE employees on its payroll",
+      "The company has less than CHF 40 million of revenues"
+    ],
+    "correct": 3,
+    "explanation": "Listed companies and companies exceeding ordinary-audit size thresholds are subject to an ordinary audit. A limited statutory examination applies below those ordinary-audit thresholds, so revenue below CHF 40 million is the matching criterion among the options."
+  },
+  {
+    "category": "Investments",
+    "set": "AE2",
+    "prompt": "If an investor has significant influence over an investee, what is the effect of the investee's net income and dividends paid by the investee on the investor's Investment account? Earnings / Dividends",
+    "options": [
+      "Increase / Decrease",
+      "Increase / Increase",
+      "Decrease / Decrease",
+      "Decrease / Increase"
+    ],
+    "correct": 0,
+    "explanation": "Significant influence normally means the equity method. Under the equity method, the investor increases the Investment account for its share of investee net income and decreases it for dividends received."
+  },
+  {
+    "category": "Investments",
+    "set": "AE2",
+    "prompt": "Onex AG bought trading securities for CHF 1,800,000 and non-trading securities for CHF 2,200,000 in 2022. At year-end, the trading securities had a fair value of CHF 1,400,000 and the non-trading securities had a fair value of CHF 1,900,000. What amount of Unrealized Holding Loss - Income should Onex AG report?",
+    "options": [
+      "CHF 300,000",
+      "CHF 400,000",
+      "CHF 700,000",
+      "CHF 1,400,000"
+    ],
+    "correct": 1,
+    "explanation": "Only the trading securities' fair value change is reported in income. Trading securities fell from 1,800,000 to 1,400,000, so the Unrealized Holding Loss - Income is CHF 400,000. The non-trading loss is not included in income here."
+  },
+  {
+    "category": "Investments",
+    "set": "AE2",
+    "prompt": "Losone AG bought trading securities during 2022. At year-end it held the following ordinary shares. In April 2023, the Ascona shares are sold for cash of CHF 57,500. The gain or loss on the sale is a:",
+    "visual": "ae2-losone-securities-table",
+    "options": [
+      "Gain of CHF 3,700",
+      "Loss of CHF 2,500",
+      "Loss of CHF 6,200",
+      "Gain of CHF 2,500"
+    ],
+    "correct": 1,
+    "explanation": "Following the course rule for gain or loss on sale: selling price minus acquisition price. For Ascona, CHF 57,500 - CHF 60,000 = CHF -2,500, so the sale creates a loss of CHF 2,500."
+  },
+  {
+    "category": "Investments",
+    "set": "AE2",
+    "prompt": "Grand SA has significant influence over Petit SA. On January 1, 2020, Grand SA bought 30% of Petit SA for CHF 300,000. Petit reported the following income and dividends. What amount should Grand's Investment in Petit account show at the end of 2022?",
+    "visual": "ae2-grand-petit-table",
+    "options": [
+      "CHF 750,000",
+      "CHF 240,000",
+      "CHF 645,000",
+      "CHF 540,000"
+    ],
+    "correct": 3,
+    "explanation": "Equity-method balance = initial cost 300,000 + 30% x total net income/loss (1,000,000 - 300,000 + 450,000 = 1,150,000) - 30% x dividends (200,000 + 0 + 150,000 = 350,000). That is 300,000 + 345,000 - 105,000 = CHF 540,000."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE2-AI",
+    "prompt": "Which of the following is not treated in this course as a traditional reason for firms to combine in a business combination?",
+    "options": [
+      "Reduction of costs",
+      "Expansion of products and services",
+      "Economies of scope",
+      "A highly competitive business environment"
+    ],
+    "correct": 2,
+    "explanation": "Following the course treatment, reduction of costs, product/service expansion, and competitive pressure are traditional reasons for business combinations. Economies of scope is the exception."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE2-AI",
+    "prompt": "Parent AG acquires 80% of Target AG's voting shares. Target AG keeps its own legal identity and continues operating under its existing name. What type of business combination structure is this?",
+    "options": [
+      "Statutory merger",
+      "Stock acquisition",
+      "Statutory consolidation",
+      "Asset liquidation"
+    ],
+    "correct": 1,
+    "explanation": "The parent acquired voting shares while the target remained legally separate. That is a stock acquisition."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE2-AI",
+    "prompt": "Alpha SA and Beta SA combine and both original legal entities cease to exist. A newly created company, Gamma SA, takes over the combined business. This is a:",
+    "options": [
+      "Stock acquisition",
+      "Statutory merger",
+      "Statutory consolidation",
+      "Non-trading security purchase"
+    ],
+    "correct": 2,
+    "explanation": "In a statutory consolidation, the combining companies are dissolved and a new legal entity is formed. In a statutory merger, one of the original companies survives."
+  },
+  {
+    "category": "Audit",
+    "set": "AE2-AI",
+    "prompt": "A Swiss company is not listed and does not exceed the ordinary-audit thresholds. It has at least 10 FTE employees and has not opted out. Which audit requirement normally applies?",
+    "options": [
+      "No review of any kind",
+      "Limited Statutory Examination",
+      "Ordinary audit because it is not listed",
+      "Consolidated audit only"
+    ],
+    "correct": 1,
+    "explanation": "Companies below the ordinary-audit thresholds are generally subject to a limited statutory examination unless they qualify for and choose an opt-out."
+  },
+  {
+    "category": "Investments",
+    "set": "AE2-AI",
+    "prompt": "Bern AG owns 30% of Uri AG and has significant influence. Uri reports the following income and dividends. What is the net increase in Bern's Investment in Uri account for the year?",
+    "visual": "ae2-ai-bern-uri-table",
+    "options": [
+      "CHF 30,000",
+      "CHF 150,000",
+      "CHF 180,000",
+      "CHF 210,000"
+    ],
+    "correct": 1,
+    "explanation": "Under the equity method, the Investment account increases by Bern's share of income, 30% x 600,000 = 180,000, and decreases by Bern's share of dividends, 30% x 100,000 = 30,000. Net increase = CHF 150,000."
+  },
+  {
+    "category": "Investments",
+    "set": "AE2-AI",
+    "prompt": "Luzern AG buys trading securities for CHF 900,000 and non-trading securities for CHF 500,000. At year-end, the trading securities are worth CHF 960,000 and the non-trading securities are worth CHF 430,000. What Unrealized Holding Gain - Income should Luzern report?",
+    "options": [
+      "CHF 60,000",
+      "CHF 70,000",
+      "CHF 10,000 loss",
+      "CHF 130,000"
+    ],
+    "correct": 0,
+    "explanation": "Unrealized holding gains and losses in income come from trading securities. The trading securities increased by 960,000 - 900,000 = CHF 60,000. The non-trading securities' loss is not included in income here."
+  },
+  {
+    "category": "Investments",
+    "set": "AE2-AI",
+    "prompt": "Morges SA bought trading securities during 2022. At year-end it held the following ordinary shares. The Nyon SA shares are sold the next year for CHF 81,500. What gain or loss is recognized on sale?",
+    "visual": "ae2-ai-morges-securities-table",
+    "options": [
+      "Loss of CHF 2,500",
+      "Loss of CHF 8,500",
+      "Gain of CHF 2,500",
+      "No gain or loss"
+    ],
+    "correct": 1,
+    "explanation": "Following the course rule for gain or loss on sale: selling price minus acquisition price. For Nyon, CHF 81,500 - CHF 90,000 = CHF -8,500, so the sale creates a loss of CHF 8,500."
+  },
+  {
+    "category": "Investments",
+    "set": "AE2-AI",
+    "prompt": "Rigi SA buys 25% of Pilatus SA for CHF 200,000 and has significant influence. Pilatus reports the following total income and dividends across the next two years. What is Rigi's Investment in Pilatus balance after two years?",
+    "visual": "ae2-ai-rigi-pilatus-table",
+    "options": [
+      "CHF 295,000",
+      "CHF 325,000",
+      "CHF 170,000",
+      "CHF 230,000"
+    ],
+    "correct": 0,
+    "explanation": "Equity-method carrying amount = 200,000 + 25% x 500,000 - 25% x 120,000 = 200,000 + 125,000 - 30,000 = CHF 295,000."
+  },
+  {
+    "category": "Investments",
+    "set": "AE2-AI",
+    "prompt": "Zug AG owns 40% of Sarnen AG and applies the equity method. Zug's beginning Investment balance is CHF 700,000. Sarnen reports the following income and dividends. What is the ending Investment balance?",
+    "visual": "ae2-ai-zug-sarnen-table",
+    "options": [
+      "CHF 600,000",
+      "CHF 580,000",
+      "CHF 800,000",
+      "CHF 680,000"
+    ],
+    "correct": 1,
+    "explanation": "The equity-method account decreases for the investor's share of both the loss and dividends: 40% x 250,000 = 100,000 loss share and 40% x 50,000 = 20,000 dividend share. Ending balance = 700,000 - 100,000 - 20,000 = CHF 580,000."
+  },
+  {
+    "category": "Intangibles",
+    "set": "AE3",
+    "prompt": "Which of the following is not an intangible asset?",
+    "options": [
+      "Construction permit",
+      "Accounts receivable",
+      "Internet domain names",
+      "Musical work"
+    ],
+    "correct": 1,
+    "explanation": "Construction permits, domain names, and musical works can be intangible assets. Accounts receivable is a financial asset, not an intangible asset."
+  },
+  {
+    "category": "Goodwill",
+    "set": "AE3",
+    "prompt": "Which of the following statements regarding goodwill is true?",
+    "options": [
+      "Under IFRS, goodwill is allocated at the lowest operating level called reporting units.",
+      "Swiss GAAP FER allows a reduction of goodwill in excess of its carrying value, meaning other assets are then reduced pro rata.",
+      "Goodwill impairment cannot be reversed under IFRS and US GAAP, but may be reversed under Swiss GAAP FER when certain criteria are fulfilled.",
+      "Fair value less costs to sell is the value a company attributes to an asset when using it in internal operations."
+    ],
+    "correct": 1,
+    "explanation": "The Additional Exercises 3 answer key marks this statement as true. In this course framing, Swiss GAAP FER permits goodwill reductions to be handled through the related asset group rather than using the IFRS/US GAAP goodwill model. The other options use the wrong framework terms or definitions."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE3",
+    "prompt": "Venti acquired Grande on January 1, 2020 for $400,000 cash. Grande continues as a separate legal entity. Grande's identified net book value was $100,000. Using the acquisition-date fair-value table, what amount should Venti report under consolidation Journal Entry A for Equipment on December 31, 2023?",
+    "visual": "ae3-venti-grande-fv-table",
+    "options": [
+      "$21,000",
+      "$15,000",
+      "$6,000",
+      "$5,000"
+    ],
+    "correct": 1,
+    "explanation": "The acquisition-date equipment fair-value excess is $36,000 - $6,000 = $30,000. It is amortized over 6 years, or $5,000 per year. Entry A in the 2023 consolidation carries forward the unamortized excess after the prior years 2020-2022: $30,000 - 3 x $5,000 = $15,000. The current-year $5,000 is recorded through the excess amortization entry."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE3",
+    "prompt": "In the consolidation process, Venti's accountant needs the consolidated total of Common Stock. Goodwill from the acquisition is $200,000 and annual excess amortization is $40,000. Using the equity table, compute consolidated Common Stock.",
+    "visual": "ae3-venti-grande-equity-table",
+    "options": [
+      "$500,000",
+      "$300,000",
+      "$260,000",
+      "$400,000"
+    ],
+    "correct": 3,
+    "explanation": "In consolidated financial statements, the parent's equity accounts remain and the subsidiary's equity accounts are eliminated. Because Venti paid cash and did not issue new common stock, consolidated Common Stock is Venti's $400,000."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE3",
+    "prompt": "During 2023, Venti declared a dividend of $4 per share on 200,000 shares. Grande also declared total dividends of $30,000. As of December 31, 2023, both payments remain unpaid. What is the correct consolidated total of Dividends declared?",
+    "options": [
+      "Debit - $830,000",
+      "Credit - $830,000",
+      "Debit - $800,000",
+      "Credit - $800,000"
+    ],
+    "correct": 2,
+    "explanation": "Dividends declared is a debit to equity. Consolidated dividends reflect the parent's dividends to its shareholders: $4 x 200,000 = $800,000. The subsidiary's dividends are eliminated in consolidation."
+  },
+  {
+    "category": "Goodwill",
+    "set": "AE3",
+    "prompt": "Charles AG acquired King AG and allocated goodwill of CHF 150,000 to this cash-generating unit. King has a carrying amount of CHF 1,000,000. Value in use is CHF 1,200,000 and fair value less costs to sell is CHF 950,000. What goodwill impairment should Charles AG report under IFRS?",
+    "options": [
+      "CHF 0",
+      "CHF 50,000",
+      "CHF 200,000",
+      "CHF 250,000"
+    ],
+    "correct": 0,
+    "explanation": "Under IFRS, impairment is tested against recoverable amount, the higher of value in use and fair value less costs of disposal. Recoverable amount is CHF 1,200,000, which exceeds the CGU carrying amount of CHF 1,000,000, so no impairment is recorded."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE3",
+    "prompt": "Which of the following accounts does not appear in the consolidated financial statements?",
+    "options": [
+      "Goodwill",
+      "Investment in Subsidiary",
+      "Retained Earnings",
+      "Amortization Expense"
+    ],
+    "correct": 1,
+    "explanation": "The parent's Investment in Subsidiary account is eliminated in consolidation. Consolidated statements may include goodwill, retained earnings, and amortization expense."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE3",
+    "prompt": "Beau SA bought all shares of Lieu SA on January 1, 2020. On that date, Lieu's buildings had book value CHF 240,000 and fair value CHF 300,000. Beau's own buildings had book value CHF 120,000 and fair value CHF 180,000. The buildings had a 10-year remaining life. If only straight-line depreciation occurred, what building amount is reported in consolidated financial statements at the end of 2022?",
+    "options": [
+      "CHF 210,000",
+      "CHF 252,000",
+      "CHF 294,000",
+      "CHF 336,000"
+    ],
+    "correct": 2,
+    "explanation": "The parent's own buildings stay at Beau's book basis: CHF 120,000 - 3 x CHF 12,000 = CHF 84,000. The acquired subsidiary's buildings are consolidated at acquisition-date fair value: CHF 300,000 - 3 x CHF 30,000 = CHF 210,000. Total buildings = CHF 294,000."
+  },
+  {
+    "category": "Intangibles",
+    "set": "AE3-AI",
+    "prompt": "Which acquired item is least likely to qualify as an identifiable intangible asset in a business combination?",
+    "options": [
+      "Patented production technology",
+      "Registered trademark",
+      "Customer contract",
+      "Expected future synergies"
+    ],
+    "correct": 3,
+    "explanation": "Patents, trademarks, and customer contracts can be identifiable intangible assets because they arise from legal or contractual rights. Expected future synergies are normally part of goodwill."
+  },
+  {
+    "category": "Goodwill",
+    "set": "AE3-AI",
+    "prompt": "Under IFRS, a cash-generating unit that includes goodwill has carrying amount CHF 850,000. Its value in use is CHF 780,000 and its fair value less costs of disposal is CHF 810,000. What total impairment loss is recognized?",
+    "options": [
+      "CHF 0",
+      "CHF 40,000",
+      "CHF 70,000",
+      "CHF 810,000"
+    ],
+    "correct": 1,
+    "explanation": "Recoverable amount is the higher of value in use and fair value less costs of disposal: CHF 810,000. Carrying amount is CHF 850,000, so the impairment loss is CHF 40,000."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE3-AI",
+    "prompt": "Nova acquired Orbit on January 1, 2021. Orbit remains a separate legal entity. Using the acquisition-date fair-value table, what amount should Nova report under consolidation Journal Entry A for Equipment on December 31, 2023?",
+    "visual": "ae3-ai-nova-orbit-fv-table",
+    "options": [
+      "$6,000",
+      "$12,000",
+      "$18,000",
+      "$24,000"
+    ],
+    "correct": 1,
+    "explanation": "The equipment fair-value excess is $64,000 - $40,000 = $24,000. Annual excess depreciation is $24,000 / 4 = $6,000. Entry A for 2023 carries forward the unamortized excess after the prior years 2021-2022: $24,000 - 2 x $6,000 = $12,000. The current-year $6,000 is handled by the excess amortization entry."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE3-AI",
+    "prompt": "Helvetia AG acquires all shares of Ticino AG for cash. Using the equity table, what Common Stock amount appears in the consolidated balance sheet immediately after the acquisition?",
+    "visual": "ae3-ai-helvetia-ticino-equity-table",
+    "options": [
+      "CHF 250,000",
+      "CHF 650,000",
+      "CHF 900,000",
+      "CHF 1,150,000"
+    ],
+    "correct": 2,
+    "explanation": "Consolidated common stock is the parent's common stock unless the parent issued shares in the acquisition. The subsidiary's common stock is eliminated. Helvetia's CHF 900,000 remains."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE3-AI",
+    "prompt": "Parent SA declares CHF 2 per share on 150,000 shares. Its wholly owned subsidiary declares CHF 60,000 of dividends to Parent SA. Both remain unpaid at year-end. What consolidated Dividends declared amount should be reported?",
+    "options": [
+      "Debit - CHF 300,000",
+      "Credit - CHF 300,000",
+      "Debit - CHF 360,000",
+      "Credit - CHF 360,000"
+    ],
+    "correct": 0,
+    "explanation": "Dividends declared is a debit to equity. Only dividends declared by the parent to its shareholders remain in consolidation: CHF 2 x 150,000 = CHF 300,000. The subsidiary dividend is eliminated."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE3-AI",
+    "prompt": "Which account is eliminated when a parent prepares consolidated financial statements after acquiring 100% of a subsidiary in a stock acquisition?",
+    "options": [
+      "Parent cash",
+      "Investment in Subsidiary",
+      "Consolidated retained earnings",
+      "Goodwill"
+    ],
+    "correct": 1,
+    "explanation": "The parent's Investment in Subsidiary account is replaced in consolidation by the subsidiary's underlying assets and liabilities, plus any goodwill. It does not appear in consolidated statements."
+  },
+  {
+    "category": "Consolidation",
+    "set": "AE3-AI",
+    "prompt": "Bern SA acquired all shares of Lugano SA on January 1, 2022. Using the buildings table and assuming only straight-line depreciation, what building amount is reported in consolidated financial statements at the end of 2023?",
+    "visual": "ae3-ai-bern-lugano-buildings-table",
+    "options": [
+      "CHF 600,000",
+      "CHF 690,000",
+      "CHF 760,000",
+      "CHF 935,000"
+    ],
+    "correct": 1,
+    "explanation": "Bern's own buildings stay on parent book basis: CHF 500,000 - 2 x CHF 62,500 = CHF 375,000. Lugano's acquired buildings are consolidated at fair value: CHF 420,000 - 2 x CHF 52,500 = CHF 315,000. Total buildings = CHF 690,000."
+  },
+  {
+    "category": "Goodwill",
+    "set": "AE3-AI",
+    "prompt": "A company recorded CHF 200,000 goodwill in an acquisition. Later, the related cash-generating unit has carrying amount CHF 1,500,000 and recoverable amount CHF 1,420,000. Under IFRS, how is the impairment allocated first?",
+    "options": [
+      "First to goodwill",
+      "First to retained earnings",
+      "First to cash",
+      "Pro rata to all assets before goodwill"
+    ],
+    "correct": 0,
+    "explanation": "Under IFRS, an impairment loss for a CGU is allocated first to reduce goodwill. Any remaining impairment is then allocated to the other assets of the CGU subject to the applicable limits."
+  }
+]

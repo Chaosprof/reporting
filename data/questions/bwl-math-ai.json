@@ -1,0 +1,886 @@
+[
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH"
+    ],
+    "prompt": "In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "visual": "ai-math-q5-producer-rent",
+    "options": [
+      "a) Firma 1: B1=12, P1=10, K1=5; Firma 2: B2=12, P2=6, K2=3.",
+      "b) Firma 1: B1=12, P1=9, K1=5; Firma 2: B2=10, P2=6, K2=3.",
+      "c) Firma 1: B1=12, P1=9, K1=3; Firma 2: B2=14, P2=13, K2=7.",
+      "d) Firma 1: B1=P1=8, K1=3; Firma 2: B2=13, P2=8, K2=5.",
+      "e) Firma 1: B1=12, P1=9, K1=5; Firma 2: B2=12, P2=7, K2=5."
+    ],
+    "correct": 2,
+    "explanation": "In c) hat Firma 1 eine höhere Wertschöpfung als Firma 2: 12 - 3 = 9 gegenüber 14 - 7 = 7. Der Vorteil bleibt auch bei Preisangriffen bestehen."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-RENT"
+    ],
+    "prompt": "AI-Variante 1: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "rentScenarios": [
+      {
+        "label": "a",
+        "f1": {
+          "b": 11,
+          "p": 9,
+          "k": 5
+        },
+        "f2": {
+          "b": 11,
+          "p": 7,
+          "k": 3
+        }
+      },
+      {
+        "label": "b",
+        "f1": {
+          "b": 13,
+          "p": 10,
+          "k": 4
+        },
+        "f2": {
+          "b": 15,
+          "p": 13,
+          "k": 8
+        }
+      },
+      {
+        "label": "c",
+        "f1": {
+          "b": 9,
+          "p": 8,
+          "k": 3
+        },
+        "f2": {
+          "b": 12,
+          "p": 9,
+          "k": 5
+        }
+      },
+      {
+        "label": "d",
+        "f1": {
+          "b": 10,
+          "p": 8,
+          "k": 4
+        },
+        "f2": {
+          "b": 13,
+          "p": 10,
+          "k": 6
+        }
+      },
+      {
+        "label": "e",
+        "f1": {
+          "b": 12,
+          "p": 10,
+          "k": 6
+        },
+        "f2": {
+          "b": 12,
+          "p": 8,
+          "k": 4
+        }
+      }
+    ],
+    "options": [
+      "a) Firma 1: B1=11, P1=9, K1=5; Firma 2: B2=11, P2=7, K2=3.",
+      "b) Firma 1: B1=13, P1=10, K1=4; Firma 2: B2=15, P2=13, K2=8.",
+      "c) Firma 1: B1=9, P1=8, K1=3; Firma 2: B2=12, P2=9, K2=5.",
+      "d) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=13, P2=10, K2=6.",
+      "e) Firma 1: B1=12, P1=10, K1=6; Firma 2: B2=12, P2=8, K2=4."
+    ],
+    "correct": 1,
+    "explanation": "In b) ist die Wertschöpfung von Firma 1 höher: 13 - 4 = 9 gegenüber 15 - 8 = 7. Dieser Wertschöpfungsvorsprung ist nicht angreifbar."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-RENT"
+    ],
+    "prompt": "AI-Variante 2: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "rentScenarios": [
+      {
+        "label": "a",
+        "f1": {
+          "b": 14,
+          "p": 11,
+          "k": 6
+        },
+        "f2": {
+          "b": 13,
+          "p": 9,
+          "k": 4
+        }
+      },
+      {
+        "label": "b",
+        "f1": {
+          "b": 10,
+          "p": 9,
+          "k": 4
+        },
+        "f2": {
+          "b": 11,
+          "p": 8,
+          "k": 4
+        }
+      },
+      {
+        "label": "c",
+        "f1": {
+          "b": 16,
+          "p": 12,
+          "k": 7
+        },
+        "f2": {
+          "b": 15,
+          "p": 11,
+          "k": 5
+        }
+      },
+      {
+        "label": "d",
+        "f1": {
+          "b": 12,
+          "p": 9,
+          "k": 3
+        },
+        "f2": {
+          "b": 14,
+          "p": 11,
+          "k": 6
+        }
+      },
+      {
+        "label": "e",
+        "f1": {
+          "b": 9,
+          "p": 9,
+          "k": 3
+        },
+        "f2": {
+          "b": 12,
+          "p": 8,
+          "k": 4
+        }
+      }
+    ],
+    "options": [
+      "a) Firma 1: B1=14, P1=11, K1=6; Firma 2: B2=13, P2=9, K2=4.",
+      "b) Firma 1: B1=10, P1=9, K1=4; Firma 2: B2=11, P2=8, K2=4.",
+      "c) Firma 1: B1=16, P1=12, K1=7; Firma 2: B2=15, P2=11, K2=5.",
+      "d) Firma 1: B1=12, P1=9, K1=3; Firma 2: B2=14, P2=11, K2=6.",
+      "e) Firma 1: B1=P1=9, K1=3; Firma 2: B2=12, P2=8, K2=4."
+    ],
+    "correct": 3,
+    "explanation": "In d) erzielt Firma 1 eine Wertschöpfung von 9, Firma 2 nur 8. Der Vorsprung bleibt auch im Preiswettbewerb erhalten."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-RENT"
+    ],
+    "prompt": "AI-Variante 3: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "rentScenarios": [
+      {
+        "label": "a",
+        "f1": {
+          "b": 15,
+          "p": 12,
+          "k": 6
+        },
+        "f2": {
+          "b": 14,
+          "p": 10,
+          "k": 4
+        }
+      },
+      {
+        "label": "b",
+        "f1": {
+          "b": 11,
+          "p": 8,
+          "k": 2
+        },
+        "f2": {
+          "b": 13,
+          "p": 11,
+          "k": 6
+        }
+      },
+      {
+        "label": "c",
+        "f1": {
+          "b": 13,
+          "p": 10,
+          "k": 5
+        },
+        "f2": {
+          "b": 13,
+          "p": 8,
+          "k": 4
+        }
+      },
+      {
+        "label": "d",
+        "f1": {
+          "b": 10,
+          "p": 7,
+          "k": 3
+        },
+        "f2": {
+          "b": 12,
+          "p": 9,
+          "k": 5
+        }
+      },
+      {
+        "label": "e",
+        "f1": {
+          "b": 12,
+          "p": 9,
+          "k": 5
+        },
+        "f2": {
+          "b": 15,
+          "p": 12,
+          "k": 7
+        }
+      }
+    ],
+    "options": [
+      "a) Firma 1: B1=15, P1=12, K1=6; Firma 2: B2=14, P2=10, K2=4.",
+      "b) Firma 1: B1=11, P1=8, K1=2; Firma 2: B2=13, P2=11, K2=6.",
+      "c) Firma 1: B1=13, P1=10, K1=5; Firma 2: B2=13, P2=8, K2=4.",
+      "d) Firma 1: B1=10, P1=7, K1=3; Firma 2: B2=12, P2=9, K2=5.",
+      "e) Firma 1: B1=12, P1=9, K1=5; Firma 2: B2=15, P2=12, K2=7."
+    ],
+    "correct": 1,
+    "explanation": "In b) ist Firma 1 überlegen: 11 - 2 = 9 gegenüber 13 - 6 = 7. Damit hat Firma 1 eine nicht angreifbare Produzentenrente."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-RENT"
+    ],
+    "prompt": "AI-Variante 4: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "rentScenarios": [
+      {
+        "label": "a",
+        "f1": {
+          "b": 12,
+          "p": 9,
+          "k": 5
+        },
+        "f2": {
+          "b": 13,
+          "p": 10,
+          "k": 6
+        }
+      },
+      {
+        "label": "b",
+        "f1": {
+          "b": 16,
+          "p": 13,
+          "k": 8
+        },
+        "f2": {
+          "b": 14,
+          "p": 11,
+          "k": 5
+        }
+      },
+      {
+        "label": "c",
+        "f1": {
+          "b": 14,
+          "p": 11,
+          "k": 4
+        },
+        "f2": {
+          "b": 15,
+          "p": 13,
+          "k": 7
+        }
+      },
+      {
+        "label": "d",
+        "f1": {
+          "b": 10,
+          "p": 8,
+          "k": 3
+        },
+        "f2": {
+          "b": 12,
+          "p": 9,
+          "k": 5
+        }
+      },
+      {
+        "label": "e",
+        "f1": {
+          "b": 13,
+          "p": 10,
+          "k": 6
+        },
+        "f2": {
+          "b": 13,
+          "p": 8,
+          "k": 5
+        }
+      }
+    ],
+    "options": [
+      "a) Firma 1: B1=12, P1=9, K1=5; Firma 2: B2=13, P2=10, K2=6.",
+      "b) Firma 1: B1=16, P1=13, K1=8; Firma 2: B2=14, P2=11, K2=5.",
+      "c) Firma 1: B1=14, P1=11, K1=4; Firma 2: B2=15, P2=13, K2=7.",
+      "d) Firma 1: B1=10, P1=8, K1=3; Firma 2: B2=12, P2=9, K2=5.",
+      "e) Firma 1: B1=13, P1=10, K1=6; Firma 2: B2=13, P2=8, K2=5."
+    ],
+    "correct": 2,
+    "explanation": "In c) ist die Wertschöpfung von Firma 1 grösser: 14 - 4 = 10 gegenüber 15 - 7 = 8."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-RENT"
+    ],
+    "prompt": "AI-Variante 5: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "rentScenarios": [
+      {
+        "label": "a",
+        "f1": {
+          "b": 9,
+          "p": 7,
+          "k": 2
+        },
+        "f2": {
+          "b": 11,
+          "p": 9,
+          "k": 5
+        }
+      },
+      {
+        "label": "b",
+        "f1": {
+          "b": 13,
+          "p": 11,
+          "k": 6
+        },
+        "f2": {
+          "b": 12,
+          "p": 8,
+          "k": 4
+        }
+      },
+      {
+        "label": "c",
+        "f1": {
+          "b": 15,
+          "p": 12,
+          "k": 7
+        },
+        "f2": {
+          "b": 14,
+          "p": 10,
+          "k": 5
+        }
+      },
+      {
+        "label": "d",
+        "f1": {
+          "b": 12,
+          "p": 9,
+          "k": 4
+        },
+        "f2": {
+          "b": 15,
+          "p": 13,
+          "k": 8
+        }
+      },
+      {
+        "label": "e",
+        "f1": {
+          "b": 10,
+          "p": 8,
+          "k": 4
+        },
+        "f2": {
+          "b": 10,
+          "p": 6,
+          "k": 3
+        }
+      }
+    ],
+    "options": [
+      "a) Firma 1: B1=9, P1=7, K1=2; Firma 2: B2=11, P2=9, K2=5.",
+      "b) Firma 1: B1=13, P1=11, K1=6; Firma 2: B2=12, P2=8, K2=4.",
+      "c) Firma 1: B1=15, P1=12, K1=7; Firma 2: B2=14, P2=10, K2=5.",
+      "d) Firma 1: B1=12, P1=9, K1=4; Firma 2: B2=15, P2=13, K2=8.",
+      "e) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=10, P2=6, K2=3."
+    ],
+    "correct": 3,
+    "explanation": "In d) hat Firma 1 den Wertschöpfungsvorsprung: 12 - 4 = 8 gegenüber 15 - 8 = 7."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-RENT"
+    ],
+    "prompt": "AI-Variante 6: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "rentScenarios": [
+      {
+        "label": "a",
+        "f1": {
+          "b": 14,
+          "p": 12,
+          "k": 5
+        },
+        "f2": {
+          "b": 16,
+          "p": 14,
+          "k": 9
+        }
+      },
+      {
+        "label": "b",
+        "f1": {
+          "b": 12,
+          "p": 10,
+          "k": 5
+        },
+        "f2": {
+          "b": 12,
+          "p": 7,
+          "k": 4
+        }
+      },
+      {
+        "label": "c",
+        "f1": {
+          "b": 10,
+          "p": 8,
+          "k": 3
+        },
+        "f2": {
+          "b": 13,
+          "p": 11,
+          "k": 6
+        }
+      },
+      {
+        "label": "d",
+        "f1": {
+          "b": 15,
+          "p": 13,
+          "k": 8
+        },
+        "f2": {
+          "b": 14,
+          "p": 10,
+          "k": 5
+        }
+      },
+      {
+        "label": "e",
+        "f1": {
+          "b": 11,
+          "p": 9,
+          "k": 6
+        },
+        "f2": {
+          "b": 12,
+          "p": 9,
+          "k": 6
+        }
+      }
+    ],
+    "options": [
+      "a) Firma 1: B1=14, P1=12, K1=5; Firma 2: B2=16, P2=14, K2=9.",
+      "b) Firma 1: B1=12, P1=10, K1=5; Firma 2: B2=12, P2=7, K2=4.",
+      "c) Firma 1: B1=10, P1=8, K1=3; Firma 2: B2=13, P2=11, K2=6.",
+      "d) Firma 1: B1=15, P1=13, K1=8; Firma 2: B2=14, P2=10, K2=5.",
+      "e) Firma 1: B1=11, P1=9, K1=6; Firma 2: B2=12, P2=9, K2=6."
+    ],
+    "correct": 0,
+    "explanation": "In a) schafft Firma 1 mehr Wert: 14 - 5 = 9 gegenüber 16 - 9 = 7. Nur dort ist Firma 1 klar nicht angreifbar."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-RENT"
+    ],
+    "prompt": "AI-Variante 7: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "rentScenarios": [
+      {
+        "label": "a",
+        "f1": {
+          "b": 13,
+          "p": 10,
+          "k": 7
+        },
+        "f2": {
+          "b": 12,
+          "p": 9,
+          "k": 5
+        }
+      },
+      {
+        "label": "b",
+        "f1": {
+          "b": 11,
+          "p": 8,
+          "k": 4
+        },
+        "f2": {
+          "b": 14,
+          "p": 12,
+          "k": 7
+        }
+      },
+      {
+        "label": "c",
+        "f1": {
+          "b": 16,
+          "p": 14,
+          "k": 9
+        },
+        "f2": {
+          "b": 15,
+          "p": 12,
+          "k": 6
+        }
+      },
+      {
+        "label": "d",
+        "f1": {
+          "b": 12,
+          "p": 10,
+          "k": 4
+        },
+        "f2": {
+          "b": 13,
+          "p": 11,
+          "k": 6
+        }
+      },
+      {
+        "label": "e",
+        "f1": {
+          "b": 9,
+          "p": 7,
+          "k": 3
+        },
+        "f2": {
+          "b": 11,
+          "p": 8,
+          "k": 5
+        }
+      }
+    ],
+    "options": [
+      "a) Firma 1: B1=13, P1=10, K1=7; Firma 2: B2=12, P2=9, K2=5.",
+      "b) Firma 1: B1=11, P1=8, K1=4; Firma 2: B2=14, P2=12, K2=7.",
+      "c) Firma 1: B1=16, P1=14, K1=9; Firma 2: B2=15, P2=12, K2=6.",
+      "d) Firma 1: B1=12, P1=10, K1=4; Firma 2: B2=13, P2=11, K2=6.",
+      "e) Firma 1: B1=9, P1=7, K1=3; Firma 2: B2=11, P2=8, K2=5."
+    ],
+    "correct": 3,
+    "explanation": "In d) beträgt die Wertschöpfung von Firma 1 8, jene von Firma 2 7. Der Unterschied ist die nicht angreifbare Produzentenrente."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-RENT"
+    ],
+    "prompt": "AI-Variante 8: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "rentScenarios": [
+      {
+        "label": "a",
+        "f1": {
+          "b": 12,
+          "p": 10,
+          "k": 6
+        },
+        "f2": {
+          "b": 12,
+          "p": 7,
+          "k": 3
+        }
+      },
+      {
+        "label": "b",
+        "f1": {
+          "b": 15,
+          "p": 12,
+          "k": 6
+        },
+        "f2": {
+          "b": 17,
+          "p": 15,
+          "k": 10
+        }
+      },
+      {
+        "label": "c",
+        "f1": {
+          "b": 10,
+          "p": 8,
+          "k": 2
+        },
+        "f2": {
+          "b": 13,
+          "p": 10,
+          "k": 6
+        }
+      },
+      {
+        "label": "d",
+        "f1": {
+          "b": 14,
+          "p": 11,
+          "k": 7
+        },
+        "f2": {
+          "b": 14,
+          "p": 9,
+          "k": 5
+        }
+      },
+      {
+        "label": "e",
+        "f1": {
+          "b": 11,
+          "p": 9,
+          "k": 5
+        },
+        "f2": {
+          "b": 13,
+          "p": 10,
+          "k": 6
+        }
+      }
+    ],
+    "options": [
+      "a) Firma 1: B1=12, P1=10, K1=6; Firma 2: B2=12, P2=7, K2=3.",
+      "b) Firma 1: B1=15, P1=12, K1=6; Firma 2: B2=17, P2=15, K2=10.",
+      "c) Firma 1: B1=10, P1=8, K1=2; Firma 2: B2=13, P2=10, K2=6.",
+      "d) Firma 1: B1=14, P1=11, K1=7; Firma 2: B2=14, P2=9, K2=5.",
+      "e) Firma 1: B1=11, P1=9, K1=5; Firma 2: B2=13, P2=10, K2=6."
+    ],
+    "correct": 1,
+    "explanation": "In b) ist Firma 1 wertschöpfungsstärker: 15 - 6 = 9 gegenüber 17 - 10 = 7."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH"
+    ],
+    "prompt": "Die Firma VeloPro produziert 80'000 Helme pro Jahr. Von den hergestellten Helmen werden 30'000 an den Grosshandel und 50'000 in eigenen Shops verkauft. Die Firma VeloPro schöpft beim Verkauf die maximale Zahlungsbereitschaft der Abnehmer ab. Folgende Angaben zu den beiden Stufen in der Wertschöpfungskette von VeloPro sind bekannt: Wie hoch ist die Wertschöpfung von VeloPro in der Stufe 2?",
+    "visual": "ai-math-q17-value-table",
+    "options": [
+      "900'000",
+      "1'200'000",
+      "1'500'000",
+      "2'000'000",
+      "2'600'000"
+    ],
+    "correct": 2,
+    "explanation": "Stufe 2: (Endpreis 115 - Transferpreis 55 - variable Stückkosten 8) * 50'000 - 1'100'000 = 1'500'000."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH"
+    ],
+    "prompt": "In der Rucksack-Branche produziert die etablierte Firma AlphaBag mit der Totalkostenfunktion TKa = 720 + 4Qa und die neueingetretene Firma BetaPack mit der Totalkostenfunktion TKb = 360 + 22Qb. Im betrachteten Jahr produziert AlphaBag Qa = 60. BetaPack produziert die «minimale Einstiegsmenge», um sich bei gegebenem Verkaufspreis von P = 40 gerade so am Markt behaupten zu können. Wie gross ist der Kostennachteil (pro Rucksack) des Neueinsteigers BetaPack gegenüber AlphaBag?",
+    "options": [
+      "14",
+      "18",
+      "24",
+      "36",
+      "40"
+    ],
+    "correct": 2,
+    "explanation": "AlphaBag hat DK = (720 + 4*60)/60 = 16. BetaPack braucht bei P = 40 genau 20 Stück: 360 + 22Q = 40Q. Dann sind DK = 40. Kostennachteil: 40 - 16 = 24."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-VALUE"
+    ],
+    "prompt": "Die Firma AlpenMilk verarbeitet Rohmilch zu Joghurt und verkauft einen Teil der Rohmilch direkt an Molkereien. Der Rest wird intern weiterverarbeitet. AlpenMilk schöpft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertschöpfung von AlpenMilk in der 1. Stufe?",
+    "visual": "ai-math-value-alpenmilk-table",
+    "options": [
+      "80'000",
+      "120'000",
+      "160'000",
+      "220'000",
+      "360'000"
+    ],
+    "correct": 2,
+    "explanation": "Stufe 1 wird für die gesamte verarbeitete Menge zum Rohmilchpreis bewertet: 120'000*4 - (120'000*2 + 80'000) = 160'000."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-VALUE"
+    ],
+    "prompt": "Die Brauerei Brewly verarbeitet Malz zu Flaschenbier und verkauft einen Teil an Grossverteiler. Der Rest wird über eigene Bars direkt verkauft. Brewly schöpft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertschöpfung von Brewly in der 2. Stufe?",
+    "visual": "ai-math-value-brewly-table",
+    "options": [
+      "170'000",
+      "260'000",
+      "350'000",
+      "630'000",
+      "980'000"
+    ],
+    "correct": 1,
+    "explanation": "Stufe 2: (Verkaufspreis Stufe 2 14 - Transferpreis Stufe 1 5 - variable Stückkosten 4) * 70'000 - 90'000 = 260'000."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-VALUE"
+    ],
+    "prompt": "Die Firma Solaris baut Solarmodule und verkauft einen Teil an Installationsbetriebe. Der Rest wird in eigenen Projekten direkt an Endkunden vermarktet. Solaris schöpft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertschöpfung von Solaris in der 3. Stufe?",
+    "visual": "ai-math-value-solaris-table",
+    "options": [
+      "200'000",
+      "300'000",
+      "500'000",
+      "800'000",
+      "1'100'000"
+    ],
+    "correct": 2,
+    "explanation": "Stufe 3: (Endkundenpreis 140 - Transferpreis Stufe 2 85 - variable Stückkosten 15) * 20'000 - 300'000 = 500'000."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-VALUE"
+    ],
+    "prompt": "Die Firma ChocoLine verarbeitet Kakaobohnen zu Schokolade und verkauft einen Teil der Zwischenprodukte an Grossabnehmer. Der Rest wird in eigenen L?den verkauft. ChocoLine sch?pft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertsch?pfung von ChocoLine in der 1. Stufe?",
+    "visual": "ai-math-value-chocoline-table",
+    "options": [
+      "90'000",
+      "180'000",
+      "270'000",
+      "450'000",
+      "630'000"
+    ],
+    "correct": 2,
+    "explanation": "Stufe 1: 180'000*6 - (180'000*3 + 270'000) = 270'000. Auch die intern weiterverarbeitete Menge wird zum Marktpreis der Stufe 1 bewertet."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-VALUE"
+    ],
+    "prompt": "Die Firma BikeMotion produziert Fahrradrahmen, montiert daraus Fahrr?der und verkauft einen Teil ?ber eigene Stores. BikeMotion sch?pft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertsch?pfung von BikeMotion in der 2. Stufe?",
+    "visual": "ai-math-value-bikemotion-table",
+    "options": [
+      "280'000",
+      "420'000",
+      "560'000",
+      "900'000",
+      "1'180'000"
+    ],
+    "correct": 1,
+    "explanation": "Stufe 2: (Verkaufspreis Stufe 2 150 - Transferpreis Stufe 1 80 - variable St?ckkosten 35) * 30'000 - 630'000 = 420'000."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-VALUE"
+    ],
+    "prompt": "Die Firma MediGlass produziert Spezialglas, verarbeitet einen Teil zu Laborflaschen und vertreibt diese teilweise direkt an Spit?ler. MediGlass sch?pft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertsch?pfung von MediGlass in der 3. Stufe?",
+    "visual": "ai-math-value-mediglass-table",
+    "options": [
+      "120'000",
+      "240'000",
+      "360'000",
+      "480'000",
+      "720'000"
+    ],
+    "correct": 2,
+    "explanation": "Stufe 3: (Endkundenpreis 95 - Transferpreis Stufe 2 58 - variable St?ckkosten 7) * 18'000 - 180'000 = 360'000."
+  },
+  {
+    "subject": "BWL II",
+    "set": "BWL2-MATH-AI",
+    "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-VALUE"
+    ],
+    "prompt": "Die Firma TimberHaus verarbeitet Holz zu Fertigteilen und verkauft einen Teil direkt an Bauunternehmen. Der Rest wird in eigenen Projekten eingesetzt. TimberHaus sch?pft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertsch?pfung von TimberHaus in der 2. Stufe?",
+    "visual": "ai-math-value-timberhaus-table",
+    "options": [
+      "320'000",
+      "520'000",
+      "680'000",
+      "840'000",
+      "1'160'000"
+    ],
+    "correct": 1,
+    "explanation": "Stufe 2: (Verkaufspreis Stufe 2 70 - Transferpreis Stufe 1 32 - variable St?ckkosten 12) * 40'000 - 520'000 = 520'000."
+  }
+]

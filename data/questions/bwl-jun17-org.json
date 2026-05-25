@@ -1,0 +1,596 @@
+[
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Welche der folgenden Antworten stellt keinen Vorteil bzw. keinen Nutzen von Stäben dar?",
+    "options": [
+      "Nutzung von Spezialwissen",
+      "Fundiertere Entscheidungsvorbereitung",
+      "Einfachere Problemdefinition",
+      "Entlastung der Entscheidungsinstanzen",
+      "Beratung der Linie"
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Welches Problem ist allen Formen der organisatorischen Differenzierung gemein?",
+    "options": [
+      "Effizienzverluste",
+      "Verdünnung der Kommunikation",
+      "Erhöhter Personaleinsatz",
+      "Spezialisierungsnachteile",
+      "Überlastung der Spitze"
+    ],
+    "correct": 1
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Eine Holding ist eine spezielle Form der...",
+    "options": [
+      "...objektorientierten Organisation.",
+      "...verrichtungsorientierten Organisation.",
+      "...Mehrlinienorganisation.",
+      "...Ablauforganisation.",
+      "...Prozessorganisation."
+    ],
+    "correct": 0
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Welche Organisationsform liegt in der Abbildung vor? Die Abbildung zeigt eine Geschäftsleitung mit Leitungen für den Schweizer Markt, für EU-Länder und für Nicht-EU-Länder; darunter sind jeweils Funktionen wie Werbung, Service, Vertrieb und Qualitätssicherung angeordnet.",
+    "options": [
+      "Verrichtungsorientierte Organisation",
+      "Funktionale Organisation",
+      "Divisionale Organisation",
+      "Matrix-Organisation",
+      "Mischform aus funktionaler und divisionaler Organisation"
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "In einem Start-up kommt es vor allem auf eine schnelle Entwicklung neuer Routinen und auf den direkten Informationsaustausch zwischen den Mitarbeitern an. Was würden Sie einem Start-up bezüglich dessen Leitungsebene und Gliederungstiefe empfehlen?",
+    "options": [
+      "Die Anzahl der Leitungsebenen sollte gross sein, damit auch die Gliederungstiefe hoch ist.",
+      "Die Anzahl der Leitungsebenen sollte gross sein, damit die Gliederungstiefe niedrig ist.",
+      "Die Anzahl der Leitungsebenen sollte gering sein, damit die Gliederungstiefe hoch ist.",
+      "Die Anzahl der Leitungsebenen sollte gering sein, damit die Gliederungstiefe niedrig ist.",
+      "Die Anzahl der Leitungsebenen und die Gliederungstiefe spielen in diesem Fall keine grosse Rolle."
+    ],
+    "correct": 3
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Die Grossbank PMB ist international tätig. Herr Peters und Frau Stern von der Geschäftsleitung beraten sich, wie sie die Arbeitsteilung optimal gestalten können. Beide möchten, dass die Flexibilität und Schnelligkeit bei der Einführung von neuen Produkten gesteigert wird. Zudem ist es Herrn Peters wichtig, in der Gesamtführung entlastet zu werden. Der Wunsch von Frau Stern hingegen ist es, die Motivation der Mitarbeiter durch eine grössere Eigenverantwortung zu fördern. Welche Massnahme würden Sie den beiden empfehlen, um ihre verschiedenen Ziele zu erreichen?",
+    "options": [
+      "Einführung einer verrichtungsorientierten Organisation",
+      "Einführung einer divisionalen Organisation",
+      "Einführung einer Stab-Linien-Organisation",
+      "Erhöhung der Gliederungstiefe",
+      "Keine der genannten Massnahmen ist optimal, da sich die Wünsche von Frau Stern und Herrn Peters schlecht vereinbaren lassen."
+    ],
+    "correct": 1
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Das klassische Integrations- und Koordinationsinstrument ist die Hierarchie. Welche der folgenden fünf Aussagen zur hierarchischen Abstimmung ist korrekt?",
+    "options": [
+      "Das Basisprinzip der Einlinienorganisation ist die Spezialisierung der Leitung.",
+      "Das Basisprinzip der Mehrlinienorganisation ist die Einheit der Auftragserteilung.",
+      "Sowohl bei der Einlinien- als auch bei der Mehrlinienorganisation sind die Zuständigkeiten bei Abstimmungsproblemen klar geregelt.",
+      "Das Abstimmungsprinzip bei der Einlinien- und Mehrlinienorganisation ist die persönliche Weisung.",
+      "Sowohl die Einlinien- als auch die Mehrlinienorganisation führen zur Vermeidung von Konflikten."
+    ],
+    "correct": 3
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Die neue Mitarbeiterin eines Start-ups hat Probleme, sich in der Unternehmung zurechtzufinden. Von ihrem vorherigen Arbeitgeber, einem grossen Konzern, war sie es gewohnt, dass alle Aufgaben und Vorgänge über ihren Vorgesetzten ablaufen. Hier ist es jedoch anders: Es gibt wenig formale Regeln, und Abstimmungen erfolgen oft individuell und ad hoc. Ihr fällt allerdings auf, dass alle Mitarbeiter bestimmte Vorstellungs- und Orientierungsmuster teilen, die den Rahmen für die Abstimmungen bilden. Welcher der folgenden Begriffe beschreibt die Form der Integration in diesem Start-up am besten?",
+    "options": [
+      "Fayol'sche Brücke",
+      "Interner Markt",
+      "Clan-Lösung",
+      "Projektorganisation",
+      "Linking Pin"
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Das Start-up SunPhone ist rasant gewachsen, so dass die Personalstrukturen unübersichtlich wurden und die Personalkosten stark gestiegen sind. Die Geschäftsführerin von SunPhone bittet den Personalchef um eine Einschätzung der Situation. An einer Teamsitzung erläutert der Personalchef seine Sicht der Situation: (1) Mit dem Wachstum des Unternehmens nimmt zwangsläufig die Leitungsintensität überproportional zu, da die Notwendigkeit zur Integration zunimmt. (2) Steile Hierarchien verursachen im Verhältnis zu flachen erheblich höhere Führungskosten. Wie sind diese beiden Aussagen aus Sicht der Organisationslehre zu beurteilen?",
+    "options": [
+      "Aussage (1) ist falsch, Aussage (2) ist korrekt.",
+      "Aussage (1) ist korrekt, Aussage (2) ist falsch.",
+      "Beide Aussagen sind falsch.",
+      "Beide Aussagen sind korrekt.",
+      "Die Organisationslehre kann die Richtigkeit der Aussagen nicht beurteilen."
+    ],
+    "correct": 0
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Was ist keine Form der horizontalen Integration?",
+    "options": [
+      "Ausschuss",
+      "Fayol'sche Brücke",
+      "Interner Markt",
+      "Matrixorganisation",
+      "Projektorganisation"
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Welcher der folgenden fünf Begriffe beschreibt keinen Aspekt der lateralen Integration?",
+    "options": [
+      "Informelle Kommunikation",
+      "Multiple, überlappende Teams",
+      "Kompetenzzentren",
+      "Koordination nach eigenem Ermessen",
+      "Zentrale Steuerung"
+    ],
+    "correct": 4
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Der CEO von Oveo entscheidet sich für eine Reorganisation seines Unternehmens und wählt dafür die Matrixorganisation. Auf alle beteiligten Manager kommen dabei spezifische Herausforderungen zu. Welche der folgenden Herausforderungen betreffen speziell den CEO?",
+    "options": [
+      "Führungsverantwortung für zwei Linien, Pflegen einer produktiven Diskussionskultur, Loyalitätskonflikte",
+      "Führungsverantwortung für zwei Linien, Sichtbarmachen auftretender Widersprüche, Lösung von Konflikten",
+      "Permanentes Ausbalancieren der Macht, unterschiedliche Sichtweisen, gemeinsames Management der Entscheidungsprozesse",
+      "Pflegen einer produktiven Diskussionskultur, permanentes Ausbalancieren der Macht, Führungsverantwortung für zwei Linien",
+      "Unterschiedliche Sichtweisen, Lösung von Konflikten, gemeinsames Management der Entscheidungsprozesse"
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Eine neue Mitarbeiterin stellt fest, dass in ihrem neuen Unternehmen, im Gegensatz zu ihrem bisherigen Unternehmen, die Unternehmensumwelt grundsätzlich feindlich aufgefasst wird. Diese Feststellung betrifft...",
+    "options": [
+      "...das Symbolsystem der neuen Organisation.",
+      "...die moralischen Vorstellungen der neuen Organisation.",
+      "...die Basisannahmen der neuen Organisation.",
+      "...die Werte und Normen der neuen Organisation.",
+      "...die ethischen Vorstellungen der neuen Organisation."
+    ],
+    "correct": 2
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Welche der folgenden Aussagen bezüglich Organisationskulturen trifft zu?",
+    "options": [
+      "Heterogene Kulturen weisen eher Kulturdenken auf als homogene Kulturen.",
+      "Heterogene Kulturen weisen eine höhere Handlungsorientierung auf als homogene Kulturen.",
+      "Stark internalisierte Kulturen weisen einen höheren Grad an Flexibilität auf als weniger stark internalisierte Kulturen.",
+      "Prägnante Kulturen weisen eine höhere Verankerungstiefe auf als stark internalisierte Kulturen.",
+      "Keine der obigen Aussagen trifft zu."
+    ],
+    "correct": 4
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Die Prägnanz einer Unternehmenskultur ist definiert als...",
+    "options": [
+      "...das Ausmass, in dem die Organisationsmitglieder kulturelle Muster teilen.",
+      "...der Grad der Internalisierung von kulturellen Mustern.",
+      "...die Stärke von kulturellen Mustern.",
+      "...die Klarheit und Reichweite der kulturellen Muster.",
+      "...das Entwicklungsniveau der kulturellen Muster."
+    ],
+    "correct": 3
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Welche der folgenden Rahmenbedingungen begünstigt die Entstehung von Subkulturen nicht?",
+    "options": [
+      "Art der Aufgaben",
+      "Abteilungszugehörigkeit",
+      "Ereignisgemeinschaften",
+      "Professioneller Hintergrund",
+      "Alle der oben genannten Rahmenbedingungen können die Entstehung von Subkulturen begünstigen."
+    ],
+    "correct": 4
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Organisationen mobilisieren viel Energie, um bewährte Strukturen zu festigen und vor Veränderungen zu schützen. Wie nennt man dieses Phänomen?",
+    "options": [
+      "Threat-Rigidity-Effekt",
+      "«Not-Invented-Here»-Syndrom",
+      "Frustrations-Regressions-Effekt",
+      "Systemträgheit",
+      "Kollektive Orientierungsmuster"
+    ],
+    "correct": 3
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Das Top-Management der Müller AG plant eine Verlegung ihrer Produktionsstätte. Zur Reduzierung des Widerstands wurden mehrere Massnahmen geplant. Viele der Massnahmen lassen sich auf Erkenntnisse von Lewin zurückführen. Welche der folgenden Massnahmen lässt sich nicht darauf zurückführen? Das Top-Managementteam...",
+    "options": [
+      "...beschliesst die Veränderungen gemeinsam mit den Mitarbeitern.",
+      "...präsentiert den Mitarbeitern einen detaillierten Plan des Wandelvorhabens.",
+      "...fördert die Zusammenarbeit aller beteiligten Abteilungen.",
+      "...sucht und berücksichtigt die Rückmeldungen der Mitarbeiter.",
+      "...fördert die Diskussion innerhalb der betroffenen Belegschaft."
+    ],
+    "correct": 1
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Die Maier GmbH plant eine Fusion mit der in der gleichen Branche tätigen Kunz AG. Sie hat die erste Phase, die Vorbereitung, abgeschlossen. Welche der folgenden Massnahmen sollte das Unternehmen nach gängiger Organisationslehre als nächstes durchführen?",
+    "options": [
+      "Die Betroffenen über Entlassungen informieren.",
+      "Die spezifischen Massnahmen zur Umsetzung des Wandels in den einzelnen Abteilungen diskutieren.",
+      "Nach potentiellen Kandidaten für Unternehmensfusionen suchen.",
+      "Workshops zur Einübung der neuen Arbeitsweisen und Routinen mit allen betroffenen Organisationsmitgliedern durchführen.",
+      "Vorteile der Fusion an die relevanten Stakeholder kommunizieren."
+    ],
+    "correct": 4
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2017-06"
+    ],
+    "set": "BWL2-JUN17-ORG",
+    "category": "Organisation",
+    "prompt": "Welche der folgenden fünf Aussagen ist in Bezug auf Prozessberatung (nach Edgar Schein) korrekt?",
+    "options": [
+      "Prozessberatung liefert inhaltliche Vorschläge zur Problemlösung.",
+      "Der Prozessberatung ist typischerweise eine Mitarbeiterbefragung vorgeschaltet.",
+      "Prozessberatung erarbeitet zusammen mit den Mitarbeitern inhaltliche Vorschläge zur Problemlösung.",
+      "Prozessberatung macht bewusst keine Gestaltungsvorgaben und befähigt die Organisation, selbständig eine Lösung zu finden.",
+      "Prozessberatung stellt die Umweltanalyse in den Mittelpunkt."
+    ],
+    "correct": 3
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "«Wechsel auf Technologien mit anderer Kostenstruktur»\nIn Bezug auf Kosteneinsparungen, lohnen sich Technologiewechsel...",
+    "options": [
+      "...nur wenn die Fixkosten höher sind als die variablen Kosten.",
+      "...nur wenn die variablen Kosten höher sind als die Fixkosten.",
+      "...nur wenn die gegebene Technologie von der Konkurrenz bereits benutzt wird.",
+      "...nur in bestimmten Outputbereichen.",
+      "...immer."
+    ],
+    "correct": 3,
+    "explanation": "Bei drei Technologien (A, B, C) mit unterschiedlichen Kostenstrukturen ergeben sich unterschiedliche Durchschnittskostenverläufe. Welche Technologie kostenoptimal ist, hängt von der gewählten Outputmenge ab. Ein Technologiewechsel lohnt sich daher nur in bestimmten Outputbereichen, in denen eine andere Technologie tiefere Durchschnittskosten aufweist. Aussagen a und b sind unzulässige Pauschalisierungen; c ist irrelevant; e ist falsch."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "«Economies of Scale in der IT Branche» (2)\nWelche Schlussfolgerung ist auf Basis der Geschäftszahlen am ehesten zulässig?\nIn der IT Branche…",
+    "options": [
+      "…existieren keine Economies of Scale.",
+      "…existieren Economies of Scale, welche sich in der Umsatzsteigerung widerspiegeln.",
+      "…existieren Economies of Scale, welche in den Herstellungskosten realisiert werden.",
+      "…existieren Economies of Scale, welche in den Vertriebs-, Verwaltungs-, Gemeinkosten realisiert werden.",
+      "Keine der oben genannten Lösungen ist richtig."
+    ],
+    "correct": 3,
+    "explanation": "Bei IT-/Softwareunternehmen sind die Grenzkosten zusätzlicher Einheiten sehr tief (digitale Vervielfältigung). Skaleneffekte realisieren sich daher typischerweise nicht in den Herstellungs-/Produktionskosten, sondern in den Vertriebs-, Verwaltungs- und Gemeinkosten (Marketing, F&E, Infrastruktur). Eine Umsatzsteigerung ist kein Skaleneffekt sondern eine Mengenwirkung."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "Frage 1: «Einstiegsmenge»\nIn der Branche für Motorboote verursacht die Produktionstechnologie für Boote jährliche Totalkosten von\nTK(Q) = 5·Q² − 5'000·Q + 5'000'000.\nDer Verkaufspreis für ein Motorboot liegt bei CHF 80'000.\nWelche Absatzmenge muss ein potentieller Neueinsteiger mindestens erreichen, um bei gegebenem Verkaufspreis am Markt bestehen zu können?",
+    "options": [
+      "58",
+      "59",
+      "60",
+      "61",
+      "Keine der oben genannten Lösungen ist richtig."
+    ],
+    "correct": 1,
+    "explanation": "Break-even: P·Q ≥ TK(Q) → 80'000·Q ≥ 5Q² − 5'000Q + 5'000'000 → 5Q² − 85'000Q + 5'000'000 ≤ 0 → Q² − 17'000Q + 1'000'000 ≤ 0. Untere Nullstelle: Q = (17'000 − √(17'000² − 4'000'000))/2 ≈ (17'000 − 16'882.6)/2 ≈ 58.7. Da nur ganze Boote produziert werden: mindestens 59."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "Frage 2: «Kostennachteil des Neueinsteigers»\nDer potentielle Neueinsteiger entscheidet sich für einen Markteintritt mit der Absatzmenge von 500 Motorbooten.\nWie gross ist der Kostennachteil (pro Motorboot) des Neueinsteigers gegenüber einem etablierten Konkurrenten, der bereits bei s* kostenoptimal produziert?\n(TK(Q) = 5·Q² − 5'000·Q + 5'000'000)",
+    "options": [
+      "1'000",
+      "1'500",
+      "2'000",
+      "2'500",
+      "Keine der oben genannten Lösungen ist richtig."
+    ],
+    "correct": 3,
+    "explanation": "DK(Q) = 5Q − 5'000 + 5'000'000/Q. Minimum: dDK/dQ = 5 − 5'000'000/Q² = 0 → Q* = 1'000 mit DK(1'000) = 5'000 − 5'000 + 5'000 = 5'000. Bei Q = 500: DK(500) = 2'500 − 5'000 + 10'000 = 7'500. Kostennachteil = 7'500 − 5'000 = 2'500."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "«Economies of Scale & Erfahrungskurveneffekte»\nWelche Aussage zu Economies of Scale und Erfahrungskurveneffekten ist am ehesten falsch?",
+    "options": [
+      "Für eine Branche, in welcher die etablierten Unternehmen bereits Erfahrungsvorsprünge aufgebaut haben, erwarten wir ceteris paribus eine tiefere Gefahr durch Neueintritte.",
+      "Im Allgemeinen sind kapitalintensive Produktionsprozesse eher mit Skaleneffekten verbunden als arbeitsintensive Produktionsprozesse.",
+      "Economies of Scale treten oft im Zusammenhang mit Marketingkosten, F&E und Einkauf auf.",
+      "Kostenvorteile aufgrund von Erfahrungskurveneffekten entstehen durch die Auslastung unteilbarer Vermögensgegenstände.",
+      "Unternehmen, die im Bereich von Diseconomies of Scale produzieren, können Erfahrungskurveneffekte realisieren."
+    ],
+    "correct": 3,
+    "explanation": "Aussage d ist falsch. Die Auslastung unteilbarer Vermögensgegenstände begründet Economies of Scale (Fixkostendegression), nicht Erfahrungskurveneffekte. Erfahrungskurven entstehen durch Lerneffekte mit wachsender kumulierter Produktionsmenge – unabhängig von der aktuellen Outputrate."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "«Wettbewerbsvorteil»\nIn der Branche für Luxusuhren konkurrieren fünf Firmen. Die fünf Firmen charakterisieren sich durch die Kosten (K), Wertschätzung (B) und Preise (P) gemäss Tabelle.\nWelche der folgenden fünf Firmen hat in der Branche für Luxusuhren einen Wettbewerbsvorteil?",
+    "visual": "ubung-luxusuhren-table",
+    "options": [
+      "Firma A",
+      "Firma B",
+      "Firma C",
+      "Firma D",
+      "Firma E"
+    ],
+    "correct": 1,
+    "explanation": "Wettbewerbsvorteil = höchste Wertschöpfung (WS = B − K). WS_A = 6−3 = 3; WS_B = 9−4 = 5; WS_C = 7−4 = 3; WS_D = 8−5 = 3; WS_E = 10−6 = 4. Firma B hat mit WS = 5 die höchste Wertschöpfung und damit den Wettbewerbsvorteil."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "«Value Map»\nIn welchem Szenario sinkt die Konsumentenrente (KR = B − P) bei einem Wechsel von Produkt A zu Produkt X?",
+    "visual": "ubung-value-map-diagrams",
+    "options": [
+      "A und X liegen auf derselben Indifferenzkurve (gleiche KR).",
+      "X hat einen tieferen Preis bei gleicher Qualität wie A (KR steigt).",
+      "X hat eine höhere Qualität zum selben Preis – A und X auf gleicher Indifferenzkurve (gleiche KR).",
+      "X hat eine höhere Qualität zum selben Preis wie A (KR steigt).",
+      "A hat eine höhere Qualität zum selben Preis wie X (KR sinkt beim Wechsel zu X)."
+    ],
+    "correct": 4,
+    "explanation": "Konsumentenrente KR = B − P. Bei e) hat A höhere Wertschätzung bei gleichem Preis wie X. Ein Wechsel von A zu X bedeutet: B sinkt, P bleibt gleich → KR_X < KR_A, also sinkt die Konsumentenrente. In den anderen Szenarien bleibt die KR gleich (a, c) oder steigt (b, d)."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "«Pricing-Strategien»\nDie Firma «Top Salt» ist in der Branche für Speisesalz etabliert und ist Kostenführer.\nWelche Pricing-Strategie ist für die Firma «Top Salt» am ehesten zu empfehlen?\nDie Firma «Top Salt» sollte…",
+    "options": [
+      "…einen Premiumpreis verlangen, da sie damit höhere Margen als die Konkurrenz abschöpfen kann.",
+      "…die Preise der Konkurrenz angleichen, da sie damit höhere Margen als die Konkurrenz abschöpfen kann.",
+      "…die Preise der Konkurrenz angleichen, um damit hohe Marktanteile abzuschöpfen.",
+      "…die Preise der Konkurrenz unterbieten, um damit hohe Marktanteile abzuschöpfen.",
+      "Keine der oben genannten Strategien ist kurzfristig empfehlenswert."
+    ],
+    "correct": 3,
+    "explanation": "Speisesalz ist ein nahezu homogenes Gut (Salz ist Salz) mit hoher Preiselastizität der Nachfrage. Für Kostenführer mit hoher Preiselastizität gilt «Go for share»: Preise unterbieten, um Marktanteile zu gewinnen. Premiumpreise (a) sind die Strategie eines Wertschätzungsführers; Preisparität (b, c) verschenkt den Kostenvorteil."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "Beispiel-Aufgabe 1\nGegeben sei die Zulieferer-Abnehmer-Beziehung zwischen Mikrochip-Herstellern und Computerfirmen, wobei die Mikrochip-Hersteller die Zulieferer sind.\nWelche Aussage zu den Machtverhältnissen in dieser Zulieferer-Abnehmer-Beziehung ist am ehesten richtig?\nIn dieser Geschäftsbeziehung sind die Computerfirmen umso mächtiger, …",
+    "options": [
+      "… je weniger Substitute es für Mikrochips gibt.",
+      "… je tiefer die relative Konzentration bei den Mikrochip-Herstellern ist.",
+      "… je mehr die Computerfirmen zuliefererspezifisch investiert haben.",
+      "… je glaubhafter die Computerfirmen mit einer Vorwärtsintegration drohen können.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 1,
+    "explanation": "Die Macht der Abnehmer (Computerfirmen) steigt, wenn ihre Zulieferer (Mikrochip-Hersteller) weniger konzentriert sind – also viele Anbieter konkurrieren und keiner Marktmacht ausüben kann. a ist umgekehrt (mehr Substitute = mehr Macht); c würde die Computerfirmen erpressbar machen (Hold-up); d ist falsch, weil eine glaubhafte RÜCKWÄRTSintegration (in die Chipherstellung) die Macht der Computerfirmen stärken würde, nicht eine Vorwärtsintegration."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "Beispiel-Aufgabe 2\nWelche Aussage zur Verteidigung von Wettbewerbsvorteilen ist am ehesten richtig?",
+    "options": [
+      "Die Nachhaltigkeit von Wettbewerbsvorteilen basiert auf temporären Unterschieden zwischen den Unternehmen.",
+      "Capabilities sind unternehmensspezifische Vermögensgegenstände.",
+      "Für Firma A verstärken Isolationsmechanismen das Ausmass, in dem Firma B Wettbewerbsvorteile der Firma A neutralisieren kann.",
+      "Immobilität und Knappheit der Ressourcen garantieren keine nachhaltigen Wettbewerbsvorteile.",
+      "Patente eignen sich nicht als Isolationsmechanismus, da sie nur einer Firma gehören."
+    ],
+    "correct": 3,
+    "explanation": "Nachhaltige Wettbewerbsvorteile erfordern Ressourcen, die VRIN sind: Valuable, Rare (knapp), non-Imitable, non-Substitutable. Immobilität und Knappheit allein sind notwendige, aber nicht hinreichende Bedingungen – ohne Nicht-Imitierbarkeit und Nicht-Substituierbarkeit ist keine Nachhaltigkeit garantiert. a ist falsch (nachhaltige Vorteile basieren auf dauerhaften Unterschieden); b verwechselt Capabilities mit Ressourcen; c ist umgekehrt (Isolationsmechanismen erschweren die Neutralisierung); e ist falsch (Patente sind klassische Isolationsmechanismen)."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "Beispiel-Aufgabe 3\nWelche Aussage zur Positionierung für Wettbewerbsvorteile gemäss Porter ist am ehesten richtig?\nEin neuer Anbieter für Pauschalurlaubsreisen sollte sich bei der Strategiewahl ceteris paribus für die Kostenführerschaft entscheiden, …",
+    "options": [
+      "…wenn er bei Zulieferern die gleichen Konditionen erhält wie seine Konkurrenzanbieter.",
+      "…wenn etablierte Reiseunternehmen viel Erfahrung in der Branche für Pauschalurlaubsreisen akkumuliert haben.",
+      "…wenn der neue Anbieter glaubhaft eine überlegene Qualität seiner Urlaubsreisen signalisieren kann.",
+      "…wenn der typische Urlauber bereit ist, einen Aufschlag für zusätzliche Produktattribute zu bezahlen.",
+      "Keine der oben genannten Aussagen ist richtig."
+    ],
+    "correct": 4,
+    "explanation": "Kostenführerschaft setzt einen Kostenvorteil voraus. a ist falsch: gleiche Konditionen ergeben keinen Vorteil – der Neueinsteiger bräuchte BESSERE Konditionen. b ist falsch: bei viel Erfahrung der Etablierten sinkt der eigene relative Kostenvorteil. c ist falsch: überlegene Qualität signalisieren = Wertschätzungsführerschaft, nicht Kostenführerschaft. d ist falsch: Zahlungsbereitschaft für Attribute spricht für Differenzierung. Daher e."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "Beispiel-Aufgabe 4\nIn der Autowasch-Branche gibt es die beiden Anbieter X und Y.\nDie Kunden nehmen das Angebot für eine Komplettreinigung der beiden Anbieter mit einer Wertschätzung von 15 als gleich wahr. Die Stückkosten unterscheiden sich folgendermassen: K_X = 9.5, K_Y = 12.\nDie Preiselastizität der Nachfrage in der Autowasch-Branche ist hoch.\nWelche der folgenden Aussagen ist am ehesten falsch?",
+    "options": [
+      "Die maximale Konsumentenrente bei Y ist 3, wenn P_Y = K_Y ist.",
+      "Die «nichtangreifbare Produzentenrente» von X ist 2.5.",
+      "Es ist für X sinnvoll Preisparität mit Y zu suchen, wenn P_Y = K_Y ist.",
+      "Es ist für X sinnvoll den Preis von Y zu unterbieten, wenn P_Y = K_Y ist.",
+      "Um Marktanteile zu gewinnen setzt X den Preis unter 12."
+    ],
+    "correct": 2,
+    "explanation": "c ist falsch. Bei homogener Wertschätzung (B = 15) und hoher Preiselastizität gewinnt im Preiskampf, wer den tieferen Preis bietet. X hat den Kostenvorteil (K_X = 9.5 < K_Y = 12) und sollte Y unterbieten, statt Preisparität zu suchen. a: KR = 15 − 12 = 3 ✓. b: nichtangreifbare PR von X = K_Y − K_X = 12 − 9.5 = 2.5 ✓. d und e folgen aus dem «Go for share»-Prinzip bei Kostenvorteil und hoher Preiselastizität."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "Beispiel-Aufgabe 5\nDie Firma CHAIR produziert Stühle mit der Totalkostenfunktion TK(Q) = 70Q + 211, wobei Q für die jährlich hergestellte Menge steht.\nAngenommen, dass jeder hergestellte Stuhl verkauft werden kann, wie viele Stühle muss die Firma CHAIR mindestens herstellen, um sich bei gegebenem Verkaufspreis von P = 80 am Markt behaupten zu können und keinen Verlust zu erwirtschaften?",
+    "options": [
+      "21",
+      "22",
+      "23",
+      "24",
+      "25"
+    ],
+    "correct": 1,
+    "explanation": "Break-even: P·Q ≥ TK(Q) → 80Q ≥ 70Q + 211 → 10Q ≥ 211 → Q ≥ 21.1. Bei Q = 21 entsteht ein Verlust (Umsatz 1'680, Kosten 1'681). Bei Q = 22 ist der Gewinn 1'760 − 1'751 = 9 ≥ 0. Mindestmenge: 22 Stühle."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "Klicker: Gefahr durch Neueintritte\nWelche der folgenden Gegebenheiten ist keine signifikante Eintrittsbarriere in den Markt für Verkehrsflugzeughersteller?",
+    "options": [
+      "Hohe Entwicklungskosten",
+      "Beschränkte Rohstoffe",
+      "Erfahrungskurveneffekte in der Produktion",
+      "Fluggesellschaften kaufen aufgrund eingespielter Lieferbeziehungen bevorzugt beim selben Hersteller",
+      "Fluggesellschaften sind aus Reputationsgründen wenig gewillt, Flugzeuge bei Newcomern zu kaufen"
+    ],
+    "correct": 1,
+    "explanation": "Beschränkte Rohstoffe (z.B. Aluminium) treffen Etablierte und Neueintreter gleichermassen – was alle gleich trifft, ist kein Wettbewerbsnachteil für Neueintreter und somit keine Eintrittsbarriere. (Erst privilegierter Zugang zu Rohstoffen wäre eine Barriere.) Hohe Entwicklungskosten (a), Erfahrungskurven (c), eingespielte Lieferbeziehungen (d) und Reputationsanforderungen (e) wirken alle als signifikante Eintrittsbarrieren."
+  }
+]

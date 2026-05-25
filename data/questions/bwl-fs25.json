@@ -1,0 +1,579 @@
+[
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Die ZukunftX AG möchte ein Trainingsprogramm für ihre Mitarbeitende entwickeln und bittet Sie ein geeignetes Programm zusammenzustellen und dieses der Geschäftsleitung vorzutragen. Welche der folgenden Aussagen ist nicht korrekt?",
+    "options": [
+      "Als Erstes sollte man überlegen, welche Verhaltensweisen Mitarbeitende in der Zukunft benötigen werden, um die aktuellen und zukünftigen Aufgaben erledigen zu können.",
+      "Sie schlagen vor, dass nebst fachlichen Inhalten, wie Kommunikationsfähigkeiten, auch überfachliche Trainingsinhalte, wie Wohlbefinden am Arbeitsplatz, während des Trainings behandelt werden.",
+      "Sie schlagen vor, dass vor der Planung der konkreten Trainingsinhalte der tatsächliche Trainingsbedarf im Unternehmen erhoben werden sollte.",
+      "Da es demnächst einen Führungswechsel bei der ZukunftX AG geben wird, schlagen Sie vor, dass die zukünftige Leitung in die Planung miteinbezogen wird, damit das Training an den zukünftigen Zielen des Unternehmens ausgerichtet werden kann.",
+      "Sie schlagen vor, dass sich das Training auf die potenziellen Defizite von Mitarbeitenden betreffend der für ihre Arbeitsabläufe notwendigen Kompetenzen fokussieren sollte."
+    ],
+    "correct": 0,
+    "explanation": "Als Erstes steht die Bedarfsanalyse (Organisations-, Aufgaben- und Personenanalyse), nicht das Antizipieren zukünftiger Verhaltensweisen. Damit ist diese Aussage gemäss offizieller Lösung nicht korrekt."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Zoe und Mira sind beide 20 Jahre alt. Zu diesem Zeitpunkt ist Zoe extrovertierter als Mira. 30 Jahre später treffen sich die beiden bei einer HR-Konferenz. Welche der folgenden Aussagen ist gemäss den Erkenntnissen aus der Persönlichkeitsforschung korrekt?",
+    "options": [
+      "Da sich die Persönlichkeit mit dem Altern nicht verändert, werden beide gleich extrovertiert sein wie im Alter von 20 Jahren.",
+      "Da sich die Persönlichkeit im Alter von 45-50 Jahren stabilisiert, wird Mira extrovertierter als Zoe sein.",
+      "Da das Altern im Vergleich zu Umweltfaktoren nur eine untergeordnete Rolle bei der Veränderung der Persönlichkeit spielt, kommt es darauf an, inwiefern sich die Umwelt der beiden verändert hat.",
+      "Da Persönlichkeit zu einem grossen Teil durch die Genetik erklärt wird, wird Zoe aller Wahrscheinlichkeit nach immer noch extrovertierter als Mira sein.",
+      "Keine der übrigen Aussagen ist korrekt."
+    ],
+    "correct": 3,
+    "explanation": "Persönlichkeit zeigt im Erwachsenenalter deutliche Rangordnungsstabilität. Genetik erklärt einen substanziellen Teil stabiler Unterschiede."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Lia befindet sich im Rekrutierungsprozess bei der TeaCup AG und muss für die nächste Runde einen Vortrag zum Thema Personalmanagement vorbereiten. Welches der folgenden Argumente kann Lia in ihren Vortrag einbeziehen?",
+    "options": [
+      "Lia betont, dass unstrukturierte Vorstellungsgespräch eine hohe prognostische Qualität für die spätere Arbeitsleistung zeigen.",
+      "Lia betont die Vorteile von High-Performance-Arbeitsmethoden, zu welchen eine offene Kommunikationskultur, leistungsbasierte Vergütung und zentrale Entscheidungsprozesse dazu gehören.",
+      "Lia bezieht sich auf eine Meta-Analyse von 94 wissenschaftliche Studien, die darauf hinweist, dass die Qualität des HRM Systems signifikant positiv mit der dysfunktionalen Fluktuation in einem Unternehmen zusammenhängt.",
+      "Lia bezieht sich in ihrer Argumentation auf Alfred P. Sloan, welcher betonte, dass die Organisationskultur und die Auswahl von Mitarbeitenden wichtige Unterschiede für den Wettbewerbsvorteil einer Organisation darstellen.",
+      "Keine der übrigen Argumente ist geeignet."
+    ],
+    "correct": 4,
+    "explanation": "Die genannten Argumente sind in der Form nicht geeignet: unstrukturierte Interviews sind schwach, zentrale Entscheidungsprozesse passen nicht zu High-Performance-Arbeitsmethoden, HRM-Qualität sollte dysfunktionale Fluktuation senken, und die Sloan-Aussage ist so nicht das passende HRM-Argument."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Paul und Lilly haben in den vergangenen Jahren einen grossen Beitrag zum Erfolg ihres Unternehmens geleistet. In letzter Zeit fehlt Paul jedoch immer öfter am Arbeitsplatz und erfüllt seine Aufgaben oft nicht zeitgemäss, wobei auch die Qualität seiner Arbeitsergebnisse stark abgenommen hat. Bei Lilly hingegen, hat sich in dieser Hinsicht nichts verändert. Aufgrund eines Stellenangebots bei einer anderen Firma, verlässt Lilly das Unternehmen, wohingegen Paul keine Absichten verspürt das Unternehmen zu verlassen. Somit handelt es sich um...",
+    "options": [
+      "...funktionale Bindung bei Paul und funktionale Fluktuation bei Lilly.",
+      "...funktionale Bindung bei Paul und dysfunktionale Fluktuation bei Lilly.",
+      "...dysfunktionale Bindung bei Paul und funktionale Fluktuation bei Lilly.",
+      "...dysfunktionale Bindung bei Paul und dysfunktionale Fluktuation bei Lilly.",
+      "...funktionale Fluktuation bei Paul und funktionale Bindung bei Lilly."
+    ],
+    "correct": 3,
+    "explanation": "Paul (leistungsschwach) bleibt → dysfunktionale Bindung (für die Firma nachteilig). Lilly (leistungsstark) geht → dysfunktionale Fluktuation (gewünschter Leistungsträger verlassen das Unternehmen)."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Noah möchte seine Teammitglieder über die unterschiedlichen Levels der Diversität aufklären. Bei welchem Beispiel hat Noah keinen Fehler gemacht?",
+    "options": [
+      "Paul gehört mit 57 Jahren zu den ältesten Mitarbeitenden und ist als einziger Mann in der Frauenkosmetik eher auffallend. Beides sind Beispiele für das tiefgreifende Level.",
+      "Martas einzigartiger Charakter und ihr englischer Akzent sind beides Beispiele für das tiefgreifende Level.",
+      "Tims Religion ist ein Beispiel für das oberflächliche Level, weil andere Personen den Grund seines religiösen Anhängers nicht kennen.",
+      "Sonjas ostasiatische Gesichtszüge und ihre sichtbare körperliche Lähmung sind Beispiele für das oberflächliche Level der Diversität.",
+      "Noah hat bei keinem der übrigen Beispiele einen Fehler gemacht."
+    ],
+    "correct": 3,
+    "explanation": "Sichtbare beziehungsweise leicht wahrnehmbare Merkmale wie ethnische Herkunft und körperliche Beeinträchtigung gehören zum oberflächlichen Level der Diversität."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Die Sirup AG möchte ihre Produkte neu auch im afrikanischen Raum verkaufen und dafür Mitarbeitende aus dem afrikanischen Raum anstellen. Welche Bedeutung hat die Identität der Mitarbeitenden bei der Sirup AG?",
+    "options": [
+      "Wertschätzung",
+      "Macht",
+      "Ambivalenz",
+      "Zusammenhalt",
+      "Stolz"
+    ],
+    "correct": 2,
+    "explanation": "In der Marktzugangslogik wird Identität instrumentell genutzt (Zugang zu neuen Kundengruppen). Daraus entsteht Ambivalenz, weil Mitarbeitende primär wegen ihrer Herkunft eingestellt werden – nicht aufgrund intrinsischer Wertschätzung."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Sie sind CEO der Swissflorida AG und möchten das Management auf Diversität aufmerksam machen. Welcher Trend beziehungsweise welche Begründung führt dazu, dass sich das Management mit Diversität beschäftigen muss?",
+    "options": [
+      "Steigender Innovationsdruck, weil Diversität Kreativität und Innovationskraft von Teams fördern kann.",
+      "Zunehmender Fachkräftemangel, weil die Geburtenrate in der Schweiz seit 1960 konstant geblieben ist.",
+      "Zunehmende Globalisierung, weil diese zu einer Verkürzung der Lieferketten führt.",
+      "Altersaufbau der Bevölkerung, weil der Anteil von Personen zwischen 20 und 30 Jahren seit 1900 stetig zugenommen hat.",
+      "Lohnunterschiede zwischen Männern und Frauen, weil diese 2020 durchschnittlich bei 4% lagen."
+    ],
+    "correct": 0,
+    "explanation": "Diversität wird unter anderem wegen Innovationsdruck relevant: heterogene Perspektiven können Kreativität, Problemlösung und Innovation fördern."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Welche Wörter ergänzen den Satz korrekt? Der Grund für Diversität bei der _____ ist, ____. Deswegen ist der Wert der Diversität ____ und die Bedeutung der Identität ist eine ____.",
+    "options": [
+      "Antidiskriminierungslogik / Gleichstellung zu sichern / Mittel, da es eine Pflicht ist / Quelle von Machtlosigkeit",
+      "Lernlogik / neue Ideen zu finden / hoch / Quelle von Wertschätzung",
+      "Marktzugangslogik / Zugang zu anderen Kundengruppen zu erhalten / hoch, denn es ist eine Schnittstelle zu neuen Kunden / Quelle von Macht",
+      "Antidiskriminierungslogik / Gleichstellung zu sichern / niedrig, da es eine Pflicht ist / Quelle von Ambivalenz",
+      "Lernlogik / Innovation und neue Ideen zu entwickeln / hoch, da es eine Schnittstelle zu neuen Kunden bildet / Quelle von Wertschätzung"
+    ],
+    "correct": 1,
+    "explanation": "Lernlogik passt schlüssig zusammen: Grund = neue Ideen finden, Wert = hoch, Identität = Quelle von Wertschätzung. Die Marktzugangs-Option vermischt Werttreiber, und «hoch» trifft eher auf die Lernlogik zu."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Die Geschäftsführung der Example AG besteht seit über 10 Jahren aus je 3 Männern und 3 Frauen. Eine ausscheidende Frau wird durch Frau Keller ersetzt; ausserdem gewinnt das Unternehmen einen Innovationspreis. Welche Logik zur Diversität ist vermutlich vorherrschend?",
+    "options": [
+      "Die Antidiskriminierungslogik.",
+      "Die Marktzugangslogik.",
+      "Die Lernlogik.",
+      "Die Antidiskriminierungslogik und die Marktzugangslogik.",
+      "Weder die Antidiskriminierungslogik noch die Marktzugangs- oder Lernlogik scheinen vorzuherrschen."
+    ],
+    "correct": 2,
+    "explanation": "Die paritätische Geschäftsleitung plus ein Innovationspreis sprechen für die Lernlogik: heterogene Perspektiven werden als Innovationsquelle genutzt, was sich im Preis manifestiert."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Tina gibt ihrem Team klare Vorschriften, weil niemand Initiative zeigt. Bob fördert Diversität, um Gleichstellung sicherzustellen. Welche Begründung passt am ehesten?",
+    "options": [
+      "Tinas Führungsverhalten ist von Theorie X geprägt, während Bob Diversität basierend auf der Antidiskriminierungslogik fördert.",
+      "Tinas Führungsverhalten ist von subtilen Vorurteilen geprägt, während Bob Diversität basierend auf der Marktzugangslogik fördert.",
+      "Tinas Führungsverhalten ist von Theorie Y geprägt, während Bob Diversität basierend auf der Lernlogik fördert.",
+      "Tinas Führungsverhalten ist von Similarity-Attraction geprägt, während Bob Diversität basierend auf der Innovationslogik fördert.",
+      "Tinas Führungsverhalten ist auf selbsterfüllende Prophezeiung zurückzuführen, während Bob Diversität basierend auf der Kollaborationslogik fördert."
+    ],
+    "correct": 0,
+    "explanation": "Theorie X unterstellt geringe Eigeninitiative und Kontrollbedarf. Gleichstellung als Diversitätsgrund entspricht der Antidiskriminierungslogik."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Was ist ein Beispiel für den fundamentalen Attributionsfehler?",
+    "options": [
+      "Herr Keller hält einen neuen Mitarbeiter nach einmaligem Zuspätkommen direkt für unzuverlässig.",
+      "Herr Keller kommt wegen eines verspäteten Trams zu spät und ärgert sich.",
+      "Herr Keller macht immer seine Mitarbeitenden für Fehler im Arbeitsalltag verantwortlich.",
+      "Herr Keller schreibt den Erfolg der Firma sich selbst zu, während Mitarbeitende ihren eigenen Beitrag sehen.",
+      "Herr Keller beneidet seinen Bruder nicht, der als Geschäftsleitung für Fehltritte verantwortlich gemacht wird."
+    ],
+    "correct": 0,
+    "explanation": "Der fundamentale Attributionsfehler überschätzt dispositionale Ursachen bei anderen und unterschätzt situative Ursachen."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Herr Meyer kommt oft zu spät; andere Mitarbeitende sind pünktlich. Seine Leistungen sind aber herausragend. Welche Attribution sollte seine Vorgesetzte dem Zuspätkommen zuordnen?",
+    "options": [
+      "Eine interne Attribution.",
+      "Eine externe Attribution.",
+      "Weder eine interne noch eine externe Attribution.",
+      "Sowohl eine interne als auch eine externe Attribution.",
+      "Die Attribution ist abhängig von der Einstellung der Vorgesetzten."
+    ],
+    "correct": 0,
+    "explanation": "Hohe Konsistenz, geringer Konsens und geringe Distinktheit sprechen im Kovariationsmodell für eine interne Attribution."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Rolf sucht bei Google nach Belegen dafür, dass Apfel-Smoothies seine Konzentration verbessern, und wertet einen bekannten Grund als Bestätigung. Worauf ist sein Verhalten am ehesten zurückzuführen?",
+    "options": [
+      "Auf den Bestätigungsfehler und den Wahrheitseffekt.",
+      "Auf den Ankereffekt und den Verfügbarkeitsfehler.",
+      "Auf die Affektheuristik und den Halo-Effekt.",
+      "Auf den fundamentalen Attributionsfehler und kognitive Dissonanz.",
+      "Auf Similarity-Attraction und subtile Vorurteile."
+    ],
+    "correct": 0,
+    "explanation": "Rolf sucht bestätigende Information und hält eine bekannte Aussage eher für wahr. Das verbindet Bestätigungsfehler und Wahrheitseffekt."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Karl ist sehr unzufrieden, verbringt möglichst wenig Zeit bei der Arbeit, redet kaum mit Kollegen, beschwert sich aber nicht. Wie ist Karls Unzufriedenheit einzuordnen?",
+    "options": [
+      "Als passiv und konstruktiv.",
+      "Als passiv und destruktiv.",
+      "Als aktiv und konstruktiv.",
+      "Als aktiv und destruktiv.",
+      "Als neutral."
+    ],
+    "correct": 1,
+    "explanation": "Rückzug ohne aktives Ansprechen des Problems entspricht Neglect: passiv und destruktiv."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Laura kommt häufiger zu spät und zieht sich zurück. Tim denkt, das sei typisch für Laura, weil ihm sofort ein ähnliches Beispiel einfällt. Worauf ist Tims Überlegung am ehesten zurückzuführen?",
+    "options": [
+      "Fundamentaler Attributionsfehler und Verfügbarkeitsheuristik.",
+      "Affektheuristik und interne Attribution.",
+      "Externe Attribution und Bestätigungsfehler.",
+      "Wahrheitseffekt und Ankereffekt.",
+      "Subtile Vorurteile und Halo-Effekt."
+    ],
+    "correct": 0,
+    "explanation": "Tim erklärt Lauras Verhalten dispositional und nutzt ein leicht verfügbares Beispiel als Beleg."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Sie möchten die Geschäftsleitung über die Relevanz von Arbeitszufriedenheit informieren. Welches Argument sollten Sie nicht verwenden?",
+    "options": [
+      "Arbeitszufriedenheit korreliert positiv mit Hilfsbereitschaft und negativ mit Fluktuation.",
+      "Studien deuten darauf hin, dass Arbeitszufriedenheit positiv auf Arbeitsleistung wirkt.",
+      "Richtlinien und Führungskräfte können am Arbeitsplatz zu Unzufriedenheit führen.",
+      "Gemäss Herzberg kann Lohn nicht zu extremer Zufriedenheit führen, da er ein Hygienefaktor ist.",
+      "Die traditionelle Sicht definiert Motivatoren und Nicht-Motivatoren als zwei separate Eigenschaften; Herzberg ordnet Motivatoren und Hygienefaktoren auf einer gemeinsamen Dimension an."
+    ],
+    "correct": 4,
+    "explanation": "Es ist umgekehrt: Die traditionelle Sicht denkt Zufriedenheit als eine Dimension; Herzberg trennt Hygienefaktoren und Motivatoren."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Die HR-Abteilung möchte Persönlichkeit zukünftiger Angestellter mit einem standardisierten Test erfassen. Welchen Test sollte sie am ehesten verwenden und warum?",
+    "options": [
+      "Den MBTI, da er eine gute Aussage über zukünftige Arbeitsleistung ermöglicht.",
+      "Das Persönlichkeit-Tätigkeit-Modell von Holland, da es die stärkste Beziehung zur Arbeitsleistung hat.",
+      "Das Persönlichkeit-Tätigkeit-Modell von Holland, da es speziell für Arbeitsanforderungen am präzisesten ist.",
+      "Das Big-Five-Modell, da es wissenschaftlich fundiert ist, eine Beziehung zur Arbeitsleistung herstellt und breite Persönlichkeitsdimensionen abbildet.",
+      "Das Big-Five-Modell, da es präzise und reliabel ist."
+    ],
+    "correct": 4,
+    "explanation": "Big-Five ist das Mittel der Wahl, weil es präzise und reliabel misst. Option d) ist zu weit gefasst – Big-Five bildet die fünf Hauptdimensionen ab, nicht «alle Charakterzüge»."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Welche Rolle spielen affektive Reaktionen gemäss der Affective Events Theory?",
+    "options": [
+      "Geschehnisse lösen abhängig von Arbeitseinstellung Emotionen aus, die sich abhängig von Dispositionen auf affektgesteuertes Verhalten auswirken.",
+      "Die Arbeitsumgebung übt direkten Einfluss auf affektive Reaktionen aus, die die Arbeitseinstellung in Abhängigkeit von Dispositionen beeinflussen.",
+      "Die Arbeitseinstellung wirkt gleichermassen auf urteilsgesteuertes und affektgesteuertes Verhalten; Ereignisse beeinflussen diese Zusammenhänge direkt.",
+      "Dispositionen beeinflussen, wie Ereignisse auf affektive Reaktionen wirken; diese wirken direkt auf affektgesteuertes und indirekt auf urteilsgesteuertes Verhalten.",
+      "Dispositionen beeinflussen den Zusammenhang zwischen Arbeitseinstellung und affektgesteuertem Verhalten; Arbeitseinstellung wird direkt von Ereignissen beeinflusst."
+    ],
+    "correct": 3,
+    "explanation": "In der Affective Events Theory lösen Arbeitsereignisse affektive Reaktionen aus, geprägt durch Dispositionen; diese treiben affektgesteuertes Verhalten und beeinflussen Einstellungen."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Lena möchte umweltbewusster reisen, fliegt aber für eine Hochzeit nach Australien und rechtfertigt dies damit, dass sie seit Jahren vegan lebt. Worauf ist ihre Entscheidung am ehesten zurückzuführen?",
+    "options": [
+      "Auf eine Änderung der dissonanten Einstellung.",
+      "Auf eine Verhaltensänderung.",
+      "Auf die Ergänzung von neuen Kognitionen.",
+      "Auf den Halo-Effekt.",
+      "Auf den Cocktail-Party-Effekt."
+    ],
+    "correct": 2,
+    "explanation": "Lena reduziert kognitive Dissonanz, indem sie eine zusätzliche passende Kognition ergänzt: ihr veganes Verhalten."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-HRM25",
+    "category": "Human Resource Management",
+    "prompt": "Max und Petra halten jeweils ihr eigenes Tablet für das beste. Fred behauptet nachträglich, er habe Spaniens EM-Sieg vorhergesehen. Justus ignoriert Rauchrisiken und verweist auf seinen 101-jährigen Grossvater. Welche Antwort trifft am ehesten zu?",
+    "options": [
+      "Max und Petra unterliegen einem Bestätigungsfehler.",
+      "Max, Petra und Fred unterliegen einem Besitztumseffekt.",
+      "Max, Petra und Justus unterliegen einer Affektheuristik.",
+      "Fred unterliegt einer Affektheuristik.",
+      "Justus unterliegt einem Bestätigungsfehler."
+    ],
+    "correct": 4,
+    "explanation": "Justus sucht beziehungsweise nutzt ein einzelnes bestätigendes Beispiel, um seine bestehende Überzeugung zu stützen."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-ORG25",
+    "category": "Organisation",
+    "prompt": "In der Organisationslehre unterscheidet man verschiedene Organisationsbegriffe. Welche Aussage ist am ehesten richtig?",
+    "options": [
+      "Die Verteilung von Aufgaben wird sowohl im instrumentellen wie auch im institutionellen Organisationsbegriff erfasst.",
+      "Der institutionelle Organisationsbegriff umfasst auch den instrumentellen Organisationsbegriff.",
+      "Der instrumentelle Organisationsbegriff beschreibt auch eine Managementfunktion.",
+      "Organisation gemäss konfigurativem Organisationsbegriff kann als Ergebnis von Organisation gemäss funktionalem Organisationsbegriff verstanden werden.",
+      "Im institutionellen Organisationsbegriff stellt die informale Organisation einen Aspekt der formalen Organisation dar."
+    ],
+    "correct": 3,
+    "explanation": "Der funktionale Begriff meint das Organisieren als Tätigkeit; der konfigurative Begriff beschreibt die daraus entstehende Struktur."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-ORG25",
+    "category": "Organisation",
+    "prompt": "In der nachfolgenden Abbildung finden Sie das Organigramm der «Betflix AG». Welcher Organisationsform entspricht die dargestellte Struktur am ehesten?",
+    "visual": "betflix-organigram",
+    "options": [
+      "Geschäftsbereichsorganisation",
+      "Funktionale Organisation",
+      "Divisionale Organisation",
+      "Konzern",
+      "Holding"
+    ],
+    "correct": 1,
+    "explanation": "Unter dem CEO sind die Verrichtungen (HR, F&E, Vertrieb, Controlling) gegliedert; Unternehmenskommunikation und Unternehmensentwicklung sind Stäbe. Das ist eine klassische funktionale Organisation."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-ORG25",
+    "category": "Organisation",
+    "prompt": "Die Redaktion «30 Sekunden» ist eine Stab-Linien-Organisation. Es treten Kommunikationsschwierigkeiten, Statusbedrohung der Linie und Informationsmacht der Stäbe auf. Welche Massnahme ist am ehesten zu empfehlen?",
+    "options": [
+      "Der Stab bekommt die Befugnis, endgültige Entscheidungen zu treffen.",
+      "Die Stabsmitglieder werden beliebig ausgewählt.",
+      "Der Stab wird mit Entscheidungsgewalt über die Linie ausgestattet.",
+      "Die Aufgaben vom Stab werden von der Linie übernommen.",
+      "Es werden Projektgruppen aus Mitarbeitenden des Stabs und der Linie gebildet."
+    ],
+    "correct": 4,
+    "explanation": "Gemeinsame Projektgruppen reduzieren Distanz, Informationsasymmetrien und Statuskonflikte zwischen Stab und Linie."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-ORG25",
+    "category": "Organisation",
+    "prompt": "Welche der folgenden Aussagen betreffend der unterschiedlichen Integrationsformen ist richtig?",
+    "options": [
+      "Eine Ressourcenpool-Organisation stellt eine laterale Integrationsform dar und ist eine spezielle Form der Matrixorganisation.",
+      "Die Matrixorganisation ist eine horizontale organisatorische Integrationsform, bei der mehrere Autoritätslinien mit unterschiedlichen Ausrichtungen kombiniert werden.",
+      "Interne Netzwerkorganisationen stellen weder horizontale noch laterale organisatorische Integrationsformen dar.",
+      "Ein Koordinationsteam ist eine horizontale Integrationsform, die typischerweise zeitlich unbegrenzt wirkt.",
+      "Keine der übrigen Antworten ist richtig."
+    ],
+    "correct": 1,
+    "explanation": "Die Matrix kombiniert mehrere Autoritäts- beziehungsweise Berichtslinien und dient der horizontalen Integration über unterschiedliche Dimensionen."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-ORG25",
+    "category": "Organisation",
+    "prompt": "Die Z-Zug AG will wieder Marktführerin im Digitalisierungssegment werden. Die Leiterin erklärt ihrem Team Ziel, Strategie und Umsetzungsschritte. Welche Art der Abstimmung wird beschrieben?",
+    "options": [
+      "Vertikale Integration mit Konditionalprogramm",
+      "Laterale Integration mit Zweckprogramm",
+      "Stabs-Projektorganisation mit multipler Teamorganisation",
+      "Vertikale Integration mit persönlicher Weisung",
+      "Interne Netzwerkorganisation mit Konditionalprogramm"
+    ],
+    "correct": 3,
+    "explanation": "Die Leiterin stimmt ihr Team hier über direkte Führung und Anweisung ab. Das ist vertikale Integration durch persönliche Weisung."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-ORG25",
+    "category": "Organisation",
+    "prompt": "In einem Vorstellungsgespräch erfahren Sie: Mitarbeitende betrachten sich generell als Freunde, nicht als Konkurrenten; Arbeitszeiten sind fix von 07:00 bis 15:30 Uhr. Welchen Ebenen der Organisationskultur ist dies zuzuordnen?",
+    "options": [
+      "(1) Basisannahmen, (2) Normen und Standards",
+      "(1) Normen und Standards, (2) Symbolsystem",
+      "(1) Symbolsystem, (2) Symbolsystem",
+      "(1) Symbolsystem, (2) Basisannahmen",
+      "(1) Basisannahmen, (2) Symbolsystem"
+    ],
+    "correct": 4,
+    "explanation": "Das implizite Freundschaftsverständnis ist eine tiefe Basisannahme; fixe Arbeitszeiten sind beobachtbare Artefakte und gehören damit zum Symbolsystem (gemäss offizieller Lösung)."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-ORG25",
+    "category": "Organisation",
+    "prompt": "Unternehmen 1 hat geteilte, stark internalisierte Orientierungsmuster für spezielle Situationen. Unternehmen 2 hat heterogene, aber universal einsetzbare und stark internalisierte Muster. Welche Aussage ist richtig?",
+    "options": [
+      "Die Kultur von Unternehmen 1 hat einen geringen Verbreitungs-, aber hohen Internalisierungsgrad.",
+      "Die Kultur beider Unternehmen hat eine hohe Prägnanz.",
+      "Die Kultur von Unternehmen 1 hat einen geringen Verbreitungsgrad.",
+      "Unternehmen 1 hat einen hohen Verbreitungsgrad und Unternehmen 2 einen geringen Verbreitungsgrad.",
+      "Unternehmen 1 hat hohe Prägnanz und Unternehmen 2 einen geringen Verbreitungsgrad."
+    ],
+    "correct": 3,
+    "explanation": "In Unternehmen 1 werden die Muster von allen geteilt, also hoher Verbreitungsgrad. In Unternehmen 2 sind sie heterogen, also geringer Verbreitungsgrad."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-ORG25",
+    "category": "Organisation",
+    "prompt": "Führungskräfte eines Startups glauben, dass Menschen von Haus aus motiviert sind, Verantwortung zu übernehmen und sich für gemeinsame Ziele einzusetzen. Wie lassen sich diese Überzeugungen charakterisieren?",
+    "options": [
+      "Als Praktiken der lateralen Integration im Startup.",
+      "Als formulierte Führungsgrundsätze des Startups.",
+      "Als Teil der Basisannahmen der Organisationskultur im Startup.",
+      "Als Teil des Symbolsystems der Organisationskultur im Startup.",
+      "Als Teil der Normen und Standards der Organisationskultur im Startup."
+    ],
+    "correct": 2,
+    "explanation": "Grundannahmen über Menschen und Motivation liegen auf der tiefen Ebene der Basisannahmen einer Organisationskultur."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-ORG25",
+    "category": "Organisation",
+    "prompt": "Ein Unternehmen ändert wegen Kostendruck seine Strategie von hochwertigen zu günstigen einfachen Produkten. Die Stimmung ist schlecht; einige unterstützen den Wandel, andere lehnen ihn ab. Welche Massnahme eignet sich am besten zur Entspannung?",
+    "options": [
+      "Survey-Feedback-Ansatz",
+      "Konfrontationstreffen",
+      "Prozessberatung",
+      "Ausschluss von internen Gegnern",
+      "Feedback-Training-Ansatz"
+    ],
+    "correct": 1,
+    "explanation": "Ein Konfrontationstreffen bringt unterschiedliche Gruppen und Konfliktlinien offen zusammen und eignet sich zur Bearbeitung akuter Spannungen im Wandel."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-ORG25",
+    "category": "Organisation",
+    "prompt": "Welche Massnahme gehört typischerweise nicht zur Einstiegsphase des erweiterten Phasenmodells des Wandels?",
+    "options": [
+      "Einrichtung einer Projektorganisation für den Wandel.",
+      "Sichtbarmachung des Wandel-Projekts, beispielsweise durch Ausstellungen.",
+      "Sicherstellung eines sofortigen Wandelimpulses durch eine Kick-off-Veranstaltung.",
+      "Aufbrechen der bestehenden Strukturen, um diese durch neue zu ersetzen.",
+      "Herausstellung des Nutzens des Wandels für die betroffenen Personen."
+    ],
+    "correct": 3,
+    "explanation": "Die Einstiegsphase macht den Wandel sichtbar und anschlussfähig. Das eigentliche Aufbrechen und Ersetzen bestehender Strukturen gehört nicht typisch in diesen Einstieg."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-ORG25",
+    "category": "Organisation",
+    "prompt": "Welche Aussage in Bezug auf den Wandelansatz nach Kurt Lewin trifft am ehesten zu?",
+    "options": [
+      "In Wandelprozessen sollen Individuen befähigt werden, den Wandelprozess selber erfolgreich zu bestreiten.",
+      "In T-groups versuchen Führungskräfte durch Reflexion eine Verhaltensänderung bei Mitarbeitenden zu bewirken.",
+      "In der Auftauphase soll der ehemalige Gleichgewichtszustand aufgegeben werden, sodass Bereitschaft zur Veränderung entstehen kann.",
+      "Die Veränderungsbereitschaft steigt, wenn das Veränderungskonzept durch Expertinnen und Experten erarbeitet wurde.",
+      "In der Stabilisierungsphase werden neue Muster entwickelt und plausibel gemacht."
+    ],
+    "correct": 2,
+    "explanation": "Lewins Auftauphase (Unfreezing) löst das alte Gleichgewicht und schafft Bereitschaft für Veränderung."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "2025"
+    ],
+    "set": "BWL2-ORG25",
+    "category": "Organisation",
+    "prompt": "Netzwerkartige Organisationsformen werden eingesetzt, um komplexe Leistungsprozesse flexibel zu gestalten. Wie wird die Anschlussfähigkeit der einzelnen Subsysteme sichergestellt?",
+    "options": [
+      "Gemeinsame Werte und Überzeugungen",
+      "Fayol'sche Brücke",
+      "Koordinationsteams",
+      "Multiple, überlappende Teams",
+      "Management by Objectives"
+    ],
+    "correct": 0,
+    "explanation": "Netzwerkartige Formen sind auf Vertrauen, geteilte Werte und gemeinsame Orientierung angewiesen, damit autonome Einheiten anschlussfähig bleiben."
+  }
+]
