@@ -20,7 +20,7 @@ const BWL_PAPERS = [
   { id: "2017", label: "Probeprüfung 2017", sub: "Frühjahrssemester" },
   { id: "2025", label: "Probeprüfung 2025", sub: "Frühjahrssemester" },
   { id: "2017-06", label: "Assessment Juni 2017", sub: "Juni 2017" },
-  { id: "ubung", label: "Übung FS26", sub: "Strategisches Management" },
+  { id: "ubung", label: "Übung/Klicker", sub: "Strategisches Management" },
 ];
 
 function getSubject() {
@@ -184,7 +184,7 @@ const DECKS = [
   { id: "BWL2-JUN17-SM",  subject: "BWL II",        label: "Juni 2017: Strategisches Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-SM"] },
   { id: "BWL2-JUN17-HRM", subject: "BWL II",        label: "Juni 2017: Human Resource Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-HRM"] },
   { id: "BWL2-JUN17-ORG", subject: "BWL II",        label: "Juni 2017: Organisation",    sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-ORG"] },
-  { id: "BWL2-UBUNG",     subject: "BWL II",        label: "Übung: Strategisches Management", sub: "Übungsfragen FS26", sets: ["BWL2-UBUNG"] },
+  { id: "BWL2-UBUNG",     subject: "BWL II",        label: "Übung/Klicker", sub: "Strategisches Management FS26", sets: ["BWL2-UBUNG"] },
 ];
 
 function deckPool(deck) {

@@ -390,8 +390,8 @@
       "61",
       "Keine der oben genannten Lösungen ist richtig."
     ],
-    "correct": 1,
-    "explanation": "Break-even: P·Q ≥ TK(Q) → 80'000·Q ≥ 5Q² − 5'000Q + 5'000'000 → 5Q² − 85'000Q + 5'000'000 ≤ 0 → Q² − 17'000Q + 1'000'000 ≤ 0. Untere Nullstelle: Q = (17'000 − √(17'000² − 4'000'000))/2 ≈ (17'000 − 16'882.6)/2 ≈ 58.7. Da nur ganze Boote produziert werden: mindestens 59."
+    "correct": 2,
+    "explanation": "Break-even: P·Q ≥ TK(Q) → 80'000·Q ≥ 5Q² − 5'000Q + 5'000'000 → 5Q² − 85'000Q + 5'000'000 ≤ 0 → Q² − 17'000Q + 1'000'000 ≤ 0. Untere Nullstelle mit der Mitternachtsformel: Q = (17'000 − √(17'000² − 4·1'000'000))/2 = (17'000 − √285'000'000)/2 = (17'000 − 16'881.94)/2 ≈ 59.03. Da Boote nur ganzzahlig abgesetzt werden, ist die kleinste ganze Menge mit Gewinn ≥ 0 deshalb Q = 60. Kontrolle: bei Q = 59 ergibt sich TK = 4'722'405 und Umsatz = 4'720'000, also ein Verlust von 2'405; bei Q = 60 ist TK = 4'718'000 und Umsatz = 4'800'000, also Gewinn = 82'000."
   },
   {
     "subject": "BWL II",
@@ -592,5 +592,76 @@
     ],
     "correct": 1,
     "explanation": "Beschränkte Rohstoffe (z.B. Aluminium) treffen Etablierte und Neueintreter gleichermassen – was alle gleich trifft, ist kein Wettbewerbsnachteil für Neueintreter und somit keine Eintrittsbarriere. (Erst privilegierter Zugang zu Rohstoffen wäre eine Barriere.) Hohe Entwicklungskosten (a), Erfahrungskurven (c), eingespielte Lieferbeziehungen (d) und Reputationsanforderungen (e) wirken alle als signifikante Eintrittsbarrieren."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "McGahan und Porter (1997) untersuchen die Variation in der Profitabilität von 7'000 Unternehmen zwischen 1982 und 1988. Sie betrachten dazu den Effekt\n\n- der Branche\n- der Konjunktur (Jahr)\n- der Positionierung innerhalb der Branche\n- der Konzernzugehörigkeit.",
+    "options": [
+      "Die Branche erklärt die Variation der Profitabilität zwischen den Unternehmen am besten.",
+      "Die Konzernzugehörigkeit erklärt die Variation der Profitabilität zwischen den Unternehmen am schlechtesten.",
+      "Die Konjunktur ist bedeutender als die Konzernzugehörigkeit.",
+      "Der Positionierungseffekt ist bedeutender als der Brancheneffekt.",
+      "Der Brancheneffekt ist ungefähr gleich bedeutend wie der Positionierungseffekt."
+    ],
+    "correct": 3,
+    "explanation": "Bei McGahan und Porter ist der business-spezifische beziehungsweise Positionierungseffekt innerhalb der Branche grösser als der Brancheneffekt. Der Jahreseffekt ist kleiner als der Konzern- beziehungsweise Parent-Effekt."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "Die interne Rivalität innerhalb einer Branche ist ceteris paribus umso höher, je …",
+    "options": [
+      "… weniger Anbietende existieren.",
+      "… differenzierter der/die Konsument/in die Produkte der Anbietenden wahrnimmt.",
+      "… geringer die Marktaustrittsbarrieren in dieser Branche sind.",
+      "… länger die Anpassungsreaktion der Konkurrenz dauert.",
+      "… weniger ungenutzte Kapazitäten der Firmen vorhanden sind."
+    ],
+    "correct": 3,
+    "explanation": "Rivalität steigt, wenn Preis- oder Mengenangriffe länger ungekonntert bleiben und sich deshalb eher lohnen. Weniger Anbieter, stärkere Differenzierung, geringere Austrittsbarrieren und weniger Überkapazitäten schwächen die Rivalität tendenziell."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "Welche der folgenden Aussagen ist - ceteris paribus - falsch?",
+    "options": [
+      "Der Ausschluss der Neueintreter von etablierten Vertriebskanälen wirkt als Markteintrittsbarriere.",
+      "Die Macht der Kunden/innen ist eher hoch, wenn es Substitute für das Branchenprodukt gibt.",
+      "Die Macht der Zulieferer ist eher hoch, wenn sie abnehmerspezifisch investiert haben.",
+      "Überkapazitäten erhöhen tendenziell die interne Rivalität.",
+      "Substitute vermindern die Konzentration im Markt und verschärfen den Preiswettbewerb."
+    ],
+    "correct": 2,
+    "explanation": "Wenn Zulieferer abnehmerspezifisch investiert haben, entstehen versunkene beziehungsweise beziehungsspezifische Kosten. Dadurch werden die Zulieferer eher abhängig und ihre Verhandlungsmacht sinkt; sie steigt nicht."
+  },
+  {
+    "subject": "BWL II",
+    "sourceYears": [
+      "ubung"
+    ],
+    "set": "BWL2-UBUNG",
+    "category": "Strategisches Management",
+    "prompt": "Welche Aussage zur Marktsegmentierung ist am ehesten falsch?",
+    "options": [
+      "Als Kostenführer kann eine Firma nie erfolgreich sein, wenn sie den gesamten Markt abdeckt.",
+      "Bei der Fokusstrategie können Unternehmen die Wertschätzungstreiber gezielter auf die Bedürfnisse der Kunden in den ausgewählten Marktsegmenten abstimmen.",
+      "Bei einer Broad Coverage Strategie möchte ein Unternehmen möglichst alle Marktsegmente abdecken.",
+      "Verfolgt ein Unternehmen eine Broad Coverage Strategie, können Kosten für Produkteigenschaften entstehen, welche nicht bei jedem/r Konsumenten/Konsumentin zusätzliche Wertschätzung erzeugen."
+    ],
+    "correct": 0,
+    "explanation": "Die Aussage ist zu absolut. Eine Kostenführerschaft kann gerade als Broad-Coverage-Strategie erfolgreich sein, wenn die Firma den gesamten Markt mit niedrigen Kosten bedient."
   }
 ]

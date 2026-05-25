@@ -44,7 +44,7 @@ const QUESTION_SOURCE_LABELS = {
   "BWL2-JUN17-SM": "Assessment Jun 2017",
   "BWL2-JUN17-HRM": "Assessment Jun 2017",
   "BWL2-JUN17-ORG": "Assessment Jun 2017",
-  "BWL2-UBUNG": "Übung FS26",
+  "BWL2-UBUNG": "Übung/Klicker",
   "BWL2-MATH-AI": "AI",
 };
 
@@ -541,6 +541,7 @@ function renderQuiz() {
   const q = QUESTIONS[state.order[state.idx]];
   const total = state.order.length;
   const pct = Math.round((state.idx / total) * 100);
+  const prompt = questionPromptText(q);
 
   app.innerHTML = `
     ${renderSubjectTabs()}
@@ -558,7 +559,7 @@ function renderQuiz() {
         <span class="cat-tag">${escapeHtml(q.category)}</span>
         ${renderSourceBadge(q)}
       </div>
-      <div class="question-text">${escapeHtml(q.prompt)}</div>
+      <div class="question-text">${renderRichText(prompt)}</div>
       ${isProducerRentQuestion(q) ? "" : renderQuestionVisual(q.visual)}
       ${renderQuestionOptions(q)}
       <div id="feedbackSlot"></div>
@@ -580,7 +581,7 @@ function renderQuestionOptions(q) {
         const letter = "ABCDE"[displayIdx];
         return `<button class="option" data-i="${displayIdx}">
           <span class="option-letter">${letter}</span>
-          <span>${escapeHtml(q.options[origIdx])}</span>
+          <span>${renderRichText(q.options[origIdx])}</span>
         </button>`;
       }).join("")}
     </div>
@@ -800,7 +801,7 @@ function renderFs25EffizienzgrenzeVisual() {
         <line x1="500" y1="140" x2="500" y2="370" stroke="#111" stroke-width="1.8" stroke-dasharray="7 7"/>
 
         <!-- Indifferenzkurve from the source figure: X and Z lie on the same curve. -->
-        <path d="M245 287 C270 232 300 214 335 205 C400 171 455 145 500 140 C548 136 586 121 610 110"
+        <path d="M245 287 C275 265, 285 230, 335 205 C395 175, 450 150, 500 140 C540 132, 585 115, 610 110"
               fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round"/>
         <text x="626" y="128" font-size="20" font-weight="700">Indifferenzkurve</text>
 
@@ -879,11 +880,11 @@ function renderDataTable(ariaLabel, headers, rows) {
     <div class="question-visual" aria-label="${escapeHtml(ariaLabel)}">
       <table class="value-table">
         <thead>
-          <tr>${headers.map(h => `<th>${escapeHtml(h)}</th>`).join("")}</tr>
+          <tr>${headers.map(h => `<th>${renderRichText(h)}</th>`).join("")}</tr>
         </thead>
         <tbody>
           ${rows.map(row => `
-            <tr>${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>
+            <tr>${row.map(cell => `<td>${renderRichText(cell)}</td>`).join("")}</tr>
           `).join("")}
         </tbody>
       </table>
@@ -897,9 +898,9 @@ function renderVerbundeffekteTable() {
       <table class="value-table" style="min-width: 360px; max-width: 520px;">
         <thead>
           <tr>
-            <th>TK(Qx, Qy)</th>
+            <th>${renderRichText("TK(Qx, Qy)")}</th>
             <th>Wert</th>
-            <th>TK(Qx, Qy)</th>
+            <th>${renderRichText("TK(Qx, Qy)")}</th>
             <th>Wert</th>
           </tr>
         </thead>
@@ -1051,7 +1052,7 @@ function renderStatementInfoTable(ariaLabel, rows) {
         </thead>
         <tbody>
           ${rows.map(row => `
-            <tr>${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>
+            <tr>${row.map(cell => `<td>${renderRichText(cell)}</td>`).join("")}</tr>
           `).join("")}
         </tbody>
       </table>
@@ -1456,7 +1457,7 @@ function renderIndifferenceVisual() {
         <line x1="260" y1="178" x2="260" y2="325" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
         <line x1="456" y1="105" x2="456" y2="325" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
 
-        <path d="M145 300 C170 235 215 195 260 178 C330 135 376 112 456 105 C493 102 520 99 548 98" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+        <path d="M145 300 C180 275, 210 203, 260 178 C320 148, 406 110, 456 105 C486 102, 525 99, 548 98" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
         <circle cx="260" cy="178" r="9" fill="#111"/>
         <circle cx="456" cy="105" r="9" fill="#111"/>
 
@@ -1576,7 +1577,7 @@ function renderAiIndifferenceVisual() {
         <line x1="248" y1="188" x2="248" y2="325" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
         <line x1="468" y1="96" x2="468" y2="325" stroke="#374151" stroke-width="1.5" stroke-dasharray="7 7"/>
 
-        <path d="M138 300 C162 244 207 205 248 188 C320 140 383 105 468 96 C500 92 526 91 550 92" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+        <path d="M138 300 C170 280, 198 213, 248 188 C308 158, 418 101, 468 96 C498 93, 525 92, 550 92" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
         <circle cx="248" cy="188" r="9" fill="#111"/>
         <circle cx="468" cy="96" r="9" fill="#111"/>
 
@@ -1768,7 +1769,7 @@ function pickAnswer(displayIdx, timedOut = false) {
     playSadViolinSound();
     state.wrong.push({
       questionIndex,
-      prompt: q.prompt,
+      prompt: questionPromptText(q),
       picked: timedOut ? "Time expired" : q.options[pickedOriginal],
       correct: q.options[q.correct],
       explanation: q.explanation,
@@ -1797,7 +1798,7 @@ function pickAnswer(displayIdx, timedOut = false) {
           ? (timedOut ? "Time expired" : (isCorrect ? "✓ Correct" : "✗ Not quite"))
           : "Answer key not available"}
       </div>
-      <div class="feedback-body">${escapeHtml(answerKeyAvailable ? q.explanation : "This question was imported from the scanned June 2017 PDF. The scan contains the question and choices, but no reliable official answer key.")}</div>
+      <div class="feedback-body">${renderRichText(answerKeyAvailable ? q.explanation : "This question was imported from the scanned June 2017 PDF. The scan contains the question and choices, but no reliable official answer key.")}</div>
       ${renderTAccount(q.entry)}
     </div>
     <div class="next-btn-row">
@@ -1877,7 +1878,11 @@ function renderResults() {
   else if (pct >= 90) msg = "Excellent — you know the ledgers cold.";
   else if (pct >= 75) msg = "Strong result.";
   else if (pct >= 60) msg = "Solid foundation — review the misses below.";
-  else if (pct >= 40) msg = "Keep practicing — focus on debit/credit rules.";
+  else if (pct >= 40) {
+    msg = state.subject === "BWL II"
+      ? "Keep practicing - review the missed concepts."
+      : "Keep practicing — focus on debit/credit rules.";
+  }
 
   let modeTag = "Mixed practice";
   if (state.mode === "weak") modeTag = "Weakest practice";
@@ -1903,10 +1908,10 @@ function renderResults() {
         <div class="review-title">Review · ${state.wrong.length} to re-learn</div>
         ${state.wrong.map(w => `
           <div class="review-item">
-            <div class="q">${escapeHtml(w.prompt)}</div>
-            <div class="yours">Your answer: ${escapeHtml(w.picked)}</div>
-            <div class="correct-text">Correct: ${escapeHtml(w.correct)}</div>
-            <div class="feedback-body" style="margin-top:8px;font-size:0.78rem;">${escapeHtml(w.explanation)}</div>
+            <div class="q">${renderRichText(w.prompt)}</div>
+            <div class="yours">Your answer: ${renderRichText(w.picked)}</div>
+            <div class="correct-text">Correct: ${renderRichText(w.correct)}</div>
+            <div class="feedback-body" style="margin-top:8px;font-size:0.78rem;">${renderRichText(w.explanation)}</div>
           </div>
         `).join("")}
       ` : ""}
@@ -1941,4 +1946,16 @@ function escapeHtml(s) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function questionPromptText(q) {
+  return String(q?.prompt ?? "").replace(/^\s*(?:\[\]\s*)?AI-Variante\s+\d+\s*:\s*/i, "");
+}
+
+function renderRichText(s) {
+  return escapeHtml(s)
+    .replace(/\b([A-Z]{1,3})_\{([^}]+)\}/g, "$1<sub>$2</sub>")
+    .replace(/\b([A-Z]{1,3})_([A-Za-z0-9]+)\b/g, "$1<sub>$2</sub>")
+    .replace(/\b(B|K|P|Q|PR|DK|TK)(\d+)\b/g, "$1<sub>$2</sub>")
+    .replace(/\b(Q)([xy])\b/g, "$1<sub>$2</sub>");
 }

@@ -26,7 +26,7 @@
       "BWL2-MATH",
       "BWL2-MATH-RENT"
     ],
-    "prompt": "AI-Variante 1: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "prompt": "In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
     "rentScenarios": [
       {
         "label": "a",
@@ -112,7 +112,7 @@
       "BWL2-MATH",
       "BWL2-MATH-RENT"
     ],
-    "prompt": "AI-Variante 2: In welcher Situation besitzt Firma 2 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "prompt": "In welcher Situation besitzt Firma 2 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
     "rentScenarios": [
       {
         "label": "a",
@@ -198,7 +198,7 @@
       "BWL2-MATH",
       "BWL2-MATH-RENT"
     ],
-    "prompt": "AI-Variante 3: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "prompt": "In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
     "rentScenarios": [
       {
         "label": "a",
@@ -284,7 +284,7 @@
       "BWL2-MATH",
       "BWL2-MATH-RENT"
     ],
-    "prompt": "AI-Variante 4: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "prompt": "In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
     "rentScenarios": [
       {
         "label": "a",
@@ -370,7 +370,7 @@
       "BWL2-MATH",
       "BWL2-MATH-RENT"
     ],
-    "prompt": "AI-Variante 5: In welcher Situation besitzt Firma 2 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "prompt": "In welcher Situation besitzt Firma 2 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
     "rentScenarios": [
       {
         "label": "a",
@@ -456,7 +456,7 @@
       "BWL2-MATH",
       "BWL2-MATH-RENT"
     ],
-    "prompt": "AI-Variante 6: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "prompt": "In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
     "rentScenarios": [
       {
         "label": "a",
@@ -542,7 +542,7 @@
       "BWL2-MATH",
       "BWL2-MATH-RENT"
     ],
-    "prompt": "AI-Variante 7: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "prompt": "In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
     "rentScenarios": [
       {
         "label": "a",
@@ -628,7 +628,7 @@
       "BWL2-MATH",
       "BWL2-MATH-RENT"
     ],
-    "prompt": "AI-Variante 8: In welcher Situation besitzt Firma 2 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "prompt": "In welcher Situation besitzt Firma 2 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
     "rentScenarios": [
       {
         "label": "a",

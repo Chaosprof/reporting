@@ -376,6 +376,15 @@ body::after {
   white-space: pre-line;
 }
 
+.question-text sub,
+.option sub,
+.feedback-body sub,
+.review-item sub,
+.value-table sub {
+  font-size: 0.72em;
+  line-height: 0;
+}
+
 .question-visual {
   margin: -6px 0 24px;
   padding: 16px;
