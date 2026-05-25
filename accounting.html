@@ -3158,7 +3158,8 @@ const QUESTIONS = [
   },
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
-    prompt: "Branche 1: zwei Firmen A und B mit DK_A > DK_B; Branche 2: zwei Firmen X und Y mit identischen DK_X,Y. Die interne Rivalität in Branche 1 ist höher als in Branche 2. Womit kann dies am ehesten begründet werden?",
+    prompt: "Gegeben sind zwei unterschiedliche Branchen sowie die Produktionsmengen und die Durchschnittskosten der etablierten Firmen (vgl. Grafiken). Eine 5-Kräfte-Analyse gemäss Porter hat gezeigt, dass die «interne Rivalität» in der Branche 1 höher ist als in der Branche 2. Womit kann die höhere «interne Rivalität» in der Branche 1 am ehesten begründet werden?",
+    visual: "fs25-sm-q6-branchen",
     options: [
       "Firma A besitzt höhere Anreize für Preisangriffe als Firma X.",
       "Firma A hat einen Kostennachteil gegenüber Firma B.",
@@ -3243,7 +3244,8 @@ const QUESTIONS = [
   },
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
-    prompt: "Drei Produktbündel X, Y, Z mit homogenen Konsumentenpräferenzen, Effizienzgrenze, gleichen DK für Y und Z (DK_X tiefer). Welche Aussage zur dargestellten Situation ist am ehesten falsch?",
+    prompt: "In einer Branche mit homogenen Konsumentenpräferenzen existieren drei Produktbündel X, Y und Z. Gegeben sind neben den Preisen (P) auch die Durchschnittskosten (DK) und eine Effizienzgrenze. Welche Aussage zur dargestellten Situation ist am ehesten falsch?",
+    visual: "fs25-sm-q13-effizienzgrenze",
     options: [
       "Das Produkt Y bietet eine tiefere Konsumentenrente als das Produkt X.",
       "Das Produkt Z generiert die gleiche Produzentenrente wie das Produkt X.",
@@ -3269,7 +3271,9 @@ const QUESTIONS = [
   },
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
-    prompt: "Oilster: Stufe 1 (Rohöl): variable Stückkosten 1, Fixkosten 50'000, verarbeitete Menge 100'000, verkaufte Menge 20'000 zum Preis 2. Oilster schöpft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertschöpfung der 1. Stufe?",
+    decks: ["BWL2-MATH", "BWL2-MATH-VALUE"],
+    prompt: "Der Mineralölkonzern Oilster fördert Rohöl und verkauft einen Teil davon auf dem Rohölmarkt. Das restliche Rohöl wird in der eigenen Raffinerie zu Benzin verarbeitet. Dieses wird einerseits an Grossverteiler und andererseits über eigene Tankstellen direkt an den Endkunden verkauft. Oilster schöpft die maximale Zahlungsbereitschaft der Abnehmer ab. Wie gross ist die Wertschöpfung von Oilster in der 1. Stufe? Folgende Angaben sind bekannt:",
+    visual: "fs25-sm-q15-oilster-table",
     options: ["-10’000", "50’000", "80’000", "100’000", "1’200’000"],
     correct: 1,
     explanation: "Wertschöpfung = (Gesamtwert der 100'000 Einheiten zum Marktpreis 2) − Kosten = 200'000 − (100'000·1 + 50'000) = 50'000. Die intern weitergeleitete Menge wird zum Marktpreis bewertet."
@@ -3801,8 +3805,8 @@ QUESTIONS.push(...[
       "Da es demnächst einen Führungswechsel bei der ZukunftX AG geben wird, schlagen Sie vor, dass die zukünftige Leitung in die Planung miteinbezogen wird, damit das Training an den zukünftigen Zielen des Unternehmens ausgerichtet werden kann.",
       "Sie schlagen vor, dass sich das Training auf die potenziellen Defizite von Mitarbeitenden betreffend der für ihre Arbeitsabläufe notwendigen Kompetenzen fokussieren sollte."
     ],
-    correct: 1,
-    explanation: "Kommunikationsfähigkeiten sind typischerweise überfachliche Kompetenzen. Die Aussage ordnet sie als fachlichen Inhalt ein und ist daher nicht korrekt."
+    correct: 0,
+    explanation: "Als Erstes steht die Bedarfsanalyse (Organisations-, Aufgaben- und Personenanalyse), nicht das Antizipieren zukünftiger Verhaltensweisen. Damit ist diese Aussage gemäss offizieller Lösung nicht korrekt."
   },
   {
     subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
@@ -3834,14 +3838,14 @@ QUESTIONS.push(...[
     subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
     prompt: "Paul und Lilly haben in den vergangenen Jahren einen grossen Beitrag zum Erfolg ihres Unternehmens geleistet. In letzter Zeit fehlt Paul jedoch immer öfter am Arbeitsplatz und erfüllt seine Aufgaben oft nicht zeitgemäss, wobei auch die Qualität seiner Arbeitsergebnisse stark abgenommen hat. Bei Lilly hingegen, hat sich in dieser Hinsicht nichts verändert. Aufgrund eines Stellenangebots bei einer anderen Firma, verlässt Lilly das Unternehmen, wohingegen Paul keine Absichten verspürt das Unternehmen zu verlassen. Somit handelt es sich um...",
     options: [
-      ".. Bindung bei Paul und funktionale Fluktuation bei Lilly.",
-      ".. Bindung bei Paul und dysfunktionale Fluktuation bei Lilly.",
-      ".. Bindung bei Paul und funktionale Fluktuation bei Lilly.",
-      ".. Bindung bei Paul und dysfunktionale Fluktuation bei Lilly.",
-      ".. Fluktuation bei Paul und funktionale Bindung bei Lilly."
+      "...funktionale Bindung bei Paul und funktionale Fluktuation bei Lilly.",
+      "...funktionale Bindung bei Paul und dysfunktionale Fluktuation bei Lilly.",
+      "...dysfunktionale Bindung bei Paul und funktionale Fluktuation bei Lilly.",
+      "...dysfunktionale Bindung bei Paul und dysfunktionale Fluktuation bei Lilly.",
+      "...funktionale Fluktuation bei Paul und funktionale Bindung bei Lilly."
     ],
-    correct: 1,
-    explanation: "Wenn ein leistungsschwacher Mitarbeiter bleibt, ist das Bindung. Wenn eine leistungsstarke Mitarbeiterin geht, ist das dysfunktionale Fluktuation."
+    correct: 3,
+    explanation: "Paul (leistungsschwach) bleibt → dysfunktionale Bindung (für die Firma nachteilig). Lilly (leistungsstark) geht → dysfunktionale Fluktuation (gewünschter Leistungsträger verlassen das Unternehmen)."
   },
   {
     subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
@@ -3860,8 +3864,8 @@ QUESTIONS.push(...[
     subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
     prompt: "Die Sirup AG möchte ihre Produkte neu auch im afrikanischen Raum verkaufen und dafür Mitarbeitende aus dem afrikanischen Raum anstellen. Welche Bedeutung hat die Identität der Mitarbeitenden bei der Sirup AG?",
     options: ["Wertschätzung", "Macht", "Ambivalenz", "Zusammenhalt", "Stolz"],
-    correct: 1,
-    explanation: "In der Marktzugangslogik wird Identität zur Quelle von Macht, weil sie Zugang zu Kundengruppen, Wissen und Legitimität in neuen Märkten verschafft."
+    correct: 2,
+    explanation: "In der Marktzugangslogik wird Identität instrumentell genutzt (Zugang zu neuen Kundengruppen). Daraus entsteht Ambivalenz, weil Mitarbeitende primär wegen ihrer Herkunft eingestellt werden – nicht aufgrund intrinsischer Wertschätzung."
   },
   {
     subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
@@ -3886,8 +3890,8 @@ QUESTIONS.push(...[
       "Antidiskriminierungslogik / Gleichstellung zu sichern / niedrig, da es eine Pflicht ist / Quelle von Ambivalenz",
       "Lernlogik / Innovation und neue Ideen zu entwickeln / hoch, da es eine Schnittstelle zu neuen Kunden bildet / Quelle von Wertschätzung"
     ],
-    correct: 2,
-    explanation: "Die Marktzugangslogik begründet Diversität mit Zugang zu neuen Kundengruppen. Identität ist hier eine Schnittstelle zum Markt und damit Quelle von Macht."
+    correct: 1,
+    explanation: "Lernlogik passt schlüssig zusammen: Grund = neue Ideen finden, Wert = hoch, Identität = Quelle von Wertschätzung. Die Marktzugangs-Option vermischt Werttreiber, und «hoch» trifft eher auf die Lernlogik zu."
   },
   {
     subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
@@ -3899,8 +3903,8 @@ QUESTIONS.push(...[
       "Die Antidiskriminierungslogik und die Marktzugangslogik.",
       "Weder die Antidiskriminierungslogik noch die Marktzugangs- oder Lernlogik scheinen vorzuherrschen."
     ],
-    correct: 0,
-    explanation: "Die stabile paritätische Zusammensetzung spricht vor allem für Gleichstellung und Fairness. Ein einzelner Innovationspreis belegt noch keine Lernlogik."
+    correct: 2,
+    explanation: "Die paritätische Geschäftsleitung plus ein Innovationspreis sprechen für die Lernlogik: heterogene Perspektiven werden als Innovationsquelle genutzt, was sich im Preis manifestiert."
   },
   {
     subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
@@ -4003,8 +4007,8 @@ QUESTIONS.push(...[
       "Das Big-Five-Modell, da es wissenschaftlich fundiert ist, eine Beziehung zur Arbeitsleistung herstellt und breite Persönlichkeitsdimensionen abbildet.",
       "Das Big-Five-Modell, da es präzise und reliabel ist."
     ],
-    correct: 3,
-    explanation: "Das Big-Five-Modell ist empirisch gut gestützt und in der Personalauswahl deutlich belastbarer als der MBTI."
+    correct: 4,
+    explanation: "Big-Five ist das Mittel der Wahl, weil es präzise und reliabel misst. Option d) ist zu weit gefasst – Big-Five bildet die fünf Hauptdimensionen ab, nicht «alle Charakterzüge»."
   },
   {
     subject: "BWL II", sourceYears: ["2025"], set: "BWL2-HRM25", category: "Human Resource Management",
@@ -4062,10 +4066,11 @@ QUESTIONS.push(...[
   },
   {
     subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
-    prompt: "Im Organigramm der Betflix AG sind mehrere Geschäftsbereiche dargestellt. Welcher Organisationsform entspricht die dargestellte Struktur am ehesten?",
+    prompt: "In der nachfolgenden Abbildung finden Sie das Organigramm der «Betflix AG». Welcher Organisationsform entspricht die dargestellte Struktur am ehesten?",
+    visual: "betflix-organigram",
     options: ["Geschäftsbereichsorganisation", "Funktionale Organisation", "Divisionale Organisation", "Konzern", "Holding"],
-    correct: 0,
-    explanation: "Eine Struktur nach Geschäftsbereichen entspricht einer Geschäftsbereichs- beziehungsweise divisionalen Organisation mit Spartengliederung."
+    correct: 1,
+    explanation: "Unter dem CEO sind die Verrichtungen (HR, F&E, Vertrieb, Controlling) gegliedert; Unternehmenskommunikation und Unternehmensentwicklung sind Stäbe. Das ist eine klassische funktionale Organisation."
   },
   {
     subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
@@ -4116,8 +4121,8 @@ QUESTIONS.push(...[
       "(1) Symbolsystem, (2) Basisannahmen",
       "(1) Basisannahmen, (2) Symbolsystem"
     ],
-    correct: 0,
-    explanation: "Das grundsätzliche Freundschaftsverständnis ist eine tiefe Basisannahme; fixe Arbeitszeiten sind explizite Normen und Standards."
+    correct: 4,
+    explanation: "Das implizite Freundschaftsverständnis ist eine tiefe Basisannahme; fixe Arbeitszeiten sind beobachtbare Artefakte und gehören damit zum Symbolsystem (gemäss offizieller Lösung)."
   },
   {
     subject: "BWL II", sourceYears: ["2025"], set: "BWL2-ORG25", category: "Organisation",
@@ -4398,6 +4403,33 @@ QUESTIONS.push(...[
     correct: 2,
     explanation: "AlphaBag hat DK = (720 + 4*60)/60 = 16. BetaPack braucht bei P = 40 genau 20 Stück: 360 + 22Q = 40Q. Dann sind DK = 40. Kostennachteil: 40 - 16 = 24."
   },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-VALUE"],
+    prompt: "Die Firma AlpenMilk verarbeitet Rohmilch zu Joghurt und verkauft einen Teil der Rohmilch direkt an Molkereien. Der Rest wird intern weiterverarbeitet. AlpenMilk schöpft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertschöpfung von AlpenMilk in der 1. Stufe?",
+    visual: "ai-math-value-alpenmilk-table",
+    options: ["80'000", "120'000", "160'000", "220'000", "360'000"],
+    correct: 2,
+    explanation: "Stufe 1 wird für die gesamte verarbeitete Menge zum Rohmilchpreis bewertet: 120'000*4 - (120'000*2 + 80'000) = 160'000."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-VALUE"],
+    prompt: "Die Brauerei Brewly verarbeitet Malz zu Flaschenbier und verkauft einen Teil an Grossverteiler. Der Rest wird über eigene Bars direkt verkauft. Brewly schöpft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertschöpfung von Brewly in der 2. Stufe?",
+    visual: "ai-math-value-brewly-table",
+    options: ["170'000", "260'000", "350'000", "630'000", "980'000"],
+    correct: 1,
+    explanation: "Stufe 2: (Verkaufspreis Stufe 2 14 - Transferpreis Stufe 1 5 - variable Stückkosten 4) * 70'000 - 90'000 = 260'000."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-VALUE"],
+    prompt: "Die Firma Solaris baut Solarmodule und verkauft einen Teil an Installationsbetriebe. Der Rest wird in eigenen Projekten direkt an Endkunden vermarktet. Solaris schöpft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertschöpfung von Solaris in der 3. Stufe?",
+    visual: "ai-math-value-solaris-table",
+    options: ["200'000", "300'000", "500'000", "800'000", "1'100'000"],
+    correct: 2,
+    explanation: "Stufe 3: (Endkundenpreis 140 - Transferpreis Stufe 2 85 - variable Stückkosten 15) * 20'000 - 300'000 = 500'000."
+  },
 ]);
 
 QUESTIONS.push(...[
@@ -4671,6 +4703,43 @@ function hashId(s) {
   for (let i = 0; i < s.length; i++) h = ((h << 5) + h) + s.charCodeAt(i);
   return "q" + (h >>> 0).toString(36);
 }
+function addQuestionDeck(q, deckId) {
+  q.decks = Array.isArray(q.decks) ? q.decks : [];
+  if (!q.decks.includes(deckId)) q.decks.push(deckId);
+}
+
+QUESTIONS.forEach(q => {
+  if (q.subject !== "BWL II") return;
+  const prompt = String(q.prompt || "");
+  const visual = String(q.visual || "");
+  let mathDeck = Array.isArray(q.decks) && q.decks.includes("BWL2-MATH");
+  let categoryDeck = "";
+
+  if (visual.includes("producer-rent")) categoryDeck = "BWL2-MATH-RENT";
+  else if (visual.includes("indifference") || visual.includes("effizienzgrenze")) categoryDeck = "BWL2-MATH-INDIFF";
+  else if (visual.includes("experience")) categoryDeck = "BWL2-MATH-EXPERIENCE";
+  else if (
+    visual.includes("value-table") ||
+    visual.includes("oilster-table") ||
+    /Wertschöpfung .* Stufe|Wertschöpfungskette/.test(prompt)
+  ) categoryDeck = "BWL2-MATH-VALUE";
+  else if (
+    /^TK\(/.test(prompt) ||
+    /TK\(Q\)|Totalkostenfunktion|minimale Einstiegsmenge|Kostennachteil/.test(prompt)
+  ) categoryDeck = "BWL2-MATH-COST";
+
+  if (categoryDeck) {
+    addQuestionDeck(q, "BWL2-MATH");
+    addQuestionDeck(q, categoryDeck);
+    mathDeck = true;
+  }
+
+  if (!mathDeck) return;
+  if (!categoryDeck && /TK\(Q\)|Totalkostenfunktion|minimale Einstiegsmenge|Kostennachteil/.test(prompt)) {
+    addQuestionDeck(q, "BWL2-MATH-COST");
+  }
+});
+
 QUESTIONS.forEach(q => { q.id = hashId(q.prompt); });
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -5100,7 +5169,12 @@ const DECKS = [
   { id: "BWL2-ORG", subject: "BWL II",              label: "Teil 3: Organisation",        sub: "Probeprüfung 2017",     sets: ["BWL2-ORG"] },
   { id: "BWL2-HRM25", subject: "BWL II",            label: "FS25: Human Resource Management", sub: "Probeprüfung 2025", sets: ["BWL2-HRM25"] },
   { id: "BWL2-ORG25", subject: "BWL II",            label: "FS25: Organisation",         sub: "Probeprüfung 2025",     sets: ["BWL2-ORG25"] },
-  { id: "BWL2-MATH", subject: "BWL II",             label: "Math Practice",              sub: "Juni 2017 + AI variants", sets: [] },
+  { id: "BWL2-MATH", subject: "BWL II",             label: "Math Practice: All",          sub: "All calculation-style BWL questions", sets: [] },
+  { id: "BWL2-MATH-VALUE", subject: "BWL II",       label: "Math: Wertschöpfungskette",   sub: "Stufen, Transferpreise, Wertschöpfung", sets: [] },
+  { id: "BWL2-MATH-RENT", subject: "BWL II",        label: "Math: Produzentenrente",     sub: "Nichtangreifbare Produzentenrente", sets: [] },
+  { id: "BWL2-MATH-INDIFF", subject: "BWL II",      label: "Math: Indifferenzkurven",    sub: "Preis, DK, Qualität, Wertschöpfung", sets: [] },
+  { id: "BWL2-MATH-COST", subject: "BWL II",        label: "Math: Kostenfunktionen",     sub: "TK, DK, Break-even, Kostennachteil", sets: [] },
+  { id: "BWL2-MATH-EXPERIENCE", subject: "BWL II",  label: "Math: Erfahrungskurve",      sub: "Kumulierte Menge und Durchschnittskosten", sets: [] },
   { id: "BWL2-JUN17-SM",  subject: "BWL II",        label: "Juni 2017: Strategisches Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-SM"] },
   { id: "BWL2-JUN17-HRM", subject: "BWL II",        label: "Juni 2017: Human Resource Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-HRM"] },
   { id: "BWL2-JUN17-ORG", subject: "BWL II",        label: "Juni 2017: Organisation",    sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-ORG"] },
@@ -5363,7 +5437,7 @@ function renderStart() {
   const weakCount = weakPool.length;
   const seenCount = totalQuestionsSeen();
   const hasStats = seenCount > 0;
-  const decks = isBWL ? activeDecks().filter(d => d.id === "BWL2-MATH") : [];
+  const decks = isBWL ? activeDecks().filter(d => d.id.startsWith("BWL2-MATH")) : [];
 
   const heroTitle = isBWL ? "BWL II Trainer" : "Journal Entry Trainer";
   const heroSub   = isBWL ? "Strategie · HRM · Organisation" : "Debit the receiver · credit the giver";
@@ -5788,7 +5862,208 @@ function renderQuestionVisual(visual) {
   if (visual === "ai-math-q8-indifference") return renderAiIndifferenceVisual();
   if (visual === "ai-math-q14-experience") return renderAiExperienceVisual();
   if (visual === "ai-math-q17-value-table") return renderVeloProValueTable();
+  if (visual === "ai-math-value-alpenmilk-table") return renderAlpenMilkValueTable();
+  if (visual === "ai-math-value-brewly-table") return renderBrewlyValueTable();
+  if (visual === "ai-math-value-solaris-table") return renderSolarisValueTable();
+  if (visual === "betflix-organigram") return renderBetflixOrganigram();
+  if (visual === "fs25-sm-q6-branchen") return renderFs25BranchenVisual();
+  if (visual === "fs25-sm-q13-effizienzgrenze") return renderFs25EffizienzgrenzeVisual();
+  if (visual === "fs25-sm-q15-oilster-table") return renderOilsterValueTable();
   return "";
+}
+
+function renderBetflixOrganigram() {
+  const box = (x, y, w, h, label) => `
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#ffffff" stroke="#111" stroke-width="1.6" rx="2"/>
+    <text x="${x + w/2}" y="${y + h/2 + 5}" text-anchor="middle" font-size="14" font-weight="600" font-family="var(--font-sans)">${label}</text>
+  `;
+  return `
+    <div class="question-visual" aria-label="Organigramm der Betflix AG">
+      <svg viewBox="0 0 760 360" role="img" style="max-width: 100%; height: auto;">
+        ${box(305, 10, 150, 38, "Verwaltungsrat")}
+        ${box(330, 78, 100, 38, "CEO")}
+        ${box(20, 158, 230, 38, "Unternehmenskommunikation")}
+        ${box(510, 158, 230, 38, "Unternehmensentwicklung")}
+        ${box(30, 280, 130, 60, "HR")}
+        ${box(195, 280, 170, 60, "Forschung & Entwicklung")}
+        ${box(400, 280, 130, 60, "Vertrieb")}
+        ${box(565, 280, 165, 60, "Controlling")}
+
+        <line x1="380" y1="48" x2="380" y2="78" stroke="#111" stroke-width="1.6"/>
+        <line x1="380" y1="116" x2="380" y2="260" stroke="#111" stroke-width="1.6"/>
+        <line x1="250" y1="177" x2="510" y2="177" stroke="#111" stroke-width="1.6"/>
+
+        <line x1="95"  y1="260" x2="660" y2="260" stroke="#111" stroke-width="1.6"/>
+        <line x1="95"  y1="260" x2="95"  y2="280" stroke="#111" stroke-width="1.6"/>
+        <line x1="280" y1="260" x2="280" y2="280" stroke="#111" stroke-width="1.6"/>
+        <line x1="465" y1="260" x2="465" y2="280" stroke="#111" stroke-width="1.6"/>
+        <line x1="647" y1="260" x2="647" y2="280" stroke="#111" stroke-width="1.6"/>
+      </svg>
+    </div>
+  `;
+}
+
+function renderFs25BranchenVisual() {
+  const sub = (s) => `<tspan baseline-shift="sub" font-size="10">${s}</tspan>`;
+
+  // Branche 1: two downward-sloping DK(Q) curves; Firma A above, Firma B below; A produces less than B
+  const branche1 = `
+    <g transform="translate(0,0)">
+      <text x="195" y="22" text-anchor="middle" font-size="18" font-weight="700">Branche 1</text>
+      <line x1="60" y1="200" x2="345" y2="200" stroke="#111" stroke-width="1.6" marker-end="url(#arr-q6)"/>
+      <line x1="60" y1="200" x2="60"  y2="40"  stroke="#111" stroke-width="1.6" marker-end="url(#arr-q6)"/>
+      <text x="56" y="46" text-anchor="end" font-size="13" font-weight="700">DK</text>
+      <text x="340" y="220" text-anchor="middle" font-size="12" font-weight="700">Q${sub("Produkt")}</text>
+
+      <path d="M75 70 C120 82 170 92 220 100 C260 105 295 109 320 112" fill="none" stroke="#111" stroke-width="1.8"/>
+      <text x="225" y="92" font-size="11" font-weight="700">DK(Q) Firma A</text>
+
+      <path d="M75 130 C120 142 170 152 220 160 C260 165 295 169 320 172" fill="none" stroke="#111" stroke-width="1.8"/>
+      <text x="225" y="184" font-size="11" font-weight="700">DK(Q) Firma B</text>
+
+      <line x1="60"  y1="86" x2="140" y2="86" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="4 4"/>
+      <line x1="140" y1="86" x2="140" y2="200" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="4 4"/>
+      <circle cx="140" cy="86" r="3" fill="#111"/>
+      <text x="56" y="90" text-anchor="end" font-size="12" font-weight="700">DK${sub("A")}</text>
+      <text x="140" y="220" text-anchor="middle" font-size="12" font-weight="700">Q${sub("A")}</text>
+
+      <line x1="60"  y1="161" x2="235" y2="161" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="4 4"/>
+      <line x1="235" y1="161" x2="235" y2="200" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="4 4"/>
+      <circle cx="235" cy="161" r="3" fill="#111"/>
+      <text x="56" y="165" text-anchor="end" font-size="12" font-weight="700">DK${sub("B")}</text>
+      <text x="235" y="220" text-anchor="middle" font-size="12" font-weight="700">Q${sub("B")}</text>
+    </g>
+  `;
+
+  // Branche 2: single shared DK curve for both firms; one tick (DK_X = DK_Y)
+  const branche2 = `
+    <g transform="translate(380,0)">
+      <text x="195" y="22" text-anchor="middle" font-size="18" font-weight="700">Branche 2</text>
+      <line x1="60" y1="200" x2="345" y2="200" stroke="#111" stroke-width="1.6" marker-end="url(#arr-q6)"/>
+      <line x1="60" y1="200" x2="60"  y2="40"  stroke="#111" stroke-width="1.6" marker-end="url(#arr-q6)"/>
+      <text x="56" y="46" text-anchor="end" font-size="13" font-weight="700">DK</text>
+      <text x="340" y="220" text-anchor="middle" font-size="12" font-weight="700">Q${sub("Produkt")}</text>
+
+      <path d="M75 95 C120 110 170 122 220 130 C260 136 295 140 320 143" fill="none" stroke="#111" stroke-width="1.8"/>
+      <text x="225" y="138" font-size="11" font-weight="700">DK(Q) Firma X = DK(Q) Firma Y</text>
+
+      <line x1="60"  y1="131" x2="225" y2="131" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="4 4"/>
+      <line x1="225" y1="131" x2="225" y2="200" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="4 4"/>
+      <circle cx="225" cy="131" r="3" fill="#111"/>
+      <text x="56" y="135" text-anchor="end" font-size="12" font-weight="700">DK${sub("X")} = DK${sub("Y")}</text>
+      <text x="225" y="220" text-anchor="middle" font-size="12" font-weight="700">Q${sub("X")} = Q${sub("Y")}</text>
+    </g>
+  `;
+
+  return `
+    <div class="question-visual" aria-label="Zwei Branchen mit Durchschnittskosten und Produktionsmengen">
+      <svg viewBox="0 0 760 240" role="img" style="max-width: 100%; height: auto;">
+        <defs>
+          <marker id="arr-q6" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#111"/>
+          </marker>
+        </defs>
+        ${branche1}
+        ${branche2}
+      </svg>
+    </div>
+  `;
+}
+
+function renderFs25EffizienzgrenzeVisual() {
+  return `
+    <div class="question-visual" aria-label="Effizienzgrenze mit drei Produktbündeln X, Y und Z">
+      <svg viewBox="-30 0 720 380" role="img" style="max-width: 100%; height: auto;">
+        <defs>
+          <marker id="arr-q13" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#111"/>
+          </marker>
+        </defs>
+        <line x1="80" y1="330" x2="620" y2="330" stroke="#111" stroke-width="2" marker-end="url(#arr-q13)"/>
+        <line x1="80" y1="330" x2="80"  y2="40"  stroke="#111" stroke-width="2" marker-end="url(#arr-q13)"/>
+        <text x="56" y="40"  font-size="18" font-weight="700">DK, P</text>
+        <text x="620" y="358" font-size="18" font-weight="700" text-anchor="end">Qualität</text>
+
+        <line x1="80" y1="80"  x2="260" y2="80"  stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
+        <line x1="80" y1="150" x2="460" y2="150" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
+        <line x1="80" y1="240" x2="460" y2="240" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
+        <line x1="80" y1="280" x2="260" y2="280" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
+        <line x1="260" y1="80"  x2="260" y2="330" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
+        <line x1="460" y1="150" x2="460" y2="330" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
+
+        <!-- Effizienzgrenze: monotonically increasing DK with quality; passes through X (260,280) and Z (460,150) -->
+        <path d="M110 320 C170 308 220 295 260 280 C330 240 410 195 460 150 C500 118 540 92 580 70"
+              fill="none" stroke="#111" stroke-width="2.4"/>
+        <text x="500" y="118" font-size="15" font-weight="700">Effizienzgrenze</text>
+
+        <!-- Indifferenzkurve: convex, downward sloping; passes through Y (260,80) and Z (460,150) -->
+        <path d="M195 50 C220 62 245 73 260 80 C320 100 400 130 460 150 C510 168 555 185 580 200"
+              fill="none" stroke="#111" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <text x="500" y="190" font-size="15" font-weight="700">Indifferenzkurve</text>
+
+        <circle cx="260" cy="80"  r="6" fill="#111"/>
+        <circle cx="460" cy="150" r="6" fill="#111"/>
+        <circle cx="260" cy="280" r="6" fill="#111"/>
+
+        <text x="244" y="74"  font-size="15" font-weight="700">Y</text>
+        <text x="474" y="148" font-size="15" font-weight="700">Z</text>
+        <text x="244" y="298" font-size="15" font-weight="700">X</text>
+
+        <text x="74" y="84"  text-anchor="end" font-size="14" font-weight="700">P<tspan baseline-shift="sub" font-size="10">Y</tspan></text>
+        <text x="74" y="154" text-anchor="end" font-size="14" font-weight="700">P<tspan baseline-shift="sub" font-size="10">Z</tspan></text>
+        <text x="74" y="244" text-anchor="end" font-size="14" font-weight="700">DK<tspan baseline-shift="sub" font-size="10">Y</tspan> = DK<tspan baseline-shift="sub" font-size="10">Z</tspan></text>
+        <text x="74" y="284" text-anchor="end" font-size="14" font-weight="700">P<tspan baseline-shift="sub" font-size="10">X</tspan> = DK<tspan baseline-shift="sub" font-size="10">X</tspan></text>
+
+        <text x="260" y="354" text-anchor="middle" font-size="14" font-weight="700">Q<tspan baseline-shift="sub" font-size="10">X,Y</tspan></text>
+        <text x="460" y="354" text-anchor="middle" font-size="14" font-weight="700">Q<tspan baseline-shift="sub" font-size="10">Z</tspan></text>
+      </svg>
+    </div>
+  `;
+}
+
+function renderOilsterValueTable() {
+  return `
+    <div class="question-visual" aria-label="Wertschöpfungskette Oilster">
+      <table class="value-table">
+        <thead>
+          <tr>
+            <th>Stufe</th>
+            <th>Variable Stückkosten pro Stufe</th>
+            <th>Fixkosten pro Stufe</th>
+            <th>Verarbeitete Menge</th>
+            <th>Verkaufte Menge</th>
+            <th>Verkaufspreis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Förderung Rohöl, Absatz Rohölmarkt</td>
+            <td>1</td>
+            <td>50'000</td>
+            <td>100'000</td>
+            <td>20'000</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>2. Herstellung Benzin, Absatz Grossverteiler</td>
+            <td>3</td>
+            <td>20'000</td>
+            <td>80'000</td>
+            <td>30'000</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td>3. Distribution Benzin, Absatz eigene Tankstellen</td>
+            <td>2</td>
+            <td>30'000</td>
+            <td>50'000</td>
+            <td>50'000</td>
+            <td>12</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `;
 }
 
 function renderDataTable(ariaLabel, headers, rows) {
@@ -6425,6 +6700,47 @@ function renderVeloProValueTable() {
       </table>
     </div>
   `;
+}
+
+function renderValueChainTable(ariaLabel, rows) {
+  return renderDataTable(
+    ariaLabel,
+    ["Stufe", "Variable Stückkosten pro Stufe", "Fixkosten pro Stufe", "Verarbeitete Menge", "Verkaufte Menge", "Verkaufspreis"],
+    rows
+  );
+}
+
+function renderAlpenMilkValueTable() {
+  return renderValueChainTable(
+    "Wertschöpfungskette AlpenMilk",
+    [
+      ["1. Rohmilch, Absatz Molkereien", "2", "80'000", "120'000", "30'000", "4"],
+      ["2. Herstellung Joghurt, Absatz Grosshandel", "3", "60'000", "90'000", "50'000", "9"],
+      ["3. Vertrieb Joghurt, Absatz eigene Shops", "1", "40'000", "40'000", "40'000", "13"],
+    ]
+  );
+}
+
+function renderBrewlyValueTable() {
+  return renderValueChainTable(
+    "Wertschöpfungskette Brewly",
+    [
+      ["1. Malzverarbeitung, Absatz Rohstoffmarkt", "2", "40'000", "90'000", "20'000", "5"],
+      ["2. Abfüllung Bier, Absatz Grossverteiler", "4", "90'000", "70'000", "25'000", "14"],
+      ["3. Distribution Bier, Absatz eigene Bars", "3", "120'000", "45'000", "45'000", "21"],
+    ]
+  );
+}
+
+function renderSolarisValueTable() {
+  return renderValueChainTable(
+    "Wertschöpfungskette Solaris",
+    [
+      ["1. Zellproduktion, Absatz Komponentenmarkt", "30", "400'000", "50'000", "15'000", "55"],
+      ["2. Modulmontage, Absatz Installationsbetriebe", "20", "250'000", "35'000", "15'000", "85"],
+      ["3. Projektvertrieb, Absatz Endkunden", "15", "300'000", "20'000", "20'000", "140"],
+    ]
+  );
 }
 
 function pickAnswer(displayIdx, timedOut = false) {
