@@ -3299,7 +3299,7 @@ const QUESTIONS = [
       "Für die Produkte X und Z entspricht der Wertschätzungsunterschied dem Preisunterschied."
     ],
     correct: 1,
-    explanation: "PR_X = P_X − DK_X = DK_{Y,Z} − DK_X (X verkauft auf dem Niveau der DK von Y/Z, hat aber selbst tiefere DK). PR_Z = P_Z − DK_Z = P_Z − DK_{Y,Z}. Es gibt keinen Grund, warum diese beiden Differenzen exakt gleich sein müssten – die Aussage ist daher falsch. (Option C bleibt korrekt: PR_X > 0, da P_X > DK_X.)"
+    explanation: "Antwort B ist falsch. Im Quellbild gilt P_X = DK_{Y,Z}; damit ist PR_X = P_X − DK_X deutlich grösser als PR_Z = P_Z − DK_{Y,Z}. X und Z liegen auf derselben Indifferenzkurve, daher ist Aussage E korrekt; X liegt zudem näher an der Effizienzgrenze als Z."
   },
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
@@ -4559,21 +4559,6 @@ QUESTIONS.push(...[
   {
     subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
     decks: ["BWL2-MATH"],
-    prompt: "In einer Branche produzieren alle Unternehmen mit folgender Totalkostenfunktion: TK(Q) = 240 + 6*Q. Welche Schlussfolgerung zur Kostenstruktur ist zulässig? In dieser Branche...",
-    options: [
-      "...sind Erfahrungskurveneffekte wichtiger als Economies of Scale.",
-      "...steigen die Durchschnittskosten mit jeder zusätzlich produzierten Einheit.",
-      "...kann ein Unternehmen bei dieser Kostenfunktion keine Diseconomies of Scale erzielen.",
-      "...sind die variablen Stückkosten bei Q = 40 höher als bei Q = 10.",
-      "Keine der oben genannten Aussagen ist richtig."
-    ],
-    correct: 2,
-    explanation: "Die Durchschnittskosten sind DK(Q) = 240/Q + 6 und fallen mit zunehmender Menge. Bei konstanten variablen Stückkosten entstehen aus dieser Funktion keine Diseconomies of Scale."
-  },
-
-  {
-    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
-    decks: ["BWL2-MATH"],
     prompt: "Die Firma VeloPro produziert 80'000 Helme pro Jahr. Von den hergestellten Helmen werden 30'000 an den Grosshandel und 50'000 in eigenen Shops verkauft. Die Firma VeloPro schöpft beim Verkauf die maximale Zahlungsbereitschaft der Abnehmer ab. Folgende Angaben zu den beiden Stufen in der Wertschöpfungskette von VeloPro sind bekannt: Wie hoch ist die Wertschöpfung von VeloPro in der Stufe 2?",
     visual: "ai-math-q17-value-table",
     options: ["900'000", "1'200'000", "1'500'000", "2'000'000", "2'600'000"],
@@ -4614,6 +4599,42 @@ QUESTIONS.push(...[
     options: ["200'000", "300'000", "500'000", "800'000", "1'100'000"],
     correct: 2,
     explanation: "Stufe 3: (Endkundenpreis 140 - Transferpreis Stufe 2 85 - variable Stückkosten 15) * 20'000 - 300'000 = 500'000."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-VALUE"],
+    prompt: "Die Firma ChocoLine verarbeitet Kakaobohnen zu Schokolade und verkauft einen Teil der Zwischenprodukte an Grossabnehmer. Der Rest wird in eigenen L?den verkauft. ChocoLine sch?pft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertsch?pfung von ChocoLine in der 1. Stufe?",
+    visual: "ai-math-value-chocoline-table",
+    options: ["90'000", "180'000", "270'000", "450'000", "630'000"],
+    correct: 2,
+    explanation: "Stufe 1: 180'000*6 - (180'000*3 + 270'000) = 270'000. Auch die intern weiterverarbeitete Menge wird zum Marktpreis der Stufe 1 bewertet."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-VALUE"],
+    prompt: "Die Firma BikeMotion produziert Fahrradrahmen, montiert daraus Fahrr?der und verkauft einen Teil ?ber eigene Stores. BikeMotion sch?pft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertsch?pfung von BikeMotion in der 2. Stufe?",
+    visual: "ai-math-value-bikemotion-table",
+    options: ["280'000", "420'000", "560'000", "900'000", "1'180'000"],
+    correct: 1,
+    explanation: "Stufe 2: (Verkaufspreis Stufe 2 150 - Transferpreis Stufe 1 80 - variable St?ckkosten 35) * 30'000 - 630'000 = 420'000."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-VALUE"],
+    prompt: "Die Firma MediGlass produziert Spezialglas, verarbeitet einen Teil zu Laborflaschen und vertreibt diese teilweise direkt an Spit?ler. MediGlass sch?pft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertsch?pfung von MediGlass in der 3. Stufe?",
+    visual: "ai-math-value-mediglass-table",
+    options: ["120'000", "240'000", "360'000", "480'000", "720'000"],
+    correct: 2,
+    explanation: "Stufe 3: (Endkundenpreis 95 - Transferpreis Stufe 2 58 - variable St?ckkosten 7) * 18'000 - 180'000 = 360'000."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-VALUE"],
+    prompt: "Die Firma TimberHaus verarbeitet Holz zu Fertigteilen und verkauft einen Teil direkt an Bauunternehmen. Der Rest wird in eigenen Projekten eingesetzt. TimberHaus sch?pft die maximale Zahlungsbereitschaft ab. Wie gross ist die Wertsch?pfung von TimberHaus in der 2. Stufe?",
+    visual: "ai-math-value-timberhaus-table",
+    options: ["320'000", "520'000", "680'000", "840'000", "1'160'000"],
+    correct: 1,
+    explanation: "Stufe 2: (Verkaufspreis Stufe 2 70 - Transferpreis Stufe 1 32 - variable St?ckkosten 12) * 40'000 - 520'000 = 520'000."
   },
 ]);
 
@@ -6106,6 +6127,10 @@ function renderQuestionVisual(visual) {
   if (visual === "ai-math-value-alpenmilk-table") return renderAlpenMilkValueTable();
   if (visual === "ai-math-value-brewly-table") return renderBrewlyValueTable();
   if (visual === "ai-math-value-solaris-table") return renderSolarisValueTable();
+  if (visual === "ai-math-value-chocoline-table") return renderChocoLineValueTable();
+  if (visual === "ai-math-value-bikemotion-table") return renderBikeMotionValueTable();
+  if (visual === "ai-math-value-mediglass-table") return renderMediGlassValueTable();
+  if (visual === "ai-math-value-timberhaus-table") return renderTimberHausValueTable();
   if (visual === "betflix-organigram") return renderBetflixOrganigram();
   if (visual === "fs25-sm-q6-branchen") return renderFs25BranchenVisual();
   if (visual === "fs25-sm-q13-effizienzgrenze") return renderFs25EffizienzgrenzeVisual();
@@ -6212,53 +6237,50 @@ function renderFs25BranchenVisual() {
 function renderFs25EffizienzgrenzeVisual() {
   return `
     <div class="question-visual" aria-label="Effizienzgrenze mit drei Produktbündeln X, Y und Z">
-      <svg viewBox="-30 0 720 380" role="img" style="max-width: 100%; height: auto;">
+      <svg viewBox="0 0 760 430" role="img" style="max-width: 100%; height: auto;">
         <defs>
           <marker id="arr-q13" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
             <path d="M0,0 L8,4 L0,8 Z" fill="#111"/>
           </marker>
         </defs>
-        <line x1="80" y1="330" x2="620" y2="330" stroke="#111" stroke-width="2" marker-end="url(#arr-q13)"/>
-        <line x1="80" y1="330" x2="80"  y2="40"  stroke="#111" stroke-width="2" marker-end="url(#arr-q13)"/>
-        <text x="56" y="40"  font-size="18" font-weight="700">DK, P</text>
-        <text x="620" y="358" font-size="18" font-weight="700" text-anchor="end">Qualität</text>
+        <line x1="95" y1="355" x2="650" y2="355" stroke="#111" stroke-width="2.2" marker-end="url(#arr-q13)"/>
+        <line x1="95" y1="355" x2="95"  y2="45"  stroke="#111" stroke-width="2.2" marker-end="url(#arr-q13)"/>
+        <text x="58" y="34"  font-size="20" font-weight="700">DK, P</text>
+        <text x="662" y="382" font-size="20" font-weight="700">Qualität</text>
 
-        <!-- Horizontal reference lines (top to bottom): P_Y, P_Z, P_X = DK_{Y,Z}, DK_X -->
-        <line x1="80" y1="70"  x2="260" y2="70"  stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
-        <line x1="80" y1="140" x2="460" y2="140" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
-        <line x1="80" y1="200" x2="460" y2="200" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
-        <line x1="80" y1="280" x2="260" y2="280" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
-        <line x1="260" y1="70"  x2="260" y2="330" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
-        <line x1="460" y1="140" x2="460" y2="330" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
+        <!-- Horizontal reference lines as in the Probepruefung graphic. -->
+        <line x1="95" y1="80"  x2="335" y2="80"  stroke="#111" stroke-width="1.8" stroke-dasharray="7 7"/>
+        <line x1="95" y1="140" x2="500" y2="140" stroke="#111" stroke-width="1.8" stroke-dasharray="7 7"/>
+        <line x1="95" y1="205" x2="335" y2="205" stroke="#111" stroke-width="1.8" stroke-dasharray="7 7"/>
+        <line x1="95" y1="305" x2="335" y2="305" stroke="#111" stroke-width="1.8" stroke-dasharray="7 7"/>
+        <line x1="335" y1="80"  x2="335" y2="355" stroke="#111" stroke-width="1.8" stroke-dasharray="7 7"/>
+        <line x1="500" y1="140" x2="500" y2="355" stroke="#111" stroke-width="1.8" stroke-dasharray="7 7"/>
 
-        <!-- Effizienzgrenze: passes through (Q_X, DK_X) = (260, 280) and (Q_Z, DK_{Y,Z}) = (460, 200) -->
-        <path d="M120 320 C170 308 220 295 260 280 C320 255 400 225 460 200 C500 175 540 145 580 110"
-              fill="none" stroke="#111" stroke-width="2.4"/>
-        <text x="500" y="172" font-size="15" font-weight="700">Effizienzgrenze</text>
+        <!-- Indifferenzkurve from the source figure: X and Z lie on the same curve. -->
+        <path d="M245 287 C262 238 300 218 335 205 C390 173 452 147 500 140 C545 134 584 121 610 110"
+              fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round"/>
+        <text x="616" y="128" font-size="20" font-weight="700">Indifferenzkurve</text>
 
-        <!-- Indifferenzkurve: convex, downward sloping; passes through Y (260,70) and Z (460,140) -->
-        <path d="M205 40 C225 50 248 60 260 70 C320 90 400 115 460 140 C510 158 555 175 580 195"
-              fill="none" stroke="#111" stroke-width="1.6" stroke-dasharray="5 4"/>
-        <text x="500" y="124" font-size="15" font-weight="700">Indifferenzkurve</text>
+        <!-- Effizienzgrenze from the source figure: lower curved frontier, steepening to the right. -->
+        <path d="M270 306 C328 306 395 300 452 279 C494 263 522 230 548 185 C564 156 583 126 604 102"
+              fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round"/>
+        <text x="572" y="242" font-size="20" font-weight="700">Effizienzgrenze</text>
 
-        <!-- Points: Y top, Z middle-right, X on P_X line -->
-        <circle cx="260" cy="70"  r="6" fill="#111"/>
-        <circle cx="460" cy="140" r="6" fill="#111"/>
-        <circle cx="260" cy="200" r="6" fill="#111"/>
+        <circle cx="335" cy="80"  r="7" fill="#111"/>
+        <circle cx="500" cy="140" r="7" fill="#111"/>
+        <circle cx="335" cy="205" r="7" fill="#111"/>
 
-        <text x="270" y="64"  font-size="15" font-weight="700">Y</text>
-        <text x="470" y="135" font-size="15" font-weight="700">Z</text>
-        <text x="270" y="220" font-size="15" font-weight="700">X</text>
+        <text x="348" y="70"  font-size="20" font-weight="700">Y</text>
+        <text x="506" y="126" font-size="20" font-weight="700">Z</text>
+        <text x="346" y="224" font-size="20" font-weight="700">X</text>
 
-        <!-- Y-axis labels -->
-        <text x="74" y="74"  text-anchor="end" font-size="14" font-weight="700">P<tspan baseline-shift="sub" font-size="10">Y</tspan></text>
-        <text x="74" y="144" text-anchor="end" font-size="14" font-weight="700">P<tspan baseline-shift="sub" font-size="10">Z</tspan></text>
-        <text x="74" y="204" text-anchor="end" font-size="14" font-weight="700">P<tspan baseline-shift="sub" font-size="10">X</tspan> = DK<tspan baseline-shift="sub" font-size="10">Y,Z</tspan></text>
-        <text x="74" y="284" text-anchor="end" font-size="14" font-weight="700">DK<tspan baseline-shift="sub" font-size="10">X</tspan></text>
+        <text x="84" y="86"  text-anchor="end" font-size="18" font-weight="700">P<tspan baseline-shift="sub" font-size="12">Y</tspan></text>
+        <text x="84" y="146" text-anchor="end" font-size="18" font-weight="700">P<tspan baseline-shift="sub" font-size="12">Z</tspan></text>
+        <text x="84" y="211" text-anchor="end" font-size="18" font-weight="700">P<tspan baseline-shift="sub" font-size="12">X</tspan> = DK<tspan baseline-shift="sub" font-size="12">Y,Z</tspan></text>
+        <text x="84" y="311" text-anchor="end" font-size="18" font-weight="700">DK<tspan baseline-shift="sub" font-size="12">X</tspan></text>
 
-        <!-- X-axis labels -->
-        <text x="260" y="354" text-anchor="middle" font-size="14" font-weight="700">Q<tspan baseline-shift="sub" font-size="10">X,Y</tspan></text>
-        <text x="460" y="354" text-anchor="middle" font-size="14" font-weight="700">Q<tspan baseline-shift="sub" font-size="10">Z</tspan></text>
+        <text x="335" y="388" text-anchor="middle" font-size="18" font-weight="700">Q<tspan baseline-shift="sub" font-size="12">X,Y</tspan></text>
+        <text x="500" y="388" text-anchor="middle" font-size="18" font-weight="700">Q<tspan baseline-shift="sub" font-size="12">Z</tspan></text>
       </svg>
     </div>
   `;
@@ -6982,6 +7004,50 @@ function renderSolarisValueTable() {
       ["1. Zellproduktion, Absatz Komponentenmarkt", "30", "400'000", "50'000", "15'000", "55"],
       ["2. Modulmontage, Absatz Installationsbetriebe", "20", "250'000", "35'000", "15'000", "85"],
       ["3. Projektvertrieb, Absatz Endkunden", "15", "300'000", "20'000", "20'000", "140"],
+    ]
+  );
+}
+
+function renderChocoLineValueTable() {
+  return renderValueChainTable(
+    "Wertschöpfungskette ChocoLine",
+    [
+      ["1. Kakaomasse, Absatz Rohstoffmarkt", "3", "270'000", "180'000", "40'000", "6"],
+      ["2. Schokoladenproduktion, Absatz Grosshandel", "4", "180'000", "140'000", "80'000", "13"],
+      ["3. Detailhandel, Absatz eigene Läden", "2", "150'000", "60'000", "60'000", "18"],
+    ]
+  );
+}
+
+function renderBikeMotionValueTable() {
+  return renderValueChainTable(
+    "Wertschöpfungskette BikeMotion",
+    [
+      ["1. Rahmenproduktion, Absatz Komponentenmarkt", "42", "900'000", "50'000", "20'000", "80"],
+      ["2. Fahrradmontage, Absatz Fachhandel", "35", "630'000", "30'000", "12'000", "150"],
+      ["3. Store-Vertrieb, Absatz Endkunden", "20", "300'000", "18'000", "18'000", "210"],
+    ]
+  );
+}
+
+function renderMediGlassValueTable() {
+  return renderValueChainTable(
+    "Wertschöpfungskette MediGlass",
+    [
+      ["1. Spezialglas, Absatz Industriemarkt", "18", "220'000", "42'000", "12'000", "34"],
+      ["2. Laborflaschen, Absatz Grosshandel", "9", "160'000", "30'000", "12'000", "58"],
+      ["3. Direktvertrieb, Absatz Spitäler", "7", "180'000", "18'000", "18'000", "95"],
+    ]
+  );
+}
+
+function renderTimberHausValueTable() {
+  return renderValueChainTable(
+    "Wertschöpfungskette TimberHaus",
+    [
+      ["1. Holzaufbereitung, Absatz Holzmarkt", "18", "280'000", "80'000", "25'000", "32"],
+      ["2. Fertigteile, Absatz Bauunternehmen", "12", "520'000", "40'000", "18'000", "70"],
+      ["3. Projektbau, Absatz Endkunden", "20", "420'000", "22'000", "22'000", "120"],
     ]
   );
 }
