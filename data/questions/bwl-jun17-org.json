@@ -400,7 +400,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "Der potentielle Neueinsteiger entscheidet sich für einen Markteintritt mit der Absatzmenge von 500 Motorbooten.\nWie gross ist der Kostennachteil (pro Motorboot) des Neueinsteigers gegenüber einem etablierten Konkurrenten, der bereits bei s* kostenoptimal produziert?\n(TK(Q) = 5·Q² − 5'000·Q + 5'000'000)",
+    "prompt": "In der Branche für Motorboote verursacht die Produktionstechnologie für Boote jährliche Totalkosten von\nTK(Q) = 5·Q² − 5'000·Q + 5'000'000.\nDer Verkaufspreis für ein Motorboot liegt bei CHF 80'000.\n\nDer potentielle Neueinsteiger entscheidet sich für einen Markteintritt mit der Absatzmenge von 500 Motorbooten.\nWie gross ist der Kostennachteil (pro Motorboot) des Neueinsteigers gegenüber einem etablierten Konkurrenten, der bereits bei s* kostenoptimal produziert?",
     "options": [
       "1'000",
       "1'500",
@@ -455,14 +455,14 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "In welchem Szenario sinkt die Konsumentenrente (KR = B − P) bei einem Wechsel von Produkt A zu Produkt X?",
+    "prompt": "Wo sinkt die Konsumentenrente bei einem Wechsel von Produkt A zu Produkt X?",
     "visual": "ubung-value-map-diagrams",
     "options": [
-      "A und X liegen auf derselben Indifferenzkurve (gleiche KR).",
-      "X hat einen tieferen Preis bei gleicher Qualität wie A (KR steigt).",
-      "X hat eine höhere Qualität zum selben Preis – A und X auf gleicher Indifferenzkurve (gleiche KR).",
-      "X hat eine höhere Qualität zum selben Preis wie A (KR steigt).",
-      "A hat eine höhere Qualität zum selben Preis wie X (KR sinkt beim Wechsel zu X)."
+      "A und X haben die gleiche Konsumentenrente.",
+      "X bietet dieselbe Qualität zum tieferen Preis an.",
+      "A und X haben die gleiche Konsumentenrente.",
+      "X bietet bessere Qualität zu demselben Preis wie A an.",
+      "A bietet höhere Qualität zu demselben Preis wie X an."
     ],
     "correct": 4,
     "explanation": "Konsumentenrente KR = B − P. Bei e) hat A höhere Wertschätzung bei gleichem Preis wie X. Ein Wechsel von A zu X bedeutet: B sinkt, P bleibt gleich → KR_X < KR_A, also sinkt die Konsumentenrente. In den anderen Szenarien bleibt die KR gleich (a, c) oder steigt (b, d)."

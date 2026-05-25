@@ -557,6 +557,42 @@ body::after {
   min-width: 170px;
   font-family: var(--font-sans);
 }
+.value-map-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.value-map-option {
+  position: relative;
+  display: block;
+  padding: 10px;
+  background: var(--panel);
+}
+.value-map-option:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.value-map-letter {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+  margin: 0;
+}
+.value-map-card {
+  width: 100%;
+}
+.value-map-card svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  font-family: var(--font-sans);
+}
+.value-map-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
 /* ─── Feedback panel ─────────────────────────────────────── */
 .feedback {

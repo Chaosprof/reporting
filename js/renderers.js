@@ -534,7 +534,7 @@ function loadCurrent() {
   state.picked = -1;
   const q = QUESTIONS[state.order[state.idx]];
   const orderedOptions = q.options.map((_, i) => i);
-  state.optionOrder = isProducerRentQuestion(q) ? orderedOptions : shuffle(orderedOptions);
+  state.optionOrder = (isProducerRentQuestion(q) || isValueMapQuestion(q)) ? orderedOptions : shuffle(orderedOptions);
 }
 
 function renderQuiz() {
@@ -560,7 +560,7 @@ function renderQuiz() {
         ${renderSourceBadge(q)}
       </div>
       <div class="question-text">${renderRichText(prompt)}</div>
-      ${isProducerRentQuestion(q) ? "" : renderQuestionVisual(q.visual)}
+      ${isProducerRentQuestion(q) || isValueMapQuestion(q) ? "" : renderQuestionVisual(q.visual)}
       ${renderQuestionOptions(q)}
       <div id="feedbackSlot"></div>
     </div>
@@ -575,6 +575,7 @@ function renderQuiz() {
 
 function renderQuestionOptions(q) {
   if (isProducerRentQuestion(q)) return renderProducerRentOptions(q);
+  if (isValueMapQuestion(q)) return renderValueMapOptions(q);
   return `
     <div class="options" id="options">
       ${state.optionOrder.map((origIdx, displayIdx) => {
@@ -590,6 +591,10 @@ function renderQuestionOptions(q) {
 
 function isProducerRentQuestion(q) {
   return rentScenariosForQuestion(q).length === q.options.length && q.options.length > 0;
+}
+
+function isValueMapQuestion(q) {
+  return q.visual === "ubung-value-map-diagrams";
 }
 
 function producerRentScenarios() {
@@ -975,65 +980,37 @@ function renderLuxusuhrenTable() {
 }
 
 function renderValueMapDiagrams() {
-  const axes = (markerId) => `
-    <line x1="38" y1="160" x2="220" y2="160" stroke="#111" stroke-width="1.6" marker-end="url(#${markerId})"/>
-    <line x1="38" y1="160" x2="38"  y2="22"  stroke="#111" stroke-width="1.6" marker-end="url(#${markerId})"/>
-    <text x="30" y="22" text-anchor="end" font-size="13" font-weight="700">P</text>
-    <text x="218" y="178" text-anchor="middle" font-size="13" font-weight="700">Qualität</text>
-  `;
-  const indiff = `<path d="M55 35 C90 75 140 110 200 140" fill="none" stroke="#111" stroke-width="2"/>`;
-  const indiff2 = `<path d="M70 60 C105 95 160 125 210 150" fill="none" stroke="#111" stroke-width="2" stroke-dasharray="5 5"/>`;
-  const dot = (x, y, label, dx=0, dy=-6) => `<circle cx="${x}" cy="${y}" r="4" fill="#111"/><text x="${x+dx}" y="${y+dy}" font-size="13" font-weight="700">${label}</text>`;
-
-  const variant = (id, title, content, marker) => `
-    <div class="vm-panel" style="display:flex;flex-direction:column;align-items:center;gap:6px;">
-      <div style="font-weight:700;font-size:0.9rem;color:var(--ink-strong);">${title}</div>
-      <svg viewBox="0 0 240 188" role="img" style="max-width:100%;height:auto;">
-        <defs>
-          <marker id="${marker}" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#111"/>
-          </marker>
-        </defs>
-        ${axes(marker)}
-        ${content}
-      </svg>
-    </div>
-  `;
-
-  const a = variant("a", "a)", `
-    ${indiff}
-    ${dot(95, 92, "A", 8, -4)}
-    ${dot(140, 121, "X", 6, 16)}
-  `, "arr-vm-a");
-  const b = variant("b", "b)", `
-    ${indiff}
-    ${indiff2}
-    ${dot(120, 102, "A", 8, -4)}
-    ${dot(70, 132, "X", -16, -4)}
-  `, "arr-vm-b");
-  const c = variant("c", "c)", `
-    ${indiff}
-    ${dot(95, 92, "A", -16, -4)}
-    ${dot(165, 130, "X", 8, 0)}
-  `, "arr-vm-c");
-  const d = variant("d", "d)", `
-    ${indiff}
-    ${indiff2}
-    ${dot(100, 92, "A", -16, -4)}
-    ${dot(170, 108, "X", 8, -4)}
-  `, "arr-vm-d");
-  const e = variant("e", "e)", `
-    ${indiff}
-    ${indiff2}
-    ${dot(160, 95, "A", 8, -4)}
-    ${dot(95, 130, "X", -16, -4)}
-  `, "arr-vm-e");
-
   return `
     <div class="question-visual" aria-label="Fünf Value-Map-Diagramme mit Produkt A und Produkt X">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;width:100%;">
-        ${a}${b}${c}${d}${e}
+      <div class="value-map-options">
+        ${valueMapScenarios().map((_, i) => renderValueMapChoice(i)).join("")}
       </div>
+    </div>
+  `;
+}
+
+function renderValueMapOptions(q) {
+  return `
+    <div class="options value-map-options" id="options">
+      ${state.optionOrder.map((origIdx, displayIdx) => `
+        <button class="option value-map-option" data-i="${displayIdx}" aria-label="${escapeHtml(q.options[origIdx])}">
+          ${renderValueMapChoice(origIdx)}
+        </button>
+      `).join("")}
+    </div>
+  `;
+}
+
+function valueMapScenarios() {
+  return ["a", "b", "c", "d", "e"];
+}
+
+function renderValueMapChoice(index) {
+  const label = valueMapScenarios()[index];
+
+  return `
+    <div class="value-map-card" aria-hidden="true">
+      <img src="data/visuals/ubung-value-map-${label}.png" alt="">
     </div>
   `;
 }
