@@ -44,7 +44,7 @@ const QUESTION_SOURCE_LABELS = {
   "BWL2-JUN17-SM": "Assessment Jun 2017",
   "BWL2-JUN17-HRM": "Assessment Jun 2017",
   "BWL2-JUN17-ORG": "Assessment Jun 2017",
-  "BWL2-UBUNG": "Übung/Klicker",
+  "BWL2-UBUNG": "Strategisches Management Übung/Klicker",
   "BWL2-MATH-AI": "AI",
 };
 
