@@ -640,8 +640,8 @@ function renderProducerRentOptions(q) {
 function renderQuestionVisual(visual) {
   if (!visual) return "";
   if (visual === "jun17-sm-q5-producer-rent") return renderProducerRentVisual();
-  if (visual === "jun17-sm-q8-indifference") return renderIndifferenceVisual();
-  if (visual === "jun17-sm-q14-experience") return renderExperienceVisual();
+  if (visual === "jun17-sm-q8-indifference") return renderSourceVisualImage("data/visuals/math-diagrams-jun17-indifference.png", "Indifferenzkurve mit Produkten X und Y");
+  if (visual === "jun17-sm-q14-experience") return renderSourceVisualImage("data/visuals/math-diagrams-jun17-experience.png", "Erfahrungskurve mit kumulierter Produktionsmenge");
   if (visual === "jun17-sm-q17-adiwas-table") return renderAdidasValueTable();
   if (visual === "ae2-losone-securities-table") return renderLosoneSecuritiesTable();
   if (visual === "ae2-grand-petit-table") return renderGrandPetitTable();
@@ -678,13 +678,33 @@ function renderQuestionVisual(visual) {
   if (visual === "ai-math-value-mediglass-table") return renderMediGlassValueTable();
   if (visual === "ai-math-value-timberhaus-table") return renderTimberHausValueTable();
   if (visual === "betflix-organigram") return renderBetflixOrganigram();
-  if (visual === "fs25-sm-q6-branchen") return renderFs25BranchenVisual();
-  if (visual === "fs25-sm-q13-effizienzgrenze") return renderFs25EffizienzgrenzeVisual();
+  if (visual === "fs25-sm-q6-branchen") return renderFs25BranchenSourceVisual();
+  if (visual === "fs25-sm-q13-effizienzgrenze") return renderSourceVisualImage("data/visuals/math-diagrams-effizienzgrenze.png", "Effizienzgrenze mit drei Produktbündeln X, Y und Z");
   if (visual === "fs25-sm-q15-oilster-table") return renderOilsterValueTable();
   if (visual === "tk-verbundeffekte-table") return renderVerbundeffekteTable();
   if (visual === "ubung-luxusuhren-table") return renderLuxusuhrenTable();
   if (visual === "ubung-value-map-diagrams") return renderValueMapDiagrams();
+  if (visual === "ubung-geschaftszahlen-table") return renderGeschaftszahlenTable();
   return "";
+}
+
+function renderSourceVisualImage(src, alt) {
+  return `
+    <div class="question-visual source-question-visual" aria-label="${escapeHtml(alt)}">
+      <img class="source-visual-image" src="${src}" alt="${escapeHtml(alt)}">
+    </div>
+  `;
+}
+
+function renderFs25BranchenSourceVisual() {
+  return `
+    <div class="question-visual source-question-visual" aria-label="Zwei Branchen mit Durchschnittskosten und Produktionsmengen">
+      <div class="source-visual-grid">
+        <img class="source-visual-image" src="data/visuals/math-diagrams-branche-ab.png" alt="Branche 1 mit Durchschnittskosten und Produktionsmengen">
+        <img class="source-visual-image" src="data/visuals/math-diagrams-branche-xy.png" alt="Branche 2 mit Durchschnittskosten und Produktionsmengen">
+      </div>
+    </div>
+  `;
 }
 
 function renderBetflixOrganigram() {
@@ -985,6 +1005,57 @@ function renderValueMapDiagrams() {
       <div class="value-map-options">
         ${valueMapScenarios().map((_, i) => renderValueMapChoice(i)).join("")}
       </div>
+    </div>
+  `;
+}
+
+function renderGeschaftszahlenTable() {
+  return `
+    <div class="question-visual" aria-label="Geschäftszahlen 2025 von TECH und MID">
+      <table class="value-table" style="min-width: 420px; max-width: 640px;">
+        <thead>
+          <tr>
+            <th colspan="2"></th>
+            <th>2025 (CHF Mio.)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="4" style="vertical-align: middle; font-weight: 700; text-align: center;">TECH</td>
+            <td>Umsatz</td>
+            <td>15'000</td>
+          </tr>
+          <tr>
+            <td>Herstellungskosten</td>
+            <td>9'000</td>
+          </tr>
+          <tr>
+            <td>Vertriebs-, Verwaltungs-, Gemeinkosten</td>
+            <td>3'000</td>
+          </tr>
+          <tr>
+            <td>Betriebsergebnis</td>
+            <td>3'000</td>
+          </tr>
+          <tr>
+            <td rowspan="4" style="vertical-align: middle; font-weight: 700; text-align: center;">MID</td>
+            <td>Umsatz</td>
+            <td>9'000</td>
+          </tr>
+          <tr>
+            <td>Herstellungskosten</td>
+            <td>6'000</td>
+          </tr>
+          <tr>
+            <td>Vertriebs-, Verwaltungs-, Gemeinkosten</td>
+            <td>1'800</td>
+          </tr>
+          <tr>
+            <td>Betriebsergebnis</td>
+            <td>1'200</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   `;
 }

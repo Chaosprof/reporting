@@ -364,7 +364,8 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "Welche Schlussfolgerung ist auf Basis der Geschäftszahlen am ehesten zulässig?\nIn der IT Branche…",
+    "prompt": "Die Firma TECH hat einen dominanten Marktanteil, während Firma MID einen wesentlich geringeren Marktanteil hat. Beide verlangen denselben Preis.\n\nWelche Schlussfolgerung ist auf Basis der Geschäftszahlen am ehesten zulässig?\nIn der IT Branche…",
+    "visual": "ubung-geschaftszahlen-table",
     "options": [
       "…existieren keine Economies of Scale.",
       "…existieren Economies of Scale, welche sich in der Umsatzsteigerung widerspiegeln.",
@@ -372,8 +373,8 @@
       "…existieren Economies of Scale, welche in den Vertriebs-, Verwaltungs-, Gemeinkosten realisiert werden.",
       "Keine der oben genannten Lösungen ist richtig."
     ],
-    "correct": 3,
-    "explanation": "Bei IT-/Softwareunternehmen sind die Grenzkosten zusätzlicher Einheiten sehr tief (digitale Vervielfältigung). Skaleneffekte realisieren sich daher typischerweise nicht in den Herstellungs-/Produktionskosten, sondern in den Vertriebs-, Verwaltungs- und Gemeinkosten (Marketing, F&E, Infrastruktur). Eine Umsatzsteigerung ist kein Skaleneffekt sondern eine Mengenwirkung."
+    "correct": 2,
+    "explanation": "Da beide Firmen denselben Preis verlangen, gilt Umsatz = P·Q, also Q_TECH > Q_MID (TECH hat die grössere Menge). Bei Annahme P = 1 ist DK = Kosten/Umsatz pro Stück.\n\nUmsatzrendite (Operating Margin): TECH = 3'000/15'000 = 20 %; MID = 1'200/9'000 ≈ 13.3 %. TECH hat den Grössenvorteil.\n\nHerstellungskosten pro Stück: DK_TECH = 9'000/15'000 = 0.6; DK_MID = 6'000/9'000 ≈ 0.667. DK_TECH < DK_MID → Economies of Scale in den Herstellungskosten.\n\nVertriebs-, Verwaltungs-, Gemeinkosten pro Stück: DK_TECH = 3'000/15'000 = 0.2; DK_MID = 1'800/9'000 = 0.2. Identisch → keine Economies of Scale in den VVG-Kosten.\n\nFazit: Es existieren Economies of Scale, und zwar in den Herstellungskosten. Die Umsatzsteigerung selbst ist kein Skaleneffekt, sondern eine reine Mengenwirkung."
   },
   {
     "subject": "BWL II",
@@ -382,6 +383,10 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-COST"
+    ],
     "prompt": "In der Branche für Motorboote verursacht die Produktionstechnologie für Boote jährliche Totalkosten von\nTK(Q) = 5·Q² − 5'000·Q + 5'000'000.\nDer Verkaufspreis für ein Motorboot liegt bei CHF 80'000.\nWelche Absatzmenge muss ein potentieller Neueinsteiger mindestens erreichen, um bei gegebenem Verkaufspreis am Markt bestehen zu können?",
     "options": [
       "58",
@@ -400,6 +405,10 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-COST"
+    ],
     "prompt": "In der Branche für Motorboote verursacht die Produktionstechnologie für Boote jährliche Totalkosten von\nTK(Q) = 5·Q² − 5'000·Q + 5'000'000.\nDer Verkaufspreis für ein Motorboot liegt bei CHF 80'000.\n\nDer potentielle Neueinsteiger entscheidet sich für einen Markteintritt mit der Absatzmenge von 500 Motorbooten.\nWie gross ist der Kostennachteil (pro Motorboot) des Neueinsteigers gegenüber einem etablierten Konkurrenten, der bereits bei s* kostenoptimal produziert?",
     "options": [
       "1'000",
@@ -436,6 +445,10 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-RENT"
+    ],
     "prompt": "In der Branche für Luxusuhren konkurrieren fünf Firmen. Die fünf Firmen charakterisieren sich durch die Kosten (K), Wertschätzung (B) und Preise (P) gemäss Tabelle.\nWelche der folgenden fünf Firmen hat in der Branche für Luxusuhren einen Wettbewerbsvorteil?",
     "visual": "ubung-luxusuhren-table",
     "options": [
@@ -455,6 +468,10 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-DIAGRAMS"
+    ],
     "prompt": "Wo sinkt die Konsumentenrente bei einem Wechsel von Produkt A zu Produkt X?",
     "visual": "ubung-value-map-diagrams",
     "options": [
@@ -546,6 +563,10 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-RENT"
+    ],
     "prompt": "In der Autowasch-Branche gibt es die beiden Anbieter X und Y.\nDie Kunden nehmen das Angebot für eine Komplettreinigung der beiden Anbieter mit einer Wertschätzung von 15 als gleich wahr. Die Stückkosten unterscheiden sich folgendermassen: K_X = 9.5, K_Y = 12.\nDie Preiselastizität der Nachfrage in der Autowasch-Branche ist hoch.\nWelche der folgenden Aussagen ist am ehesten falsch?",
     "options": [
       "Die maximale Konsumentenrente bei Y ist 3, wenn P_Y = K_Y ist.",
@@ -564,6 +585,10 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
+    "decks": [
+      "BWL2-MATH",
+      "BWL2-MATH-COST"
+    ],
     "prompt": "Die Firma CHAIR produziert Stühle mit der Totalkostenfunktion TK(Q) = 70Q + 211, wobei Q für die jährlich hergestellte Menge steht.\nAngenommen, dass jeder hergestellte Stuhl verkauft werden kann, wie viele Stühle muss die Firma CHAIR mindestens herstellen, um sich bei gegebenem Verkaufspreis von P = 80 am Markt behaupten zu können und keinen Verlust zu erwirtschaften?",
     "options": [
       "21",
@@ -659,9 +684,10 @@
       "Als Kostenführer kann eine Firma nie erfolgreich sein, wenn sie den gesamten Markt abdeckt.",
       "Bei der Fokusstrategie können Unternehmen die Wertschätzungstreiber gezielter auf die Bedürfnisse der Kunden in den ausgewählten Marktsegmenten abstimmen.",
       "Bei einer Broad Coverage Strategie möchte ein Unternehmen möglichst alle Marktsegmente abdecken.",
-      "Verfolgt ein Unternehmen eine Broad Coverage Strategie, können Kosten für Produkteigenschaften entstehen, welche nicht bei jedem/r Konsumenten/Konsumentin zusätzliche Wertschätzung erzeugen."
+      "Verfolgt ein Unternehmen eine Broad Coverage Strategie, können Kosten für Produkteigenschaften entstehen, welche nicht bei jedem/r Konsumenten/Konsumentin zusätzliche Wertschätzung erzeugen.",
+      "Global agierende Unternehmen können mit einer Fokusstrategie erfolgreich sein."
     ],
     "correct": 0,
-    "explanation": "Die Aussage ist zu absolut. Eine Kostenführerschaft kann gerade als Broad-Coverage-Strategie erfolgreich sein, wenn die Firma den gesamten Markt mit niedrigen Kosten bedient."
+    "explanation": "Die Aussage ist zu absolut. Eine Kostenführerschaft kann gerade als Broad-Coverage-Strategie erfolgreich sein, wenn die Firma den gesamten Markt mit niedrigen Kosten bedient. Auch global agierende Unternehmen können mit einer Fokusstrategie erfolgreich sein, indem sie weltweit ein eng abgegrenztes Marktsegment bedienen."
   }
 ]
