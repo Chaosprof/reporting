@@ -393,9 +393,9 @@ body::after {
 }
 .visual-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(220px, 1fr));
-  gap: 12px;
-  min-width: 460px;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 10px;
+  min-width: 380px;
 }
 .visual-grid .wide {
   grid-column: 1 / -1;
@@ -403,15 +403,15 @@ body::after {
 }
 .mini-rent {
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--panel);
-  padding: 10px;
+  padding: 8px;
 }
 .mini-title {
   font-family: var(--font-serif);
-  font-size: 0.96rem;
+  font-size: 0.88rem;
   font-weight: 800;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   color: var(--ink-strong);
 }
 .branchen-visual-grid {
@@ -526,8 +526,8 @@ body::after {
 .option.wrong .option-letter   { border-color: var(--bad-line); background: rgba(216,180,174,0.4); color: #7a3f37; }
 .rent-options {
   display: grid;
-  grid-template-columns: repeat(2, minmax(220px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 8px;
 }
 .rent-option {
   display: block;
@@ -537,15 +537,15 @@ body::after {
 }
 .rent-option .mini-rent {
   border: 0;
-  border-radius: 12px;
+  border-radius: 8px;
   background: transparent;
-  padding: 12px;
+  padding: 8px;
 }
 .rent-option svg {
   display: block;
   width: 100%;
   height: auto;
-  min-width: 220px;
+  min-width: 170px;
   font-family: var(--font-sans);
 }
 
@@ -1017,6 +1017,11 @@ body::after {
   .visual-grid .wide { max-width: none; }
   .question-visual { padding: 12px; }
   .question-visual svg { min-width: 320px; }
+}
+
+@media (max-width: 640px) {
+  .rent-options { grid-template-columns: 1fr; }
+  .rent-option svg { min-width: 0; }
 }
 
 /* ─── Practice-weakest secondary action ─────────────────── */

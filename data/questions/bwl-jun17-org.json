@@ -346,7 +346,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "«Wechsel auf Technologien mit anderer Kostenstruktur»\nIn Bezug auf Kosteneinsparungen, lohnen sich Technologiewechsel...",
+    "prompt": "In Bezug auf Kosteneinsparungen, lohnen sich Technologiewechsel...",
     "options": [
       "...nur wenn die Fixkosten höher sind als die variablen Kosten.",
       "...nur wenn die variablen Kosten höher sind als die Fixkosten.",
@@ -364,7 +364,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "«Economies of Scale in der IT Branche» (2)\nWelche Schlussfolgerung ist auf Basis der Geschäftszahlen am ehesten zulässig?\nIn der IT Branche…",
+    "prompt": "Welche Schlussfolgerung ist auf Basis der Geschäftszahlen am ehesten zulässig?\nIn der IT Branche…",
     "options": [
       "…existieren keine Economies of Scale.",
       "…existieren Economies of Scale, welche sich in der Umsatzsteigerung widerspiegeln.",
@@ -382,7 +382,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "Frage 1: «Einstiegsmenge»\nIn der Branche für Motorboote verursacht die Produktionstechnologie für Boote jährliche Totalkosten von\nTK(Q) = 5·Q² − 5'000·Q + 5'000'000.\nDer Verkaufspreis für ein Motorboot liegt bei CHF 80'000.\nWelche Absatzmenge muss ein potentieller Neueinsteiger mindestens erreichen, um bei gegebenem Verkaufspreis am Markt bestehen zu können?",
+    "prompt": "In der Branche für Motorboote verursacht die Produktionstechnologie für Boote jährliche Totalkosten von\nTK(Q) = 5·Q² − 5'000·Q + 5'000'000.\nDer Verkaufspreis für ein Motorboot liegt bei CHF 80'000.\nWelche Absatzmenge muss ein potentieller Neueinsteiger mindestens erreichen, um bei gegebenem Verkaufspreis am Markt bestehen zu können?",
     "options": [
       "58",
       "59",
@@ -400,7 +400,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "Frage 2: «Kostennachteil des Neueinsteigers»\nDer potentielle Neueinsteiger entscheidet sich für einen Markteintritt mit der Absatzmenge von 500 Motorbooten.\nWie gross ist der Kostennachteil (pro Motorboot) des Neueinsteigers gegenüber einem etablierten Konkurrenten, der bereits bei s* kostenoptimal produziert?\n(TK(Q) = 5·Q² − 5'000·Q + 5'000'000)",
+    "prompt": "Der potentielle Neueinsteiger entscheidet sich für einen Markteintritt mit der Absatzmenge von 500 Motorbooten.\nWie gross ist der Kostennachteil (pro Motorboot) des Neueinsteigers gegenüber einem etablierten Konkurrenten, der bereits bei s* kostenoptimal produziert?\n(TK(Q) = 5·Q² − 5'000·Q + 5'000'000)",
     "options": [
       "1'000",
       "1'500",
@@ -418,7 +418,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "«Economies of Scale & Erfahrungskurveneffekte»\nWelche Aussage zu Economies of Scale und Erfahrungskurveneffekten ist am ehesten falsch?",
+    "prompt": "Welche Aussage zu Economies of Scale und Erfahrungskurveneffekten ist am ehesten falsch?",
     "options": [
       "Für eine Branche, in welcher die etablierten Unternehmen bereits Erfahrungsvorsprünge aufgebaut haben, erwarten wir ceteris paribus eine tiefere Gefahr durch Neueintritte.",
       "Im Allgemeinen sind kapitalintensive Produktionsprozesse eher mit Skaleneffekten verbunden als arbeitsintensive Produktionsprozesse.",
@@ -436,7 +436,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "«Wettbewerbsvorteil»\nIn der Branche für Luxusuhren konkurrieren fünf Firmen. Die fünf Firmen charakterisieren sich durch die Kosten (K), Wertschätzung (B) und Preise (P) gemäss Tabelle.\nWelche der folgenden fünf Firmen hat in der Branche für Luxusuhren einen Wettbewerbsvorteil?",
+    "prompt": "In der Branche für Luxusuhren konkurrieren fünf Firmen. Die fünf Firmen charakterisieren sich durch die Kosten (K), Wertschätzung (B) und Preise (P) gemäss Tabelle.\nWelche der folgenden fünf Firmen hat in der Branche für Luxusuhren einen Wettbewerbsvorteil?",
     "visual": "ubung-luxusuhren-table",
     "options": [
       "Firma A",
@@ -455,7 +455,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "«Value Map»\nIn welchem Szenario sinkt die Konsumentenrente (KR = B − P) bei einem Wechsel von Produkt A zu Produkt X?",
+    "prompt": "In welchem Szenario sinkt die Konsumentenrente (KR = B − P) bei einem Wechsel von Produkt A zu Produkt X?",
     "visual": "ubung-value-map-diagrams",
     "options": [
       "A und X liegen auf derselben Indifferenzkurve (gleiche KR).",
@@ -474,7 +474,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "«Pricing-Strategien»\nDie Firma «Top Salt» ist in der Branche für Speisesalz etabliert und ist Kostenführer.\nWelche Pricing-Strategie ist für die Firma «Top Salt» am ehesten zu empfehlen?\nDie Firma «Top Salt» sollte…",
+    "prompt": "Die Firma «Top Salt» ist in der Branche für Speisesalz etabliert und ist Kostenführer.\nWelche Pricing-Strategie ist für die Firma «Top Salt» am ehesten zu empfehlen?\nDie Firma «Top Salt» sollte…",
     "options": [
       "…einen Premiumpreis verlangen, da sie damit höhere Margen als die Konkurrenz abschöpfen kann.",
       "…die Preise der Konkurrenz angleichen, da sie damit höhere Margen als die Konkurrenz abschöpfen kann.",
@@ -492,7 +492,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "Beispiel-Aufgabe 1\nGegeben sei die Zulieferer-Abnehmer-Beziehung zwischen Mikrochip-Herstellern und Computerfirmen, wobei die Mikrochip-Hersteller die Zulieferer sind.\nWelche Aussage zu den Machtverhältnissen in dieser Zulieferer-Abnehmer-Beziehung ist am ehesten richtig?\nIn dieser Geschäftsbeziehung sind die Computerfirmen umso mächtiger, …",
+    "prompt": "Gegeben sei die Zulieferer-Abnehmer-Beziehung zwischen Mikrochip-Herstellern und Computerfirmen, wobei die Mikrochip-Hersteller die Zulieferer sind.\nWelche Aussage zu den Machtverhältnissen in dieser Zulieferer-Abnehmer-Beziehung ist am ehesten richtig?\nIn dieser Geschäftsbeziehung sind die Computerfirmen umso mächtiger, …",
     "options": [
       "… je weniger Substitute es für Mikrochips gibt.",
       "… je tiefer die relative Konzentration bei den Mikrochip-Herstellern ist.",
@@ -510,7 +510,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "Beispiel-Aufgabe 2\nWelche Aussage zur Verteidigung von Wettbewerbsvorteilen ist am ehesten richtig?",
+    "prompt": "Welche Aussage zur Verteidigung von Wettbewerbsvorteilen ist am ehesten richtig?",
     "options": [
       "Die Nachhaltigkeit von Wettbewerbsvorteilen basiert auf temporären Unterschieden zwischen den Unternehmen.",
       "Capabilities sind unternehmensspezifische Vermögensgegenstände.",
@@ -528,7 +528,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "Beispiel-Aufgabe 3\nWelche Aussage zur Positionierung für Wettbewerbsvorteile gemäss Porter ist am ehesten richtig?\nEin neuer Anbieter für Pauschalurlaubsreisen sollte sich bei der Strategiewahl ceteris paribus für die Kostenführerschaft entscheiden, …",
+    "prompt": "Welche Aussage zur Positionierung für Wettbewerbsvorteile gemäss Porter ist am ehesten richtig?\nEin neuer Anbieter für Pauschalurlaubsreisen sollte sich bei der Strategiewahl ceteris paribus für die Kostenführerschaft entscheiden, …",
     "options": [
       "…wenn er bei Zulieferern die gleichen Konditionen erhält wie seine Konkurrenzanbieter.",
       "…wenn etablierte Reiseunternehmen viel Erfahrung in der Branche für Pauschalurlaubsreisen akkumuliert haben.",
@@ -546,7 +546,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "Beispiel-Aufgabe 4\nIn der Autowasch-Branche gibt es die beiden Anbieter X und Y.\nDie Kunden nehmen das Angebot für eine Komplettreinigung der beiden Anbieter mit einer Wertschätzung von 15 als gleich wahr. Die Stückkosten unterscheiden sich folgendermassen: K_X = 9.5, K_Y = 12.\nDie Preiselastizität der Nachfrage in der Autowasch-Branche ist hoch.\nWelche der folgenden Aussagen ist am ehesten falsch?",
+    "prompt": "In der Autowasch-Branche gibt es die beiden Anbieter X und Y.\nDie Kunden nehmen das Angebot für eine Komplettreinigung der beiden Anbieter mit einer Wertschätzung von 15 als gleich wahr. Die Stückkosten unterscheiden sich folgendermassen: K_X = 9.5, K_Y = 12.\nDie Preiselastizität der Nachfrage in der Autowasch-Branche ist hoch.\nWelche der folgenden Aussagen ist am ehesten falsch?",
     "options": [
       "Die maximale Konsumentenrente bei Y ist 3, wenn P_Y = K_Y ist.",
       "Die «nichtangreifbare Produzentenrente» von X ist 2.5.",
@@ -564,7 +564,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "Beispiel-Aufgabe 5\nDie Firma CHAIR produziert Stühle mit der Totalkostenfunktion TK(Q) = 70Q + 211, wobei Q für die jährlich hergestellte Menge steht.\nAngenommen, dass jeder hergestellte Stuhl verkauft werden kann, wie viele Stühle muss die Firma CHAIR mindestens herstellen, um sich bei gegebenem Verkaufspreis von P = 80 am Markt behaupten zu können und keinen Verlust zu erwirtschaften?",
+    "prompt": "Die Firma CHAIR produziert Stühle mit der Totalkostenfunktion TK(Q) = 70Q + 211, wobei Q für die jährlich hergestellte Menge steht.\nAngenommen, dass jeder hergestellte Stuhl verkauft werden kann, wie viele Stühle muss die Firma CHAIR mindestens herstellen, um sich bei gegebenem Verkaufspreis von P = 80 am Markt behaupten zu können und keinen Verlust zu erwirtschaften?",
     "options": [
       "21",
       "22",
@@ -582,7 +582,7 @@
     ],
     "set": "BWL2-UBUNG",
     "category": "Strategisches Management",
-    "prompt": "Klicker: Gefahr durch Neueintritte\nWelche der folgenden Gegebenheiten ist keine signifikante Eintrittsbarriere in den Markt für Verkehrsflugzeughersteller?",
+    "prompt": "Welche der folgenden Gegebenheiten ist keine signifikante Eintrittsbarriere in den Markt für Verkehrsflugzeughersteller?",
     "options": [
       "Hohe Entwicklungskosten",
       "Beschränkte Rohstoffe",

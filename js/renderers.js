@@ -731,10 +731,10 @@ function renderFs25BranchenVisual() {
       </defs>
       <text x="210" y="24" text-anchor="middle" font-size="18" font-weight="700">Branche 1</text>
       ${axes("arr-q6-1")}
-      <path d="M88 72 C132 83 183 94 232 102 C280 110 322 116 352 120" fill="none" stroke="#111" stroke-width="2"/>
-      <path d="M88 138 C132 149 183 161 232 170 C280 178 322 184 352 188" fill="none" stroke="#111" stroke-width="2"/>
-      <text x="245" y="93" font-size="12" font-weight="700">DK(Q) Firma A</text>
-      <text x="245" y="207" font-size="12" font-weight="700">DK(Q) Firma B</text>
+      <path d="M82 52 C115 52, 138 86, 148 91 C220 117, 295 134, 360 138" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+      <path d="M82 122 C175 122, 235 169, 248 174 C295 192, 335 200, 360 202" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+      <text x="258" y="112" font-size="12" font-weight="700">DK(Q) Firma A</text>
+      <text x="262" y="190" font-size="12" font-weight="700">DK(Q) Firma B</text>
       <line x1="70" y1="91" x2="148" y2="91" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="5 5"/>
       <line x1="148" y1="91" x2="148" y2="238" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="5 5"/>
       <circle cx="148" cy="91" r="3.5" fill="#111"/>
@@ -757,8 +757,8 @@ function renderFs25BranchenVisual() {
       </defs>
       <text x="210" y="24" text-anchor="middle" font-size="18" font-weight="700">Branche 2</text>
       ${axes("arr-q6-2")}
-      <path d="M88 94 C132 108 183 121 232 132 C280 142 322 150 352 155" fill="none" stroke="#111" stroke-width="2"/>
-      <text x="204" y="125" font-size="12" font-weight="700">DK(Q) Firma X = DK(Q) Firma Y</text>
+      <path d="M82 80 C150 80, 218 128, 232 133 C285 152, 335 162, 360 164" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+      <text x="210" y="108" font-size="12" font-weight="700">DK(Q) Firma X = DK(Q) Firma Y</text>
       <line x1="70" y1="133" x2="232" y2="133" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="5 5"/>
       <line x1="232" y1="133" x2="232" y2="238" stroke="#6b7280" stroke-width="1.1" stroke-dasharray="5 5"/>
       <circle cx="232" cy="133" r="3.5" fill="#111"/>
@@ -1396,32 +1396,35 @@ function renderRentScenario(scenario) {
   return `
     <div class="mini-rent ${scenario.label === "e" ? "wide" : ""}">
       <div class="mini-title">${scenario.label})</div>
-      <svg viewBox="-18 -28 276 221" role="img" aria-label="Situation ${scenario.label}">
-        <line x1="36" y1="148" x2="205" y2="148" stroke="#111" stroke-width="1.4"/>
-        ${renderRentBar(78, "1", scenario.f1, -1)}
-        ${renderRentBar(162, "2", scenario.f2, 1)}
-        <text x="78" y="172" text-anchor="middle" font-size="13" font-weight="700">Firma 1</text>
-        <text x="162" y="172" text-anchor="middle" font-size="13" font-weight="700">Firma 2</text>
+      <svg viewBox="0 0 236 174" role="img" aria-label="Situation ${scenario.label}">
+        <line x1="34" y1="132" x2="202" y2="132" stroke="#111" stroke-width="1.3"/>
+        ${renderRentBar(80, "1", scenario.f1, -1, scenario)}
+        ${renderRentBar(156, "2", scenario.f2, 1, scenario)}
+        <text x="80" y="155" text-anchor="middle" font-size="12" font-weight="700">Firma 1</text>
+        <text x="156" y="155" text-anchor="middle" font-size="12" font-weight="700">Firma 2</text>
       </svg>
     </div>
   `;
 }
 
-function renderRentBar(x, suffix, values, side) {
-  const barW = 34;
-  const base = 148;
-  const scale = 11;
+function renderRentBar(x, suffix, values, side, scenario) {
+  const barW = 30;
+  const base = 132;
+  const top = 24;
+  const allValues = [scenario.f1, scenario.f2].flatMap(v => [v.b, v.p, v.k]);
+  const maxValue = Math.max(...allValues, 1);
+  const scale = (base - top) / Math.max(12, maxValue + 1);
   const y = value => base - value * scale;
-  const labelX = side < 0 ? x - 25 : x + 25;
+  const labelX = side < 0 ? x - 22 : x + 22;
   const anchor = side < 0 ? "end" : "start";
   const label = (letter, value) => `
-    <text x="${labelX}" y="${y(value) + 4}" text-anchor="${anchor}" font-size="12" font-weight="700">
-      ${letter}<tspan baseline-shift="sub" font-size="8">${suffix}</tspan> = ${value}
+    <text x="${labelX}" y="${y(value) + 4}" text-anchor="${anchor}" font-size="10.5" font-weight="700">
+      ${letter}<tspan baseline-shift="sub" font-size="7">${suffix}</tspan> = ${value}
     </text>
   `;
   const bpLabels = values.b === values.p ? `
-    <text x="${x}" y="${y(values.b) - 6}" text-anchor="middle" font-size="11" font-weight="700">
-      B<tspan baseline-shift="sub" font-size="8">${suffix}</tspan> = P<tspan baseline-shift="sub" font-size="8">${suffix}</tspan> = ${values.b}
+    <text x="${x}" y="${Math.max(12, y(values.b) - 6)}" text-anchor="middle" font-size="10" font-weight="700">
+      B<tspan baseline-shift="sub" font-size="7">${suffix}</tspan> = P<tspan baseline-shift="sub" font-size="7">${suffix}</tspan> = ${values.b}
     </text>
   ` : `${label("B", values.b)}${label("P", values.p)}`;
   return `

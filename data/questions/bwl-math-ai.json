@@ -112,7 +112,7 @@
       "BWL2-MATH",
       "BWL2-MATH-RENT"
     ],
-    "prompt": "AI-Variante 2: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "prompt": "AI-Variante 2: In welcher Situation besitzt Firma 2 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
     "rentScenarios": [
       {
         "label": "a",
@@ -124,7 +124,7 @@
         "f2": {
           "b": 13,
           "p": 9,
-          "k": 4
+          "k": 6
         }
       },
       {
@@ -137,7 +137,7 @@
         "f2": {
           "b": 11,
           "p": 8,
-          "k": 4
+          "k": 6
         }
       },
       {
@@ -150,7 +150,7 @@
         "f2": {
           "b": 15,
           "p": 11,
-          "k": 5
+          "k": 7
         }
       },
       {
@@ -181,14 +181,14 @@
       }
     ],
     "options": [
-      "a) Firma 1: B1=14, P1=11, K1=6; Firma 2: B2=13, P2=9, K2=4.",
-      "b) Firma 1: B1=10, P1=9, K1=4; Firma 2: B2=11, P2=8, K2=4.",
-      "c) Firma 1: B1=16, P1=12, K1=7; Firma 2: B2=15, P2=11, K2=5.",
+      "a) Firma 1: B1=14, P1=11, K1=6; Firma 2: B2=13, P2=9, K2=6.",
+      "b) Firma 1: B1=10, P1=9, K1=4; Firma 2: B2=11, P2=8, K2=6.",
+      "c) Firma 1: B1=16, P1=12, K1=7; Firma 2: B2=15, P2=11, K2=7.",
       "d) Firma 1: B1=12, P1=9, K1=3; Firma 2: B2=14, P2=11, K2=6.",
       "e) Firma 1: B1=P1=9, K1=3; Firma 2: B2=12, P2=8, K2=4."
     ],
-    "correct": 3,
-    "explanation": "In d) erzielt Firma 1 eine Wertschöpfung von 9, Firma 2 nur 8. Der Vorsprung bleibt auch im Preiswettbewerb erhalten."
+    "correct": 4,
+    "explanation": "In e) erzielt Firma 2 eine höhere Wertschöpfung als Firma 1: 12 - 4 = 8 gegenüber 9 - 3 = 6. Der Vorsprung bleibt auch im Preiswettbewerb erhalten."
   },
   {
     "subject": "BWL II",
@@ -370,7 +370,7 @@
       "BWL2-MATH",
       "BWL2-MATH-RENT"
     ],
-    "prompt": "AI-Variante 5: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "prompt": "AI-Variante 5: In welcher Situation besitzt Firma 2 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
     "rentScenarios": [
       {
         "label": "a",
@@ -395,7 +395,7 @@
         "f2": {
           "b": 12,
           "p": 8,
-          "k": 4
+          "k": 6
         }
       },
       {
@@ -434,19 +434,19 @@
         "f2": {
           "b": 10,
           "p": 6,
-          "k": 3
+          "k": 5
         }
       }
     ],
     "options": [
       "a) Firma 1: B1=9, P1=7, K1=2; Firma 2: B2=11, P2=9, K2=5.",
-      "b) Firma 1: B1=13, P1=11, K1=6; Firma 2: B2=12, P2=8, K2=4.",
+      "b) Firma 1: B1=13, P1=11, K1=6; Firma 2: B2=12, P2=8, K2=6.",
       "c) Firma 1: B1=15, P1=12, K1=7; Firma 2: B2=14, P2=10, K2=5.",
       "d) Firma 1: B1=12, P1=9, K1=4; Firma 2: B2=15, P2=13, K2=8.",
-      "e) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=10, P2=6, K2=3."
+      "e) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=10, P2=6, K2=5."
     ],
-    "correct": 3,
-    "explanation": "In d) hat Firma 1 den Wertschöpfungsvorsprung: 12 - 4 = 8 gegenüber 15 - 8 = 7."
+    "correct": 2,
+    "explanation": "In c) hat Firma 2 den Wertschöpfungsvorsprung: 14 - 5 = 9 gegenüber 15 - 7 = 8."
   },
   {
     "subject": "BWL II",
@@ -628,7 +628,7 @@
       "BWL2-MATH",
       "BWL2-MATH-RENT"
     ],
-    "prompt": "AI-Variante 8: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    "prompt": "AI-Variante 8: In welcher Situation besitzt Firma 2 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
     "rentScenarios": [
       {
         "label": "a",
@@ -640,7 +640,7 @@
         "f2": {
           "b": 12,
           "p": 7,
-          "k": 3
+          "k": 7
         }
       },
       {
@@ -666,7 +666,7 @@
         "f2": {
           "b": 13,
           "p": 10,
-          "k": 6
+          "k": 8
         }
       },
       {
@@ -692,19 +692,19 @@
         "f2": {
           "b": 13,
           "p": 10,
-          "k": 6
+          "k": 8
         }
       }
     ],
     "options": [
-      "a) Firma 1: B1=12, P1=10, K1=6; Firma 2: B2=12, P2=7, K2=3.",
+      "a) Firma 1: B1=12, P1=10, K1=6; Firma 2: B2=12, P2=7, K2=7.",
       "b) Firma 1: B1=15, P1=12, K1=6; Firma 2: B2=17, P2=15, K2=10.",
-      "c) Firma 1: B1=10, P1=8, K1=2; Firma 2: B2=13, P2=10, K2=6.",
+      "c) Firma 1: B1=10, P1=8, K1=2; Firma 2: B2=13, P2=10, K2=8.",
       "d) Firma 1: B1=14, P1=11, K1=7; Firma 2: B2=14, P2=9, K2=5.",
-      "e) Firma 1: B1=11, P1=9, K1=5; Firma 2: B2=13, P2=10, K2=6."
+      "e) Firma 1: B1=11, P1=9, K1=5; Firma 2: B2=13, P2=10, K2=8."
     ],
-    "correct": 1,
-    "explanation": "In b) ist Firma 1 wertschöpfungsstärker: 15 - 6 = 9 gegenüber 17 - 10 = 7."
+    "correct": 3,
+    "explanation": "In d) ist Firma 2 wertschöpfungsstärker: 14 - 5 = 9 gegenüber 14 - 7 = 7."
   },
   {
     "subject": "BWL II",
