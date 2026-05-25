@@ -3288,6 +3288,7 @@ const QUESTIONS = [
   },
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-DIAGRAMS"],
     prompt: "In einer Branche mit homogenen Konsumentenpräferenzen existieren drei Produktbündel X, Y und Z. Gegeben sind neben den Preisen (P) auch die Durchschnittskosten (DK) und eine Effizienzgrenze. Welche Aussage zur dargestellten Situation ist am ehesten falsch?",
     visual: "fs25-sm-q13-effizienzgrenze",
     options: [
@@ -4554,21 +4555,7 @@ QUESTIONS.push(...[
     correct: 1,
     explanation: "In b) ist Firma 1 wertschöpfungsstärker: 15 - 6 = 9 gegenüber 17 - 10 = 7."
   },
-  {
-    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
-    decks: ["BWL2-MATH"],
-    prompt: "In einer Branche existieren zwei Firmen A und B. Die Preise (P), die Durchschnittskosten (DK) sowie die Qualität ihrer Produkte sind gegeben. Welche Aussage zur dargestellten Situation ist am ehesten richtig?",
-    visual: "ai-math-q8-indifference",
-    options: [
-      "Die Angebote der Firma A und der Firma B erreichen die gleiche maximale Zahlungsbereitschaft.",
-      "Die Preisdifferenz zwischen den beiden Produkten ist grösser als die Wertschätzungsdifferenz.",
-      "Firma B erzielt eine höhere Wertschöpfung als Firma A.",
-      "Firma B bietet eine höhere Konsumentenrente als Firma A an.",
-      "Keine der oben genannten Aussagen ist richtig."
-    ],
-    correct: 2,
-    explanation: "Beide Produkte liegen auf derselben Indifferenzkurve und haben dieselben Durchschnittskosten. Das höherwertige Produkt B erlaubt deshalb eine höhere Wertschöpfung."
-  },
+
   {
     subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
     decks: ["BWL2-MATH"],
@@ -4583,21 +4570,7 @@ QUESTIONS.push(...[
     correct: 2,
     explanation: "Die Durchschnittskosten sind DK(Q) = 240/Q + 6 und fallen mit zunehmender Menge. Bei konstanten variablen Stückkosten entstehen aus dieser Funktion keine Diseconomies of Scale."
   },
-  {
-    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
-    decks: ["BWL2-MATH"],
-    prompt: "Gegeben sind die Erfahrungskurve für eine Branche sowie die kumulierten Produktionsmengen für die Firmen A und B zu einem bestimmten Zeitpunkt. Welche der folgenden Schlussfolgerungen ist zulässig?",
-    visual: "ai-math-q14-experience",
-    options: [
-      "Firma B produziert näher an der kostenoptimalen Betriebsgrösse s*.",
-      "Firma B produziert Güter mit einer höheren Qualität als Firma A.",
-      "Firma B besitzt einen Erfahrungsvorsprung gegenüber Firma A.",
-      "Firma B realisiert zwingend Economies of Scope.",
-      "Keine der oben genannten Schlussfolgerungen ist zulässig."
-    ],
-    correct: 2,
-    explanation: "Die Kurve zeigt kumulierte Produktionsmenge, nicht aktuelle Betriebsgrösse. Die höhere kumulierte Menge von Firma B zeigt einen Erfahrungsvorsprung."
-  },
+
   {
     subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
     decks: ["BWL2-MATH"],
@@ -4928,8 +4901,7 @@ QUESTIONS.forEach(q => {
   let categoryDeck = "";
 
   if (visual.includes("producer-rent")) categoryDeck = "BWL2-MATH-RENT";
-  else if (visual.includes("indifference")) categoryDeck = "BWL2-MATH-INDIFF";
-  else if (visual.includes("experience")) categoryDeck = "BWL2-MATH-EXPERIENCE";
+  else if (visual.includes("indifference") || visual.includes("experience")) categoryDeck = "BWL2-MATH-DIAGRAMS";
   else if (
     visual.includes("value-table") ||
     visual.includes("oilster-table") ||
@@ -4937,7 +4909,7 @@ QUESTIONS.forEach(q => {
   ) categoryDeck = "BWL2-MATH-VALUE";
   else if (
     /^TK\(/.test(prompt) ||
-    /TK\(Q\)|Totalkostenfunktion|minimale Einstiegsmenge|Kostennachteil/.test(prompt)
+    (/TK\(Q\)|Totalkostenfunktion|minimale Einstiegsmenge|Kostennachteil/.test(prompt) && !prompt.startsWith("SwissCam"))
   ) categoryDeck = "BWL2-MATH-COST";
 
   if (categoryDeck) {
@@ -4947,7 +4919,7 @@ QUESTIONS.forEach(q => {
   }
 
   if (!mathDeck) return;
-  if (!categoryDeck && /TK\(Q\)|Totalkostenfunktion|minimale Einstiegsmenge|Kostennachteil/.test(prompt)) {
+  if (!categoryDeck && /TK\(Q\)|Totalkostenfunktion|minimale Einstiegsmenge|Kostennachteil/.test(prompt) && !prompt.startsWith("SwissCam")) {
     addQuestionDeck(q, "BWL2-MATH-COST");
   }
 });
@@ -5390,9 +5362,8 @@ const DECKS = [
   { id: "BWL2-MATH", subject: "BWL II",             label: "Math Practice: All",          sub: "All calculation-style BWL questions", sets: [] },
   { id: "BWL2-MATH-VALUE", subject: "BWL II",       label: "Math: Wertschöpfungskette",   sub: "Stufen, Transferpreise, Wertschöpfung", sets: [] },
   { id: "BWL2-MATH-RENT", subject: "BWL II",        label: "Math: Produzentenrente",     sub: "Nichtangreifbare Produzentenrente", sets: [] },
-  { id: "BWL2-MATH-INDIFF", subject: "BWL II",      label: "Math: Indifferenzkurven",    sub: "Preis, DK, Qualität, Wertschöpfung", sets: [] },
+  { id: "BWL2-MATH-DIAGRAMS", subject: "BWL II",    label: "Math: Diagramme",            sub: "Indifferenzkurven und Erfahrungskurven", sets: [] },
   { id: "BWL2-MATH-COST", subject: "BWL II",        label: "Math: Kostenfunktionen",     sub: "TK, DK, Break-even, Kostennachteil", sets: [] },
-  { id: "BWL2-MATH-EXPERIENCE", subject: "BWL II",  label: "Math: Erfahrungskurve",      sub: "Kumulierte Menge und Durchschnittskosten", sets: [] },
   { id: "BWL2-JUN17-SM",  subject: "BWL II",        label: "Juni 2017: Strategisches Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-SM"] },
   { id: "BWL2-JUN17-HRM", subject: "BWL II",        label: "Juni 2017: Human Resource Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-HRM"] },
   { id: "BWL2-JUN17-ORG", subject: "BWL II",        label: "Juni 2017: Organisation",    sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-ORG"] },
