@@ -511,6 +511,30 @@
   }
   .option.correct .option-letter { border-color: var(--cr-line); background: rgba(140,159,116,0.32); color: #3f4f33; }
   .option.wrong .option-letter   { border-color: var(--bad-line); background: rgba(216,180,174,0.4); color: #7a3f37; }
+  .rent-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 12px;
+  }
+  .rent-option {
+    display: block;
+    padding: 0;
+    overflow: hidden;
+    background: var(--panel);
+  }
+  .rent-option .mini-rent {
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    padding: 12px;
+  }
+  .rent-option svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 220px;
+    font-family: var(--font-sans);
+  }
 
   /* ─── Feedback panel ─────────────────────────────────────── */
   .feedback {
@@ -3254,7 +3278,7 @@ const QUESTIONS = [
       "Für die Produkte X und Z entspricht der Wertschätzungsunterschied dem Preisunterschied."
     ],
     correct: 1,
-    explanation: "Z liegt auf einer höheren Indifferenzkurve mit höherem Preis. Da DK(Y) = DK(Z) > DK(X), aber P_Z > P_X gilt, ist die Produzentenrente von Z grösser als die von X – nicht gleich."
+    explanation: "PR_X = P_X − DK_X = DK_{Y,Z} − DK_X (X verkauft auf dem Niveau der DK von Y/Z, hat aber selbst tiefere DK). PR_Z = P_Z − DK_Z = P_Z − DK_{Y,Z}. Es gibt keinen Grund, warum diese beiden Differenzen exakt gleich sein müssten – die Aussage ist daher falsch. (Option C bleibt korrekt: PR_X > 0, da P_X > DK_X.)"
   },
   {
     subject: "BWL II", set: "BWL2-SM", category: "Strategisches Management",
@@ -4344,6 +4368,174 @@ QUESTIONS.push(...[
   },
   {
     subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-RENT"],
+    prompt: "AI-Variante 1: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    rentScenarios: [
+      { label: "a", f1: { b: 11, p: 9, k: 5 }, f2: { b: 11, p: 7, k: 3 } },
+      { label: "b", f1: { b: 13, p: 10, k: 4 }, f2: { b: 15, p: 13, k: 8 } },
+      { label: "c", f1: { b: 9, p: 8, k: 3 }, f2: { b: 12, p: 9, k: 5 } },
+      { label: "d", f1: { b: 10, p: 8, k: 4 }, f2: { b: 13, p: 10, k: 6 } },
+      { label: "e", f1: { b: 12, p: 10, k: 6 }, f2: { b: 12, p: 8, k: 4 } },
+    ],
+    options: [
+      "a) Firma 1: B1=11, P1=9, K1=5; Firma 2: B2=11, P2=7, K2=3.",
+      "b) Firma 1: B1=13, P1=10, K1=4; Firma 2: B2=15, P2=13, K2=8.",
+      "c) Firma 1: B1=9, P1=8, K1=3; Firma 2: B2=12, P2=9, K2=5.",
+      "d) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=13, P2=10, K2=6.",
+      "e) Firma 1: B1=12, P1=10, K1=6; Firma 2: B2=12, P2=8, K2=4."
+    ],
+    correct: 1,
+    explanation: "In b) ist die Wertschöpfung von Firma 1 höher: 13 - 4 = 9 gegenüber 15 - 8 = 7. Dieser Wertschöpfungsvorsprung ist nicht angreifbar."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-RENT"],
+    prompt: "AI-Variante 2: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    rentScenarios: [
+      { label: "a", f1: { b: 14, p: 11, k: 6 }, f2: { b: 13, p: 9, k: 4 } },
+      { label: "b", f1: { b: 10, p: 9, k: 4 }, f2: { b: 11, p: 8, k: 4 } },
+      { label: "c", f1: { b: 16, p: 12, k: 7 }, f2: { b: 15, p: 11, k: 5 } },
+      { label: "d", f1: { b: 12, p: 9, k: 3 }, f2: { b: 14, p: 11, k: 6 } },
+      { label: "e", f1: { b: 9, p: 9, k: 3 }, f2: { b: 12, p: 8, k: 4 } },
+    ],
+    options: [
+      "a) Firma 1: B1=14, P1=11, K1=6; Firma 2: B2=13, P2=9, K2=4.",
+      "b) Firma 1: B1=10, P1=9, K1=4; Firma 2: B2=11, P2=8, K2=4.",
+      "c) Firma 1: B1=16, P1=12, K1=7; Firma 2: B2=15, P2=11, K2=5.",
+      "d) Firma 1: B1=12, P1=9, K1=3; Firma 2: B2=14, P2=11, K2=6.",
+      "e) Firma 1: B1=P1=9, K1=3; Firma 2: B2=12, P2=8, K2=4."
+    ],
+    correct: 3,
+    explanation: "In d) erzielt Firma 1 eine Wertschöpfung von 9, Firma 2 nur 8. Der Vorsprung bleibt auch im Preiswettbewerb erhalten."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-RENT"],
+    prompt: "AI-Variante 3: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    rentScenarios: [
+      { label: "a", f1: { b: 15, p: 12, k: 6 }, f2: { b: 14, p: 10, k: 4 } },
+      { label: "b", f1: { b: 11, p: 8, k: 2 }, f2: { b: 13, p: 11, k: 6 } },
+      { label: "c", f1: { b: 13, p: 10, k: 5 }, f2: { b: 13, p: 8, k: 4 } },
+      { label: "d", f1: { b: 10, p: 7, k: 3 }, f2: { b: 12, p: 9, k: 5 } },
+      { label: "e", f1: { b: 12, p: 9, k: 5 }, f2: { b: 15, p: 12, k: 7 } },
+    ],
+    options: [
+      "a) Firma 1: B1=15, P1=12, K1=6; Firma 2: B2=14, P2=10, K2=4.",
+      "b) Firma 1: B1=11, P1=8, K1=2; Firma 2: B2=13, P2=11, K2=6.",
+      "c) Firma 1: B1=13, P1=10, K1=5; Firma 2: B2=13, P2=8, K2=4.",
+      "d) Firma 1: B1=10, P1=7, K1=3; Firma 2: B2=12, P2=9, K2=5.",
+      "e) Firma 1: B1=12, P1=9, K1=5; Firma 2: B2=15, P2=12, K2=7."
+    ],
+    correct: 1,
+    explanation: "In b) ist Firma 1 überlegen: 11 - 2 = 9 gegenüber 13 - 6 = 7. Damit hat Firma 1 eine nicht angreifbare Produzentenrente."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-RENT"],
+    prompt: "AI-Variante 4: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    rentScenarios: [
+      { label: "a", f1: { b: 12, p: 9, k: 5 }, f2: { b: 13, p: 10, k: 6 } },
+      { label: "b", f1: { b: 16, p: 13, k: 8 }, f2: { b: 14, p: 11, k: 5 } },
+      { label: "c", f1: { b: 14, p: 11, k: 4 }, f2: { b: 15, p: 13, k: 7 } },
+      { label: "d", f1: { b: 10, p: 8, k: 3 }, f2: { b: 12, p: 9, k: 5 } },
+      { label: "e", f1: { b: 13, p: 10, k: 6 }, f2: { b: 13, p: 8, k: 5 } },
+    ],
+    options: [
+      "a) Firma 1: B1=12, P1=9, K1=5; Firma 2: B2=13, P2=10, K2=6.",
+      "b) Firma 1: B1=16, P1=13, K1=8; Firma 2: B2=14, P2=11, K2=5.",
+      "c) Firma 1: B1=14, P1=11, K1=4; Firma 2: B2=15, P2=13, K2=7.",
+      "d) Firma 1: B1=10, P1=8, K1=3; Firma 2: B2=12, P2=9, K2=5.",
+      "e) Firma 1: B1=13, P1=10, K1=6; Firma 2: B2=13, P2=8, K2=5."
+    ],
+    correct: 2,
+    explanation: "In c) ist die Wertschöpfung von Firma 1 grösser: 14 - 4 = 10 gegenüber 15 - 7 = 8."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-RENT"],
+    prompt: "AI-Variante 5: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    rentScenarios: [
+      { label: "a", f1: { b: 9, p: 7, k: 2 }, f2: { b: 11, p: 9, k: 5 } },
+      { label: "b", f1: { b: 13, p: 11, k: 6 }, f2: { b: 12, p: 8, k: 4 } },
+      { label: "c", f1: { b: 15, p: 12, k: 7 }, f2: { b: 14, p: 10, k: 5 } },
+      { label: "d", f1: { b: 12, p: 9, k: 4 }, f2: { b: 15, p: 13, k: 8 } },
+      { label: "e", f1: { b: 10, p: 8, k: 4 }, f2: { b: 10, p: 6, k: 3 } },
+    ],
+    options: [
+      "a) Firma 1: B1=9, P1=7, K1=2; Firma 2: B2=11, P2=9, K2=5.",
+      "b) Firma 1: B1=13, P1=11, K1=6; Firma 2: B2=12, P2=8, K2=4.",
+      "c) Firma 1: B1=15, P1=12, K1=7; Firma 2: B2=14, P2=10, K2=5.",
+      "d) Firma 1: B1=12, P1=9, K1=4; Firma 2: B2=15, P2=13, K2=8.",
+      "e) Firma 1: B1=10, P1=8, K1=4; Firma 2: B2=10, P2=6, K2=3."
+    ],
+    correct: 3,
+    explanation: "In d) hat Firma 1 den Wertschöpfungsvorsprung: 12 - 4 = 8 gegenüber 15 - 8 = 7."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-RENT"],
+    prompt: "AI-Variante 6: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    rentScenarios: [
+      { label: "a", f1: { b: 14, p: 12, k: 5 }, f2: { b: 16, p: 14, k: 9 } },
+      { label: "b", f1: { b: 12, p: 10, k: 5 }, f2: { b: 12, p: 7, k: 4 } },
+      { label: "c", f1: { b: 10, p: 8, k: 3 }, f2: { b: 13, p: 11, k: 6 } },
+      { label: "d", f1: { b: 15, p: 13, k: 8 }, f2: { b: 14, p: 10, k: 5 } },
+      { label: "e", f1: { b: 11, p: 9, k: 6 }, f2: { b: 12, p: 9, k: 6 } },
+    ],
+    options: [
+      "a) Firma 1: B1=14, P1=12, K1=5; Firma 2: B2=16, P2=14, K2=9.",
+      "b) Firma 1: B1=12, P1=10, K1=5; Firma 2: B2=12, P2=7, K2=4.",
+      "c) Firma 1: B1=10, P1=8, K1=3; Firma 2: B2=13, P2=11, K2=6.",
+      "d) Firma 1: B1=15, P1=13, K1=8; Firma 2: B2=14, P2=10, K2=5.",
+      "e) Firma 1: B1=11, P1=9, K1=6; Firma 2: B2=12, P2=9, K2=6."
+    ],
+    correct: 0,
+    explanation: "In a) schafft Firma 1 mehr Wert: 14 - 5 = 9 gegenüber 16 - 9 = 7. Nur dort ist Firma 1 klar nicht angreifbar."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-RENT"],
+    prompt: "AI-Variante 7: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    rentScenarios: [
+      { label: "a", f1: { b: 13, p: 10, k: 7 }, f2: { b: 12, p: 9, k: 5 } },
+      { label: "b", f1: { b: 11, p: 8, k: 4 }, f2: { b: 14, p: 12, k: 7 } },
+      { label: "c", f1: { b: 16, p: 14, k: 9 }, f2: { b: 15, p: 12, k: 6 } },
+      { label: "d", f1: { b: 12, p: 10, k: 4 }, f2: { b: 13, p: 11, k: 6 } },
+      { label: "e", f1: { b: 9, p: 7, k: 3 }, f2: { b: 11, p: 8, k: 5 } },
+    ],
+    options: [
+      "a) Firma 1: B1=13, P1=10, K1=7; Firma 2: B2=12, P2=9, K2=5.",
+      "b) Firma 1: B1=11, P1=8, K1=4; Firma 2: B2=14, P2=12, K2=7.",
+      "c) Firma 1: B1=16, P1=14, K1=9; Firma 2: B2=15, P2=12, K2=6.",
+      "d) Firma 1: B1=12, P1=10, K1=4; Firma 2: B2=13, P2=11, K2=6.",
+      "e) Firma 1: B1=9, P1=7, K1=3; Firma 2: B2=11, P2=8, K2=5."
+    ],
+    correct: 3,
+    explanation: "In d) beträgt die Wertschöpfung von Firma 1 8, jene von Firma 2 7. Der Unterschied ist die nicht angreifbare Produzentenrente."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
+    decks: ["BWL2-MATH", "BWL2-MATH-RENT"],
+    prompt: "AI-Variante 8: In welcher Situation besitzt Firma 1 eine «nichtangreifbare Produzentenrente»? (B: Wertschätzung; K: Stückkosten; P: Preis)",
+    rentScenarios: [
+      { label: "a", f1: { b: 12, p: 10, k: 6 }, f2: { b: 12, p: 7, k: 3 } },
+      { label: "b", f1: { b: 15, p: 12, k: 6 }, f2: { b: 17, p: 15, k: 10 } },
+      { label: "c", f1: { b: 10, p: 8, k: 2 }, f2: { b: 13, p: 10, k: 6 } },
+      { label: "d", f1: { b: 14, p: 11, k: 7 }, f2: { b: 14, p: 9, k: 5 } },
+      { label: "e", f1: { b: 11, p: 9, k: 5 }, f2: { b: 13, p: 10, k: 6 } },
+    ],
+    options: [
+      "a) Firma 1: B1=12, P1=10, K1=6; Firma 2: B2=12, P2=7, K2=3.",
+      "b) Firma 1: B1=15, P1=12, K1=6; Firma 2: B2=17, P2=15, K2=10.",
+      "c) Firma 1: B1=10, P1=8, K1=2; Firma 2: B2=13, P2=10, K2=6.",
+      "d) Firma 1: B1=14, P1=11, K1=7; Firma 2: B2=14, P2=9, K2=5.",
+      "e) Firma 1: B1=11, P1=9, K1=5; Firma 2: B2=13, P2=10, K2=6."
+    ],
+    correct: 1,
+    explanation: "In b) ist Firma 1 wertschöpfungsstärker: 15 - 6 = 9 gegenüber 17 - 10 = 7."
+  },
+  {
+    subject: "BWL II", set: "BWL2-MATH-AI", category: "Strategisches Management",
     decks: ["BWL2-MATH"],
     prompt: "In einer Branche existieren zwei Firmen A und B. Die Preise (P), die Durchschnittskosten (DK) sowie die Qualität ihrer Produkte sind gegeben. Welche Aussage zur dargestellten Situation ist am ehesten richtig?",
     visual: "ai-math-q8-indifference",
@@ -4716,7 +4908,7 @@ QUESTIONS.forEach(q => {
   let categoryDeck = "";
 
   if (visual.includes("producer-rent")) categoryDeck = "BWL2-MATH-RENT";
-  else if (visual.includes("indifference") || visual.includes("effizienzgrenze")) categoryDeck = "BWL2-MATH-INDIFF";
+  else if (visual.includes("indifference")) categoryDeck = "BWL2-MATH-INDIFF";
   else if (visual.includes("experience")) categoryDeck = "BWL2-MATH-EXPERIENCE";
   else if (
     visual.includes("value-table") ||
@@ -4740,7 +4932,13 @@ QUESTIONS.forEach(q => {
   }
 });
 
-QUESTIONS.forEach(q => { q.id = hashId(q.prompt); });
+const seenQuestionIds = new Map();
+QUESTIONS.forEach(q => {
+  const baseId = hashId(q.prompt);
+  const seen = seenQuestionIds.get(baseId) || 0;
+  seenQuestionIds.set(baseId, seen + 1);
+  q.id = seen ? `${baseId}-${seen + 1}` : baseId;
+});
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PERSISTENCE — local storage + optional GitHub Gist sync
@@ -5783,7 +5981,8 @@ function loadCurrent() {
   state.answered = false;
   state.picked = -1;
   const q = QUESTIONS[state.order[state.idx]];
-  state.optionOrder = shuffle(q.options.map((_, i) => i));
+  const orderedOptions = q.options.map((_, i) => i);
+  state.optionOrder = isProducerRentQuestion(q) ? orderedOptions : shuffle(orderedOptions);
 }
 
 function renderQuiz() {
@@ -5808,16 +6007,8 @@ function renderQuiz() {
         ${renderSourceBadge(q)}
       </div>
       <div class="question-text">${escapeHtml(q.prompt)}</div>
-      ${renderQuestionVisual(q.visual)}
-      <div class="options" id="options">
-        ${state.optionOrder.map((origIdx, displayIdx) => {
-          const letter = "ABCDE"[displayIdx];
-          return `<button class="option" data-i="${displayIdx}">
-            <span class="option-letter">${letter}</span>
-            <span>${escapeHtml(q.options[origIdx])}</span>
-          </button>`;
-        }).join("")}
-      </div>
+      ${isProducerRentQuestion(q) ? "" : renderQuestionVisual(q.visual)}
+      ${renderQuestionOptions(q)}
       <div id="feedbackSlot"></div>
     </div>
   `;
@@ -5827,6 +6018,65 @@ function renderQuiz() {
     b.addEventListener("click", () => pickAnswer(parseInt(b.dataset.i, 10)));
   });
   startQuestionTimer();
+}
+
+function renderQuestionOptions(q) {
+  if (isProducerRentQuestion(q)) return renderProducerRentOptions(q);
+  return `
+    <div class="options" id="options">
+      ${state.optionOrder.map((origIdx, displayIdx) => {
+        const letter = "ABCDE"[displayIdx];
+        return `<button class="option" data-i="${displayIdx}">
+          <span class="option-letter">${letter}</span>
+          <span>${escapeHtml(q.options[origIdx])}</span>
+        </button>`;
+      }).join("")}
+    </div>
+  `;
+}
+
+function isProducerRentQuestion(q) {
+  return rentScenariosForQuestion(q).length === q.options.length && q.options.length > 0;
+}
+
+function producerRentScenarios() {
+  return [
+    { label: "a", f1: { b: 10, p: 8, k: 4 }, f2: { b: 10, p: 4, k: 2 } },
+    { label: "b", f1: { b: 10, p: 8, k: 4 }, f2: { b: 8, p: 5, k: 2 } },
+    { label: "c", f1: { b: 8, p: 6, k: 2 }, f2: { b: 10, p: 9, k: 5 } },
+    { label: "d", f1: { b: 6, p: 6, k: 2 }, f2: { b: 10, p: 6, k: 4 } },
+    { label: "e", f1: { b: 10, p: 8, k: 4 }, f2: { b: 10, p: 6, k: 4 } },
+  ];
+}
+
+function aiProducerRentScenarios() {
+  return [
+    { label: "a", f1: { b: 12, p: 10, k: 5 }, f2: { b: 12, p: 6, k: 3 } },
+    { label: "b", f1: { b: 12, p: 9, k: 5 }, f2: { b: 10, p: 6, k: 3 } },
+    { label: "c", f1: { b: 12, p: 9, k: 3 }, f2: { b: 14, p: 13, k: 7 } },
+    { label: "d", f1: { b: 8, p: 8, k: 3 }, f2: { b: 13, p: 8, k: 5 } },
+    { label: "e", f1: { b: 12, p: 9, k: 5 }, f2: { b: 12, p: 7, k: 5 } },
+  ];
+}
+
+function rentScenariosForQuestion(q) {
+  if (Array.isArray(q.rentScenarios)) return q.rentScenarios;
+  if (q.visual === "jun17-sm-q5-producer-rent") return producerRentScenarios();
+  if (q.visual === "ai-math-q5-producer-rent") return aiProducerRentScenarios();
+  return [];
+}
+
+function renderProducerRentOptions(q) {
+  const scenarios = rentScenariosForQuestion(q);
+  return `
+    <div class="options rent-options" id="options">
+      ${state.optionOrder.map((origIdx, displayIdx) => `
+        <button class="option rent-option" data-i="${displayIdx}" aria-label="${escapeHtml(q.options[origIdx])}">
+          ${renderRentScenario(scenarios[origIdx])}
+        </button>
+      `).join("")}
+    </div>
+  `;
 }
 
 function renderQuestionVisual(visual) {
@@ -5984,36 +6234,40 @@ function renderFs25EffizienzgrenzeVisual() {
         <text x="56" y="40"  font-size="18" font-weight="700">DK, P</text>
         <text x="620" y="358" font-size="18" font-weight="700" text-anchor="end">Qualität</text>
 
-        <line x1="80" y1="80"  x2="260" y2="80"  stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
-        <line x1="80" y1="150" x2="460" y2="150" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
-        <line x1="80" y1="240" x2="460" y2="240" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
+        <!-- Horizontal reference lines (top to bottom): P_Y, P_Z, P_X = DK_{Y,Z}, DK_X -->
+        <line x1="80" y1="70"  x2="260" y2="70"  stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
+        <line x1="80" y1="140" x2="460" y2="140" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
+        <line x1="80" y1="200" x2="460" y2="200" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
         <line x1="80" y1="280" x2="260" y2="280" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
-        <line x1="260" y1="80"  x2="260" y2="330" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
-        <line x1="460" y1="150" x2="460" y2="330" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
+        <line x1="260" y1="70"  x2="260" y2="330" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
+        <line x1="460" y1="140" x2="460" y2="330" stroke="#374151" stroke-width="1.4" stroke-dasharray="6 6"/>
 
-        <!-- Effizienzgrenze: monotonically increasing DK with quality; passes through X (260,280) and Z (460,150) -->
-        <path d="M110 320 C170 308 220 295 260 280 C330 240 410 195 460 150 C500 118 540 92 580 70"
+        <!-- Effizienzgrenze: passes through (Q_X, DK_X) = (260, 280) and (Q_Z, DK_{Y,Z}) = (460, 200) -->
+        <path d="M120 320 C170 308 220 295 260 280 C320 255 400 225 460 200 C500 175 540 145 580 110"
               fill="none" stroke="#111" stroke-width="2.4"/>
-        <text x="500" y="118" font-size="15" font-weight="700">Effizienzgrenze</text>
+        <text x="500" y="172" font-size="15" font-weight="700">Effizienzgrenze</text>
 
-        <!-- Indifferenzkurve: convex, downward sloping; passes through Y (260,80) and Z (460,150) -->
-        <path d="M195 50 C220 62 245 73 260 80 C320 100 400 130 460 150 C510 168 555 185 580 200"
+        <!-- Indifferenzkurve: convex, downward sloping; passes through Y (260,70) and Z (460,140) -->
+        <path d="M205 40 C225 50 248 60 260 70 C320 90 400 115 460 140 C510 158 555 175 580 195"
               fill="none" stroke="#111" stroke-width="1.6" stroke-dasharray="5 4"/>
-        <text x="500" y="190" font-size="15" font-weight="700">Indifferenzkurve</text>
+        <text x="500" y="124" font-size="15" font-weight="700">Indifferenzkurve</text>
 
-        <circle cx="260" cy="80"  r="6" fill="#111"/>
-        <circle cx="460" cy="150" r="6" fill="#111"/>
-        <circle cx="260" cy="280" r="6" fill="#111"/>
+        <!-- Points: Y top, Z middle-right, X on P_X line -->
+        <circle cx="260" cy="70"  r="6" fill="#111"/>
+        <circle cx="460" cy="140" r="6" fill="#111"/>
+        <circle cx="260" cy="200" r="6" fill="#111"/>
 
-        <text x="244" y="74"  font-size="15" font-weight="700">Y</text>
-        <text x="474" y="148" font-size="15" font-weight="700">Z</text>
-        <text x="244" y="298" font-size="15" font-weight="700">X</text>
+        <text x="270" y="64"  font-size="15" font-weight="700">Y</text>
+        <text x="470" y="135" font-size="15" font-weight="700">Z</text>
+        <text x="270" y="220" font-size="15" font-weight="700">X</text>
 
-        <text x="74" y="84"  text-anchor="end" font-size="14" font-weight="700">P<tspan baseline-shift="sub" font-size="10">Y</tspan></text>
-        <text x="74" y="154" text-anchor="end" font-size="14" font-weight="700">P<tspan baseline-shift="sub" font-size="10">Z</tspan></text>
-        <text x="74" y="244" text-anchor="end" font-size="14" font-weight="700">DK<tspan baseline-shift="sub" font-size="10">Y</tspan> = DK<tspan baseline-shift="sub" font-size="10">Z</tspan></text>
-        <text x="74" y="284" text-anchor="end" font-size="14" font-weight="700">P<tspan baseline-shift="sub" font-size="10">X</tspan> = DK<tspan baseline-shift="sub" font-size="10">X</tspan></text>
+        <!-- Y-axis labels -->
+        <text x="74" y="74"  text-anchor="end" font-size="14" font-weight="700">P<tspan baseline-shift="sub" font-size="10">Y</tspan></text>
+        <text x="74" y="144" text-anchor="end" font-size="14" font-weight="700">P<tspan baseline-shift="sub" font-size="10">Z</tspan></text>
+        <text x="74" y="204" text-anchor="end" font-size="14" font-weight="700">P<tspan baseline-shift="sub" font-size="10">X</tspan> = DK<tspan baseline-shift="sub" font-size="10">Y,Z</tspan></text>
+        <text x="74" y="284" text-anchor="end" font-size="14" font-weight="700">DK<tspan baseline-shift="sub" font-size="10">X</tspan></text>
 
+        <!-- X-axis labels -->
         <text x="260" y="354" text-anchor="middle" font-size="14" font-weight="700">Q<tspan baseline-shift="sub" font-size="10">X,Y</tspan></text>
         <text x="460" y="354" text-anchor="middle" font-size="14" font-weight="700">Q<tspan baseline-shift="sub" font-size="10">Z</tspan></text>
       </svg>
