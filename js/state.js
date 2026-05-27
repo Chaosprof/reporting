@@ -150,11 +150,11 @@ const EXAM_PREP_DECKS = [
   { id: "exam-2026-05-24", subject: "Financial Reporting", label: "May 24 Sunday",    sub: "Recitation 1 + Additional Exercises 1", sets: ["R1", "AE1"] },
   { id: "exam-2026-05-25", subject: "Financial Reporting", label: "May 25 Monday",    sub: "Recitation 2 + Additional Exercises 2", sets: ["R2", "AE2"] },
   { id: "exam-2026-05-26", subject: "Financial Reporting", label: "May 26 Tuesday",   sub: "Recitation 1-2 + Additional Exercises 1-2", sets: ["R1", "R2", "AE1", "AE2"] },
-  { id: "exam-2026-05-27", subject: "Financial Reporting", label: "May 27 Wednesday", sub: "Recitation 3 + Additional Exercises 3", sets: ["R3", "AE3"] },
-  { id: "exam-2026-05-28", subject: "Financial Reporting", label: "May 28 Thursday",  sub: "Recitation 2-3 + Additional Exercises 2-3", sets: ["R2", "R3", "AE2", "AE3"] },
-  { id: "exam-2026-05-29", subject: "Financial Reporting", label: "May 29 Friday",    sub: "All recitations + all additional exercises", sets: ["R1", "R2", "R3", "AE1", "AE2", "AE3"] },
-  { id: "exam-2026-05-30", subject: "Financial Reporting", label: "May 30 Saturday",  sub: "All recitations + all additional exercises", sets: ["R1", "R2", "R3", "AE1", "AE2", "AE3"] },
-  { id: "exam-2026-05-31", subject: "Financial Reporting", label: "May 31 Sunday",    sub: "All recitations + all additional exercises", sets: ["R1", "R2", "R3", "AE1", "AE2", "AE3"] },
+  { id: "exam-2026-05-27-practice-exams", subject: "Financial Reporting", label: "May 27 Wednesday", sub: "Practice Exams 1-2", sets: ["PE1", "PE2"] },
+  { id: "exam-2026-05-28", subject: "Financial Reporting", label: "May 28 Thursday",  sub: "Recitation 3 + Additional Exercises 3", sets: ["R3", "AE3"], progressId: "exam-2026-05-27" },
+  { id: "exam-2026-05-29", subject: "Financial Reporting", label: "May 29 Friday",    sub: "Recitation 2-3 + Additional Exercises 2-3", sets: ["R2", "R3", "AE2", "AE3"], progressId: "exam-2026-05-28" },
+  { id: "exam-2026-05-30", subject: "Financial Reporting", label: "May 30 Saturday",  sub: "All recitations + all additional exercises", sets: ["R1", "R2", "R3", "AE1", "AE2", "AE3"], progressId: "exam-2026-05-29" },
+  { id: "exam-2026-05-31", subject: "Financial Reporting", label: "May 31 Sunday",    sub: "All recitations + all additional exercises", sets: ["R1", "R2", "R3", "AE1", "AE2", "AE3"], progressId: "exam-2026-05-30" },
 ];
 
 // Curated decks (course handouts + AI variants).
@@ -171,6 +171,8 @@ const DECKS = [
   { id: "R2+AI",    subject: "Financial Reporting", label: "Recitation 2 + AI",           sub: "Handout + AI add-ons",  sets: ["R2", "R2-AI"] },
   { id: "R3",       subject: "Financial Reporting", label: "Recitation 3",                sub: "Course handout",        sets: ["R3"] },
   { id: "R3+AI",    subject: "Financial Reporting", label: "Recitation 3 + AI",           sub: "Handout + AI add-ons",  sets: ["R3", "R3-AI"] },
+  { id: "PE1",      subject: "Financial Reporting", label: "Probeprufung 1",              sub: "Practice Exam 2026",    sets: ["PE1"] },
+  { id: "PE2",      subject: "Financial Reporting", label: "Probeprufung 2",              sub: "Practice Exam 2026",    sets: ["PE2"] },
   { id: "BWL2-SM",  subject: "BWL II",              label: "Teil 1: Strategisches Management", sub: "Probeprüfung 2017", sets: ["BWL2-SM"] },
   { id: "BWL2-HRM", subject: "BWL II",              label: "Teil 2: Human Resource Management", sub: "Probeprüfung 2017", sets: ["BWL2-HRM"] },
   { id: "BWL2-ORG", subject: "BWL II",              label: "Teil 3: Organisation",        sub: "Probeprüfung 2017",     sets: ["BWL2-ORG"] },

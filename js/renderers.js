@@ -36,6 +36,8 @@ const QUESTION_SOURCE_LABELS = {
   "R2-AI": "AI",
   R3: "Recitation 3",
   "R3-AI": "AI",
+  PE1: "Practice Exam 2026-1",
+  PE2: "Practice Exam 2026-2",
   "BWL2-SM": "Probeprufung 2017",
   "BWL2-HRM": "Probeprufung 2017",
   "BWL2-ORG": "Probeprufung 2017",
@@ -67,8 +69,13 @@ function renderSourceBadge(q) {
   return `<span class="source-tag ${source.kind}" title="Question source: ${escapeHtml(source.label)}">${escapeHtml(source.label)}</span>`;
 }
 
-function deckBestResult(deckId) {
-  return (state.data.deckBestResults || {})[deckId] || null;
+function deckProgressId(deckOrId) {
+  const deck = typeof deckOrId === "string" ? getDeckById(deckOrId) : deckOrId;
+  return (deck && (deck.progressId || deck.id)) || String(deckOrId || "");
+}
+
+function deckBestResult(deckOrId) {
+  return (state.data.deckBestResults || {})[deckProgressId(deckOrId)] || null;
 }
 
 function deckResultBadge(pct) {
@@ -90,7 +97,7 @@ function renderDeckCards(decks, countLabel) {
     <div class="deck-grid" id="deckGrid">
       ${decks.map(d => {
         const n = deckPool(d).length;
-        const best = deckBestResult(d.id);
+        const best = deckBestResult(d);
         const hasBest = best && Number.isFinite(Number(best.pct));
         const pct = hasBest ? Math.max(0, Math.min(100, Math.round(Number(best.pct)))) : 0;
         const badge = hasBest ? deckResultBadge(pct) : null;
@@ -1896,6 +1903,7 @@ function recordCompletedDeckResult(scoredTotal, pct) {
   if (state.mode !== "deck" || !state.deckId || !scoredTotal) return;
 
   const deck = getDeckById(state.deckId);
+  const progressId = deckProgressId(deck || state.deckId);
   const result = {
     pct,
     score: state.score,
@@ -1904,8 +1912,8 @@ function recordCompletedDeckResult(scoredTotal, pct) {
     label: deck ? deck.label : state.deckId,
   };
   state.data.deckBestResults = { ...(state.data.deckBestResults || {}) };
-  if (isBetterDeckResult(result, state.data.deckBestResults[state.deckId])) {
-    state.data.deckBestResults[state.deckId] = result;
+  if (isBetterDeckResult(result, state.data.deckBestResults[progressId])) {
+    state.data.deckBestResults[progressId] = result;
     state.data.lastUpdated = Date.now();
     queueGistSave(state.data);
   }

@@ -3,6 +3,7 @@
 (async function boot() {
   const questionFiles = [
     "accounting",
+    "accounting-practice-exams",
     "bwl-fruhjahr-2017",
     "bwl-fs25",
     "bwl-jun17-sm",
