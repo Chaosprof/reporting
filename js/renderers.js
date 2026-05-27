@@ -1821,6 +1821,7 @@ function pickAnswer(displayIdx, timedOut = false) {
     playHappyPonySound();
   } else if (answerKeyAvailable) {
     state.streak = 0;
+    showPonyOfDeath();
     playSadViolinSound();
     state.wrong.push({
       questionIndex,
@@ -1887,6 +1888,7 @@ function renderTAccount(entry) {
 }
 
 function next() {
+  hidePonyReward();
   if (state.idx + 1 < state.order.length) {
     state.idx++;
     loadCurrent();

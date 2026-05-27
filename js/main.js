@@ -15,15 +15,21 @@
   try {
     const [
       ponyImages,
+      blackPonyImages,
+      ponyProfiles,
       prefixes,
       ...questionGroups
     ] = await Promise.all([
       fetch("data/pony-images.json").then(r => r.json()),
+      fetch("data/black-pony-images.json").then(r => r.json()),
+      fetch("data/pony-profiles.json").then(r => r.json()),
       fetch("data/bwl-both-source-prefixes.json").then(r => r.json()),
       ...questionFiles.map(name => fetch(`data/questions/${name}.json`).then(r => r.json())),
     ]);
 
     PONY_IMAGES.push(...ponyImages);
+    BLACK_PONY_IMAGES.push(...blackPonyImages);
+    Object.assign(PONY_PROFILES, ponyProfiles);
     BWL_BOTH_SOURCE_PREFIXES = prefixes;
     for (const group of questionGroups) QUESTIONS.push(...group);
 
