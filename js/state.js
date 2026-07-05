@@ -2,6 +2,7 @@
 const SUBJECTS = [
   { id: "Financial Reporting", label: "Financial Reporting" },
   { id: "BWL II",              label: "BWL II" },
+  { id: "Statistik",           label: "Methoden & Statistik" },
 ];
 const SUBJECT_KEY = "quiz-subject";
 const DEFAULT_SUBJECT = "Financial Reporting";
@@ -187,6 +188,13 @@ const DECKS = [
   { id: "BWL2-JUN17-HRM", subject: "BWL II",        label: "Juni 2017: Human Resource Management", sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-HRM"] },
   { id: "BWL2-JUN17-ORG", subject: "BWL II",        label: "Juni 2017: Organisation",    sub: "Assessmentprüfung 2017", sets: ["BWL2-JUN17-ORG"] },
   { id: "BWL2-UBUNG",     subject: "BWL II",        label: "Strategisches Management Übung/Klicker", sub: "Strategisches Management FS26", sets: ["BWL2-UBUNG"] },
+  { id: "STAT-W1", subject: "Statistik", label: "Woche 1", sub: "Grundlagen: Statistik & R",     sets: ["STAT-W1-TEST", "STAT-W1-UEB"] },
+  { id: "STAT-W2", subject: "Statistik", label: "Woche 2", sub: "Daten & Datenframes",           sets: ["STAT-W2-TEST", "STAT-W2-UEB"] },
+  { id: "STAT-W3", subject: "Statistik", label: "Woche 3", sub: "Konzepte & Messung",            sets: ["STAT-W3-TEST", "STAT-W3-UEB"] },
+  { id: "STAT-W4", subject: "Statistik", label: "Woche 4", sub: "Visualisierung",                sets: ["STAT-W4-TEST", "STAT-W4-UEB"] },
+  { id: "STAT-W5", subject: "Statistik", label: "Woche 5", sub: "Deskriptive Statistik",         sets: ["STAT-W5-TEST", "STAT-W5-UEB"] },
+  { id: "STAT-W6", subject: "Statistik", label: "Woche 6", sub: "Verteilungen",                  sets: ["STAT-W6-TEST", "STAT-W6-UEB"] },
+  { id: "STAT-W7", subject: "Statistik", label: "Woche 7", sub: "Wahrscheinlichkeitsrechnung",   sets: ["STAT-W7-TEST", "STAT-W7-UEB"] },
 ];
 
 function deckPool(deck) {
