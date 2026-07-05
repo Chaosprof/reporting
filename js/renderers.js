@@ -51,6 +51,10 @@ const QUESTION_SOURCE_LABELS = {
 };
 
 function questionSource(q) {
+  const statMatch = String(q.set || "").match(/^STAT-W(\d+)-(TEST|UEB)$/);
+  if (statMatch) {
+    return { label: `Woche ${statMatch[1]} · ${statMatch[2] === "TEST" ? "Test" : "Übungstest"}`, kind: "problemset" };
+  }
   if (QUESTION_SOURCE_LABELS[q.set] === "AI" || String(q.set || "").endsWith("-AI")) {
     return { label: "AI", kind: "ai" };
   }
@@ -184,6 +188,8 @@ function renderStart() {
   stopQuestionTimer();
   const subjectPool = subjectIndices(state.subject);
   const isBWL = state.subject === "BWL II";
+  const isStats = state.subject === "Statistik";
+  const isGerman = isBWL || isStats;
   const total = subjectPool.length;
   const selected = isBWL
     ? bwlSelectedPool().length
@@ -196,14 +202,16 @@ function renderStart() {
   const hasStats = seenCount > 0;
   const decks = isBWL ? activeDecks().filter(d => d.id.startsWith("BWL2-MATH")) : [];
 
-  const heroTitle = isBWL ? "BWL II Trainer" : "Journal Entry Trainer";
-  const heroSub   = isBWL ? "Strategie · HRM · Organisation" : "Debit the receiver · credit the giver";
+  const heroTitle = isBWL ? "BWL II Trainer" : isStats ? "Einführung Methoden & Statistik" : "Journal Entry Trainer";
+  const heroSub   = isBWL ? "Strategie · HRM · Organisation" : isStats ? "Woche 1–7 · Tests & Übungstests" : "Debit the receiver · credit the giver";
 
   const sectionTitles = isBWL
     ? { decks: "Themenblöcke", timer: "Timer", timerHint: "(pro Frage, optional)", start: "Quiz starten", weakLabel: "Schwächste üben" }
+    : isStats
+    ? { decks: "Wochen", timer: "Timer", timerHint: "(pro Frage, optional)", start: "Quiz starten", weakLabel: "Schwächste üben" }
     : { decks: "Curated decks", timer: "Timer", timerHint: "(per question, optional)", start: "Start Quiz", weakLabel: "Practice your weakest" };
 
-  const keyboardHint = isBWL
+  const keyboardHint = isGerman
     ? `Tasten: <span class="kbd">A</span><span class="kbd">B</span><span class="kbd">C</span><span class="kbd">D</span><span class="kbd">E</span> für Antwort · <span class="kbd">Enter</span> / <span class="kbd">Space</span> für weiter`
     : `Keyboard: <span class="kbd">A</span><span class="kbd">B</span><span class="kbd">C</span><span class="kbd">D</span> to answer · <span class="kbd">Enter</span> / <span class="kbd">Space</span> for next`;
 
@@ -225,6 +233,9 @@ function renderStart() {
       <h2>Practice decks</h2>
       ${renderDeckCards(decks, n => `Frage${n !== 1 ? "n" : ""}`)}
       ` : ""}
+      ` : isStats ? `
+      <h2>${escapeHtml(sectionTitles.decks)}</h2>
+      ${renderDeckCards(activeDecks(), n => `Frage${n !== 1 ? "n" : ""}`)}
       ` : `
       <h2>${escapeHtml(sectionTitles.decks)}</h2>
       ${renderAccountingDeckSelector()}
@@ -232,13 +243,13 @@ function renderStart() {
       <h2>${escapeHtml(sectionTitles.timer)} <span style="font-weight:400;color:var(--faint);font-size:0.78rem;font-family:var(--font-sans);">${escapeHtml(sectionTitles.timerHint)}</span></h2>
       <div class="timer-control" id="timerControl">
         ${TIMER_OPTIONS.map(t => {
-          const label = isBWL && t.seconds === 0 ? "Ohne Timer" : t.label;
+          const label = isGerman && t.seconds === 0 ? "Ohne Timer" : t.label;
           return `<button class="timer-chip ${state.timerSeconds === t.seconds ? "active" : ""}" data-seconds="${t.seconds}">${escapeHtml(label)}</button>`;
         }).join("")}
       </div>
-      ${isBWL ? `
+      ${isBWL || isStats ? `
       <button class="btn btn-primary" id="startBtn" ${selected ? "" : "disabled"}>
-        ${escapeHtml(sectionTitles.start)} · ${selected} ${isBWL ? "Frage" + (selected !== 1 ? "n" : "") : "question" + (selected !== 1 ? "s" : "")}
+        ${escapeHtml(sectionTitles.start)} · ${selected} ${isGerman ? "Frage" + (selected !== 1 ? "n" : "") : "question" + (selected !== 1 ? "s" : "")}
       </button>
       ` : ""}
       <div class="secondary-action-row">
@@ -246,10 +257,10 @@ function renderStart() {
           <span class="label">
             <span>${escapeHtml(sectionTitles.weakLabel)} ${weakCount || 0}</span>
             <span class="meta">${hasStats
-              ? (isBWL
+              ? (isGerman
                   ? `Aus ${seenCount} versuchten · ${totalAttempts()} Antworten insgesamt`
                   : `Drawn from ${seenCount} attempted · ${totalAttempts()} total answers`)
-              : (isBWL
+              : (isGerman
                   ? "Erst ein paar Fragen beantworten, um ein Schwächenprofil aufzubauen"
                   : "Answer some questions first to build a weakness profile")}</span>
           </span>
@@ -568,6 +579,7 @@ function renderQuiz() {
       </div>
       <div class="question-text">${renderRichText(prompt)}</div>
       ${isProducerRentQuestion(q) || isValueMapQuestion(q) ? "" : renderQuestionVisual(q.visual)}
+      ${renderQuestionExtras(q)}
       ${renderQuestionOptions(q)}
       <div id="feedbackSlot"></div>
     </div>
@@ -640,6 +652,52 @@ function renderProducerRentOptions(q) {
           ${renderRentScenario(scenarios[origIdx])}
         </button>
       `).join("")}
+    </div>
+  `;
+}
+
+// Data-driven extras (used by the Statistik decks): an optional image, a code
+// block, and/or a data table attached directly to the question JSON.
+function renderQuestionExtras(q) {
+  let html = "";
+  if (q.image) html += renderQuestionImage(q.image);
+  if (q.code)  html += renderQuestionCode(q.code);
+  if (q.table) html += renderQuestionTable(q.table);
+  return html;
+}
+
+function renderQuestionImage(name) {
+  const src = `data/visuals/${name}`;
+  return `
+    <div class="question-visual source-question-visual">
+      <img class="source-visual-image" src="${escapeHtml(src)}" alt=""
+           onerror="this.parentElement.style.display='none'">
+    </div>
+  `;
+}
+
+function renderQuestionCode(code) {
+  // Plain escaping (not renderRichText) so code is shown verbatim, and <pre>
+  // preserves the indentation that .question-text's pre-line would collapse.
+  return `<pre class="code-block"><code>${escapeHtml(code)}</code></pre>`;
+}
+
+function renderQuestionTable(t) {
+  const title = t.title ? `<div class="q-table-title">${escapeHtml(t.title)}</div>` : "";
+  const meta = Array.isArray(t.meta)
+    ? t.meta.map(m => `<div class="q-table-meta">${escapeHtml(m)}</div>`).join("")
+    : "";
+  const head = Array.isArray(t.headers)
+    ? `<thead><tr>${t.headers.map(h => `<th>${escapeHtml(h)}</th>`).join("")}</tr></thead>`
+    : "";
+  const body = `<tbody>${(t.rows || []).map(r =>
+    `<tr>${r.map(c => `<td>${escapeHtml(c)}</td>`).join("")}</tr>`).join("")}</tbody>`;
+  const note = t.note ? `<div class="q-table-note">${escapeHtml(t.note)}</div>` : "";
+  return `
+    <div class="question-visual q-data-table-wrap">
+      ${title}${meta}
+      <table class="q-data-table">${head}${body}</table>
+      ${note}
     </div>
   `;
 }

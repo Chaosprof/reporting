@@ -1,0 +1,2363 @@
+[
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-TEST",
+    "category": "Woche 1",
+    "prompt": "Für welche Methode brauchen wir keine Statistik?",
+    "options": [
+      "Computergestützte Textanalysen",
+      "Auswertung von Fokusgruppen",
+      "Auswertung von standardisierten Umfragen",
+      "Auswertung von Experimenten",
+      "Auswertung von Quasi-Experimenten"
+    ],
+    "correct": 1,
+    "explanation": "Fokusgruppen sind eine qualitative Methode und werden interpretativ, nicht statistisch, ausgewertet."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-TEST",
+    "category": "Woche 1",
+    "prompt": "Welche Art von Software ist R?",
+    "options": [
+      "Spyware",
+      "Proprietäre Software",
+      "Shareware",
+      "Adware",
+      "Open Source"
+    ],
+    "correct": 4,
+    "explanation": "R ist kostenlose Open-Source-Software."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-TEST",
+    "category": "Woche 1",
+    "prompt": "Quantitative vs. qualitative Forschung — richtig oder falsch?\n«Bei quantitativer Forschung werden grosse Datenmengen mit statistischen Verfahren ausgewertet.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-TEST",
+    "category": "Woche 1",
+    "prompt": "Quantitative vs. qualitative Forschung — richtig oder falsch?\n«Bei mixed Methods werden sowohl quantitative als auch qualitative Methoden verwendet.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-TEST",
+    "category": "Woche 1",
+    "prompt": "Quantitative vs. qualitative Forschung — richtig oder falsch?\n«Die Auswertung von Fokusgruppen ist eine typische quantitative Methode.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Fokusgruppen sind eine qualitative Methode."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-TEST",
+    "category": "Woche 1",
+    "prompt": "Quantitative vs. qualitative Forschung — richtig oder falsch?\n«Die Dokumentenanalyse ist eine typische qualitative Methode.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-TEST",
+    "category": "Woche 1",
+    "prompt": "R Studio — richtig oder falsch?\n«Mit Ctrl/Cmd + Enter können wir eine Zeile im R-Skript ausführen.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-TEST",
+    "category": "Woche 1",
+    "prompt": "R Studio — richtig oder falsch?\n«Um R verwenden zu können, muss R Studio auf dem Gerät installiert sein.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "R läuft auch ohne R Studio. R Studio ist nur eine (optionale) Entwicklungsumgebung für R."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-TEST",
+    "category": "Woche 1",
+    "prompt": "R Studio — richtig oder falsch?\n«R-Skripte haben die Endung .rscript.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "R-Skripte haben die Endung .R"
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-TEST",
+    "category": "Woche 1",
+    "prompt": "R Studio — richtig oder falsch?\n«Dank der R-Konsole kann Code gespeichert und mit anderen Personen geteilt werden.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "In der Konsole ausgeführter Code wird nicht gespeichert. Zum Speichern und Teilen dient das R-Skript."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-UEB",
+    "category": "Woche 1",
+    "prompt": "Wie teuer ist R?",
+    "options": [
+      "120 CHF",
+      "50 CHF / Semester",
+      "kostenlos",
+      "10 CHF / Monat",
+      "100 CHF / Jahr"
+    ],
+    "correct": 2,
+    "explanation": "R ist kostenlose Open-Source-Software."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-UEB",
+    "category": "Woche 1",
+    "prompt": "Für welche Methode brauchen wir Statistik?",
+    "options": [
+      "einzelne Beobachtungen",
+      "Standardisierte Umfragen",
+      "Dokumentenanalyse",
+      "Fokusgruppen",
+      "offene Einzelinterviews"
+    ],
+    "correct": 1,
+    "explanation": "Standardisierte Umfragen liefern grosse, strukturierte Datenmengen, die statistisch ausgewertet werden. Die übrigen sind qualitative Methoden."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-UEB",
+    "category": "Woche 1",
+    "prompt": "Quantitative vs. qualitative Forschung — richtig oder falsch?\n«Bei qualitativer Forschung verwenden wir grosse Datenmengen, die wir mit statistischen Verfahren auswerten.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Das beschreibt quantitative Forschung. Qualitative Forschung arbeitet mit kleineren Fallzahlen und interpretativen Verfahren."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-UEB",
+    "category": "Woche 1",
+    "prompt": "Quantitative vs. qualitative Forschung — richtig oder falsch?\n«Bei mixed Methods werden typischerweise mehrere Arten von quantitativer Forschung gemischt.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Bei mixed Methods werden quantitative UND qualitative Methoden kombiniert."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-UEB",
+    "category": "Woche 1",
+    "prompt": "Quantitative vs. qualitative Forschung — richtig oder falsch?\n«Die Auswertung von Experimenten ist eine typische Methode der quantitativen Forschung.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-UEB",
+    "category": "Woche 1",
+    "prompt": "Quantitative vs. qualitative Forschung — richtig oder falsch?\n«Offene Einzelinterviews sind eine typische qualitative Methode.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-UEB",
+    "category": "Woche 1",
+    "prompt": "R Studio — richtig oder falsch?\n«R-Skripte werden verwendet, um R-Code zu speichern.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-UEB",
+    "category": "Woche 1",
+    "prompt": "R Studio — richtig oder falsch?\n«In der R-Konsole werden R-Befehle ausgeführt.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-UEB",
+    "category": "Woche 1",
+    "prompt": "R Studio — richtig oder falsch?\n«Mit Ctrl/Cmd + A können wir eine Zeile im R-Skript ausführen.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Eine Zeile führt man mit Ctrl/Cmd + Enter aus. Ctrl/Cmd + A markiert den gesamten Code."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W1-UEB",
+    "category": "Woche 1",
+    "prompt": "R Studio — richtig oder falsch?\n«Um R Studio verwenden zu können, muss R auf dem Gerät installiert sein.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "R Studio ist nur die Oberfläche; es braucht eine installierte R-Version, um Code auszuführen."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-TEST",
+    "category": "Woche 2",
+    "prompt": "Eine Politikwissenschaftlerin will untersuchen, ob die Regierungsform eines Landes einen Einfluss hat, wie demokratisch ein Land bei Demokratieindices abschneidet.\nWas ist die Analyseeinheit?",
+    "options": [
+      "Eine Person.",
+      "Ein Land.",
+      "Die Forscherin.",
+      "Ein Index.",
+      "Die Top 10 Demokratien."
+    ],
+    "correct": 1,
+    "explanation": "Untersucht und verglichen werden Länder – jedes Land ist ein Fall. Die Analyseeinheit ist damit das Land."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-TEST",
+    "category": "Woche 2",
+    "prompt": "Warum verwenden wir R-Projekte?",
+    "options": [
+      "Ohne R-Projekt läuft Tidyverse nicht.",
+      "Ohne R-Projekt läuft R nicht.",
+      "Ein R-Projekt hilft uns, alle Informationen eines Projekts in einem Ordner organisiert zu haben und uns nicht um die absoluten Pfade kümmern zu müssen.",
+      "Ein R-Projekt sorgt dafür, dass von R immer automatisch die neuste Version installiert wird.",
+      "Ein R-Projekt ist notwendig, um R- und Python-Code kombinieren zu können."
+    ],
+    "correct": 2,
+    "explanation": "Ein R-Projekt bündelt alle Dateien in einem Ordner und setzt das Arbeitsverzeichnis, sodass relative statt absoluter Pfade genügen."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-TEST",
+    "category": "Woche 2",
+    "prompt": "Richtig oder falsch zum folgenden R-Code?\n«Bei df_country$nationale_wahlen2025 handelt es sich um einen Vektor vom Typ numeric.»",
+    "code": "library(tidyverse)\ndf_country = data.frame(name = c(\"Schweiz\", \"Deutschland\", \"Österreich\",\n                                 \"Frankreich\", \"Italien\"),\n                        population2025 = c(8967408, 84075074, 9113574,\n                                           66650804, 59146260),\n                        nationale_wahlen2025 = c(FALSE, TRUE, FALSE, FALSE, FALSE))\ndf_wahlen = filter(df_country, nationale_wahlen2025)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "nationale_wahlen2025 enthält TRUE/FALSE – der Vektor ist vom Typ logical, nicht numeric."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-TEST",
+    "category": "Woche 2",
+    "prompt": "Richtig oder falsch zum folgenden R-Code?\n«Bei df_country und df_wahlen handelt es sich um ein DataFrame. df_country enthält 5 Fälle, während df_wahlen nur einen Fall beinhaltet.»",
+    "code": "library(tidyverse)\ndf_country = data.frame(name = c(\"Schweiz\", \"Deutschland\", \"Österreich\",\n                                 \"Frankreich\", \"Italien\"),\n                        population2025 = c(8967408, 84075074, 9113574,\n                                           66650804, 59146260),\n                        nationale_wahlen2025 = c(FALSE, TRUE, FALSE, FALSE, FALSE))\ndf_wahlen = filter(df_country, nationale_wahlen2025)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "filter() behält nur Zeilen, in denen nationale_wahlen2025 TRUE ist – das trifft nur auf Deutschland zu, also 1 Fall."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-TEST",
+    "category": "Woche 2",
+    "prompt": "Richtig oder falsch zum folgenden R-Code?\n«Die letzte Zeile mit filter funktioniert nicht, da eine Variable statt einer Bedingung angegeben wurde.»",
+    "code": "library(tidyverse)\ndf_country = data.frame(name = c(\"Schweiz\", \"Deutschland\", \"Österreich\",\n                                 \"Frankreich\", \"Italien\"),\n                        population2025 = c(8967408, 84075074, 9113574,\n                                           66650804, 59146260),\n                        nationale_wahlen2025 = c(FALSE, TRUE, FALSE, FALSE, FALSE))\ndf_wahlen = filter(df_country, nationale_wahlen2025)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Eine logische Variable ist selbst eine gültige Bedingung. filter() behält die Zeilen, in denen sie TRUE ist."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-TEST",
+    "category": "Woche 2",
+    "prompt": "Richtig oder falsch zum folgenden R-Code?\n«Bei df_country$name handelt es sich um einen Vektor vom Typ character.»",
+    "code": "library(tidyverse)\ndf_country = data.frame(name = c(\"Schweiz\", \"Deutschland\", \"Österreich\",\n                                 \"Frankreich\", \"Italien\"),\n                        population2025 = c(8967408, 84075074, 9113574,\n                                           66650804, 59146260),\n                        nationale_wahlen2025 = c(FALSE, TRUE, FALSE, FALSE, FALSE))\ndf_wahlen = filter(df_country, nationale_wahlen2025)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "name enthält Text in Anführungszeichen (\"Schweiz\", ...) – der Vektor ist vom Typ character."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-TEST",
+    "category": "Woche 2",
+    "prompt": "Der folgende Ausschnitt stammt aus dem SELECTS 2023 Codebook. Richtig oder falsch?\n«Der Variablenname ist Trust.»",
+    "table": {
+      "title": "Ausschnitt aus dem SELECTS 2023 Codebook",
+      "meta": [
+        "# f12800j: Trust: Scientists",
+        "[Type=discrete] [Format=numeric] [Range=1–4] [Missing=*/-97/-98/-99]",
+        "Valid = 4917 · Invalid = 116"
+      ],
+      "headers": [
+        "Value",
+        "Label",
+        "Cases",
+        "Percentage"
+      ],
+      "rows": [
+        [
+          "1",
+          "Do not trust at all",
+          "196",
+          "4.0%"
+        ],
+        [
+          "2",
+          "Do not trust very much",
+          "924",
+          "18.8%"
+        ],
+        [
+          "3",
+          "Trust somewhat",
+          "2742",
+          "55.8%"
+        ],
+        [
+          "4",
+          "Trust a lot",
+          "1055",
+          "21.5%"
+        ],
+        [
+          "-99",
+          "No answer",
+          "116",
+          ""
+        ],
+        [
+          "-98",
+          "Multiple answers when single choice",
+          "0",
+          ""
+        ],
+        [
+          "-97",
+          "Incomprehensible/illegible/invalid",
+          "0",
+          ""
+        ]
+      ]
+    },
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Der Variablenname ist f12800j. «Trust: Scientists» ist das Label (die Beschreibung) der Variable."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-TEST",
+    "category": "Woche 2",
+    "prompt": "Der folgende Ausschnitt stammt aus dem SELECTS 2023 Codebook. Richtig oder falsch?\n«1 bedeutet hohes Vertrauen und 4 tiefes Vertrauen in Wissenschaftler.»",
+    "table": {
+      "title": "Ausschnitt aus dem SELECTS 2023 Codebook",
+      "meta": [
+        "# f12800j: Trust: Scientists",
+        "[Type=discrete] [Format=numeric] [Range=1–4] [Missing=*/-97/-98/-99]",
+        "Valid = 4917 · Invalid = 116"
+      ],
+      "headers": [
+        "Value",
+        "Label",
+        "Cases",
+        "Percentage"
+      ],
+      "rows": [
+        [
+          "1",
+          "Do not trust at all",
+          "196",
+          "4.0%"
+        ],
+        [
+          "2",
+          "Do not trust very much",
+          "924",
+          "18.8%"
+        ],
+        [
+          "3",
+          "Trust somewhat",
+          "2742",
+          "55.8%"
+        ],
+        [
+          "4",
+          "Trust a lot",
+          "1055",
+          "21.5%"
+        ],
+        [
+          "-99",
+          "No answer",
+          "116",
+          ""
+        ],
+        [
+          "-98",
+          "Multiple answers when single choice",
+          "0",
+          ""
+        ],
+        [
+          "-97",
+          "Incomprehensible/illegible/invalid",
+          "0",
+          ""
+        ]
+      ]
+    },
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Es ist umgekehrt: 1 = «Do not trust at all» (kein Vertrauen), 4 = «Trust a lot» (hohes Vertrauen)."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-TEST",
+    "category": "Woche 2",
+    "prompt": "Der folgende Ausschnitt stammt aus dem SELECTS 2023 Codebook. Richtig oder falsch?\n«Die Variable geht von 1 bis 4, wobei fehlende Werte mit einer negativen Zahl dargestellt werden.»",
+    "table": {
+      "title": "Ausschnitt aus dem SELECTS 2023 Codebook",
+      "meta": [
+        "# f12800j: Trust: Scientists",
+        "[Type=discrete] [Format=numeric] [Range=1–4] [Missing=*/-97/-98/-99]",
+        "Valid = 4917 · Invalid = 116"
+      ],
+      "headers": [
+        "Value",
+        "Label",
+        "Cases",
+        "Percentage"
+      ],
+      "rows": [
+        [
+          "1",
+          "Do not trust at all",
+          "196",
+          "4.0%"
+        ],
+        [
+          "2",
+          "Do not trust very much",
+          "924",
+          "18.8%"
+        ],
+        [
+          "3",
+          "Trust somewhat",
+          "2742",
+          "55.8%"
+        ],
+        [
+          "4",
+          "Trust a lot",
+          "1055",
+          "21.5%"
+        ],
+        [
+          "-99",
+          "No answer",
+          "116",
+          ""
+        ],
+        [
+          "-98",
+          "Multiple answers when single choice",
+          "0",
+          ""
+        ],
+        [
+          "-97",
+          "Incomprehensible/illegible/invalid",
+          "0",
+          ""
+        ]
+      ]
+    },
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Range = 1–4; fehlende Werte werden mit -97/-98/-99 codiert."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-TEST",
+    "category": "Woche 2",
+    "prompt": "Der folgende Ausschnitt stammt aus dem SELECTS 2023 Codebook. Richtig oder falsch?\n«Eine deutliche Mehrheit hat etwas oder viel Vertrauen in Wissenschaftler.»",
+    "table": {
+      "title": "Ausschnitt aus dem SELECTS 2023 Codebook",
+      "meta": [
+        "# f12800j: Trust: Scientists",
+        "[Type=discrete] [Format=numeric] [Range=1–4] [Missing=*/-97/-98/-99]",
+        "Valid = 4917 · Invalid = 116"
+      ],
+      "headers": [
+        "Value",
+        "Label",
+        "Cases",
+        "Percentage"
+      ],
+      "rows": [
+        [
+          "1",
+          "Do not trust at all",
+          "196",
+          "4.0%"
+        ],
+        [
+          "2",
+          "Do not trust very much",
+          "924",
+          "18.8%"
+        ],
+        [
+          "3",
+          "Trust somewhat",
+          "2742",
+          "55.8%"
+        ],
+        [
+          "4",
+          "Trust a lot",
+          "1055",
+          "21.5%"
+        ],
+        [
+          "-99",
+          "No answer",
+          "116",
+          ""
+        ],
+        [
+          "-98",
+          "Multiple answers when single choice",
+          "0",
+          ""
+        ],
+        [
+          "-97",
+          "Incomprehensible/illegible/invalid",
+          "0",
+          ""
+        ]
+      ]
+    },
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "«Trust somewhat» (55.8%) und «Trust a lot» (21.5%) ergeben zusammen rund 77% – eine deutliche Mehrheit."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-UEB",
+    "category": "Woche 2",
+    "prompt": "R-Projekt — richtig oder falsch?\n«Ohne R-Projekt kann R-Code nicht ausgeführt werden.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "R-Code läuft auch ohne R-Projekt. Ein Projekt dient nur der Organisation von Dateien und Pfaden."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-UEB",
+    "category": "Woche 2",
+    "prompt": "R-Projekt — richtig oder falsch?\n«Bei einem R-Projekt werden die Pfade automatisch auf den R-Projekt-Ordner gesetzt.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Das Arbeitsverzeichnis wird auf den Projektordner gesetzt, sodass relative Pfade funktionieren."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-UEB",
+    "category": "Woche 2",
+    "prompt": "R-Projekt — richtig oder falsch?\n«Bei einem R-Projekt erhalten wir automatisch einen Versionsverlauf.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Ein Versionsverlauf entsteht erst mit einem Versionskontrollsystem (z.B. Git), nicht automatisch durch ein R-Projekt."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-UEB",
+    "category": "Woche 2",
+    "prompt": "R-Projekt — richtig oder falsch?\n«Wir können R-Projekte einfach mit anderen Personen teilen, indem wir den Ordner als ZIP-Datei verschicken. Die Person muss keine Anpassungen am Code vornehmen, um den Code laufen lassen zu können.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Weil relative Pfade verwendet werden, läuft das Projekt auf einem anderen Gerät ohne Anpassungen."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-UEB",
+    "category": "Woche 2",
+    "prompt": "Was macht folgender Code? (Du kannst davon ausgehen, dass der Code läuft und keine Fehlermeldung produziert.)",
+    "code": "library(tidyverse)\ndf_data = read_csv(\"data.csv\")\ndf_data = select(df_data, age, gender, country, position)\ndf_data = filter(df_data, gender == \"female\")",
+    "options": [
+      "Der Code liest die Daten ein, anschliessend werden die Variablen df_data, age, gender, country und position ausgewählt sowie alle Beobachtungen mit female bei gender.",
+      "Der Code schreibt die Daten in data.csv. Anschliessend werden die Variablen df_data ausgewählt sowie die Zeilen age, gender, country und position. Am Ende werden alle Männer im Datensatz ausgewählt.",
+      "Der Code liest die Daten ein, anschliessend werden die Zeilen age, gender, country und position ausgewählt. Am Ende wird die Variable gender mit einem Standardwert erstellt.",
+      "Der Code schreibt die Daten in data.csv, anschliessend werden die Variablen age, gender, country und position ausgewählt und am Ende alle Männer ausgewählt.",
+      "Der Code liest die Daten ein, anschliessend werden die Variablen age, gender, country und position ausgewählt und zum Schluss nur die Frauen (gender == \"female\") in den Daten behalten."
+    ],
+    "correct": 4,
+    "explanation": "read_csv liest ein, select() wählt Spalten (Variablen) aus, filter(gender == \"female\") behält nur die Zeilen mit weiblichen Personen."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-UEB",
+    "category": "Woche 2",
+    "prompt": "Ein Politikwissenschaftler will schweizweit untersuchen, ob die Abstimmungsbeteiligung einer Gemeinde davon abhängt, ob sich die Gemeinde auf dem Land, in der Stadt oder in der Agglomeration befindet.\nWas ist die Analyseeinheit?",
+    "options": [
+      "Ein Kanton.",
+      "Eine stimmberechtigte Person.",
+      "Eine politische Gemeinde.",
+      "Eine Abstimmung.",
+      "Die Schweiz."
+    ],
+    "correct": 2,
+    "explanation": "Verglichen werden Gemeinden (ihre Abstimmungsbeteiligung nach Lage). Die Analyseeinheit ist die politische Gemeinde."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-UEB",
+    "category": "Woche 2",
+    "prompt": "Richtig oder falsch zum folgenden R-Objekt?\n«Bei df_student$name handelt es sich um einen Vektor vom Typ character.»",
+    "code": "df_student = data.frame(name = c(\"Peter\", \"Petra\", \"Julia\"), age = c(45, 19, 27),\n                        passed = c(TRUE, FALSE, TRUE))",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "name enthält Text in Anführungszeichen – der Vektor ist vom Typ character."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-UEB",
+    "category": "Woche 2",
+    "prompt": "Richtig oder falsch zum folgenden R-Objekt?\n«Bei df_student$passed handelt es sich um einen Vektor vom Typ integer.»",
+    "code": "df_student = data.frame(name = c(\"Peter\", \"Petra\", \"Julia\"), age = c(45, 19, 27),\n                        passed = c(TRUE, FALSE, TRUE))",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "passed enthält TRUE/FALSE – der Vektor ist vom Typ logical, nicht integer."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-UEB",
+    "category": "Woche 2",
+    "prompt": "Richtig oder falsch zum folgenden R-Objekt?\n«Bei df_student$age handelt es sich um einen Vektor vom Typ numeric.»",
+    "code": "df_student = data.frame(name = c(\"Peter\", \"Petra\", \"Julia\"), age = c(45, 19, 27),\n                        passed = c(TRUE, FALSE, TRUE))",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "age enthält Zahlen (45, 19, 27) – der Vektor ist vom Typ numeric."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W2-UEB",
+    "category": "Woche 2",
+    "prompt": "Richtig oder falsch zum folgenden R-Objekt?\n«Bei df_student handelt es sich um ein DataFrame.»",
+    "code": "df_student = data.frame(name = c(\"Peter\", \"Petra\", \"Julia\"), age = c(45, 19, 27),\n                        passed = c(TRUE, FALSE, TRUE))",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "data.frame(...) erzeugt ein DataFrame mit den Spalten name, age und passed."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-TEST",
+    "category": "Woche 3",
+    "prompt": "Welche Skala passt am besten für die folgende Variable aus dem SELECTS 2023 Datensatz?",
+    "table": {
+      "title": "Variable aus dem SELECTS 2023 Datensatz",
+      "meta": [
+        "# W4_f14177c: Feelings towards the voters of different parties: The Centre",
+        "[Type=continuous] [Format=numeric] [Range=0–10] [Missing=*/-99]",
+        "Valid = 4819 · Invalid = 3378"
+      ],
+      "headers": [
+        "Value",
+        "Label",
+        "Cases",
+        "Percentage"
+      ],
+      "rows": [
+        [
+          "0",
+          "Negative and cold feelings",
+          "72",
+          "36.2%"
+        ],
+        [
+          "10",
+          "Positive and warm feelings",
+          "127",
+          "63.8%"
+        ],
+        [
+          "-99",
+          "No answer",
+          "98",
+          ""
+        ]
+      ]
+    },
+    "options": [
+      "absolutskaliert",
+      "nominalskaliert",
+      "Die Informationen reichen nicht aus, um die Skala bestimmen zu können.",
+      "intervallskaliert",
+      "ordinalskaliert"
+    ],
+    "correct": 3,
+    "explanation": "Ein Gefühlsthermometer von 0 bis 10 hat gleich grosse Abstände, aber keinen absoluten Nullpunkt – das ist eine Intervallskala."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-TEST",
+    "category": "Woche 3",
+    "prompt": "Für welche der folgenden Variablen ist eine Konzeptdefinition notwendig?",
+    "options": [
+      "Bevölkerungsgrösse",
+      "BIP pro Kopf",
+      "Demokratisierungsgrad",
+      "Geburtenrate",
+      "Anzahl oblig. Schuljahre"
+    ],
+    "correct": 2,
+    "explanation": "Bevölkerungsgrösse, BIP, Geburtenrate und Schuljahre sind direkt messbar. «Demokratisierungsgrad» ist ein abstraktes Konzept, das zuerst definiert und operationalisiert werden muss."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-TEST",
+    "category": "Woche 3",
+    "prompt": "Richtig oder falsch zum folgenden R-Code? (Der Datensatz existiert und enthält Länderdaten mit einer Variable population.)\n«Bei diesem Code kommt bei allen Ländern über 100'000 «klein» heraus, da diese Bedingung auch für grössere Länder zutrifft.»",
+    "code": "library(tidyverse)\ndf_data = read_csv(\"data.csv\") |> mutate(\n  size = case_when(population > 500000000 ~ \"sehr gross\",\n                   population > 50000000 ~ \"gross\",\n                   population > 5000000 ~ \"mittel\",\n                   population > 100000 ~ \"klein\",\n                   .default ~ \"sehr klein\")\n)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "case_when() wird von oben nach unten ausgewertet und nimmt die erste zutreffende Bedingung. Grössere Länder erhalten daher «sehr gross», «gross» oder «mittel», nicht «klein»."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-TEST",
+    "category": "Woche 3",
+    "prompt": "Richtig oder falsch zum folgenden R-Code? (Der Datensatz existiert und enthält Länderdaten mit einer Variable population.)\n«Der Code funktioniert nicht, weil die Variable zu Beginn fehlt.»",
+    "code": "library(tidyverse)\ndf_data = read_csv(\"data.csv\") |> mutate(\n  size = case_when(population > 500000000 ~ \"sehr gross\",\n                   population > 50000000 ~ \"gross\",\n                   population > 5000000 ~ \"mittel\",\n                   population > 100000 ~ \"klein\",\n                   .default ~ \"sehr klein\")\n)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Laut Angabe existiert die Variable population im Datensatz – sie fehlt nicht."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-TEST",
+    "category": "Woche 3",
+    "prompt": "Richtig oder falsch zum folgenden R-Code? (Der Datensatz existiert und enthält Länderdaten mit einer Variable population.)\n«Der Code funktioniert nicht, weil bei .default ein ~ statt ein = steht.»",
+    "code": "library(tidyverse)\ndf_data = read_csv(\"data.csv\") |> mutate(\n  size = case_when(population > 500000000 ~ \"sehr gross\",\n                   population > 50000000 ~ \"gross\",\n                   population > 5000000 ~ \"mittel\",\n                   population > 100000 ~ \"klein\",\n                   .default ~ \"sehr klein\")\n)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "In case_when() braucht .default eine Zuweisung mit =, also .default = \"sehr klein\". Mit ~ wirft der Code einen Fehler."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-TEST",
+    "category": "Woche 3",
+    "prompt": "Richtig oder falsch zum folgenden R-Code? (Der Datensatz existiert und enthält Länderdaten mit einer Variable population.)\n«Das Ziel des Codes ist es, eine Variable size zu erstellen, welche die Länder nach ihrer Bevölkerung kategorisiert.»",
+    "code": "library(tidyverse)\ndf_data = read_csv(\"data.csv\") |> mutate(\n  size = case_when(population > 500000000 ~ \"sehr gross\",\n                   population > 50000000 ~ \"gross\",\n                   population > 5000000 ~ \"mittel\",\n                   population > 100000 ~ \"klein\",\n                   .default ~ \"sehr klein\")\n)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Genau das ist die Absicht: size teilt die Länder anhand ihrer Bevölkerungszahl in Grössenklassen ein (abgesehen vom .default-Fehler)."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-TEST",
+    "category": "Woche 3",
+    "prompt": "Gelehrter A vertritt die Theorie, dass ein Land nur dann eine Demokratie sein kann, wenn es freie Wahlen gibt; eine freie Presse ist dafür nicht notwendig. Wissenschaftler B vertritt die Theorie, dass sowohl freie Wahlen als auch eine freie Presse notwendige Voraussetzungen für eine Demokratie sind. Richtig oder falsch?\n«Die Gelehrten A und B sind sich einig, dass weder Land I noch Land III als Demokratien betrachtet werden können.»",
+    "table": {
+      "title": "Daten zu vier Ländern",
+      "headers": [
+        "Land",
+        "Freie Wahlen",
+        "Freie Presse"
+      ],
+      "rows": [
+        [
+          "I",
+          "Nein",
+          "Ja"
+        ],
+        [
+          "II",
+          "Ja",
+          "Nein"
+        ],
+        [
+          "III",
+          "Nein",
+          "Nein"
+        ],
+        [
+          "IV",
+          "Ja",
+          "Ja"
+        ]
+      ]
+    },
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Land I und III haben keine freien Wahlen. Freie Wahlen sind für beide Theorien notwendig, also sind sich A und B einig, dass beide keine Demokratien sind."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-TEST",
+    "category": "Woche 3",
+    "prompt": "Gelehrter A vertritt die Theorie, dass ein Land nur dann eine Demokratie sein kann, wenn es freie Wahlen gibt; eine freie Presse ist dafür nicht notwendig. Wissenschaftler B vertritt die Theorie, dass sowohl freie Wahlen als auch eine freie Presse notwendige Voraussetzungen für eine Demokratie sind. Richtig oder falsch?\n«Sollte Land IV seine Pressefreiheit verlieren, dann würde Gelehrter B keines der Länder als Demokratie betrachten.»",
+    "table": {
+      "title": "Daten zu vier Ländern",
+      "headers": [
+        "Land",
+        "Freie Wahlen",
+        "Freie Presse"
+      ],
+      "rows": [
+        [
+          "I",
+          "Nein",
+          "Ja"
+        ],
+        [
+          "II",
+          "Ja",
+          "Nein"
+        ],
+        [
+          "III",
+          "Nein",
+          "Nein"
+        ],
+        [
+          "IV",
+          "Ja",
+          "Ja"
+        ]
+      ]
+    },
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "B verlangt freie Wahlen UND freie Presse. Nur Land IV erfüllt beides. Verliert IV die Pressefreiheit, erfüllt kein Land mehr beide Bedingungen."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-TEST",
+    "category": "Woche 3",
+    "prompt": "Gelehrter A vertritt die Theorie, dass ein Land nur dann eine Demokratie sein kann, wenn es freie Wahlen gibt; eine freie Presse ist dafür nicht notwendig. Wissenschaftler B vertritt die Theorie, dass sowohl freie Wahlen als auch eine freie Presse notwendige Voraussetzungen für eine Demokratie sind. Richtig oder falsch?\n«Die Wissenschaftler A und B verwenden einen formativen Ansatz zur Konzeptionalisierung.»",
+    "table": {
+      "title": "Daten zu vier Ländern",
+      "headers": [
+        "Land",
+        "Freie Wahlen",
+        "Freie Presse"
+      ],
+      "rows": [
+        [
+          "I",
+          "Nein",
+          "Ja"
+        ],
+        [
+          "II",
+          "Ja",
+          "Nein"
+        ],
+        [
+          "III",
+          "Nein",
+          "Nein"
+        ],
+        [
+          "IV",
+          "Ja",
+          "Ja"
+        ]
+      ]
+    },
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Beide definieren Demokratie über notwendige Bedingungen, die zusammengesetzt das Konzept bilden – das entspricht einem formativen Ansatz."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-TEST",
+    "category": "Woche 3",
+    "prompt": "Gelehrter A vertritt die Theorie, dass ein Land nur dann eine Demokratie sein kann, wenn es freie Wahlen gibt; eine freie Presse ist dafür nicht notwendig. Wissenschaftler B vertritt die Theorie, dass sowohl freie Wahlen als auch eine freie Presse notwendige Voraussetzungen für eine Demokratie sind. Richtig oder falsch?\n«Die Gelehrten A und B sind sich einig, dass die Länder II und IV Demokratien sind.»",
+    "table": {
+      "title": "Daten zu vier Ländern",
+      "headers": [
+        "Land",
+        "Freie Wahlen",
+        "Freie Presse"
+      ],
+      "rows": [
+        [
+          "I",
+          "Nein",
+          "Ja"
+        ],
+        [
+          "II",
+          "Ja",
+          "Nein"
+        ],
+        [
+          "III",
+          "Nein",
+          "Nein"
+        ],
+        [
+          "IV",
+          "Ja",
+          "Ja"
+        ]
+      ]
+    },
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Bei Land IV (freie Wahlen + freie Presse) sind sie sich einig. Bei Land II (nur freie Wahlen) nicht: Für A ist II eine Demokratie, für B nicht."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-UEB",
+    "category": "Woche 3",
+    "prompt": "Ein Forscher führt ein Online-Experiment durch und simuliert eine Wahl. Die Teilnehmenden können zwischen mehreren Kandidierenden wählen, wobei sie nur deren Position auf der Links-Rechts-Achse und die Wahlwahrscheinlichkeit aus einer fiktiven Umfrage kennen (z.B. Kandidat A: Position 1 – 15%, Kandidat B: Position 7 – 40%, Kandidat C: Position 10 – 45%). Die Kandidierenden heissen A, B, C und haben keinen Namen. Richtig oder falsch?\n«Da die Wahl online auf einem standardisierten Umfragebogen durchgeführt wird, ist die Objektivität tief.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Eine standardisierte (Online-)Durchführung spricht gerade für eine HOHE Objektivität – die Aussage ist daher falsch."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-UEB",
+    "category": "Woche 3",
+    "prompt": "Ein Forscher führt ein Online-Experiment durch und simuliert eine Wahl. Die Teilnehmenden können zwischen mehreren Kandidierenden wählen, wobei sie nur deren Position auf der Links-Rechts-Achse und die Wahlwahrscheinlichkeit aus einer fiktiven Umfrage kennen (z.B. Kandidat A: Position 1 – 15%, Kandidat B: Position 7 – 40%, Kandidat C: Position 10 – 45%). Die Kandidierenden heissen A, B, C und haben keinen Namen. Richtig oder falsch?\n«Da es sich um ein Experiment handelt und wirklich eine Wahl gemessen wird, ist die interne Validität hoch.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Experimente mit kontrollierten Bedingungen haben typischerweise eine hohe interne Validität."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-UEB",
+    "category": "Woche 3",
+    "prompt": "Ein Forscher führt ein Online-Experiment durch und simuliert eine Wahl. Die Teilnehmenden können zwischen mehreren Kandidierenden wählen, wobei sie nur deren Position auf der Links-Rechts-Achse und die Wahlwahrscheinlichkeit aus einer fiktiven Umfrage kennen (z.B. Kandidat A: Position 1 – 15%, Kandidat B: Position 7 – 40%, Kandidat C: Position 10 – 45%). Die Kandidierenden heissen A, B, C und haben keinen Namen. Richtig oder falsch?\n«Da wir die Umfrage nur einmal pro Teilnehmer:in durchführen, können wir die Reliabilität nicht messen.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Reliabilität (z.B. Test-Retest) setzt eine wiederholte Messung voraus. Mit nur einer Messung lässt sie sich nicht beurteilen."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-UEB",
+    "category": "Woche 3",
+    "prompt": "Ein Forscher führt ein Online-Experiment durch und simuliert eine Wahl. Die Teilnehmenden können zwischen mehreren Kandidierenden wählen, wobei sie nur deren Position auf der Links-Rechts-Achse und die Wahlwahrscheinlichkeit aus einer fiktiven Umfrage kennen (z.B. Kandidat A: Position 1 – 15%, Kandidat B: Position 7 – 40%, Kandidat C: Position 10 – 45%). Die Kandidierenden heissen A, B, C und haben keinen Namen. Richtig oder falsch?\n«Da die Kandidaten keine realen Personen mit Namen, Parteizugehörigkeit und Inhalten sind, ist die externe Validität eher tief.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Die künstliche, stark vereinfachte Situation lässt sich schlecht auf reale Wahlen übertragen – die externe Validität ist tief."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-UEB",
+    "category": "Woche 3",
+    "prompt": "Richtig oder falsch zum folgenden R-Code?\n«Der Forscher will eine Variable Sprache aus dem Land kreieren, speichert die Variable jedoch nirgends ab.»",
+    "code": "library(tidyverse)\ndf_data = read_csv(\"data.csv\") |> mutate(\n  case_match(land,\n            c(\"Deutschland\", \"Schweiz\", \"Österreich\", \"Luxemburg\") = \"Deutsch\",\n            c(\"Frankreich\", \"Belgien\", \"Schweiz\") = \"Französisch\",\n            c(\"UK\", \"Irland\") = \"Englisch\",\n            .default = \"andere Sprache\")\n)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Im mutate() fehlt der Name der neuen Spalte (z.B. sprache = case_match(...)). So wird das Ergebnis keiner benannten Variable zugewiesen."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-UEB",
+    "category": "Woche 3",
+    "prompt": "Richtig oder falsch zum folgenden R-Code?\n«mutate() kann nicht mit dem Pipe-Operator verwendet werden.»",
+    "code": "library(tidyverse)\ndf_data = read_csv(\"data.csv\") |> mutate(\n  case_match(land,\n            c(\"Deutschland\", \"Schweiz\", \"Österreich\", \"Luxemburg\") = \"Deutsch\",\n            c(\"Frankreich\", \"Belgien\", \"Schweiz\") = \"Französisch\",\n            c(\"UK\", \"Irland\") = \"Englisch\",\n            .default = \"andere Sprache\")\n)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "mutate() ist gerade darauf ausgelegt, mit dem Pipe (|> bzw. %>%) verkettet zu werden."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-UEB",
+    "category": "Woche 3",
+    "prompt": "Richtig oder falsch zum folgenden R-Code?\n«Der Code läuft so ohne Fehlermeldung, sofern der Datensatz data.csv im R-Projektordner vorhanden ist und eine Variable land enthält.»",
+    "code": "library(tidyverse)\ndf_data = read_csv(\"data.csv\") |> mutate(\n  case_match(land,\n            c(\"Deutschland\", \"Schweiz\", \"Österreich\", \"Luxemburg\") = \"Deutsch\",\n            c(\"Frankreich\", \"Belgien\", \"Schweiz\") = \"Französisch\",\n            c(\"UK\", \"Irland\") = \"Englisch\",\n            .default = \"andere Sprache\")\n)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "case_match() erwartet Formeln mit ~ (z.B. c(...) ~ \"Deutsch\"). Mit = entsteht ein Syntaxfehler, der Code läuft nicht fehlerfrei."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-UEB",
+    "category": "Woche 3",
+    "prompt": "Richtig oder falsch zum folgenden R-Code?\n«Die Schweiz wird immer als «Deutsch» recodiert, obwohl sie auch bei «Französisch» aufgeführt ist, weil «Deutsch» zuerst kommt.»",
+    "code": "library(tidyverse)\ndf_data = read_csv(\"data.csv\") |> mutate(\n  case_match(land,\n            c(\"Deutschland\", \"Schweiz\", \"Österreich\", \"Luxemburg\") = \"Deutsch\",\n            c(\"Frankreich\", \"Belgien\", \"Schweiz\") = \"Französisch\",\n            c(\"UK\", \"Irland\") = \"Englisch\",\n            .default = \"andere Sprache\")\n)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "case_match() nimmt die erste zutreffende Zuordnung. Da «Schweiz» zuerst bei «Deutsch» steht, wird sie als «Deutsch» codiert."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-UEB",
+    "category": "Woche 3",
+    "prompt": "Was ist ein Konzept?",
+    "options": [
+      "Ein Begriff, der dabei hilft, logische Strukturen zu schaffen, um am Ende eine fundierte Bewertung des Untersuchungsgegenstandes vorzunehmen.",
+      "Eine Variable, die durch mehrere hinreichende Bedingungen eindeutig definiert ist.",
+      "Ein Begriff, der durch mehrere notwendige Bedingungen eindeutig definiert ist, um am Ende eine fundierte Bewertung des Forschungsgegenstandes vorzunehmen.",
+      "Eine Variable, unter der alle ohne Erklärung das Gleiche verstehen und deren Messung eindeutig ist.",
+      "Eine klare Definition des Untersuchungsgegenstandes, damit wir ihn eindeutig messen können."
+    ],
+    "correct": 0,
+    "explanation": "Ein Konzept ist ein abstrakter Begriff/gedankliches Konstrukt, das hilft, logische Strukturen zu schaffen und den Untersuchungsgegenstand fundiert zu bewerten."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W3-UEB",
+    "category": "Woche 3",
+    "prompt": "SELECTS 2023 hat folgende Frage gestellt, um die Einstellung zu Steuern auf hohe Einkommen zu messen:\n«Sind Sie für eine Erhöhung oder für eine Senkung der Steuern auf hohe Einkommen?»\n– Sehr für Erhöhung\n– Eher für Erhöhung\n– Weder noch\n– Eher für Senkung\n– Sehr für Senkung\nWie ist diese Variable skaliert?",
+    "options": [
+      "ordinalskaliert",
+      "intervallskaliert",
+      "nominalskaliert",
+      "ratioskaliert",
+      "absolutskaliert"
+    ],
+    "correct": 0,
+    "explanation": "Die Antwortkategorien haben eine klare Rangordnung, aber keine gleich grossen Abstände – das ist eine Ordinalskala."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-TEST",
+    "category": "Woche 4",
+    "prompt": "Die folgende Nachrichtengrafik zeigt den Kupferpreis im Jahr 2020 (Titel: «SE DESPLOMA EL COBRE POR EFECTO DEL CORONAVIRUS» – «Das Kupfer stürzt ab wegen des Coronavirus»). Die eingezeichneten Preise nach Datum sind unten aufgeführt. Was ist das Hauptproblem bei diesem Bild?",
+    "table": {
+      "title": "Kupferpreis 2020 (eingezeichnete Werte)",
+      "headers": [
+        "Datum",
+        "Preis"
+      ],
+      "rows": [
+        [
+          "2 Jan",
+          "$750"
+        ],
+        [
+          "21 Feb",
+          "$803"
+        ],
+        [
+          "9 Mär",
+          "$842"
+        ],
+        [
+          "10 Mär",
+          "$836"
+        ],
+        [
+          "13 Mär",
+          "$838"
+        ],
+        [
+          "18 Mär",
+          "$868"
+        ],
+        [
+          "19 Mär",
+          "$868"
+        ],
+        [
+          "20 Mär",
+          "$868"
+        ],
+        [
+          "23 Mär",
+          "$868"
+        ]
+      ]
+    },
+    "options": [
+      "Die Zeitskala ist nicht konstant.",
+      "Das Farbschema ist schlecht gewählt.",
+      "Das Bild behauptet eine Verbindung zu Covid, weist diese aber nicht nach.",
+      "Die y-Achse beginnt nicht bei 0.",
+      "Ab dem 18. März blieben die Preise gleich, zeigen aber einen Rückgang in der Grafik."
+    ],
+    "correct": 4,
+    "explanation": "Ab dem 18. März liegen alle Werte bei $868 (gleichbleibend), die eingezeichnete Linie fällt jedoch ab und suggeriert fälschlich einen Rückgang."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-TEST",
+    "category": "Woche 4",
+    "prompt": "Welcher R-Code erzeugt die folgende Grafik: ein Balkendiagramm mit «politisches Wissen» (Werte 0–4) auf der x-Achse und «Anzahl» auf der y-Achse, dargestellt im Stil theme_minimal?",
+    "options": [
+      "ggplot(df, aes(y = knowscale)) + geom_bar(fill = \"steelblue\") + theme_minimal() + ylab(\"Anzahl\") + xlab(\"politisches Wissen\")",
+      "ggplot(df, aes(x = knowscale)) + geom_bar(fill = \"steelblue\") + theme_minimal() + xlab(\"Anzahl\") + ylab(\"politisches Wissen\")",
+      "ggplot(df, aes(y = knowscale)) + geom_bar(fill = \"steelblue\") + ylab(\"Anzahl\") + xlab(\"politisches Wissen\")",
+      "ggplot(df, aes(y = knowscale)) + geom_bar(fill = \"steelblue\") + theme_minimal() + xlab(\"Anzahl\") + ylab(\"politisches Wissen\")",
+      "ggplot(df, aes(x = knowscale)) + geom_bar(fill = \"steelblue\") + theme_minimal() + ylab(\"Anzahl\") + xlab(\"politisches Wissen\")"
+    ],
+    "correct": 4,
+    "explanation": "knowscale gehört auf die x-Achse (aes(x = knowscale)), die Zählung (geom_bar) auf die y-Achse als «Anzahl». xlab ist «politisches Wissen», und theme_minimal() liefert den gezeigten Stil."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-TEST",
+    "category": "Woche 4",
+    "prompt": "Datenvisualisierung — richtig oder falsch?\n«Ein Boxplot zeigt unter anderem die Ausreisser (Outliers) einer Variable an.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Ein Boxplot zeigt Median, Quartile, Whisker und einzeln eingezeichnete Ausreisser."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-TEST",
+    "category": "Woche 4",
+    "prompt": "Datenvisualisierung — richtig oder falsch?\n«Ein Kuchendiagramm eignet sich besonders, wenn die Kategorien ähnlich gross sind.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Gerade bei ähnlich grossen Kategorien sind die Segmente eines Kuchendiagramms kaum unterscheidbar. Ein Balkendiagramm ist dann besser."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-TEST",
+    "category": "Woche 4",
+    "prompt": "Datenvisualisierung — richtig oder falsch?\n«Liniendiagramme eignen sich besonders, um Unterschiede zwischen Gruppen darzustellen.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Liniendiagramme zeigen v.a. Verläufe (z.B. über die Zeit). Für Unterschiede zwischen Gruppen eignen sich Balkendiagramme besser."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-TEST",
+    "category": "Woche 4",
+    "prompt": "Datenvisualisierung — richtig oder falsch?\n«Ein Dichte-Diagramm glättet die Daten, ein Histogramm nicht.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Ein Dichte-Diagramm zeigt eine geglättete Verteilungskurve, ein Histogramm zählt die Werte in diskreten Klassen (Balken)."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-TEST",
+    "category": "Woche 4",
+    "prompt": "Richtig oder falsch zum folgenden Code? (Der Code funktioniert.)\n«Die x- und y-Achse sind bei der Beschriftung vertauscht.»",
+    "code": "df |> group_by(canton) |>\n  summarise(lr = mean(lr_self, na.rm = TRUE)) |>\n  ggplot(aes(y = canton, x = lr)) +\n  geom_col(fill = \"steelblue\") + theme_minimal() +\n  xlab(\"Durchschnittliche Links-Rechts Position\") +\n  ylab(\"Kanton\")",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Die Beschriftung passt: x = lr → xlab «Durchschnittliche Links-Rechts Position», y = canton → ylab «Kanton»."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-TEST",
+    "category": "Woche 4",
+    "prompt": "Richtig oder falsch zum folgenden Code? (Der Code funktioniert.)\n«Es wird ein Säulendiagramm generiert.»",
+    "code": "df |> group_by(canton) |>\n  summarise(lr = mean(lr_self, na.rm = TRUE)) |>\n  ggplot(aes(y = canton, x = lr)) +\n  geom_col(fill = \"steelblue\") + theme_minimal() +\n  xlab(\"Durchschnittliche Links-Rechts Position\") +\n  ylab(\"Kanton\")",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Weil die kategoriale Variable canton auf der y-Achse liegt, entstehen horizontale Balken (Balkendiagramm), kein vertikales Säulendiagramm."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-TEST",
+    "category": "Woche 4",
+    "prompt": "Richtig oder falsch zum folgenden Code? (Der Code funktioniert.)\n«Es wird die durchschnittliche Position auf der Links-Rechts-Dimension berechnet.»",
+    "code": "df |> group_by(canton) |>\n  summarise(lr = mean(lr_self, na.rm = TRUE)) |>\n  ggplot(aes(y = canton, x = lr)) +\n  geom_col(fill = \"steelblue\") + theme_minimal() +\n  xlab(\"Durchschnittliche Links-Rechts Position\") +\n  ylab(\"Kanton\")",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "summarise(lr = mean(lr_self, na.rm = TRUE)) berechnet den Mittelwert der Links-Rechts-Selbsteinstufung."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-TEST",
+    "category": "Woche 4",
+    "prompt": "Richtig oder falsch zum folgenden Code? (Der Code funktioniert.)\n«Die Daten werden auf Kantonsebene aggregiert.»",
+    "code": "df |> group_by(canton) |>\n  summarise(lr = mean(lr_self, na.rm = TRUE)) |>\n  ggplot(aes(y = canton, x = lr)) +\n  geom_col(fill = \"steelblue\") + theme_minimal() +\n  xlab(\"Durchschnittliche Links-Rechts Position\") +\n  ylab(\"Kanton\")",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "group_by(canton) gefolgt von summarise() fasst die Daten pro Kanton zusammen – also Aggregation auf Kantonsebene."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-UEB",
+    "category": "Woche 4",
+    "prompt": "Läuft der folgende R-Code fehlerfrei? (Richtig = läuft ohne Fehler, Falsch = produziert eine Fehlermeldung / funktioniert nicht wie gewünscht.) Der Datensatz existiert, enthält alle nötigen Variablen und tidyverse ist geladen.",
+    "code": "df_aggr = data |> group_by(country) |> summarise(meanAge = mean(\"age\", na.rm = TRUE))",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "mean(\"age\") übergibt den Text «age» statt der Variable age. Das liefert keinen sinnvollen Mittelwert (Warnung/NA) – die Anführungszeichen müssen weg: mean(age)."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-UEB",
+    "category": "Woche 4",
+    "prompt": "Läuft der folgende R-Code fehlerfrei? (Richtig = läuft ohne Fehler, Falsch = produziert eine Fehlermeldung / funktioniert nicht wie gewünscht.) Der Datensatz existiert, enthält alle nötigen Variablen und tidyverse ist geladen.",
+    "code": "df_aggr = data |> group_by(\"country\") |> summarise(meanAge = mean(age, na.rm = TRUE))",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Der Code läuft ohne Fehler, gruppiert aber nach der Konstanten «country» statt nach der Variable country – also effektiv nur eine Gruppe."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-UEB",
+    "category": "Woche 4",
+    "prompt": "Läuft der folgende R-Code fehlerfrei? (Richtig = läuft ohne Fehler, Falsch = produziert eine Fehlermeldung / funktioniert nicht wie gewünscht.) Der Datensatz existiert, enthält alle nötigen Variablen und tidyverse ist geladen.",
+    "code": "df_aggr = data |> group_by(country) |> summarise(meanAge = mean(age, na.rm = TRUE))",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Korrekte Verwendung: nach country gruppieren und den Mittelwert von age je Gruppe berechnen."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-UEB",
+    "category": "Woche 4",
+    "prompt": "Läuft der folgende R-Code fehlerfrei? (Richtig = läuft ohne Fehler, Falsch = produziert eine Fehlermeldung / funktioniert nicht wie gewünscht.) Der Datensatz existiert, enthält alle nötigen Variablen und tidyverse ist geladen.",
+    "code": "df_aggr = data |> summarise(meanAge = mean(age, na.rm = TRUE))",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "summarise() ohne group_by() läuft ebenfalls und berechnet den Gesamtmittelwert von age über alle Fälle."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-UEB",
+    "category": "Woche 4",
+    "prompt": "Welcher R-Code erzeugt die folgende Grafik: ein Balkendiagramm der Häufigkeiten der Variable lr_SP (diskrete Werte 0–10) auf der x-Achse, «Anzahl» auf der y-Achse, rote Balken, rechtsschief, im Stil theme_minimal?",
+    "options": [
+      "ggplot(df, aes(x = lr_SP)) + geom_histogram(fill = \"red\") + theme_minimal() + ylab(\"Anzahl\") + xlab(\"Links-Rechts Position SP\")",
+      "ggplot(df, aes(x = lr_SP)) + geom_bar(fill = \"red\") + theme_minimal() + ylab(\"Anzahl\") + xlab(\"Links-Rechts Position SP\")",
+      "ggplot(df, aes(x = lr_SP)) + geom_tile(fill = \"red\") + theme_bw() + ylab(\"Anzahl\") + xlab(\"Links-Rechts Position SP\")",
+      "ggplot(df, aes(x = lr_SP)) + geom_col(fill = \"red\") + theme_minimal() + ylab(\"Anzahl\") + xlab(\"Links-Rechts Position SP\")",
+      "ggplot(df, aes(x = lr_SP)) + geom_rect(fill = \"red\") + theme_bw() + ylab(\"Anzahl\") + xlab(\"Links-Rechts Position SP\")"
+    ],
+    "correct": 1,
+    "explanation": "Für eine diskrete 0–10-Skala zählt geom_bar() die Häufigkeit jedes Werts (ein Balken pro Wert). geom_col() bräuchte ein y, geom_tile/geom_rect sind falsche Geome, und die gezeigten Gitterlinien entsprechen theme_minimal()."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-UEB",
+    "category": "Woche 4",
+    "prompt": "Datenvisualisierung — richtig oder falsch?\n«Liniendiagramme eignen sich besonders, um Zeittrends darzustellen.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Liniendiagramme verbinden aufeinanderfolgende Zeitpunkte und zeigen Verläufe/Trends besonders gut."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-UEB",
+    "category": "Woche 4",
+    "prompt": "Datenvisualisierung — richtig oder falsch?\n«Ein Säulendiagramm hat gegenüber einem Balkendiagramm den Vorteil, dass man bei längeren Beschriftungen keine Überschneidungen hat.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Es ist umgekehrt: Horizontale Balkendiagramme sind bei langen Beschriftungen im Vorteil, weil der Text neben den Balken Platz hat."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-UEB",
+    "category": "Woche 4",
+    "prompt": "Datenvisualisierung — richtig oder falsch?\n«Das Histogramm glättet die Daten, ein Dichte-Diagramm nicht.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Umgekehrt: Das Dichte-Diagramm glättet zu einer Kurve, das Histogramm zählt in diskreten Klassen (Balken)."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-UEB",
+    "category": "Woche 4",
+    "prompt": "Datenvisualisierung — richtig oder falsch?\n«Ein Boxplot zeigt die wichtigsten Lage- und Streuungsmasse einer Variable.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Der Boxplot zeigt Median (Lage) sowie Quartile/IQR und Whisker (Streuung) und markiert Ausreisser."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W4-UEB",
+    "category": "Woche 4",
+    "prompt": "Die folgende Abbildung aus einem SVP-Blogbeitrag zeigt den Zuwachs der Bevölkerung in der Schweiz von 1985 bis 2030 (Gesamtwerte von 6,3 Mio. bis 10,0 Mio., als gestapeltes Flächendiagramm). Die Jahresmarken sind 1980, 1985, 1995, 2005, 2014, 2030. Was ist das Hauptproblem bei diesem Bild?",
+    "image": "stat-w4-svp-bevoelkerung.jpg",
+    "options": [
+      "Die Zeitskala ist nicht konstant.",
+      "Das Bild behauptet eine Verbindung zu Covid, weist diese aber nicht nach.",
+      "Ab dem 18. März blieben die Preise gleich, zeigen aber einen Rückgang in der Grafik.",
+      "Das Farbschema ist schlecht gewählt.",
+      "Die y-Achse beginnt nicht bei 0."
+    ],
+    "correct": 4,
+    "explanation": "Die y-Achse (Bevölkerung) beginnt nicht bei 0, sondern bei rund 4 Mio. Dadurch wirkt der Zuwachs viel dramatischer, als er tatsächlich ist."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-TEST",
+    "category": "Woche 5",
+    "prompt": "Die Links-Rechts-Selbsteinschätzung in der Schweiz hat eine Schiefe von -0.22 und einen Exzess von -0.67. Welche der folgenden Aussagen bietet die richtige Interpretation dieser Feststellung?",
+    "options": [
+      "Die Links-Rechts-Selbsteinschätzung ist rechtsschief und flachgipflig.",
+      "Die Links-Rechts-Selbsteinschätzung ist linksschief und steilgipflig.",
+      "Die Links-Rechts-Selbsteinschätzung ist rechtsschief und steilgipflig.",
+      "Die Links-Rechts-Selbsteinschätzung ist symmetrisch und normalgipflig.",
+      "Die Links-Rechts-Selbsteinschätzung ist linksschief und flachgipflig."
+    ],
+    "correct": 4,
+    "explanation": "Negative Schiefe (-0.22) bedeutet linksschief; negativer Exzess (-0.67) bedeutet flachgipflig (platykurtisch, flacher als die Normalverteilung)."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-TEST",
+    "category": "Woche 5",
+    "prompt": "In welchem Bezug steht die Standardabweichung zur Varianz?",
+    "options": [
+      "Die Varianz ist die Wurzel der Standardabweichung und ist im Gegensatz zur Standardabweichung auf der gleichen Skala wie die Variable.",
+      "Varianz und Standardabweichung messen etwas komplett Verschiedenes und können nicht ineinander umgerechnet werden.",
+      "Die Varianz ist der Logarithmus der Standardabweichung und ist im Gegensatz zur Standardabweichung auf der gleichen Skala wie die Variable.",
+      "Die Standardabweichung ist die Wurzel der Varianz und ist im Gegensatz zur Varianz auf der gleichen Skala wie die Variable.",
+      "Die Standardabweichung ist der Logarithmus der Varianz und ist im Gegensatz zur Varianz auf der gleichen Skala wie die Variable."
+    ],
+    "correct": 3,
+    "explanation": "Die Standardabweichung ist die Quadratwurzel der Varianz und liegt daher in derselben Einheit/Skala wie die Variable (die Varianz nicht)."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-TEST",
+    "category": "Woche 5",
+    "prompt": "Betrachte die folgende Variable aus dem SELECTS 2023 Datensatz (Gefühlsthermometer 0–10). Richtig oder falsch?\n«Es macht Sinn, das arithmetische Mittel zu berechnen.»",
+    "table": {
+      "title": "Variable aus dem SELECTS 2023 Datensatz",
+      "meta": [
+        "# W4_f14177c: Feelings towards the voters of different parties: The Centre",
+        "[Type=continuous] [Format=numeric] [Range=0–10] [Missing=*/-99]",
+        "Valid = 4819 · Invalid = 3378"
+      ],
+      "headers": [
+        "Value",
+        "Label",
+        "Cases",
+        "Percentage"
+      ],
+      "rows": [
+        [
+          "0",
+          "Negative and cold feelings",
+          "72",
+          "36.2%"
+        ],
+        [
+          "10",
+          "Positive and warm feelings",
+          "127",
+          "63.8%"
+        ],
+        [
+          "-99",
+          "No answer",
+          "98",
+          ""
+        ]
+      ]
+    },
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Das Gefühlsthermometer ist intervallskaliert (0–10). Für intervallskalierte Variablen ist das arithmetische Mittel sinnvoll."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-TEST",
+    "category": "Woche 5",
+    "prompt": "Betrachte die folgende Variable aus dem SELECTS 2023 Datensatz (Gefühlsthermometer 0–10). Richtig oder falsch?\n«Es macht Sinn, den Modus zu berechnen.»",
+    "table": {
+      "title": "Variable aus dem SELECTS 2023 Datensatz",
+      "meta": [
+        "# W4_f14177c: Feelings towards the voters of different parties: The Centre",
+        "[Type=continuous] [Format=numeric] [Range=0–10] [Missing=*/-99]",
+        "Valid = 4819 · Invalid = 3378"
+      ],
+      "headers": [
+        "Value",
+        "Label",
+        "Cases",
+        "Percentage"
+      ],
+      "rows": [
+        [
+          "0",
+          "Negative and cold feelings",
+          "72",
+          "36.2%"
+        ],
+        [
+          "10",
+          "Positive and warm feelings",
+          "127",
+          "63.8%"
+        ],
+        [
+          "-99",
+          "No answer",
+          "98",
+          ""
+        ]
+      ]
+    },
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Der Modus (häufigster Wert) ist für jede Skala – auch für intervallskalierte Variablen – berechenbar und sinnvoll."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-TEST",
+    "category": "Woche 5",
+    "prompt": "Betrachte die folgende Variable aus dem SELECTS 2023 Datensatz (Gefühlsthermometer 0–10). Richtig oder falsch?\n«Es macht Sinn, den Median zu berechnen.»",
+    "table": {
+      "title": "Variable aus dem SELECTS 2023 Datensatz",
+      "meta": [
+        "# W4_f14177c: Feelings towards the voters of different parties: The Centre",
+        "[Type=continuous] [Format=numeric] [Range=0–10] [Missing=*/-99]",
+        "Valid = 4819 · Invalid = 3378"
+      ],
+      "headers": [
+        "Value",
+        "Label",
+        "Cases",
+        "Percentage"
+      ],
+      "rows": [
+        [
+          "0",
+          "Negative and cold feelings",
+          "72",
+          "36.2%"
+        ],
+        [
+          "10",
+          "Positive and warm feelings",
+          "127",
+          "63.8%"
+        ],
+        [
+          "-99",
+          "No answer",
+          "98",
+          ""
+        ]
+      ]
+    },
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Der Median setzt eine Rangordnung voraus, die bei einer intervallskalierten Variable gegeben ist – die Berechnung ist sinnvoll."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-TEST",
+    "category": "Woche 5",
+    "prompt": "Betrachte die folgende Variable aus dem SELECTS 2023 Datensatz (Gefühlsthermometer 0–10). Richtig oder falsch?\n«Es macht Sinn, die Standardabweichung zu berechnen.»",
+    "table": {
+      "title": "Variable aus dem SELECTS 2023 Datensatz",
+      "meta": [
+        "# W4_f14177c: Feelings towards the voters of different parties: The Centre",
+        "[Type=continuous] [Format=numeric] [Range=0–10] [Missing=*/-99]",
+        "Valid = 4819 · Invalid = 3378"
+      ],
+      "headers": [
+        "Value",
+        "Label",
+        "Cases",
+        "Percentage"
+      ],
+      "rows": [
+        [
+          "0",
+          "Negative and cold feelings",
+          "72",
+          "36.2%"
+        ],
+        [
+          "10",
+          "Positive and warm feelings",
+          "127",
+          "63.8%"
+        ],
+        [
+          "-99",
+          "No answer",
+          "98",
+          ""
+        ]
+      ]
+    },
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Die Standardabweichung setzt gleiche Abstände (Intervallskala) voraus – die sind hier gegeben, also ist die Berechnung sinnvoll."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-TEST",
+    "category": "Woche 5",
+    "prompt": "NAs in R — richtig oder falsch?\n«„keine Antwort“ wird in Studien häufig durch spezielle Zahlen abgebildet (z.B. 9, 99 oder -99) statt durch NA.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Fehlende Antworten werden im Rohdatensatz oft mit Codes wie 9, 99 oder -99 abgelegt und müssen erst zu NA umcodiert werden."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-TEST",
+    "category": "Woche 5",
+    "prompt": "NAs in R — richtig oder falsch?\n«is.na(\"NA\") gibt FALSE zurück.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "\"NA\" ist der Text «NA» (ein character-Wert), nicht der fehlende Wert NA. Deshalb ist is.na(\"NA\") gleich FALSE."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-TEST",
+    "category": "Woche 5",
+    "prompt": "NAs in R — richtig oder falsch?\n«Wenn median(x, na.rm = TRUE) NA zurückgibt, besteht x nur aus NA-Werten.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "na.rm = TRUE entfernt alle NAs. Bleibt danach kein Wert übrig (Ergebnis NA), bestand x ausschliesslich aus NA-Werten."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-TEST",
+    "category": "Woche 5",
+    "prompt": "NAs in R — richtig oder falsch?\n«Wenn median(x) eine Zahl zurückgibt, hat x keine NA-Werte.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Ohne na.rm = TRUE gibt median(x) bei mindestens einem NA ebenfalls NA zurück. Eine Zahl als Ergebnis bedeutet also: keine NA-Werte in x."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-UEB",
+    "category": "Woche 5",
+    "prompt": "Der Befehl mean(df$var) gibt NA zurück. Gibt der folgende Befehl stattdessen den Mittelwert zurück? (Richtig = gibt den Mittelwert zurück, Falsch = gibt NA oder eine Fehlermeldung zurück. Nötige Pakete sind geladen.)",
+    "code": "mean(df$var, na.rm = TRUE)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "na.rm = TRUE entfernt die NA-Werte vor der Berechnung, daher wird der Mittelwert zurückgegeben."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-UEB",
+    "category": "Woche 5",
+    "prompt": "Der Befehl mean(df$var) gibt NA zurück. Gibt der folgende Code stattdessen den Mittelwert zurück? (Richtig = gibt den Mittelwert zurück, Falsch = gibt NA oder eine Fehlermeldung zurück. Nötige Pakete sind geladen.)",
+    "code": "df = df |> filter(!is.na(var))\nmean(df$var)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "filter(!is.na(var)) entfernt zuerst alle Zeilen mit NA in var; danach berechnet mean() einen gültigen Mittelwert."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-UEB",
+    "category": "Woche 5",
+    "prompt": "Der Befehl mean(df$var) gibt NA zurück. Gibt der folgende Befehl stattdessen den Mittelwert zurück? (Richtig = gibt den Mittelwert zurück, Falsch = gibt NA oder eine Fehlermeldung zurück. Nötige Pakete sind geladen.)",
+    "code": "mean(df$var, use = \"complete.obs\")",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "mean() kennt kein Argument use (das gibt es bei cor()). Es wird ignoriert, die NAs bleiben, das Ergebnis ist weiterhin NA."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-UEB",
+    "category": "Woche 5",
+    "prompt": "Der Befehl mean(df$var) gibt NA zurück. Gibt der folgende Befehl stattdessen den Mittelwert zurück? (Richtig = gibt den Mittelwert zurück, Falsch = gibt NA oder eine Fehlermeldung zurück. Nötige Pakete sind geladen.)",
+    "code": "mean(df$var, na = FALSE)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Das korrekte Argument heisst na.rm, nicht na. na = FALSE entfernt keine NAs, daher bleibt das Ergebnis NA."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-UEB",
+    "category": "Woche 5",
+    "prompt": "In einer Studie über die Überlebenszeiten (in Tagen) von Regierungen nach dem Zweiten Weltkrieg wurde eine Schiefe von 0.47 und ein negativer Exzess festgestellt. Welche der folgenden Aussagen bietet die richtige Interpretation der Ergebnisse?",
+    "options": [
+      "Die Überlebenszeitverteilung hat einen langen linken Schwanz und ist leptokurtisch.",
+      "Die Überlebenszeitverteilung hat einen langen linken Schwanz und ist platykurtisch.",
+      "Die Überlebenszeitverteilung hat einen langen rechten Schwanz und ist platykurtisch.",
+      "Die Verteilung der Überlebenszeit ist symmetrisch, aber platykurtisch.",
+      "Die Verteilung der Überlebenszeit hat einen langen rechten Schwanz und ist leptokurtisch."
+    ],
+    "correct": 2,
+    "explanation": "Positive Schiefe (0.47) bedeutet rechtsschief (langer rechter Schwanz); ein negativer Exzess bedeutet platykurtisch (flachgipflig)."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-UEB",
+    "category": "Woche 5",
+    "prompt": "Ein Forscher hat in einer Umfrage gefragt: «Was ist Ihre Meinung zu einem NATO-Beitritt der Schweiz?» mit den Antwortmöglichkeiten:\n– sehr dafür\n– eher dafür\n– eher dagegen\n– sehr dagegen\nRichtig oder falsch?\n«Es wäre sinnvoll, die Standardabweichung zu berechnen.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Die Variable ist ordinalskaliert. Die Standardabweichung setzt gleiche Abstände (Intervallskala) voraus und ist hier nicht sinnvoll."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-UEB",
+    "category": "Woche 5",
+    "prompt": "Ein Forscher hat in einer Umfrage gefragt: «Was ist Ihre Meinung zu einem NATO-Beitritt der Schweiz?» mit den Antwortmöglichkeiten:\n– sehr dafür\n– eher dafür\n– eher dagegen\n– sehr dagegen\nRichtig oder falsch?\n«Es wäre sinnvoll, das arithmetische Mittel zu berechnen.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Bei einer ordinalskalierten Variable ist das arithmetische Mittel nicht sinnvoll, da die Abstände zwischen den Kategorien nicht gleich (bekannt) sind."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-UEB",
+    "category": "Woche 5",
+    "prompt": "Ein Forscher hat in einer Umfrage gefragt: «Was ist Ihre Meinung zu einem NATO-Beitritt der Schweiz?» mit den Antwortmöglichkeiten:\n– sehr dafür\n– eher dafür\n– eher dagegen\n– sehr dagegen\nRichtig oder falsch?\n«Es wäre sinnvoll, den Median zu berechnen.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Die Kategorien haben eine klare Rangordnung (ordinal), daher ist der Median sinnvoll."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-UEB",
+    "category": "Woche 5",
+    "prompt": "Ein Forscher hat in einer Umfrage gefragt: «Was ist Ihre Meinung zu einem NATO-Beitritt der Schweiz?» mit den Antwortmöglichkeiten:\n– sehr dafür\n– eher dafür\n– eher dagegen\n– sehr dagegen\nRichtig oder falsch?\n«Es wäre sinnvoll, den Modus zu berechnen.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Der Modus (häufigste Kategorie) ist für jede Skala – auch ordinal – sinnvoll berechenbar."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W5-UEB",
+    "category": "Woche 5",
+    "prompt": "Was ist eine Varianz?",
+    "options": [
+      "Ein Mass für die Schiefe einer Variable.",
+      "Ein Mass für die Lage einer Variable.",
+      "Ein Mass für die Wölbung einer Variable.",
+      "Ein Mass für die Wahrscheinlichkeit einer nominalskalierten Zufallsvariable.",
+      "Ein Mass für die Streuung einer Variable."
+    ],
+    "correct": 4,
+    "explanation": "Die Varianz ist ein Streuungsmass: die durchschnittliche quadrierte Abweichung der Werte vom Mittelwert."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-TEST",
+    "category": "Woche 6",
+    "prompt": "Stellen Sie sich vor, unsere Zufallsvariable ist die Anzahl der Proteste gegen den Klimawandel, die jeden Monat in einem bestimmten Land stattgefunden haben. Wir wollen diese Variable modellieren. Welche Art von Verteilung müssten wir definieren?",
+    "options": [
+      "Eine Stichprobenverteilung.",
+      "Es gibt nicht genügend Informationen.",
+      "Eine Wahrscheinlichkeitsmassenfunktion.",
+      "Eine Normalverteilung.",
+      "Eine Wahrscheinlichkeitsdichtefunktion."
+    ],
+    "correct": 2,
+    "explanation": "Die Anzahl Proteste ist diskret (zählbar). Diskrete Zufallsvariablen werden mit einer Wahrscheinlichkeitsmassenfunktion (PMF) beschrieben."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-TEST",
+    "category": "Woche 6",
+    "prompt": "Wir wollen die Wahrscheinlichkeitsdichte einer Normalverteilung mit einem Mittelwert von 3 und einer Standardabweichung von 2 graphisch darstellen. Welche Funktion können wir dafür verwenden?",
+    "options": [
+      "pnorm",
+      "rnorm",
+      "dnorm",
+      "qnorm",
+      "Das kann mit R nicht berechnet werden."
+    ],
+    "correct": 2,
+    "explanation": "dnorm() gibt die Dichte (density) zurück. pnorm() liefert die kumulative Wahrscheinlichkeit, qnorm() die Quantile und rnorm() Zufallszahlen."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-TEST",
+    "category": "Woche 6",
+    "prompt": "Ist die folgende Verteilung kontinuierlich? (Richtig = kontinuierlich, Falsch = diskret)\n«diskrete Gleichverteilung»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Die diskrete Gleichverteilung ist – wie der Name sagt – diskret, nicht kontinuierlich."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-TEST",
+    "category": "Woche 6",
+    "prompt": "Ist die folgende Verteilung kontinuierlich? (Richtig = kontinuierlich, Falsch = diskret)\n«Binomialverteilung»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Die Binomialverteilung zählt Erfolge und ist damit diskret."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-TEST",
+    "category": "Woche 6",
+    "prompt": "Ist die folgende Verteilung kontinuierlich? (Richtig = kontinuierlich, Falsch = diskret)\n«t-Verteilung»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Die t-Verteilung ist eine kontinuierliche Verteilung."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-TEST",
+    "category": "Woche 6",
+    "prompt": "Ist die folgende Verteilung kontinuierlich? (Richtig = kontinuierlich, Falsch = diskret)\n«F-Verteilung»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Die F-Verteilung ist eine kontinuierliche Verteilung."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-TEST",
+    "category": "Woche 6",
+    "prompt": "Kann die folgende Situation mit einer diskreten Gleichverteilung modelliert werden? (Richtig = ja, Falsch = nein)\n«Wir ermitteln den Gewählten nach Stimmengleichheit per Losverfahren.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Beim Losverfahren ist jede Person gleich wahrscheinlich – das entspricht einer diskreten Gleichverteilung."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-TEST",
+    "category": "Woche 6",
+    "prompt": "Kann die folgende Situation mit einer diskreten Gleichverteilung modelliert werden? (Richtig = ja, Falsch = nein)\n«Wir werfen einen fairen 14-seitigen Würfel.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Bei einem fairen Würfel ist jede der 14 Seiten gleich wahrscheinlich – eine diskrete Gleichverteilung."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-TEST",
+    "category": "Woche 6",
+    "prompt": "Kann die folgende Situation mit einer diskreten Gleichverteilung modelliert werden? (Richtig = ja, Falsch = nein)\n«Wir werfen einen fairen 14-seitigen Würfel drei Mal und addieren die drei Punktezahlen.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Die Summe mehrerer Würfe ist nicht mehr gleichverteilt: mittlere Summen sind viel wahrscheinlicher als extreme (glockenförmige Verteilung)."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-TEST",
+    "category": "Woche 6",
+    "prompt": "Kann die folgende Situation mit einer diskreten Gleichverteilung modelliert werden? (Richtig = ja, Falsch = nein)\n«Wir ziehen eine Pokerkarte.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Jede der 52 Karten ist gleich wahrscheinlich – das ist eine diskrete Gleichverteilung."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-UEB",
+    "category": "Woche 6",
+    "prompt": "Ist die folgende Verteilung diskret? (Richtig = diskret, Falsch = kontinuierlich)\n«Chi-Quadrat-Verteilung (χ²)»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Die χ²-Verteilung ist eine kontinuierliche Verteilung."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-UEB",
+    "category": "Woche 6",
+    "prompt": "Ist die folgende Verteilung diskret? (Richtig = diskret, Falsch = kontinuierlich)\n«Uniformverteilung (stetige Gleichverteilung)»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Die (stetige) Uniformverteilung ist kontinuierlich. Nur die diskrete Gleichverteilung ist diskret."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-UEB",
+    "category": "Woche 6",
+    "prompt": "Ist die folgende Verteilung diskret? (Richtig = diskret, Falsch = kontinuierlich)\n«Binomialverteilung»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Die Binomialverteilung zählt Erfolge (0, 1, 2, …) und ist damit diskret."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-UEB",
+    "category": "Woche 6",
+    "prompt": "Ist die folgende Verteilung diskret? (Richtig = diskret, Falsch = kontinuierlich)\n«Normalverteilung»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Die Normalverteilung ist eine kontinuierliche Verteilung."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-UEB",
+    "category": "Woche 6",
+    "prompt": "Wir wollen den Anteil der t-Verteilung mit 5 Freiheitsgraden berechnen, welcher 1 oder kleiner ist. Welcher der folgenden R-Codes berechnet uns diesen Wert?",
+    "options": [
+      "dt(1, df = 5)",
+      "rt(1, df = 5)",
+      "pt(1, df = 5)",
+      "qt(1, df = 5)",
+      "Das kann mit R nicht berechnet werden."
+    ],
+    "correct": 2,
+    "explanation": "pt() liefert die kumulative Wahrscheinlichkeit P(T ≤ 1), also den Anteil der Verteilung, der 1 oder kleiner ist. dt() = Dichte, qt() = Quantile, rt() = Zufallszahlen."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-UEB",
+    "category": "Woche 6",
+    "prompt": "Wir haben eine Zufallsvariable, welche das exakte Alter von Personen misst. Wir wollen diese Variable modellieren. Welche Art von Verteilung müssen wir definieren?",
+    "options": [
+      "Eine Wahrscheinlichkeitsmassenfunktion.",
+      "Eine Normalverteilung.",
+      "Eine Stichprobenverteilung.",
+      "Es gibt nicht genügend Informationen.",
+      "Eine Wahrscheinlichkeitsdichtefunktion."
+    ],
+    "correct": 4,
+    "explanation": "Das exakte Alter ist kontinuierlich. Kontinuierliche Zufallsvariablen werden mit einer Wahrscheinlichkeitsdichtefunktion (PDF) beschrieben."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-UEB",
+    "category": "Woche 6",
+    "prompt": "Kann die folgende Situation mit einer Binomialverteilung modelliert werden? (Richtig = ja, Falsch = nein)\n«Wir ziehen aus einem Topf 10 Murmeln, wobei es 1/3 blaue und 2/3 grüne Murmeln im Topf gibt.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Es gibt einen binären Ausgang (blau/grün) mit fester Wahrscheinlichkeit über eine feste Anzahl Ziehungen (n = 10, p = 1/3) – das entspricht einer Binomialverteilung."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-UEB",
+    "category": "Woche 6",
+    "prompt": "Kann die folgende Situation mit einer Binomialverteilung modelliert werden? (Richtig = ja, Falsch = nein)\n«Wir ziehen zufällig 1000 Stimmberechtigte und befragen sie, ob sie bei den letzten Nationalratswahlen teilgenommen haben oder nicht.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Binärer Ausgang (teilgenommen ja/nein) bei fester Anzahl (n = 1000) und (angenähert) konstanter Wahrscheinlichkeit – eine Binomialverteilung."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-UEB",
+    "category": "Woche 6",
+    "prompt": "Kann die folgende Situation mit einer Binomialverteilung modelliert werden? (Richtig = ja, Falsch = nein)\n«Wir spielen Dart und werfen drei Pfeile Richtung Dartboard und messen anschliessend den durchschnittlichen Abstand der drei Pfeile zum Mittelpunkt.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Der Abstand ist eine kontinuierliche Messgrösse, kein binärer Erfolg/Misserfolg – das ist nicht binomialverteilt."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W6-UEB",
+    "category": "Woche 6",
+    "prompt": "Kann die folgende Situation mit einer Binomialverteilung modelliert werden? (Richtig = ja, Falsch = nein)\n«Wir werfen eine Münze 99 Mal.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Binärer Ausgang (Kopf/Zahl), feste Anzahl (n = 99) und konstante Wahrscheinlichkeit (p = 0.5) – eine klassische Binomialverteilung."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-TEST",
+    "category": "Woche 7",
+    "prompt": "Wir haben ein Schweizer Jasskartenset mit 36 Karten (6, 7, 8, 9, 10, Junge, Ober, König und Ass in den Farben Eichel, Schilten, Schellen und Rosen). Wir definieren zwei Ereignisse: das Ziehen einer Eichel und das Ziehen einer Person (Junge, Ober oder König). Wie gross ist die Wahrscheinlichkeit, dass beide Ereignisse eintreten?",
+    "options": [
+      "1/2",
+      "1/3",
+      "1/4",
+      "1/12",
+      "7/12"
+    ],
+    "correct": 3,
+    "explanation": "P(Eichel) = 9/36 = 1/4; P(Person) = 12/36 = 1/3. Farbe und Wert sind unabhängig, also P(beide) = 1/4 × 1/3 = 1/12."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-TEST",
+    "category": "Woche 7",
+    "prompt": "Die Wahrscheinlichkeit, dass jemand auf der Welt Italienisch spricht, ist 1.05%. Die Wahrscheinlichkeit, dass jemand in der Schweiz lebt, ist 0.11%. Die Wahrscheinlichkeit, dass jemand in der Schweiz Italienisch spricht, ist 8.1% (also P(Italienisch | Schweiz)). Wie gross ist die Wahrscheinlichkeit bei einer Zufallsziehung einer Person weltweit, dass sie Italienisch spricht oder in der Schweiz lebt?",
+    "options": [
+      "1.16%",
+      "1.17%",
+      "8.1%",
+      "9.26%",
+      "1.15%"
+    ],
+    "correct": 4,
+    "explanation": "P(I oder CH) = P(I) + P(CH) − P(I und CH). P(I und CH) = P(I|CH)·P(CH) = 0.081 × 0.11% ≈ 0.0089%. Also 1.05% + 0.11% − 0.0089% ≈ 1.15%."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-TEST",
+    "category": "Woche 7",
+    "prompt": "Die Wahrscheinlichkeit, dass jemand nach der obligatorischen Schulzeit eine Lehre macht, ist rund 2/3. Die Wahrscheinlichkeit, dass jemand nach der obligatorischen Schulzeit das Gymnasium besucht, ist rund 8%. Richtig oder falsch?\n«Die Wahrscheinlichkeit, dass jemand eine Lehre macht oder das Gymnasium besucht, ist rund 75%.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Die Ereignisse schliessen sich gegenseitig aus, also P(Lehre oder Gymnasium) = 2/3 + 8% ≈ 66.7% + 8% ≈ 75%."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-TEST",
+    "category": "Woche 7",
+    "prompt": "Die Wahrscheinlichkeit, dass jemand nach der obligatorischen Schulzeit eine Lehre macht, ist rund 2/3. Die Wahrscheinlichkeit, dass jemand nach der obligatorischen Schulzeit das Gymnasium besucht, ist rund 8%. Richtig oder falsch?\n«Es ist möglich, dass beide Ereignisse gleichzeitig eintreten.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Man macht entweder eine Lehre oder besucht das Gymnasium – beides gleichzeitig ist nicht möglich (die Ereignisse schliessen sich aus)."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-TEST",
+    "category": "Woche 7",
+    "prompt": "Die Wahrscheinlichkeit, dass jemand nach der obligatorischen Schulzeit eine Lehre macht, ist rund 2/3. Die Wahrscheinlichkeit, dass jemand nach der obligatorischen Schulzeit das Gymnasium besucht, ist rund 8%. Richtig oder falsch?\n«Die beiden Ereignisse sind unabhängig voneinander.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Sich gegenseitig ausschliessende Ereignisse sind nicht unabhängig: Tritt das eine ein, kann das andere nicht mehr eintreten."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-TEST",
+    "category": "Woche 7",
+    "prompt": "Die Wahrscheinlichkeit, dass jemand nach der obligatorischen Schulzeit eine Lehre macht, ist rund 2/3. Die Wahrscheinlichkeit, dass jemand nach der obligatorischen Schulzeit das Gymnasium besucht, ist rund 8%. Richtig oder falsch?\n«Die Wahrscheinlichkeit, dass jemand eine Lehre macht und gleichzeitig das Gymnasium besucht, ist rund 5.3%.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Da sich die Ereignisse ausschliessen, ist P(Lehre und Gymnasium) = 0, nicht 5.3% (2/3 × 8% würde nur bei unabhängigen Ereignissen gelten)."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-TEST",
+    "category": "Woche 7",
+    "prompt": "Läuft der folgende R-Code fehlerfrei und liefert das erwartete Ergebnis? (Richtig = funktioniert, Falsch = Fehler)",
+    "code": "add = function(x, y){\n  x + y\n}\nadd(7, 8)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Die Funktion nimmt x und y und gibt die letzte Zeile (x + y) automatisch zurück. add(7, 8) liefert 15."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-TEST",
+    "category": "Woche 7",
+    "prompt": "Läuft der folgende R-Code fehlerfrei und liefert das erwartete Ergebnis? (Richtig = funktioniert, Falsch = Fehler)",
+    "code": "add = function(x){\n  return(x + y)\n}\nadd(7, 8)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Die Funktion hat nur den Parameter x, wird aber mit zwei Argumenten aufgerufen (Fehler: «unused argument»), und y ist gar nicht definiert."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-TEST",
+    "category": "Woche 7",
+    "prompt": "Läuft der folgende R-Code fehlerfrei und liefert das erwartete Ergebnis? (Richtig = funktioniert, Falsch = Fehler)",
+    "code": "add = function(x, y){\n  return(x + y)\n}\nadd(7, 8)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Zwei Parameter, expliziter return(x + y). add(7, 8) liefert 15."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-TEST",
+    "category": "Woche 7",
+    "prompt": "Läuft der folgende R-Code fehlerfrei und liefert das erwartete Ergebnis? (Richtig = funktioniert, Falsch = Fehler)",
+    "code": "add = function(x, y = 1){\n  x + y\n}\nadd(7, 8)\nadd(7)",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "y hat den Standardwert 1. add(7, 8) liefert 15, add(7) verwendet y = 1 und liefert 8 – beide Aufrufe funktionieren."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-UEB",
+    "category": "Woche 7",
+    "prompt": "Wir nehmen an, dass Geburtsdatum und Parteiwahl statistisch unabhängig sind. Die Wahrscheinlichkeit, dass eine Person zwischen Weihnachten und Neujahr geboren wurde, beträgt 0.017. Die Wahrscheinlichkeit, dass eine wählende Person die SVP wählt, beträgt 0.279. Wenn wir eine:n zufällige:n Wähler:in ziehen: Wie wahrscheinlich hat er/sie die SVP gewählt ODER ist zwischen Weihnachten und Neujahr geboren?",
+    "options": [
+      "Es liegen nicht genügend Informationen vor, um die Frage beantworten zu können.",
+      "0.017 plus 0.279.",
+      "0.017 plus 0.279 minus 0.017 mal 0.279.",
+      "0.017 mal 0.279.",
+      "0.017 geteilt durch 0.279."
+    ],
+    "correct": 2,
+    "explanation": "Für P(A oder B) gilt allgemein P(A) + P(B) − P(A und B). Bei unabhängigen Ereignissen ist P(A und B) = P(A)·P(B), also 0.017 + 0.279 − 0.017·0.279."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-UEB",
+    "category": "Woche 7",
+    "prompt": "Die Wahrscheinlichkeit, dass jemand bei einer weltweiten Zufallsziehung Deutsch spricht, beträgt ca. 2.2%. Ausserdem ist die Wahrscheinlichkeit bekannt, dass jemand in Deutschland lebt. Richtig oder falsch?\n«Die Wahrscheinlichkeit, dass mindestens ein Ereignis eintritt, ist die Summe der beiden Wahrscheinlichkeiten.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Nur bei sich ausschliessenden Ereignissen wäre es die reine Summe. Deutsch sprechen und in Deutschland leben können zusammen auftreten, daher muss P(A und B) abgezogen werden."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-UEB",
+    "category": "Woche 7",
+    "prompt": "Die Wahrscheinlichkeit, dass jemand bei einer weltweiten Zufallsziehung Deutsch spricht, beträgt ca. 2.2%. Ausserdem ist die Wahrscheinlichkeit bekannt, dass jemand in Deutschland lebt. Richtig oder falsch?\n«Mit den vorhandenen Informationen können wir keine gemeinsame Wahrscheinlichkeit berechnen.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Ohne Annahme der Unabhängigkeit und ohne bedingte Wahrscheinlichkeit lässt sich P(A und B) aus den beiden Einzelwahrscheinlichkeiten nicht bestimmen."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-UEB",
+    "category": "Woche 7",
+    "prompt": "Die Wahrscheinlichkeit, dass jemand bei einer weltweiten Zufallsziehung Deutsch spricht, beträgt ca. 2.2%. Ausserdem ist die Wahrscheinlichkeit bekannt, dass jemand in Deutschland lebt. Richtig oder falsch?\n«Die beiden Ereignisse sind unabhängig voneinander.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Die Ereignisse sind abhängig: Wer in Deutschland lebt, spricht sehr wahrscheinlich Deutsch. Das Wissen über das eine verändert die Wahrscheinlichkeit des anderen."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-UEB",
+    "category": "Woche 7",
+    "prompt": "Die Wahrscheinlichkeit, dass jemand bei einer weltweiten Zufallsziehung Deutsch spricht, beträgt ca. 2.2%. Ausserdem ist die Wahrscheinlichkeit bekannt, dass jemand in Deutschland lebt. Richtig oder falsch?\n«Die Wahrscheinlichkeit, dass beide Ereignisse eintreten, ist gleich der Wahrscheinlichkeit, dass jemand Deutsch spricht, mal der Wahrscheinlichkeit, dass jemand in Deutschland lebt, wenn er Deutsch spricht.»",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Das ist die allgemeine Multiplikationsregel: P(A und B) = P(A)·P(B|A), hier P(Deutsch)·P(Deutschland | Deutsch)."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-UEB",
+    "category": "Woche 7",
+    "prompt": "Wir haben ein Schweizer Jasskartenset mit 36 Karten (6, 7, 8, 9, 10, Junge, Ober, König und Ass in den Farben Eichel, Schilten, Schellen und Rosen). Wir definieren zwei Ereignisse: das Ziehen einer Eichel und das Ziehen einer Person (Junge, Ober oder König). Wie gross ist die Wahrscheinlichkeit, dass mindestens eines der Ereignisse eintrifft?",
+    "options": [
+      "0",
+      "1/4",
+      "1/3",
+      "1",
+      "1/2"
+    ],
+    "correct": 4,
+    "explanation": "P(Eichel oder Person) = P(Eichel) + P(Person) − P(beide) = 1/4 + 1/3 − 1/12 = 6/12 = 1/2."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-UEB",
+    "category": "Woche 7",
+    "prompt": "Läuft der folgende R-Code fehlerfrei? (Richtig = funktioniert, Falsch = Fehler)",
+    "code": "durchschnitt = func(x){\n  sum(x) / length(x)\n}",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Das Schlüsselwort heisst function, nicht func. func(x){...} führt zu einem Fehler."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-UEB",
+    "category": "Woche 7",
+    "prompt": "Läuft der folgende R-Code fehlerfrei? (Richtig = funktioniert, Falsch = Fehler)",
+    "code": "durchschnitt = function(y){\n  sum(y) / length(y)\n}",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Gültige Funktionsdefinition: Der Parameter y wird konsistent verwendet. Die Funktion berechnet den Mittelwert."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-UEB",
+    "category": "Woche 7",
+    "prompt": "Läuft der folgende R-Code fehlerfrei? (Richtig = funktioniert, Falsch = Fehler)",
+    "code": "durchschnitt = function(x){\n  sum(x) / length(x)\n}",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 0,
+    "explanation": "Gültige Funktionsdefinition, die den Mittelwert von x berechnet."
+  },
+  {
+    "subject": "Statistik",
+    "set": "STAT-W7-UEB",
+    "category": "Woche 7",
+    "prompt": "Läuft der folgende R-Code fehlerfrei? (Richtig = funktioniert, Falsch = Fehler)",
+    "code": "function = durchschnitt(x){\n  sum(x) / length(x)\n}",
+    "options": [
+      "Richtig",
+      "Falsch"
+    ],
+    "correct": 1,
+    "explanation": "Die Definition ist verdreht: Man schreibt name = function(x){ ... }. So wie hier (function = durchschnitt(x){...}) gibt es einen Syntaxfehler."
+  }
+]

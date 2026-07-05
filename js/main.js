@@ -10,6 +10,7 @@
     "bwl-math-ai",
     "bwl-jun17-hrm",
     "bwl-jun17-org",
+    "statistik",
   ];
 
   try {
