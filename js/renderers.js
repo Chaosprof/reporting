@@ -135,7 +135,26 @@ function renderAccountingDeckSelector() {
   `;
 }
 
+function isMatrix(q) {
+  return q && q.type === "matrix" && Array.isArray(q.statements) && q.statements.length > 0;
+}
+
+// Points a question is worth: matrix (multi-statement Richtig/Falsch) is worth 2,
+// everything else is worth 1. Matrix grading: 0 wrong → 2, 1 wrong → 1, else 0.
+function questionMaxPoints(q) {
+  return isMatrix(q) ? 2 : 1;
+}
+
+function matrixPoints(q, picks) {
+  const wrong = q.statements.reduce((n, s, i) => {
+    const chosenRichtig = picks[i] === "Richtig";
+    return n + (picks[i] == null || chosenRichtig !== !!s.correct ? 1 : 0);
+  }, 0);
+  return wrong === 0 ? 2 : wrong === 1 ? 1 : 0;
+}
+
 function hasAnswerKey(q) {
+  if (isMatrix(q)) return q.statements.every(s => typeof s.correct === "boolean");
   return Number.isInteger(q.correct) && q.correct >= 0 && q.correct < q.options.length;
 }
 
@@ -551,6 +570,11 @@ function loadCurrent() {
   state.answered = false;
   state.picked = -1;
   const q = QUESTIONS[state.order[state.idx]];
+  if (isMatrix(q)) {
+    state.optionOrder = [];
+    state.matrixPicks = new Array(q.statements.length).fill(null);
+    return;
+  }
   const orderedOptions = q.options.map((_, i) => i);
   state.optionOrder = (isProducerRentQuestion(q) || isValueMapQuestion(q)) ? orderedOptions : shuffle(orderedOptions);
 }
@@ -580,16 +604,154 @@ function renderQuiz() {
       <div class="question-text">${renderRichText(prompt)}</div>
       ${isProducerRentQuestion(q) || isValueMapQuestion(q) ? "" : renderQuestionVisual(q.visual)}
       ${renderQuestionExtras(q)}
-      ${renderQuestionOptions(q)}
+      ${isMatrix(q) ? renderMatrixQuestion(q) : renderQuestionOptions(q)}
       <div id="feedbackSlot"></div>
     </div>
   `;
 
   wireSubjectTabs();
-  document.querySelectorAll("#options .option").forEach(b => {
-    b.addEventListener("click", () => pickAnswer(parseInt(b.dataset.i, 10)));
-  });
+  if (isMatrix(q)) {
+    wireMatrix(q);
+  } else {
+    document.querySelectorAll("#options .option").forEach(b => {
+      b.addEventListener("click", () => pickAnswer(parseInt(b.dataset.i, 10)));
+    });
+  }
   startQuestionTimer();
+}
+
+// ── Matrix questions (multi-statement Richtig/Falsch, 2/1/0 point grading) ──
+
+function renderMatrixQuestion(q) {
+  const rows = q.statements.map((s, i) => `
+    <div class="matrix-row" data-row="${i}">
+      <div class="matrix-row-body">
+        ${s.text ? `<div class="matrix-statement">${renderRichText(s.text)}</div>` : ""}
+        ${s.code ? renderQuestionCode(s.code) : ""}
+      </div>
+      <div class="matrix-choices" role="group">
+        <button type="button" class="matrix-choice" data-row="${i}" data-val="Richtig">Richtig</button>
+        <button type="button" class="matrix-choice" data-row="${i}" data-val="Falsch">Falsch</button>
+      </div>
+    </div>
+  `).join("");
+  return `
+    <div class="matrix" id="matrix">
+      ${rows}
+      <div class="matrix-submit-row">
+        <button class="btn btn-primary" id="matrixSubmit" disabled>Prüfen · 0/${q.statements.length}</button>
+      </div>
+    </div>
+  `;
+}
+
+function wireMatrix(q) {
+  const submit = document.getElementById("matrixSubmit");
+  const refresh = () => {
+    const answered = state.matrixPicks.filter(v => v != null).length;
+    submit.textContent = `Prüfen · ${answered}/${q.statements.length}`;
+    submit.disabled = answered !== q.statements.length;
+  };
+  document.querySelectorAll("#matrix .matrix-choice").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (state.answered) return;
+      const row = parseInt(btn.dataset.row, 10);
+      state.matrixPicks[row] = btn.dataset.val;
+      document.querySelectorAll(`#matrix .matrix-choice[data-row="${row}"]`).forEach(b => {
+        b.classList.toggle("selected", b.dataset.val === btn.dataset.val);
+      });
+      refresh();
+    });
+  });
+  submit.addEventListener("click", () => submitMatrix());
+  refresh();
+}
+
+function submitMatrix() {
+  if (state.answered) return;
+  getAudioCtx();
+  stopQuestionTimer();
+  state.answered = true;
+  const questionIndex = state.order[state.idx];
+  const q = QUESTIONS[questionIndex];
+  const picks = state.matrixPicks;
+  const points = matrixPoints(q, picks);
+  const maxPoints = questionMaxPoints(q);
+  const full = points === maxPoints;
+
+  state.score += points;
+  if (full) {
+    state.streak++;
+    state.bestStreak = Math.max(state.bestStreak, state.streak);
+    showPonyReward();
+    playHappyPonySound();
+  } else {
+    state.streak = 0;
+    showPonyOfDeath();
+    playSadViolinSound();
+  }
+  recordAnswer(q, full);
+  queueGistSave(state.data);
+
+  // Lock in and mark each row correct/wrong.
+  document.querySelectorAll("#matrix .matrix-choice").forEach(btn => (btn.disabled = true));
+  q.statements.forEach((s, i) => {
+    const correctVal = s.correct ? "Richtig" : "Falsch";
+    const rowRight = picks[i] === correctVal;
+    const rowEl = document.querySelector(`#matrix .matrix-row[data-row="${i}"]`);
+    if (rowEl) rowEl.classList.add(rowRight ? "row-correct" : "row-wrong");
+    document.querySelectorAll(`#matrix .matrix-choice[data-row="${i}"]`).forEach(b => {
+      if (b.dataset.val === correctVal) b.classList.add("correct");
+      else if (b.dataset.val === picks[i]) b.classList.add("wrong");
+    });
+  });
+
+  if (!full) {
+    state.wrong.push({
+      questionIndex,
+      prompt: questionPromptText(q),
+      matrix: true,
+      points,
+      maxPoints,
+      statements: q.statements.map((s, i) => ({
+        text: s.text,
+        code: s.code,
+        your: picks[i] || "—",
+        correct: s.correct ? "Richtig" : "Falsch",
+        right: picks[i] === (s.correct ? "Richtig" : "Falsch"),
+        explanation: s.explanation,
+      })),
+    });
+  }
+
+  const wrongCount = q.statements.filter((s, i) => picks[i] !== (s.correct ? "Richtig" : "Falsch")).length;
+  const slot = document.getElementById("feedbackSlot");
+  slot.innerHTML = `
+    <div class="feedback ${full ? "" : "wrong"}">
+      <div class="feedback-title ${full ? "ok" : "bad"}">
+        ${full ? "✓ Alles richtig" : wrongCount === 1 ? "① Fast — ein Fehler" : "✗ Mehrere Fehler"} · ${points}/${maxPoints} Punkte
+      </div>
+      <div class="feedback-body">
+        ${q.statements.map((s, i) => {
+          const correctVal = s.correct ? "Richtig" : "Falsch";
+          const rowRight = picks[i] === correctVal;
+          return `<div class="matrix-solution ${rowRight ? "ok" : "bad"}">
+            <span class="matrix-solution-mark">${rowRight ? "✓" : "✗"}</span>
+            <span class="matrix-solution-body">
+              <strong>${escapeHtml(correctVal)}</strong>${s.text ? " · " + renderRichText(s.text) : ""}
+              ${s.explanation ? `<span class="matrix-solution-exp">${renderRichText(s.explanation)}</span>` : ""}
+            </span>
+          </div>`;
+        }).join("")}
+      </div>
+    </div>
+    <div class="next-btn-row">
+      <button class="btn next-btn" id="nextBtn">
+        ${state.idx + 1 < state.order.length ? "Next →" : "See results"}
+      </button>
+    </div>
+  `;
+  document.getElementById("nextBtn").addEventListener("click", next);
 }
 
 function renderQuestionOptions(q) {
@@ -609,7 +771,8 @@ function renderQuestionOptions(q) {
 }
 
 function isProducerRentQuestion(q) {
-  return rentScenariosForQuestion(q).length === q.options.length && q.options.length > 0;
+  return Array.isArray(q.options) && q.options.length > 0 &&
+    rentScenariosForQuestion(q).length === q.options.length;
 }
 
 function isValueMapQuestion(q) {
@@ -1982,8 +2145,10 @@ function recordCompletedDeckResult(scoredTotal, pct) {
 function renderResults() {
   stopQuestionTimer();
   const total = state.order.length;
-  const scoredTotal = state.order.filter(i => hasAnswerKey(QUESTIONS[i])).length;
-  const unscoredTotal = total - scoredTotal;
+  // Points-based: matrix questions are worth 2, everything else 1.
+  const scoredTotal = state.order.reduce((sum, i) =>
+    sum + (hasAnswerKey(QUESTIONS[i]) ? questionMaxPoints(QUESTIONS[i]) : 0), 0);
+  const unscoredTotal = state.order.filter(i => !hasAnswerKey(QUESTIONS[i])).length;
   const pct = scoredTotal ? Math.round((state.score / scoredTotal) * 100) : 0;
   const mistakeIndices = [...new Set(state.wrong.map(w => w.questionIndex))]
     .filter(i => Number.isInteger(i) && QUESTIONS[i] && hasAnswerKey(QUESTIONS[i]));
@@ -2022,7 +2187,20 @@ function renderResults() {
 
       ${state.wrong.length ? `
         <div class="review-title">Review · ${state.wrong.length} to re-learn</div>
-        ${state.wrong.map(w => `
+        ${state.wrong.map(w => w.matrix ? `
+          <div class="review-item">
+            <div class="q">${renderRichText(w.prompt)} <span class="review-points">${w.points}/${w.maxPoints} Punkte</span></div>
+            ${w.statements.map(s => `
+              <div class="matrix-solution ${s.right ? "ok" : "bad"}">
+                <span class="matrix-solution-mark">${s.right ? "✓" : "✗"}</span>
+                <span class="matrix-solution-body">
+                  <strong>${escapeHtml(s.correct)}</strong>${s.text ? " · " + renderRichText(s.text) : (s.code ? ` · <code>${escapeHtml(s.code.split("\n")[0])} …</code>` : "")}
+                  ${!s.right ? `<span class="matrix-solution-exp">Deine Antwort: ${escapeHtml(s.your)}${s.explanation ? " — " + renderRichText(s.explanation) : ""}</span>` : ""}
+                </span>
+              </div>
+            `).join("")}
+          </div>
+        ` : `
           <div class="review-item">
             <div class="q">${renderRichText(w.prompt)}</div>
             <div class="yours">Your answer: ${renderRichText(w.picked)}</div>
