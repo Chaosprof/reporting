@@ -555,6 +555,58 @@ body::after {
   font-style: italic;
 }
 
+/* Matrix questions: multi-statement Richtig/Falsch with 2/1/0-point grading. */
+.matrix { display: flex; flex-direction: column; gap: 10px; }
+.matrix-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: var(--panel-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.matrix-row-body { flex: 1 1 240px; min-width: 0; }
+.matrix-statement {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: var(--ink-strong);
+}
+.matrix-row .code-block { margin: 0; }
+.matrix-choices { display: flex; gap: 6px; flex: 0 0 auto; margin-left: auto; }
+.matrix-choice {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--line-strong);
+  background: var(--panel);
+  color: var(--faint);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+.matrix-choice:hover:not(:disabled) { color: var(--ink-strong); border-color: var(--ink-strong); }
+.matrix-choice.selected { background: var(--gold-soft); border-color: var(--gold-line); color: var(--ink-strong); }
+.matrix-choice:disabled { cursor: default; }
+.matrix-choice.correct { border-color: var(--cr-line); background: rgba(140,159,116,0.32); color: #3f4f33; }
+.matrix-choice.wrong { border-color: var(--bad-line); background: rgba(216,180,174,0.4); color: #7a3f37; }
+.matrix-row.row-correct { border-color: var(--cr-line); }
+.matrix-row.row-wrong { border-color: var(--bad-line); }
+.matrix-submit-row { margin-top: 6px; }
+#matrixSubmit { width: 100%; }
+
+.matrix-solution { display: flex; gap: 8px; align-items: flex-start; margin-top: 8px; font-family: var(--font-sans); }
+.matrix-solution-mark { font-weight: 800; flex-shrink: 0; }
+.matrix-solution.ok .matrix-solution-mark { color: #3f7a33; }
+.matrix-solution.bad .matrix-solution-mark { color: #b3453a; }
+.matrix-solution-body { font-size: 0.82rem; line-height: 1.4; }
+.matrix-solution-exp { display: block; color: var(--faint); font-size: 0.76rem; margin-top: 2px; }
+.review-points { font-size: 0.72rem; color: var(--faint); font-weight: 700; }
+
 .options { display: flex; flex-direction: column; gap: 10px; }
 .option {
   display: flex;
